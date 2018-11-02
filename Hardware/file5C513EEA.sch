@@ -22,7 +22,7 @@ AR Path="/5BFD63E3/5C572178" Ref="RV?"  Part="1"
 AR Path="/5BFD63E3/5C513EEB/5C572178" Ref="RV4"  Part="1" 
 F 0 "RV4" H 1132 996 50  0000 R CNN
 F 1 "CUTOFF" H 1132 905 50  0000 R CNN
-F 2 "" H 1200 950 50  0001 C CNN
+F 2 "Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 1200 950 50  0001 C CNN
 F 3 "~" H 1200 950 50  0001 C CNN
 	1    1200 950 
 	1    0    0    -1  
@@ -69,7 +69,7 @@ AR Path="/5BFD63E3/5C57218F" Ref="RV?"  Part="1"
 AR Path="/5BFD63E3/5C513EEB/5C57218F" Ref="RV1"  Part="1" 
 F 0 "RV1" H 982 3146 50  0000 R CNN
 F 1 "RESONANCE" H 982 3055 50  0000 R CNN
-F 2 "" H 1050 3100 50  0001 C CNN
+F 2 "Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 1050 3100 50  0001 C CNN
 F 3 "~" H 1050 3100 50  0001 C CNN
 	1    1050 3100
 	1    0    0    -1  
@@ -116,7 +116,7 @@ AR Path="/5BFD63E3/5C5721A6" Ref="RV?"  Part="1"
 AR Path="/5BFD63E3/5C513EEB/5C5721A6" Ref="RV2"  Part="1" 
 F 0 "RV2" H 982 4146 50  0000 R CNN
 F 1 "PWM" H 982 4055 50  0000 R CNN
-F 2 "" H 1050 4100 50  0001 C CNN
+F 2 "Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 1050 4100 50  0001 C CNN
 F 3 "~" H 1050 4100 50  0001 C CNN
 	1    1050 4100
 	1    0    0    -1  
@@ -163,7 +163,7 @@ AR Path="/5BFD63E3/5C5721BD" Ref="RV?"  Part="1"
 AR Path="/5BFD63E3/5C513EEB/5C5721BD" Ref="RV5"  Part="1" 
 F 0 "RV5" H 2132 996 50  0000 R CNN
 F 1 "ATTACK" H 2132 905 50  0000 R CNN
-F 2 "" H 2200 950 50  0001 C CNN
+F 2 "Potentiometer_THT:Potentiometer_Bourns_PTA2043_Single_Slide" H 2200 950 50  0001 C CNN
 F 3 "~" H 2200 950 50  0001 C CNN
 	1    2200 950 
 	1    0    0    -1  
@@ -210,7 +210,7 @@ AR Path="/5BFD63E3/5C5721D4" Ref="RV?"  Part="1"
 AR Path="/5BFD63E3/5C513EEB/5C5721D4" Ref="RV6"  Part="1" 
 F 0 "RV6" H 2132 1996 50  0000 R CNN
 F 1 "DECAY" H 2132 1905 50  0000 R CNN
-F 2 "" H 2200 1950 50  0001 C CNN
+F 2 "Potentiometer_THT:Potentiometer_Bourns_PTA2043_Single_Slide" H 2200 1950 50  0001 C CNN
 F 3 "~" H 2200 1950 50  0001 C CNN
 	1    2200 1950
 	1    0    0    -1  
@@ -257,7 +257,7 @@ AR Path="/5BFD63E3/5C5721EB" Ref="RV?"  Part="1"
 AR Path="/5BFD63E3/5C513EEB/5C5721EB" Ref="RV7"  Part="1" 
 F 0 "RV7" H 2132 3196 50  0000 R CNN
 F 1 "SUSTAIN" H 2132 3105 50  0000 R CNN
-F 2 "" H 2200 3150 50  0001 C CNN
+F 2 "Potentiometer_THT:Potentiometer_Bourns_PTA2043_Single_Slide" H 2200 3150 50  0001 C CNN
 F 3 "~" H 2200 3150 50  0001 C CNN
 	1    2200 3150
 	1    0    0    -1  
@@ -304,7 +304,7 @@ AR Path="/5BFD63E3/5C572202" Ref="RV?"  Part="1"
 AR Path="/5BFD63E3/5C513EEB/5C572202" Ref="RV8"  Part="1" 
 F 0 "RV8" H 3282 996 50  0000 R CNN
 F 1 "RELEASE" H 3282 905 50  0000 R CNN
-F 2 "" H 3350 950 50  0001 C CNN
+F 2 "Potentiometer_THT:Potentiometer_Bourns_PTA2043_Single_Slide" H 3350 950 50  0001 C CNN
 F 3 "~" H 3350 950 50  0001 C CNN
 	1    3350 950 
 	1    0    0    -1  
@@ -568,7 +568,7 @@ AR Path="/5BFD63E3/5C572289" Ref="RV?"  Part="1"
 AR Path="/5BFD63E3/5C513EEB/5C572289" Ref="RV3"  Part="1" 
 F 0 "RV3" H 1032 2146 50  0000 R CNN
 F 1 "FREQ-ATTEN" H 1032 2055 50  0000 R CNN
-F 2 "" H 1100 2100 50  0001 C CNN
+F 2 "Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 1100 2100 50  0001 C CNN
 F 3 "~" H 1100 2100 50  0001 C CNN
 	1    1100 2100
 	1    0    0    -1  
@@ -1875,7 +1875,7 @@ AR Path="/5BFD63E3/5C5D988B" Ref="RV?"  Part="1"
 AR Path="/5BFD63E3/5C513EEB/5C5D988B" Ref="RV9"  Part="1" 
 F 0 "RV9" V 5745 850 50  0000 C CNN
 F 1 "50k" V 5836 850 50  0000 C CNN
-F 2 "" H 5950 850 50  0001 C CNN
+F 2 "Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 5950 850 50  0001 C CNN
 F 3 "~" H 5950 850 50  0001 C CNN
 	1    5950 850 
 	0    1    1    0   
@@ -1974,19 +1974,6 @@ F 3 "" H 6300 850 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	6100 850  6300 850 
-$Comp
-L Device:D_Zener D?
-U 1 1 5C5D98C1
-P 5950 1300
-AR Path="/5BFD63E3/5C5D98C1" Ref="D?"  Part="1" 
-AR Path="/5BFD63E3/5C513EEB/5C5D98C1" Ref="D25"  Part="1" 
-F 0 "D25" V 5904 1379 50  0000 L CNN
-F 1 "PTV4.7B" V 5995 1379 50  0000 L CNN
-F 2 "" H 5950 1300 50  0001 C CNN
-F 3 "~" H 5950 1300 50  0001 C CNN
-	1    5950 1300
-	0    1    1    0   
-$EndComp
 Wire Wire Line
 	5950 1150 5950 1050
 Connection ~ 5950 1050
@@ -2470,4 +2457,17 @@ Wire Wire Line
 Connection ~ 3450 5500
 Wire Wire Line
 	3450 5500 3450 5600
+$Comp
+L Device:D_Zener D?
+U 1 1 5C5D98C1
+P 5950 1300
+AR Path="/5BFD63E3/5C5D98C1" Ref="D?"  Part="1" 
+AR Path="/5BFD63E3/5C513EEB/5C5D98C1" Ref="D25"  Part="1" 
+F 0 "D25" V 5904 1379 50  0000 L CNN
+F 1 "BZT52-C5V1J" V 5995 1379 50  0000 L CNN
+F 2 "Diode_SMD:D_SOD-123" H 5950 1300 50  0001 C CNN
+F 3 "~" H 5950 1300 50  0001 C CNN
+	1    5950 1300
+	0    1    1    0   
+$EndComp
 $EndSCHEMATC

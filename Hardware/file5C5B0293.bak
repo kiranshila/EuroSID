@@ -687,7 +687,7 @@ U 1 1 5BF86C4D
 P 1950 2250
 F 0 "J16" H 1510 2296 50  0000 R CNN
 F 1 "Conn_ARM_JTAG_SWD_10" H 1510 2205 50  0000 R CNN
-F 2 "Connector_PinHeader_1.27mm:PinHeader_2x05_P1.27mm_Vertical" H 2000 1700 50  0001 L TNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x05_P2.54mm_Vertical" H 2000 1700 50  0001 L TNN
 F 3 "http://infocenter.arm.com/help/topic/com.arm.doc.faqs/attached/13634/cortex_debug_connectors.pdf" V 1600 1000 50  0001 C CNN
 	1    1950 2250
 	1    0    0    -1  
@@ -742,7 +742,7 @@ U 1 1 5BFB55EB
 P 1850 3800
 F 0 "J15" H 1822 3680 50  0000 R CNN
 F 1 "Conn_01x06_Male" H 1822 3771 50  0000 R CNN
-F 2 "" H 1850 3800 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 1850 3800 50  0001 C CNN
 F 3 "~" H 1850 3800 50  0001 C CNN
 	1    1850 3800
 	1    0    0    1   

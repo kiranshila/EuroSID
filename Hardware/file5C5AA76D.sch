@@ -28,19 +28,6 @@ F 3 "" H 6850 3300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Oscillator:ACO-xxxMHz X?
-U 1 1 5C5AD58A
-P 4850 2650
-AR Path="/5C5AD58A" Ref="X?"  Part="1" 
-AR Path="/5C5AA76E/5C5AD58A" Ref="X1"  Part="1" 
-F 0 "X1" H 4510 2696 50  0000 R CNN
-F 1 "ACO-xxxMHz" H 4510 2605 50  0000 R CNN
-F 2 "Oscillator:Oscillator_DIP-14" H 5300 2300 50  0001 C CNN
-F 3 "http://www.conwin.com/datasheets/cx/cx030.pdf" H 4750 2650 50  0001 C CNN
-	1    4850 2650
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:GND #PWR?
 U 1 1 5C5AD591
 P 4850 3200
@@ -86,7 +73,7 @@ F 3 "" H 4850 2200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4850 2350 4850 2200
+	4850 2350 4850 2300
 $Comp
 L power:+5V #PWR?
 U 1 1 5C5AD5A7
@@ -140,7 +127,7 @@ AR Path="/5C5AD5BF" Ref="JP?"  Part="1"
 AR Path="/5C5AA76E/5C5AD5BF" Ref="JP1"  Part="1" 
 F 0 "JP1" H 7750 1704 50  0000 C CNN
 F 1 "Jumper_3_Bridged12" H 7750 1600 50  0000 C CNN
-F 2 "" H 7750 1500 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 7750 1500 50  0001 C CNN
 F 3 "~" H 7750 1500 50  0001 C CNN
 	1    7750 1500
 	1    0    0    -1  
@@ -157,7 +144,7 @@ AR Path="/5C5AD5C8" Ref="J?"  Part="1"
 AR Path="/5C5AA76E/5C5AD5C8" Ref="J13"  Part="1" 
 F 0 "J13" H 6344 1925 50  0000 C CNN
 F 1 "Conn_01x04_Female" H 6344 2016 50  0000 C CNN
-F 2 "" H 6450 2350 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 6450 2350 50  0001 C CNN
 F 3 "~" H 6450 2350 50  0001 C CNN
 	1    6450 2350
 	-1   0    0    1   
@@ -404,7 +391,7 @@ P 7900 2100
 AR Path="/5C5AD648" Ref="R?"  Part="1" 
 AR Path="/5C5AA76E/5C5AD648" Ref="R49"  Part="1" 
 F 0 "R49" H 7970 2146 50  0000 L CNN
-F 1 "1K" H 7970 2055 50  0000 L CNN
+F 1 "1k" H 7970 2055 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 7830 2100 50  0001 C CNN
 F 3 "~" H 7900 2100 50  0001 C CNN
 	1    7900 2100
@@ -617,10 +604,30 @@ NoConn ~ 5700 5800
 NoConn ~ 5700 6000
 NoConn ~ 7500 2550
 NoConn ~ 7500 2650
+$Comp
+L Oscillator:ASV-xxxMHz X1
+U 1 1 5BE68FC3
+P 4850 2650
+F 0 "X1" H 5191 2696 50  0000 L CNN
+F 1 "ECS-8FMX-010-TR" H 5191 2605 50  0000 L CNN
+F 2 "Oscillator:Oscillator_SMD_Abracon_ASV-4Pin_7.0x5.1mm" H 5550 2300 50  0001 C CNN
+F 3 "http://www.abracon.com/Oscillators/ASV.pdf" H 4750 2650 50  0001 C CNN
+	1    4850 2650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4550 2650 4300 2650
+Wire Wire Line
+	4300 2650 4300 2300
+Wire Wire Line
+	4300 2300 4850 2300
 Wire Bus Line
 	6200 3050 6200 4050
 Wire Bus Line
 	7950 2850 7950 4050
 Wire Bus Line
 	6200 4050 6200 5400
+Connection ~ 4850 2300
+Wire Wire Line
+	4850 2300 4850 2200
 $EndSCHEMATC
