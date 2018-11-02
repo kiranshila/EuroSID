@@ -1,3 +1,4 @@
 (sym_lib_table
   (lib (name SID_Parts)(type Legacy)(uri /Users/kiranshila/Documents/EuroSID/SID_Parts.lib)(options "")(descr ""))
+  (lib (name EuroSID-rescue)(type Legacy)(uri ${KIPRJMOD}/EuroSID-rescue.lib)(options "")(descr ""))
 )
