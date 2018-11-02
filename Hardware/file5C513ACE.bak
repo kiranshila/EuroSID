@@ -295,7 +295,7 @@ AR Path="/5BFD63E3/5C6022F7" Ref="U?"  Part="1"
 AR Path="/5BFD63E3/5C513ACF/5C6022F7" Ref="U1"  Part="1" 
 F 0 "U1" H 1800 5100 50  0000 C CNN
 F 1 "TLC5947DAP" H 1800 4800 50  0000 C CNN
-F 2 "Housings_SSOP:HTSSOP-32_6.1x11mm_Pitch0.65mm_ThermalPad" H 1250 6350 50  0001 L CNN
+F 2 "Package_SO:HTSSOP-32-1EP_6.1x11mm_P0.65mm_EP5.2x11mm_Mask4.11x4.36mm_ThermalVias" H 1250 6350 50  0001 L CNN
 F 3 "http://www.ti.com/lit/ds/symlink/tlc5947.pdf" H 1800 4750 50  0001 C CNN
 	1    1800 4750
 	1    0    0    -1  

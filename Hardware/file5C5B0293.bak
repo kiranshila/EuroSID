@@ -20,7 +20,7 @@ U 1 1 5BDDCB3B
 P 6350 3550
 F 0 "U12" H 6350 1664 50  0000 C CNN
 F 1 "STM32F030R8Tx" H 6350 1573 50  0000 C CNN
-F 2 "Housings_QFP:HTQFP-64-1EP_10x10mm_Pitch0.5mm_ThermalPad" H 5850 1850 50  0001 R CNN
+F 2 "Package_QFP:LQFP-64_10x10mm_P0.5mm" H 5850 1850 50  0001 R CNN
 F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/DM00088500.pdf" H 6350 3550 50  0001 C CNN
 	1    6350 3550
 	1    0    0    -1  
@@ -292,7 +292,7 @@ U 1 1 5BEF067C
 P 3750 6000
 F 0 "C58" H 3865 6046 50  0000 L CNN
 F 1 "1 uF" H 3865 5955 50  0000 L CNN
-F 2 "Capacitors_Tantalum_SMD:CP_Tantalum_Case-R_EIA-2012-12_Reflow" H 3788 5850 50  0001 C CNN
+F 2 "Capacitor_Tantalum_SMD:CP_EIA-2012-12_Kemet-R" H 3788 5850 50  0001 C CNN
 F 3 "~" H 3750 6000 50  0001 C CNN
 	1    3750 6000
 	1    0    0    -1  
@@ -303,7 +303,7 @@ U 1 1 5BEF0698
 P 4250 6000
 F 0 "C59" H 4368 6046 50  0000 L CNN
 F 1 "10 uF" H 4368 5955 50  0000 L CNN
-F 2 "Capacitors_SMD:CP_Elec_4x5.7" H 4288 5850 50  0001 C CNN
+F 2 "Capacitor_SMD:CP_Elec_4x5.7" H 4288 5850 50  0001 C CNN
 F 3 "~" H 4250 6000 50  0001 C CNN
 	1    4250 6000
 	1    0    0    -1  
@@ -420,7 +420,7 @@ U 1 1 5BF64143
 P 2200 7250
 F 0 "C52" H 2318 7296 50  0000 L CNN
 F 1 "4.7 uF" H 2318 7205 50  0000 L CNN
-F 2 "Capacitors_Tantalum_SMD:CP_Tantalum_Case-A_EIA-3216-18_Reflow" H 2238 7100 50  0001 C CNN
+F 2 "Capacitor_Tantalum_SMD:CP_EIA-3216-18_Kemet-A" H 2238 7100 50  0001 C CNN
 F 3 "~" H 2200 7250 50  0001 C CNN
 	1    2200 7250
 	1    0    0    -1  
@@ -528,7 +528,7 @@ U 1 1 5BF7E863
 P 4250 7250
 F 0 "C60" H 4368 7296 50  0000 L CNN
 F 1 "4.7 uF" H 4368 7205 50  0000 L CNN
-F 2 "Capacitors_Tantalum_SMD:CP_Tantalum_Case-A_EIA-3216-18_Reflow" H 4288 7100 50  0001 C CNN
+F 2 "Capacitor_Tantalum_SMD:CP_EIA-3216-18_Kemet-A" H 4288 7100 50  0001 C CNN
 F 3 "~" H 4250 7250 50  0001 C CNN
 	1    4250 7250
 	1    0    0    -1  
@@ -636,7 +636,7 @@ U 1 1 5BF821DF
 P 6300 7250
 F 0 "C64" H 6418 7296 50  0000 L CNN
 F 1 "4.7 uF" H 6418 7205 50  0000 L CNN
-F 2 "Capacitors_Tantalum_SMD:CP_Tantalum_Case-A_EIA-3216-18_Reflow" H 6338 7100 50  0001 C CNN
+F 2 "Capacitor_Tantalum_SMD:CP_EIA-3216-18_Kemet-A" H 6338 7100 50  0001 C CNN
 F 3 "~" H 6300 7250 50  0001 C CNN
 	1    6300 7250
 	1    0    0    -1  
@@ -687,7 +687,7 @@ U 1 1 5BF86C4D
 P 1950 2250
 F 0 "J16" H 1510 2296 50  0000 R CNN
 F 1 "Conn_ARM_JTAG_SWD_10" H 1510 2205 50  0000 R CNN
-F 2 "Connector_PinHeader_1.27mm:PinHeader_2x05_P1.27mm_Vertical_SMD" H 2000 1700 50  0001 L TNN
+F 2 "Connector_PinHeader_1.27mm:PinHeader_2x05_P1.27mm_Vertical" H 2000 1700 50  0001 L TNN
 F 3 "http://infocenter.arm.com/help/topic/com.arm.doc.faqs/attached/13634/cortex_debug_connectors.pdf" V 1600 1000 50  0001 C CNN
 	1    1950 2250
 	1    0    0    -1  
