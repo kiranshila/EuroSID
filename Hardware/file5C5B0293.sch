@@ -804,4 +804,15 @@ Text GLabel 7100 3050 2    50   Input ~ 0
 SET_SW
 Wire Wire Line
 	7100 3050 6950 3050
+$Comp
+L MCU_ST_STM32F3:STM32F303RBTx U?
+U 1 1 5BDFE304
+P 9000 3550
+F 0 "U?" H 9000 1664 50  0000 C CNN
+F 1 "STM32F303RBTx" H 9000 1573 50  0000 C CNN
+F 2 "Package_QFP:LQFP-64_10x10mm_P0.5mm" H 8400 1850 50  0001 R CNN
+F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/DM00058181.pdf" H 9000 3550 50  0001 C CNN
+	1    9000 3550
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
