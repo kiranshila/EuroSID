@@ -624,6 +624,46 @@ Wire Wire Line
 Connection ~ 4850 2300
 Wire Wire Line
 	4850 2300 4850 2200
+$Comp
+L Connector_Generic:Conn_01x04 J29
+U 1 1 5C596EAE
+P 10500 2150
+F 0 "J29" H 10579 2142 50  0000 L CNN
+F 1 "SID_Audio_Connector" H 10579 2051 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 10500 2150 50  0001 C CNN
+F 3 "~" H 10500 2150 50  0001 C CNN
+	1    10500 2150
+	1    0    0    -1  
+$EndComp
+Text GLabel 10150 2050 0    50   Input ~ 0
+SID2_OUT
+Text GLabel 10150 2150 0    50   Input ~ 0
+SID1_OUT
+Text GLabel 10150 2250 0    50   Input ~ 0
+SID1_EXT
+$Comp
+L power:GND #PWR?
+U 1 1 5C59702B
+P 10250 2450
+AR Path="/5C59702B" Ref="#PWR?"  Part="1" 
+AR Path="/5C5AA76E/5C59702B" Ref="#PWR027"  Part="1" 
+F 0 "#PWR027" H 10250 2200 50  0001 C CNN
+F 1 "GND" H 10255 2277 50  0000 C CNN
+F 2 "" H 10250 2450 50  0001 C CNN
+F 3 "" H 10250 2450 50  0001 C CNN
+	1    10250 2450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10250 2450 10250 2350
+Wire Wire Line
+	10250 2350 10300 2350
+Wire Wire Line
+	10150 2250 10300 2250
+Wire Wire Line
+	10150 2150 10300 2150
+Wire Wire Line
+	10150 2050 10300 2050
 Wire Bus Line
 	6200 3050 6200 4050
 Wire Bus Line

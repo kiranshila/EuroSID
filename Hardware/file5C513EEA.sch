@@ -27,19 +27,6 @@ F 3 "~" H 1200 950 50  0001 C CNN
 	1    1200 950 
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:+3.3V #PWR?
-U 1 1 5C57217F
-P 1200 750
-AR Path="/5BFD63E3/5C57217F" Ref="#PWR?"  Part="1" 
-AR Path="/5BFD63E3/5C513EEB/5C57217F" Ref="#PWR053"  Part="1" 
-F 0 "#PWR053" H 1200 600 50  0001 C CNN
-F 1 "+3.3V" H 1215 923 50  0000 C CNN
-F 2 "" H 1200 750 50  0001 C CNN
-F 3 "" H 1200 750 50  0001 C CNN
-	1    1200 750 
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	1200 750  1200 800 
 $Comp
@@ -58,7 +45,7 @@ $EndComp
 Wire Wire Line
 	1200 1150 1200 1100
 Text GLabel 1450 950  2    50   Input ~ 0
-CUTOFF
+CUTOFF_IO
 Wire Wire Line
 	1450 950  1400 950 
 $Comp
@@ -72,19 +59,6 @@ F 1 "RESONANCE" H 982 3055 50  0000 R CNN
 F 2 "Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 1050 3100 50  0001 C CNN
 F 3 "~" H 1050 3100 50  0001 C CNN
 	1    1050 3100
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+3.3V #PWR?
-U 1 1 5C572196
-P 1050 2900
-AR Path="/5BFD63E3/5C572196" Ref="#PWR?"  Part="1" 
-AR Path="/5BFD63E3/5C513EEB/5C572196" Ref="#PWR047"  Part="1" 
-F 0 "#PWR047" H 1050 2750 50  0001 C CNN
-F 1 "+3.3V" H 1065 3073 50  0000 C CNN
-F 2 "" H 1050 2900 50  0001 C CNN
-F 3 "" H 1050 2900 50  0001 C CNN
-	1    1050 2900
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -105,7 +79,7 @@ $EndComp
 Wire Wire Line
 	1050 3300 1050 3250
 Text GLabel 1300 3100 2    50   Input ~ 0
-RESONANCE
+RESONANCE_IO
 Wire Wire Line
 	1300 3100 1250 3100
 $Comp
@@ -119,19 +93,6 @@ F 1 "PWM" H 982 4055 50  0000 R CNN
 F 2 "Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 1050 4100 50  0001 C CNN
 F 3 "~" H 1050 4100 50  0001 C CNN
 	1    1050 4100
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+3.3V #PWR?
-U 1 1 5C5721AD
-P 1050 3900
-AR Path="/5BFD63E3/5C5721AD" Ref="#PWR?"  Part="1" 
-AR Path="/5BFD63E3/5C513EEB/5C5721AD" Ref="#PWR049"  Part="1" 
-F 0 "#PWR049" H 1050 3750 50  0001 C CNN
-F 1 "+3.3V" H 1065 4073 50  0000 C CNN
-F 2 "" H 1050 3900 50  0001 C CNN
-F 3 "" H 1050 3900 50  0001 C CNN
-	1    1050 3900
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -152,7 +113,7 @@ $EndComp
 Wire Wire Line
 	1050 4300 1050 4250
 Text GLabel 1300 4100 2    50   Input ~ 0
-PWM
+PWM_IO
 Wire Wire Line
 	1300 4100 1250 4100
 $Comp
@@ -166,19 +127,6 @@ F 1 "ATTACK" H 2132 905 50  0000 R CNN
 F 2 "Potentiometer_THT:Potentiometer_Bourns_PTA2043_Single_Slide" H 2200 950 50  0001 C CNN
 F 3 "~" H 2200 950 50  0001 C CNN
 	1    2200 950 
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+3.3V #PWR?
-U 1 1 5C5721C4
-P 2200 750
-AR Path="/5BFD63E3/5C5721C4" Ref="#PWR?"  Part="1" 
-AR Path="/5BFD63E3/5C513EEB/5C5721C4" Ref="#PWR061"  Part="1" 
-F 0 "#PWR061" H 2200 600 50  0001 C CNN
-F 1 "+3.3V" H 2215 923 50  0000 C CNN
-F 2 "" H 2200 750 50  0001 C CNN
-F 3 "" H 2200 750 50  0001 C CNN
-	1    2200 750 
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -199,7 +147,7 @@ $EndComp
 Wire Wire Line
 	2200 1150 2200 1100
 Text GLabel 2450 950  2    50   Input ~ 0
-ATTACK
+ATTACK_IO
 Wire Wire Line
 	2450 950  2400 950 
 $Comp
@@ -216,21 +164,6 @@ F 3 "~" H 2300 2050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+3.3V #PWR?
-U 1 1 5C5721DB
-P 2300 1850
-AR Path="/5BFD63E3/5C5721DB" Ref="#PWR?"  Part="1" 
-AR Path="/5BFD63E3/5C513EEB/5C5721DB" Ref="#PWR065"  Part="1" 
-F 0 "#PWR065" H 2300 1700 50  0001 C CNN
-F 1 "+3.3V" H 2315 2023 50  0000 C CNN
-F 2 "" H 2300 1850 50  0001 C CNN
-F 3 "" H 2300 1850 50  0001 C CNN
-	1    2300 1850
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2300 1850 2300 1900
-$Comp
 L power:GND #PWR?
 U 1 1 5C5721E2
 P 2300 2250
@@ -246,7 +179,7 @@ $EndComp
 Wire Wire Line
 	2300 2250 2300 2200
 Text GLabel 2550 2050 2    50   Input ~ 0
-DECAY
+DECAY_IO
 Wire Wire Line
 	2550 2050 2500 2050
 $Comp
@@ -260,19 +193,6 @@ F 1 "SUSTAIN" H 2132 3105 50  0000 R CNN
 F 2 "Potentiometer_THT:Potentiometer_Bourns_PTA2043_Single_Slide" H 2200 3150 50  0001 C CNN
 F 3 "~" H 2200 3150 50  0001 C CNN
 	1    2200 3150
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+3.3V #PWR?
-U 1 1 5C5721F2
-P 2200 2950
-AR Path="/5BFD63E3/5C5721F2" Ref="#PWR?"  Part="1" 
-AR Path="/5BFD63E3/5C513EEB/5C5721F2" Ref="#PWR063"  Part="1" 
-F 0 "#PWR063" H 2200 2800 50  0001 C CNN
-F 1 "+3.3V" H 2215 3123 50  0000 C CNN
-F 2 "" H 2200 2950 50  0001 C CNN
-F 3 "" H 2200 2950 50  0001 C CNN
-	1    2200 2950
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -293,7 +213,7 @@ $EndComp
 Wire Wire Line
 	2200 3350 2200 3300
 Text GLabel 2450 3150 2    50   Input ~ 0
-SUSTAIN
+SUSTAIN_IO
 Wire Wire Line
 	2450 3150 2400 3150
 $Comp
@@ -307,19 +227,6 @@ F 1 "RELEASE" H 3282 905 50  0000 R CNN
 F 2 "Potentiometer_THT:Potentiometer_Bourns_PTA2043_Single_Slide" H 3350 950 50  0001 C CNN
 F 3 "~" H 3350 950 50  0001 C CNN
 	1    3350 950 
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+3.3V #PWR?
-U 1 1 5C572209
-P 3350 750
-AR Path="/5BFD63E3/5C572209" Ref="#PWR?"  Part="1" 
-AR Path="/5BFD63E3/5C513EEB/5C572209" Ref="#PWR073"  Part="1" 
-F 0 "#PWR073" H 3350 600 50  0001 C CNN
-F 1 "+3.3V" H 3365 923 50  0000 C CNN
-F 2 "" H 3350 750 50  0001 C CNN
-F 3 "" H 3350 750 50  0001 C CNN
-	1    3350 750 
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -340,7 +247,7 @@ $EndComp
 Wire Wire Line
 	3350 1150 3350 1100
 Text GLabel 3600 950  2    50   Input ~ 0
-RELEASE
+RELEASE_IO
 Wire Wire Line
 	3600 950  3550 950 
 $Comp
@@ -573,19 +480,6 @@ F 3 "~" H 1100 2100 50  0001 C CNN
 	1    1100 2100
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:+3.3V #PWR?
-U 1 1 5C572290
-P 1100 1900
-AR Path="/5BFD63E3/5C572290" Ref="#PWR?"  Part="1" 
-AR Path="/5BFD63E3/5C513EEB/5C572290" Ref="#PWR051"  Part="1" 
-F 0 "#PWR051" H 1100 1750 50  0001 C CNN
-F 1 "+3.3V" H 1115 2073 50  0000 C CNN
-F 2 "" H 1100 1900 50  0001 C CNN
-F 3 "" H 1100 1900 50  0001 C CNN
-	1    1100 1900
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	1100 1900 1100 1950
 $Comp
@@ -604,7 +498,7 @@ $EndComp
 Wire Wire Line
 	1100 2300 1100 2250
 Text GLabel 1350 2100 2    50   Input ~ 0
-FREQ_ATTEN
+FREQ_ATTEN_IO
 Wire Wire Line
 	1350 2100 1300 2100
 $Comp
@@ -682,11 +576,11 @@ Wire Wire Line
 Wire Wire Line
 	7100 5750 7150 5750
 Text GLabel 5350 5550 0    50   Input ~ 0
-SID1_OUT
+SID1_OUT_IO
 Wire Wire Line
 	5350 5550 5750 5550
 Text GLabel 1100 6900 0    50   Input ~ 0
-SID2_OUT
+SID2_OUT_IO
 $Comp
 L Device:R R?
 U 1 1 5C593815
@@ -1095,34 +989,6 @@ Connection ~ 5450 7050
 Wire Wire Line
 	5450 6950 5450 7050
 Wire Wire Line
-	5050 6450 5050 6600
-$Comp
-L power:+12V #PWR?
-U 1 1 5C5938F5
-P 5050 6450
-AR Path="/5BFD63E3/5C5938F5" Ref="#PWR?"  Part="1" 
-AR Path="/5BFD63E3/5C513EEB/5C5938F5" Ref="#PWR084"  Part="1" 
-F 0 "#PWR084" H 5050 6300 50  0001 C CNN
-F 1 "+12V" H 5065 6623 50  0000 C CNN
-F 2 "" H 5050 6450 50  0001 C CNN
-F 3 "" H 5050 6450 50  0001 C CNN
-	1    5050 6450
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:-12V #PWR?
-U 1 1 5C5938FB
-P 5050 7500
-AR Path="/5BFD63E3/5C5938FB" Ref="#PWR?"  Part="1" 
-AR Path="/5BFD63E3/5C513EEB/5C5938FB" Ref="#PWR085"  Part="1" 
-F 0 "#PWR085" H 5050 7600 50  0001 C CNN
-F 1 "-12V" H 5065 7673 50  0000 C CNN
-F 2 "" H 5050 7500 50  0001 C CNN
-F 3 "" H 5050 7500 50  0001 C CNN
-	1    5050 7500
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
 	1250 7550 1250 7450
 $Comp
 L Amplifier_Operational:MCP6002-xSN U?
@@ -1313,14 +1179,12 @@ Wire Wire Line
 Connection ~ 10550 1200
 Wire Wire Line
 	10550 1200 10550 1500
-Text GLabel 9400 1050 0    50   Input ~ 0
--10V_REF
 Wire Wire Line
 	9400 1050 9450 1050
 Wire Wire Line
 	8650 1400 8900 1400
 Text GLabel 10650 1500 2    50   Input ~ 0
-IN1_CV
+IN1_CV_IO
 Wire Wire Line
 	10650 1500 10550 1500
 Connection ~ 10550 1500
@@ -1453,14 +1317,12 @@ Wire Wire Line
 Connection ~ 10550 2350
 Wire Wire Line
 	10550 2350 10550 2650
-Text GLabel 9400 2200 0    50   Input ~ 0
--10V_REF
 Wire Wire Line
 	9400 2200 9450 2200
 Wire Wire Line
 	8650 2550 8950 2550
 Text GLabel 10650 2650 2    50   Input ~ 0
-IN2_CV
+IN2_CV_IO
 Wire Wire Line
 	10650 2650 10550 2650
 Connection ~ 10550 2650
@@ -1593,12 +1455,10 @@ Wire Wire Line
 Connection ~ 10550 3550
 Wire Wire Line
 	10550 3550 10550 3850
-Text GLabel 9400 3400 0    50   Input ~ 0
--10V_REF
 Wire Wire Line
 	9400 3400 9450 3400
 Text GLabel 10700 3850 2    50   Input ~ 0
-IN3_CV
+IN3_CV_IO
 Connection ~ 10550 3850
 Wire Wire Line
 	9750 3750 9800 3750
@@ -1729,14 +1589,12 @@ Wire Wire Line
 Connection ~ 10550 4750
 Wire Wire Line
 	10550 4750 10550 5050
-Text GLabel 9400 4600 0    50   Input ~ 0
--10V_REF
 Wire Wire Line
 	9400 4600 9450 4600
 Wire Wire Line
 	8650 4950 9450 4950
 Text GLabel 10700 5050 2    50   Input ~ 0
-PWM_CV
+PWM_CV_IO
 Connection ~ 10550 5050
 Wire Wire Line
 	9750 4950 9800 4950
@@ -1840,7 +1698,7 @@ Wire Wire Line
 Wire Wire Line
 	9050 5850 8950 5850
 Text GLabel 10250 5800 2    50   Input ~ 0
-SID1_EXT
+SID1_EXT_IO
 $Comp
 L Device:R_POT_US RV?
 U 1 1 5C5D988B
@@ -2055,8 +1913,6 @@ Wire Wire Line
 Connection ~ 7100 2550
 Wire Wire Line
 	7100 2550 7100 2850
-Text GLabel 5950 2400 0    50   Input ~ 0
--10V_REF
 Wire Wire Line
 	5950 2400 6000 2400
 Wire Wire Line
@@ -2068,7 +1924,7 @@ Wire Wire Line
 Wire Wire Line
 	4850 2750 6000 2750
 Text GLabel 7200 2850 2    50   Input ~ 0
-CUTOFF_CV
+CUTOFF_CV_IO
 Wire Wire Line
 	7200 2850 7100 2850
 Connection ~ 7100 2850
@@ -2171,12 +2027,10 @@ Wire Wire Line
 Connection ~ 7050 3700
 Wire Wire Line
 	7050 3700 7050 4000
-Text GLabel 5900 3550 0    50   Input ~ 0
--10V_REF
 Wire Wire Line
 	5900 3550 5950 3550
 Text GLabel 7150 4000 2    50   Input ~ 0
-SHAPE_CV
+SHAPE_CV_IO
 Wire Wire Line
 	7150 4000 7050 4000
 Connection ~ 7050 4000
@@ -2197,19 +2051,8 @@ Wire Wire Line
 	6300 3900 6350 3900
 Wire Wire Line
 	4850 3900 5950 3900
-$Comp
-L power:+3.3VA #PWR070
-U 1 1 5BE021F5
-P 3000 4850
-F 0 "#PWR070" H 3000 4700 50  0001 C CNN
-F 1 "+3.3VA" H 3015 5023 50  0000 C CNN
-F 2 "" H 3000 4850 50  0001 C CNN
-F 3 "" H 3000 4850 50  0001 C CNN
-	1    3000 4850
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
-	3000 4850 3000 5050
+	3000 4950 3000 5050
 $Comp
 L power:GND #PWR?
 U 1 1 5BE1F646
@@ -2532,14 +2375,12 @@ Wire Wire Line
 Connection ~ 7150 1200
 Wire Wire Line
 	7150 1200 7150 1500
-Text GLabel 6000 1050 0    50   Input ~ 0
--10V_REF
 Wire Wire Line
 	6000 1050 6050 1050
 Wire Wire Line
 	4900 1400 6050 1400
 Text GLabel 7250 1500 2    50   Input ~ 0
-SET_CV
+SET_CV_IO
 Wire Wire Line
 	7250 1500 7150 1500
 Connection ~ 7150 1500
@@ -2651,19 +2492,6 @@ F 3 "~" H 3350 2100 50  0001 C CNN
 	1    3350 2100
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:+3.3V #PWR?
-U 1 1 5BF0EB1D
-P 3350 1900
-AR Path="/5BFD63E3/5BF0EB1D" Ref="#PWR?"  Part="1" 
-AR Path="/5BFD63E3/5C513EEB/5BF0EB1D" Ref="#PWR0149"  Part="1" 
-F 0 "#PWR0149" H 3350 1750 50  0001 C CNN
-F 1 "+3.3V" H 3365 2073 50  0000 C CNN
-F 2 "" H 3350 1900 50  0001 C CNN
-F 3 "" H 3350 1900 50  0001 C CNN
-	1    3350 1900
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	3350 1900 3350 1950
 $Comp
@@ -2682,7 +2510,7 @@ $EndComp
 Wire Wire Line
 	3350 2300 3350 2250
 Text GLabel 3600 2100 2    50   Input ~ 0
-SET_ATTEN
+SET_ATTEN_IO
 Wire Wire Line
 	3600 2100 3550 2100
 $Comp
@@ -2731,19 +2559,6 @@ F 3 "~" H 3350 3150 50  0001 C CNN
 	1    3350 3150
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:+3.3V #PWR?
-U 1 1 5BF40477
-P 3350 2950
-AR Path="/5BFD63E3/5BF40477" Ref="#PWR?"  Part="1" 
-AR Path="/5BFD63E3/5C513EEB/5BF40477" Ref="#PWR0151"  Part="1" 
-F 0 "#PWR0151" H 3350 2800 50  0001 C CNN
-F 1 "+3.3V" H 3365 3123 50  0000 C CNN
-F 2 "" H 3350 2950 50  0001 C CNN
-F 3 "" H 3350 2950 50  0001 C CNN
-	1    3350 2950
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	3350 2950 3350 3000
 $Comp
@@ -2762,7 +2577,7 @@ $EndComp
 Wire Wire Line
 	3350 3350 3350 3300
 Text GLabel 3600 3150 2    50   Input ~ 0
-PWM_ATTEN
+PWM_ATTEN_IO
 Wire Wire Line
 	3600 3150 3550 3150
 $Comp
@@ -2798,4 +2613,52 @@ F 3 "" H 3550 3550 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	3550 3550 3550 3500
+Text GLabel 6000 1050 0    50   Input ~ 0
+-10V_REF_IO
+Text GLabel 5100 7650 2    50   Input ~ 0
+-12V_IO
+Text GLabel 5150 6450 2    50   Input ~ 0
+12V_IO
+Text GLabel 1200 750  1    50   Input ~ 0
+3.3A_IO
+Text GLabel 2200 750  1    50   Input ~ 0
+3.3A_IO
+Text GLabel 3350 750  1    50   Input ~ 0
+3.3A_IO
+Text GLabel 1100 1900 1    50   Input ~ 0
+3.3A_IO
+Text GLabel 2300 1900 1    50   Input ~ 0
+3.3A_IO
+Text GLabel 3350 1900 1    50   Input ~ 0
+3.3A_IO
+Text GLabel 1050 2900 1    50   Input ~ 0
+3.3A_IO
+Text GLabel 2200 2950 1    50   Input ~ 0
+3.3A_IO
+Text GLabel 3350 2950 1    50   Input ~ 0
+3.3A_IO
+Text GLabel 1050 3900 1    50   Input ~ 0
+3.3A_IO
+Text GLabel 3000 4950 1    50   Input ~ 0
+3.3A_IO
+Wire Wire Line
+	5100 7650 5050 7650
+Wire Wire Line
+	5050 7650 5050 7500
+Wire Wire Line
+	5150 6450 5050 6450
+Wire Wire Line
+	5050 6450 5050 6600
+Text GLabel 5950 2400 0    50   Input ~ 0
+-10V_REF_IO
+Text GLabel 5900 3550 0    50   Input ~ 0
+-10V_REF_IO
+Text GLabel 9400 4600 0    50   Input ~ 0
+-10V_REF_IO
+Text GLabel 9400 3400 0    50   Input ~ 0
+-10V_REF_IO
+Text GLabel 9400 2200 0    50   Input ~ 0
+-10V_REF_IO
+Text GLabel 9400 1050 0    50   Input ~ 0
+-10V_REF_IO
 $EndSCHEMATC
