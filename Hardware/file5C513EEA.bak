@@ -2646,7 +2646,7 @@ AR Path="/5BFD63E3/5BF0EB16" Ref="RV?"  Part="1"
 AR Path="/5BFD63E3/5C513EEB/5BF0EB16" Ref="RV10"  Part="1" 
 F 0 "RV10" H 3282 2146 50  0000 R CNN
 F 1 "SET_ATTEN" H 3282 2055 50  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Bourns_PTA2043_Single_Slide" H 3350 2100 50  0001 C CNN
+F 2 "Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 3350 2100 50  0001 C CNN
 F 3 "~" H 3350 2100 50  0001 C CNN
 	1    3350 2100
 	1    0    0    -1  
@@ -2726,7 +2726,7 @@ AR Path="/5BFD63E3/5BF40470" Ref="RV?"  Part="1"
 AR Path="/5BFD63E3/5C513EEB/5BF40470" Ref="RV11"  Part="1" 
 F 0 "RV11" H 3282 3196 50  0000 R CNN
 F 1 "PWM_ATTEN" H 3282 3105 50  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Bourns_PTA2043_Single_Slide" H 3350 3150 50  0001 C CNN
+F 2 "Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 3350 3150 50  0001 C CNN
 F 3 "~" H 3350 3150 50  0001 C CNN
 	1    3350 3150
 	1    0    0    -1  

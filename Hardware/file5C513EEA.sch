@@ -2628,10 +2628,10 @@ F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf" H 6700 4200 50 
 	1    0    0    1   
 $EndComp
 $Comp
-L Amplifier_Operational:MCP6002-xMS U5
+L Amplifier_Operational:MCP6002-xMS U2
 U 3 1 5BEF24B4
 P 5150 7000
-F 0 "U5" H 5108 7046 50  0000 L CNN
+F 0 "U2" H 5108 7046 50  0000 L CNN
 F 1 "OPA1678" H 5108 6955 50  0000 L CNN
 F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 5150 7000 50  0001 C CNN
 F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf" H 5150 7000 50  0001 C CNN
