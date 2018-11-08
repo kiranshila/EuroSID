@@ -116,19 +116,6 @@ Text GLabel 1300 4100 2    50   Input ~ 0
 PWM_IO
 Wire Wire Line
 	1300 4100 1250 4100
-$Comp
-L Device:R_POT_US RV?
-U 1 1 5C5721BD
-P 2200 950
-AR Path="/5BFD63E3/5C5721BD" Ref="RV?"  Part="1" 
-AR Path="/5BFD63E3/5C513EEB/5C5721BD" Ref="RV5"  Part="1" 
-F 0 "RV5" H 2132 996 50  0000 R CNN
-F 1 "ATTACK" H 2132 905 50  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Bourns_PTA2043_Single_Slide" H 2200 950 50  0001 C CNN
-F 3 "~" H 2200 950 50  0001 C CNN
-	1    2200 950 
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	2200 750  2200 800 
 $Comp
@@ -151,19 +138,6 @@ ATTACK_IO
 Wire Wire Line
 	2450 950  2400 950 
 $Comp
-L Device:R_POT_US RV?
-U 1 1 5C5721D4
-P 2300 2050
-AR Path="/5BFD63E3/5C5721D4" Ref="RV?"  Part="1" 
-AR Path="/5BFD63E3/5C513EEB/5C5721D4" Ref="RV7"  Part="1" 
-F 0 "RV7" H 2232 2096 50  0000 R CNN
-F 1 "DECAY" H 2232 2005 50  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Bourns_PTA2043_Single_Slide" H 2300 2050 50  0001 C CNN
-F 3 "~" H 2300 2050 50  0001 C CNN
-	1    2300 2050
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:GND #PWR?
 U 1 1 5C5721E2
 P 2300 2250
@@ -182,19 +156,6 @@ Text GLabel 2550 2050 2    50   Input ~ 0
 DECAY_IO
 Wire Wire Line
 	2550 2050 2500 2050
-$Comp
-L Device:R_POT_US RV?
-U 1 1 5C5721EB
-P 2200 3150
-AR Path="/5BFD63E3/5C5721EB" Ref="RV?"  Part="1" 
-AR Path="/5BFD63E3/5C513EEB/5C5721EB" Ref="RV6"  Part="1" 
-F 0 "RV6" H 2132 3196 50  0000 R CNN
-F 1 "SUSTAIN" H 2132 3105 50  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Bourns_PTA2043_Single_Slide" H 2200 3150 50  0001 C CNN
-F 3 "~" H 2200 3150 50  0001 C CNN
-	1    2200 3150
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	2200 2950 2200 3000
 $Comp
@@ -216,19 +177,6 @@ Text GLabel 2450 3150 2    50   Input ~ 0
 SUSTAIN_IO
 Wire Wire Line
 	2450 3150 2400 3150
-$Comp
-L Device:R_POT_US RV?
-U 1 1 5C572202
-P 3350 950
-AR Path="/5BFD63E3/5C572202" Ref="RV?"  Part="1" 
-AR Path="/5BFD63E3/5C513EEB/5C572202" Ref="RV8"  Part="1" 
-F 0 "RV8" H 3282 996 50  0000 R CNN
-F 1 "RELEASE" H 3282 905 50  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Bourns_PTA2043_Single_Slide" H 3350 950 50  0001 C CNN
-F 3 "~" H 3350 950 50  0001 C CNN
-	1    3350 950 
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	3350 750  3350 800 
 $Comp
@@ -317,19 +265,6 @@ F 3 "~" H 2400 1150 50  0001 C CNN
 $EndComp
 $Comp
 L Device:C C?
-U 1 1 5C57223C
-P 2400 3350
-AR Path="/5BFD63E3/5C57223C" Ref="C?"  Part="1" 
-AR Path="/5BFD63E3/5C513EEB/5C57223C" Ref="C16"  Part="1" 
-F 0 "C16" H 2515 3396 50  0000 L CNN
-F 1 "100 nF" H 2515 3305 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 2438 3200 50  0001 C CNN
-F 3 "~" H 2400 3350 50  0001 C CNN
-	1    2400 3350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C?
 U 1 1 5C572243
 P 3550 1150
 AR Path="/5BFD63E3/5C572243" Ref="C?"  Part="1" 
@@ -358,9 +293,6 @@ Wire Wire Line
 	2400 950  2350 950 
 Wire Wire Line
 	2400 3200 2400 3150
-Connection ~ 2400 3150
-Wire Wire Line
-	2400 3150 2350 3150
 Wire Wire Line
 	3550 1000 3550 950 
 Connection ~ 3550 950 
@@ -2479,19 +2411,6 @@ F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf" H 5150 7000 50 
 	3    5150 7000
 	1    0    0    -1  
 $EndComp
-$Comp
-L Device:R_POT_US RV?
-U 1 1 5BF0EB16
-P 3350 2100
-AR Path="/5BFD63E3/5BF0EB16" Ref="RV?"  Part="1" 
-AR Path="/5BFD63E3/5C513EEB/5BF0EB16" Ref="RV10"  Part="1" 
-F 0 "RV10" H 3282 2146 50  0000 R CNN
-F 1 "SET_ATTEN" H 3282 2055 50  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 3350 2100 50  0001 C CNN
-F 3 "~" H 3350 2100 50  0001 C CNN
-	1    3350 2100
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	3350 1900 3350 1950
 $Comp
@@ -2661,4 +2580,77 @@ Text GLabel 9400 2200 0    50   Input ~ 0
 -10V_REF_IO
 Text GLabel 9400 1050 0    50   Input ~ 0
 -10V_REF_IO
+$Comp
+L SID_Parts:BOURNS_PTL RV5
+U 1 1 5BEA495C
+P 2200 700
+F 0 "RV5" H 2112 496 50  0000 R CNN
+F 1 "ATTACK" H 2112 405 50  0000 R CNN
+F 2 "Potentiometer_THT:Potentiometer_Bourns_PTL20_Single_Slide" H 2200 700 50  0001 C CNN
+F 3 "" H 2200 700 50  0001 C CNN
+	1    2200 700 
+	1    0    0    -1  
+$EndComp
+Connection ~ 2400 3150
+Wire Wire Line
+	2400 3150 2350 3150
+$Comp
+L Device:C C?
+U 1 1 5C57223C
+P 2400 3350
+AR Path="/5BFD63E3/5C57223C" Ref="C?"  Part="1" 
+AR Path="/5BFD63E3/5C513EEB/5C57223C" Ref="C16"  Part="1" 
+F 0 "C16" H 2515 3396 50  0000 L CNN
+F 1 "100 nF" H 2515 3305 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 2438 3200 50  0001 C CNN
+F 3 "~" H 2400 3350 50  0001 C CNN
+	1    2400 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_POT_US RV?
+U 1 1 5BF0EB16
+P 3350 2100
+AR Path="/5BFD63E3/5BF0EB16" Ref="RV?"  Part="1" 
+AR Path="/5BFD63E3/5C513EEB/5BF0EB16" Ref="RV10"  Part="1" 
+F 0 "RV10" H 3282 2146 50  0000 R CNN
+F 1 "SET_ATTEN" H 3282 2055 50  0000 R CNN
+F 2 "Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 3350 2100 50  0001 C CNN
+F 3 "~" H 3350 2100 50  0001 C CNN
+	1    3350 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L SID_Parts:BOURNS_PTL RV8
+U 1 1 5C03E468
+P 3350 700
+F 0 "RV8" H 3262 496 50  0000 R CNN
+F 1 "RELEASE" H 3262 405 50  0000 R CNN
+F 2 "Potentiometer_THT:Potentiometer_Bourns_PTL20_Single_Slide" H 3350 700 50  0001 C CNN
+F 3 "" H 3350 700 50  0001 C CNN
+	1    3350 700 
+	1    0    0    -1  
+$EndComp
+$Comp
+L SID_Parts:BOURNS_PTL RV6
+U 1 1 5C057FF7
+P 2300 1800
+F 0 "RV6" H 2212 1596 50  0000 R CNN
+F 1 "DECAY" H 2212 1505 50  0000 R CNN
+F 2 "Potentiometer_THT:Potentiometer_Bourns_PTL20_Single_Slide" H 2300 1800 50  0001 C CNN
+F 3 "" H 2300 1800 50  0001 C CNN
+	1    2300 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L SID_Parts:BOURNS_PTL RV7
+U 1 1 5C071B88
+P 2200 2900
+F 0 "RV7" H 2112 2696 50  0000 R CNN
+F 1 "SUSTAIN" H 2112 2605 50  0000 R CNN
+F 2 "Potentiometer_THT:Potentiometer_Bourns_PTL20_Single_Slide" H 2200 2900 50  0001 C CNN
+F 3 "" H 2200 2900 50  0001 C CNN
+	1    2200 2900
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
