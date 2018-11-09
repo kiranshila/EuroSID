@@ -82,12 +82,6 @@ Text GLabel 1750 3300 0    50   Input ~ 0
 FREQ_A_IO
 Text GLabel 1750 3400 0    50   Input ~ 0
 FREQ_B_IO
-Text GLabel 2450 4100 2    50   Input ~ 0
-GATE_3_IO
-Text GLabel 2450 4000 2    50   Input ~ 0
-GATE_2_IO
-Text GLabel 2450 3900 2    50   Input ~ 0
-GATE_1_IO
 Text GLabel 2450 3800 2    50   Input ~ 0
 LED_DATA_IO
 Text GLabel 2450 3700 2    50   Input ~ 0
@@ -161,12 +155,6 @@ Wire Wire Line
 	2350 4300 2450 4300
 Wire Wire Line
 	2350 4200 2450 4200
-Wire Wire Line
-	2350 4100 2450 4100
-Wire Wire Line
-	2350 4000 2450 4000
-Wire Wire Line
-	2350 3900 2450 3900
 Wire Wire Line
 	2350 3800 2450 3800
 Wire Wire Line
@@ -572,4 +560,7 @@ F 3 "" H 7100 2450 50  0001 C CNN
 	1    7100 2450
 	1    0    0    -1  
 $EndComp
+NoConn ~ 2350 3900
+NoConn ~ 2350 4000
+NoConn ~ 2350 4100
 $EndSCHEMATC
