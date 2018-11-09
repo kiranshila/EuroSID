@@ -10355,7 +10355,7 @@
   )
 
   (module MountingHole:MountingHole_3.2mm_M3_DIN965_Pad (layer F.Cu) (tedit 56D1B4CB) (tstamp 5BEF997F)
-    (at 107.775001 21.615001)
+    (at 122.226 93.724)
     (descr "Mounting Hole 3.2mm, M3, DIN965")
     (tags "mounting hole 3.2mm m3 din965")
     (path /5BFD63E3/5BE3F331)
