@@ -933,12 +933,6 @@ Text GLabel 9300 1950 0    50   Input ~ 0
 FREQ_A
 Text GLabel 9300 2050 0    50   Input ~ 0
 FREQ_B
-Text GLabel 10000 2750 2    50   Input ~ 0
-GATE_3
-Text GLabel 10000 2650 2    50   Input ~ 0
-GATE_2
-Text GLabel 10000 2550 2    50   Input ~ 0
-GATE_1
 Text GLabel 10000 2450 2    50   Input ~ 0
 LED_DATA
 Text GLabel 10000 2350 2    50   Input ~ 0
@@ -1010,12 +1004,6 @@ Wire Wire Line
 	9900 2950 10000 2950
 Wire Wire Line
 	9900 2850 10000 2850
-Wire Wire Line
-	9900 2750 10000 2750
-Wire Wire Line
-	9900 2650 10000 2650
-Wire Wire Line
-	9900 2550 10000 2550
 Wire Wire Line
 	9900 2450 10000 2450
 Wire Wire Line
@@ -1174,4 +1162,7 @@ Wire Wire Line
 	9300 5150 9300 5050
 Wire Wire Line
 	9300 5050 9400 5050
+NoConn ~ 9900 2550
+NoConn ~ 9900 2650
+NoConn ~ 9900 2750
 $EndSCHEMATC
