@@ -401,32 +401,6 @@ F 3 "~" H 3450 3750 50  0001 C CNN
 $EndComp
 $Comp
 L Device:LED D?
-U 1 1 5C602358
-P 3100 4050
-AR Path="/5BFD63E3/5C602358" Ref="D?"  Part="1" 
-AR Path="/5BFD63E3/5C513ACF/5C602358" Ref="D7"  Part="1" 
-F 0 "D7" H 3091 4266 50  0000 C CNN
-F 1 "SID1" H 3091 4175 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm" H 3100 4050 50  0001 C CNN
-F 3 "~" H 3100 4050 50  0001 C CNN
-	1    3100 4050
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:LED D?
-U 1 1 5C60235F
-P 3450 4150
-AR Path="/5BFD63E3/5C60235F" Ref="D?"  Part="1" 
-AR Path="/5BFD63E3/5C513ACF/5C60235F" Ref="D13"  Part="1" 
-F 0 "D13" H 3441 4366 50  0000 C CNN
-F 1 "SID2" H 3441 4275 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm" H 3450 4150 50  0001 C CNN
-F 3 "~" H 3450 4150 50  0001 C CNN
-	1    3450 4150
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:LED D?
 U 1 1 5C602366
 P 3800 4250
 AR Path="/5BFD63E3/5C602366" Ref="D?"  Part="1" 
@@ -536,10 +510,6 @@ Wire Wire Line
 Wire Wire Line
 	2500 3750 3300 3750
 Wire Wire Line
-	2500 4050 2950 4050
-Wire Wire Line
-	2500 4150 3300 4150
-Wire Wire Line
 	2500 4250 3650 4250
 Wire Wire Line
 	2500 4350 2600 4350
@@ -633,12 +603,6 @@ $EndComp
 Wire Wire Line
 	2500 5550 2600 5550
 Wire Wire Line
-	2500 5650 2650 5650
-Wire Wire Line
-	2500 5750 3000 5750
-Wire Wire Line
-	2500 5850 3350 5850
-Wire Wire Line
 	4100 3450 4100 3550
 Wire Wire Line
 	4100 3550 2900 3550
@@ -727,16 +691,6 @@ Wire Wire Line
 Connection ~ 4100 4250
 Wire Wire Line
 	4100 4250 4100 4350
-Wire Wire Line
-	3600 4150 4100 4150
-Connection ~ 4100 4150
-Wire Wire Line
-	4100 4150 4100 4250
-Wire Wire Line
-	3250 4050 4100 4050
-Connection ~ 4100 4050
-Wire Wire Line
-	4100 4050 4100 4150
 Wire Wire Line
 	3600 3750 4100 3750
 Connection ~ 4100 3750
@@ -1539,8 +1493,6 @@ Wire Wire Line
 Wire Wire Line
 	700  4550 1100 4550
 NoConn ~ 1100 4950
-Wire Wire Line
-	4100 3750 4100 4050
 $Comp
 L Device:LED_Dual_CAC D23
 U 1 1 5BE202A2
@@ -1905,13 +1857,14 @@ F 3 "" H 3250 5600 50  0001 C CNN
 	2    3250 5600
 	0    1    1    0   
 $EndComp
-Connection ~ 2650 5650
 Wire Wire Line
-	2650 5650 2950 5650
-Connection ~ 3000 5750
+	2500 5650 2950 5650
 Wire Wire Line
-	3000 5750 3300 5750
-Connection ~ 3350 5850
+	2500 5750 3300 5750
 Wire Wire Line
-	3350 5850 3650 5850
+	2500 5850 3650 5850
+Wire Wire Line
+	4100 3750 4100 4250
+NoConn ~ 2500 4050
+NoConn ~ 2500 4150
 $EndSCHEMATC
