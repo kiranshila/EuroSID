@@ -72,8 +72,6 @@ F 3 "" H 4850 2200 50  0001 C CNN
 	1    4850 2200
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	4850 2350 4850 2300
 $Comp
 L power:+5V #PWR?
 U 1 1 5C5AD5A7
@@ -597,33 +595,13 @@ Wire Wire Line
 Wire Wire Line
 	9700 2450 9200 2450
 Wire Wire Line
-	5150 2650 6650 2650
+	5250 2650 6650 2650
 NoConn ~ 5700 5600
 NoConn ~ 5700 5700
 NoConn ~ 5700 5800
 NoConn ~ 5700 6000
 NoConn ~ 7500 2550
 NoConn ~ 7500 2650
-$Comp
-L Oscillator:ASV-xxxMHz X1
-U 1 1 5BE68FC3
-P 4850 2650
-F 0 "X1" H 5191 2696 50  0000 L CNN
-F 1 "ECS-8FMX-010-TR" H 5191 2605 50  0000 L CNN
-F 2 "Oscillator:Oscillator_SMD_Abracon_ASV-4Pin_7.0x5.1mm" H 5550 2300 50  0001 C CNN
-F 3 "http://www.abracon.com/Oscillators/ASV.pdf" H 4750 2650 50  0001 C CNN
-	1    4850 2650
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4550 2650 4300 2650
-Wire Wire Line
-	4300 2650 4300 2300
-Wire Wire Line
-	4300 2300 4850 2300
-Connection ~ 4850 2300
-Wire Wire Line
-	4850 2300 4850 2200
 $Comp
 L Connector_Generic:Conn_01x04 J29
 U 1 1 5C596EAE
@@ -664,6 +642,19 @@ Wire Wire Line
 	10150 2150 10300 2150
 Wire Wire Line
 	10150 2050 10300 2050
+$Comp
+L Oscillator:MAX7375AXR105 U5
+U 1 1 5BF6505A
+P 4850 2650
+F 0 "U5" H 4620 2696 50  0000 R CNN
+F 1 "MAX7375AXR105" H 4620 2605 50  0000 R CNN
+F 2 "Package_TO_SOT_SMD:SOT-323_SC-70" H 5950 2300 50  0001 C CNN
+F 3 "https://datasheets.maximintegrated.com/en/ds/MAX7375.pdf" H 4750 2650 50  0001 C CNN
+	1    4850 2650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4850 2200 4850 2350
 Wire Bus Line
 	6200 3050 6200 4050
 Wire Bus Line

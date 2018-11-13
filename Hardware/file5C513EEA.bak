@@ -748,37 +748,7 @@ F 3 "~" H 3450 5250 50  0001 C CNN
 	1    3450 5250
 	1    0    0    -1  
 $EndComp
-$Comp
-L Device:C C?
-U 1 1 5C593892
-P 1550 5750
-AR Path="/5BFD63E3/5C593892" Ref="C?"  Part="1" 
-AR Path="/5BFD63E3/5C513EEB/5C593892" Ref="C11"  Part="1" 
-F 0 "C11" H 1665 5796 50  0000 L CNN
-F 1 "100 nF" H 1665 5705 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 1588 5600 50  0001 C CNN
-F 3 "~" H 1550 5750 50  0001 C CNN
-	1    1550 5750
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C?
-U 1 1 5C593899
-P 3450 5750
-AR Path="/5BFD63E3/5C593899" Ref="C?"  Part="1" 
-AR Path="/5BFD63E3/5C513EEB/5C593899" Ref="C19"  Part="1" 
-F 0 "C19" H 3565 5796 50  0000 L CNN
-F 1 "100 nF" H 3565 5705 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 3488 5600 50  0001 C CNN
-F 3 "~" H 3450 5750 50  0001 C CNN
-	1    3450 5750
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1550 5900 1550 5950
 Connection ~ 3000 5950
-Wire Wire Line
-	3450 5950 3450 5900
 Wire Wire Line
 	1550 5100 1550 5050
 Connection ~ 3000 5050
@@ -790,8 +760,6 @@ Wire Wire Line
 	1450 5500 1550 5500
 Wire Wire Line
 	1550 5500 1550 5400
-Wire Wire Line
-	1550 5600 1550 5500
 Connection ~ 1550 5500
 $Comp
 L power:GND #PWR?
@@ -2090,19 +2058,6 @@ F 3 "~" H 4050 5250 50  0001 C CNN
 	1    4050 5250
 	1    0    0    -1  
 $EndComp
-$Comp
-L Device:C C?
-U 1 1 5C16FA07
-P 4050 5750
-AR Path="/5BFD63E3/5C16FA07" Ref="C?"  Part="1" 
-AR Path="/5BFD63E3/5C513EEB/5C16FA07" Ref="C22"  Part="1" 
-F 0 "C22" H 4165 5796 50  0000 L CNN
-F 1 "100 nF" H 4165 5705 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 4088 5600 50  0001 C CNN
-F 3 "~" H 4050 5750 50  0001 C CNN
-	1    4050 5750
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	3450 5050 4050 5050
 Wire Wire Line
@@ -2112,16 +2067,12 @@ Wire Wire Line
 	4050 5400 4050 5500
 Wire Wire Line
 	3450 5950 4050 5950
-Wire Wire Line
-	4050 5950 4050 5900
 Connection ~ 3450 5950
 Wire Wire Line
 	3450 5400 3450 5500
 Wire Wire Line
 	4150 5500 4050 5500
 Connection ~ 4050 5500
-Wire Wire Line
-	4050 5500 4050 5600
 $Comp
 L Device:C C?
 U 1 1 5C1D87E3
@@ -2133,19 +2084,6 @@ F 1 "100 nF" H 2215 5205 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric" H 2138 5100 50  0001 C CNN
 F 3 "~" H 2100 5250 50  0001 C CNN
 	1    2100 5250
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C?
-U 1 1 5C1D88B3
-P 2100 5750
-AR Path="/5BFD63E3/5C1D88B3" Ref="C?"  Part="1" 
-AR Path="/5BFD63E3/5C513EEB/5C1D88B3" Ref="C13"  Part="1" 
-F 0 "C13" H 2215 5796 50  0000 L CNN
-F 1 "100 nF" H 2215 5705 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 2138 5600 50  0001 C CNN
-F 3 "~" H 2100 5750 50  0001 C CNN
-	1    2100 5750
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -2162,11 +2100,6 @@ Wire Wire Line
 	2100 5400 2100 5500
 Wire Wire Line
 	1550 5500 2100 5500
-Connection ~ 2100 5500
-Wire Wire Line
-	2100 5500 2100 5600
-Wire Wire Line
-	2100 5950 2100 5900
 Wire Wire Line
 	1550 5950 2100 5950
 Wire Wire Line
@@ -2178,8 +2111,6 @@ Wire Wire Line
 Wire Wire Line
 	2650 5750 2650 5950
 Connection ~ 3450 5500
-Wire Wire Line
-	3450 5500 3450 5600
 $Comp
 L Device:D_Zener D?
 U 1 1 5C5D98C1
@@ -2653,4 +2584,13 @@ F 3 "" H 2200 2900 50  0001 C CNN
 	1    2200 2900
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	1550 5500 1550 5950
+Wire Wire Line
+	2100 5500 2100 5950
+Connection ~ 2100 5500
+Wire Wire Line
+	3450 5500 3450 5950
+Wire Wire Line
+	4050 5500 4050 5950
 $EndSCHEMATC
