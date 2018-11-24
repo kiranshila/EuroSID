@@ -1806,11 +1806,12 @@ $EndComp
 Text GLabel 4100 3450 1    50   Input ~ 0
 3.3_IO
 $Comp
-L SID_Parts:BOURNS_PTL RV?
+L EuroSID-rescue:BOURNS_PTL-SID_Parts RV?
 U 2 1 5C0B06A6
 P 2900 5500
 AR Path="/5BFD63E3/5C513EEB/5C0B06A6" Ref="RV?"  Part="2" 
 AR Path="/5BFD63E3/5C513ACF/5C0B06A6" Ref="RV5"  Part="2" 
+AR Path="/5C0B06A6" Ref="RV5"  Part="2" 
 F 0 "RV5" V 2725 5341 50  0000 C CNN
 F 1 "ATTACK" V 2816 5341 50  0000 C CNN
 F 2 "Potentiometer_THT:Potentiometer_Bourns_PTL20_Single_Slide" H 2900 5500 50  0001 C CNN
@@ -1819,11 +1820,12 @@ F 3 "" H 2900 5500 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L SID_Parts:BOURNS_PTL RV?
+L EuroSID-rescue:BOURNS_PTL-SID_Parts RV?
 U 2 1 5C0B06AD
 P 3600 5700
 AR Path="/5BFD63E3/5C513EEB/5C0B06AD" Ref="RV?"  Part="2" 
 AR Path="/5BFD63E3/5C513ACF/5C0B06AD" Ref="RV7"  Part="2" 
+AR Path="/5C0B06AD" Ref="RV7"  Part="2" 
 F 0 "RV7" V 3425 5541 50  0000 C CNN
 F 1 "SUSTAIN" V 3516 5541 50  0000 C CNN
 F 2 "Potentiometer_THT:Potentiometer_Bourns_PTL20_Single_Slide" H 3600 5700 50  0001 C CNN
@@ -1832,11 +1834,12 @@ F 3 "" H 3600 5700 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L SID_Parts:BOURNS_PTL RV?
+L EuroSID-rescue:BOURNS_PTL-SID_Parts RV?
 U 2 1 5C0B06B4
 P 3950 5800
 AR Path="/5BFD63E3/5C513EEB/5C0B06B4" Ref="RV?"  Part="2" 
 AR Path="/5BFD63E3/5C513ACF/5C0B06B4" Ref="RV8"  Part="2" 
+AR Path="/5C0B06B4" Ref="RV8"  Part="2" 
 F 0 "RV8" V 3775 5641 50  0000 C CNN
 F 1 "RELEASE" V 3866 5641 50  0000 C CNN
 F 2 "Potentiometer_THT:Potentiometer_Bourns_PTL20_Single_Slide" H 3950 5800 50  0001 C CNN
@@ -1845,11 +1848,12 @@ F 3 "" H 3950 5800 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L SID_Parts:BOURNS_PTL RV?
+L EuroSID-rescue:BOURNS_PTL-SID_Parts RV?
 U 2 1 5C0B06BB
 P 3250 5600
 AR Path="/5BFD63E3/5C513EEB/5C0B06BB" Ref="RV?"  Part="2" 
 AR Path="/5BFD63E3/5C513ACF/5C0B06BB" Ref="RV6"  Part="2" 
+AR Path="/5C0B06BB" Ref="RV6"  Part="2" 
 F 0 "RV6" V 3075 5441 50  0000 C CNN
 F 1 "DECAY" V 3166 5441 50  0000 C CNN
 F 2 "Potentiometer_THT:Potentiometer_Bourns_PTL20_Single_Slide" H 3250 5600 50  0001 C CNN

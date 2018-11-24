@@ -1,0 +1,3 @@
+config load C:\Users\kiran\EuroSID\Software\EuroSID_Firmware\EuroSID_Firmware.ioc
+generate code C:\Users\kiran\EuroSID\Software\EuroSID_Firmware
+exit

@@ -69,7 +69,7 @@ U 1 1 5C2415F5
 P 3500 3600
 F 0 "J18" H 3394 4085 50  0000 C CNN
 F 1 "Power_Connector_IO" H 3394 3994 50  0000 C CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x07_P2.54mm_Vertical_SMD_Pin1Left" H 3500 3600 50  0001 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x07_P2.54mm_Vertical" H 3500 3600 50  0001 C CNN
 F 3 "~" H 3500 3600 50  0001 C CNN
 	1    3500 3600
 	-1   0    0    -1  
@@ -209,7 +209,7 @@ AR Path="/5C5B0294/5C55A4CA" Ref="J?"  Part="1"
 AR Path="/5BFD63E3/5C55A4CA" Ref="J21"  Part="1" 
 F 0 "J21" H 2100 5117 50  0000 C CNN
 F 1 "CV_Connector_IO" H 2100 5026 50  0000 C CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_2x04_P2.54mm_Vertical_SMD" H 2050 4800 50  0001 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_2x04_P2.54mm_Vertical" H 2050 4800 50  0001 C CNN
 F 3 "~" H 2050 4800 50  0001 C CNN
 	1    2050 4800
 	1    0    0    -1  
@@ -253,7 +253,7 @@ AR Path="/5C5B0294/5C55A4E0" Ref="J?"  Part="1"
 AR Path="/5BFD63E3/5C55A4E0" Ref="J22"  Part="1" 
 F 0 "J22" H 2100 5967 50  0000 C CNN
 F 1 "Pot_Connector_IO" H 2100 5876 50  0000 C CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_2x04_P2.54mm_Vertical_SMD" H 2050 5650 50  0001 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_2x04_P2.54mm_Vertical" H 2050 5650 50  0001 C CNN
 F 3 "~" H 2050 5650 50  0001 C CNN
 	1    2050 5650
 	1    0    0    -1  
