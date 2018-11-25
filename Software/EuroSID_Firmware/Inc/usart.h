@@ -44,7 +44,6 @@
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f3xx_hal.h"
 #include "main.h"
 
 /* USER CODE BEGIN Includes */
@@ -57,11 +56,9 @@ extern UART_HandleTypeDef huart1;
 
 /* USER CODE END Private defines */
 
-extern void _Error_Handler(char *, int);
-
 void MX_USART1_UART_Init(void);
-void debugPrint(UART_HandleTypeDef*, char*);
-void debugPrintln(UART_HandleTypeDef*,char*);
+
+/* USER CODE BEGIN Prototypes */
 
 /* USER CODE END Prototypes */
 
@@ -69,3 +66,13 @@ void debugPrintln(UART_HandleTypeDef*,char*);
 }
 #endif
 #endif /*__ usart_H */
+
+/**
+  * @}
+  */
+
+/**
+  * @}
+  */
+
+/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
