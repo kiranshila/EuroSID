@@ -2512,9 +2512,11 @@ Text GLabel 9400 2200 0    50   Input ~ 0
 Text GLabel 9400 1050 0    50   Input ~ 0
 -10V_REF_IO
 $Comp
-L SID_Parts:BOURNS_PTL RV5
+L EuroSID-rescue:BOURNS_PTL-SID_Parts RV5
 U 1 1 5BEA495C
 P 2200 700
+AR Path="/5BEA495C" Ref="RV5"  Part="1" 
+AR Path="/5BFD63E3/5C513EEB/5BEA495C" Ref="RV5"  Part="1" 
 F 0 "RV5" H 2112 496 50  0000 R CNN
 F 1 "ATTACK" H 2112 405 50  0000 R CNN
 F 2 "Potentiometer_THT:Potentiometer_Bourns_PTL20_Single_Slide" H 2200 700 50  0001 C CNN
@@ -2552,9 +2554,11 @@ F 3 "~" H 3350 2100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L SID_Parts:BOURNS_PTL RV8
+L EuroSID-rescue:BOURNS_PTL-SID_Parts RV8
 U 1 1 5C03E468
 P 3350 700
+AR Path="/5C03E468" Ref="RV8"  Part="1" 
+AR Path="/5BFD63E3/5C513EEB/5C03E468" Ref="RV8"  Part="1" 
 F 0 "RV8" H 3262 496 50  0000 R CNN
 F 1 "RELEASE" H 3262 405 50  0000 R CNN
 F 2 "Potentiometer_THT:Potentiometer_Bourns_PTL20_Single_Slide" H 3350 700 50  0001 C CNN
@@ -2563,9 +2567,11 @@ F 3 "" H 3350 700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L SID_Parts:BOURNS_PTL RV6
+L EuroSID-rescue:BOURNS_PTL-SID_Parts RV6
 U 1 1 5C057FF7
 P 2300 1800
+AR Path="/5C057FF7" Ref="RV6"  Part="1" 
+AR Path="/5BFD63E3/5C513EEB/5C057FF7" Ref="RV6"  Part="1" 
 F 0 "RV6" H 2212 1596 50  0000 R CNN
 F 1 "DECAY" H 2212 1505 50  0000 R CNN
 F 2 "Potentiometer_THT:Potentiometer_Bourns_PTL20_Single_Slide" H 2300 1800 50  0001 C CNN
@@ -2574,9 +2580,11 @@ F 3 "" H 2300 1800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L SID_Parts:BOURNS_PTL RV7
+L EuroSID-rescue:BOURNS_PTL-SID_Parts RV7
 U 1 1 5C071B88
 P 2200 2900
+AR Path="/5C071B88" Ref="RV7"  Part="1" 
+AR Path="/5BFD63E3/5C513EEB/5C071B88" Ref="RV7"  Part="1" 
 F 0 "RV7" H 2112 2696 50  0000 R CNN
 F 1 "SUSTAIN" H 2112 2605 50  0000 R CNN
 F 2 "Potentiometer_THT:Potentiometer_Bourns_PTL20_Single_Slide" H 2200 2900 50  0001 C CNN

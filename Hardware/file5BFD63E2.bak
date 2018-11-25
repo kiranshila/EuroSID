@@ -418,5 +418,8 @@ F 3 "" H 7100 2450 50  0001 C CNN
 $EndComp
 NoConn ~ 2350 3900
 NoConn ~ 2350 4000
-NoConn ~ 2350 4100
+Text GLabel 2450 4100 2    50   Input ~ 0
+LED_BLANK_IO
+Wire Wire Line
+	2450 4100 2350 4100
 $EndSCHEMATC

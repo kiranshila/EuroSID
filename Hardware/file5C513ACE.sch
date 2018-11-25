@@ -1475,23 +1475,6 @@ Wire Wire Line
 	5900 2700 5900 2500
 Wire Wire Line
 	5900 2500 5800 2500
-$Comp
-L power:GND #PWR?
-U 1 1 5BFDB517
-P 700 4450
-AR Path="/5BFD63E3/5BFDB517" Ref="#PWR?"  Part="1" 
-AR Path="/5BFD63E3/5C513ACF/5BFDB517" Ref="#PWR01"  Part="1" 
-F 0 "#PWR01" H 700 4200 50  0001 C CNN
-F 1 "GND" H 705 4277 50  0000 C CNN
-F 2 "" H 700 4450 50  0001 C CNN
-F 3 "" H 700 4450 50  0001 C CNN
-	1    700  4450
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	700  4450 700  4550
-Wire Wire Line
-	700  4550 1100 4550
 NoConn ~ 1100 4950
 $Comp
 L Device:LED_Dual_CAC D23
@@ -1871,4 +1854,8 @@ Wire Wire Line
 	4100 3750 4100 4250
 NoConn ~ 2500 4050
 NoConn ~ 2500 4150
+Text GLabel 950  4550 0    50   Input ~ 0
+LED_BLANK_IO
+Wire Wire Line
+	950  4550 1100 4550
 $EndSCHEMATC

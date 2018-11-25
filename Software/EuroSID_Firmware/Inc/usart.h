@@ -60,8 +60,8 @@ extern UART_HandleTypeDef huart1;
 extern void _Error_Handler(char *, int);
 
 void MX_USART1_UART_Init(void);
-
-/* USER CODE BEGIN Prototypes */
+void debugPrint(UART_HandleTypeDef*, char*);
+void debugPrintln(UART_HandleTypeDef*,char*);
 
 /* USER CODE END Prototypes */
 
@@ -69,13 +69,3 @@ void MX_USART1_UART_Init(void);
 }
 #endif
 #endif /*__ usart_H */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
