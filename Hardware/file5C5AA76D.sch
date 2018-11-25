@@ -58,7 +58,7 @@ Wire Wire Line
 Wire Wire Line
 	6550 3450 6650 3450
 Wire Wire Line
-	4850 2950 4850 3200
+	4850 2950 4850 3150
 $Comp
 L power:+5V #PWR?
 U 1 1 5C5AD5A0
@@ -566,34 +566,6 @@ Wire Wire Line
 Connection ~ 9200 2450
 Wire Wire Line
 	9200 1500 9200 2450
-$Comp
-L Device:CP C38
-U 1 1 5BDEB869
-P 9700 2600
-F 0 "C38" H 9818 2646 50  0000 L CNN
-F 1 "2200 uF" H 9818 2555 50  0000 L CNN
-F 2 "Capacitor_SMD:CP_Elec_10x10" H 9738 2450 50  0001 C CNN
-F 3 "~" H 9700 2600 50  0001 C CNN
-	1    9700 2600
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 5BDEB8C2
-P 9700 2900
-AR Path="/5BDEB8C2" Ref="#PWR?"  Part="1" 
-AR Path="/5C5AA76E/5BDEB8C2" Ref="#PWR0116"  Part="1" 
-F 0 "#PWR0116" H 9700 2650 50  0001 C CNN
-F 1 "GND" H 9705 2727 50  0000 C CNN
-F 2 "" H 9700 2900 50  0001 C CNN
-F 3 "" H 9700 2900 50  0001 C CNN
-	1    9700 2900
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	9700 2900 9700 2750
-Wire Wire Line
-	9700 2450 9200 2450
 Wire Wire Line
 	5250 2650 6650 2650
 NoConn ~ 5700 5600
@@ -654,7 +626,53 @@ F 3 "https://datasheets.maximintegrated.com/en/ds/MAX7375.pdf" H 4750 2650 50  0
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4850 2200 4850 2350
+	4850 2200 4850 2250
+$Comp
+L Device:C C13
+U 1 1 5BFF9FF0
+P 4300 2950
+F 0 "C13" H 4415 2996 50  0000 L CNN
+F 1 "100 nF" H 4415 2905 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 4338 2800 50  0001 C CNN
+F 3 "~" H 4300 2950 50  0001 C CNN
+	1    4300 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4300 3100 4300 3150
+Wire Wire Line
+	4300 3150 4850 3150
+Connection ~ 4850 3150
+Wire Wire Line
+	4850 3150 4850 3200
+Wire Wire Line
+	4300 2800 4300 2250
+Wire Wire Line
+	4300 2250 4850 2250
+Connection ~ 4850 2250
+Wire Wire Line
+	4850 2250 4850 2350
+$Comp
+L Device:C C11
+U 1 1 5C00031F
+P 3800 2950
+F 0 "C11" H 3915 2996 50  0000 L CNN
+F 1 "10 nF" H 3915 2905 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 3838 2800 50  0001 C CNN
+F 3 "~" H 3800 2950 50  0001 C CNN
+	1    3800 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3800 3100 3800 3150
+Wire Wire Line
+	3800 3150 4300 3150
+Connection ~ 4300 3150
+Wire Wire Line
+	3800 2800 3800 2250
+Wire Wire Line
+	3800 2250 4300 2250
+Connection ~ 4300 2250
 Wire Bus Line
 	6200 3050 6200 4050
 Wire Bus Line
