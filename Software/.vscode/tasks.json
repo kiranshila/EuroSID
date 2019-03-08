@@ -2,25 +2,6 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
-            "type": "shell",
-            "command": "make",
-            "default": true,
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "problemMatcher": [
-                "$gcc"
-            ]
-        },
-        {
-            "label": "STLinkUpload",
-            "type": "shell",
-            "command": "st-flash write ${workspaceFolder}/build/EuroSID.bin 0x08000000",
-            "problemMatcher": []
-        },
-        {
             "label": "Build project",
             "group": {
                 "kind": "build",
@@ -119,7 +100,7 @@
             "command": "/usr/local/bin/openocd",
             "args": [
                 "-f",
-                "interface/stlink-v2.cfg",
+                "interface/stlink-v2-1.cfg",
                 "-f",
                 "target/stm32f3x.cfg",
                 "-c",
@@ -134,7 +115,7 @@
             "command": "/usr/local/bin/openocd",
             "args": [
                 "-f",
-                "interface/stlink-v2.cfg",
+                "interface/stlink-v2-1.cfg",
                 "-f",
                 "target/stm32f3x.cfg",
                 "-c",
@@ -148,7 +129,7 @@
             "command": "/usr/local/bin/openocd",
             "args": [
                 "-f",
-                "interface/stlink-v2.cfg",
+                "interface/stlink-v2-1.cfg",
                 "-f",
                 "target/stm32f3x.cfg",
                 "-c init",
@@ -163,7 +144,7 @@
             "command": "/usr/local/bin/openocd",
             "args": [
                 "-f",
-                "interface/stlink-v2.cfg",
+                "interface/stlink-v2-1.cfg",
                 "-f",
                 "target/stm32f3x.cfg",
                 "-c init",
@@ -178,7 +159,7 @@
             "command": "/usr/local/bin/openocd",
             "args": [
                 "-f",
-                "interface/stlink-v2.cfg",
+                "interface/stlink-v2-1.cfg",
                 "-f",
                 "target/stm32f3x.cfg",
                 "-c init",
@@ -205,7 +186,7 @@
             "command": "xdg-open",
             "args": [
                 "",
-                "EuroSID.ioc"
+                "/Users/kiranshila/Desktop/Projects/EuroSID/Software/EuroSID.ioc"
             ],
             "presentation": {
                 "focus": false

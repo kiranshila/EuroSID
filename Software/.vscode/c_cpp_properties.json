@@ -1,7 +1,9 @@
 {
     "env": {
         "____________________USER_FIELDS_CAN_BE_MODIFIED____________________": "",
-        "user_cSources": [],
+        "user_cSources": [
+            "Src/MCUSetup.c"
+        ],
         "user_asmSources": [],
         "user_cIncludes": [],
         "user_asmIncludes": [],

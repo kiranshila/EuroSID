@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
   28:Src/stm32f3xx_hal_msp.c ****   * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
   29:Src/stm32f3xx_hal_msp.c ****   * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
   30:Src/stm32f3xx_hal_msp.c ****   * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 2
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 2
 
 
   31:Src/stm32f3xx_hal_msp.c ****   * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
   85:Src/stm32f3xx_hal_msp.c **** {
   29              		.loc 1 85 1 view -0
   30              		.cfi_startproc
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 3
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 3
 
 
   31              		@ args = 0, pretend = 0, frame = 8
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
   72              	.L4:
   73              		.align	2
   74              	.L3:
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 4
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 4
 
 
   75 002c 00100240 		.word	1073876992
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
  117 0016 07D0     		beq	.L12
  113:Src/stm32f3xx_hal_msp.c ****   {
  114:Src/stm32f3xx_hal_msp.c ****   /* USER CODE BEGIN ADC1_MspInit 0 */
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 5
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 5
 
 
  115:Src/stm32f3xx_hal_msp.c **** 
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
  164:Src/stm32f3xx_hal_msp.c ****       __HAL_RCC_ADC12_CLK_ENABLE();
  165:Src/stm32f3xx_hal_msp.c ****     }
  166:Src/stm32f3xx_hal_msp.c ****   
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 6
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 6
 
 
  167:Src/stm32f3xx_hal_msp.c ****     __HAL_RCC_GPIOA_CLK_ENABLE();
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
  214:Src/stm32f3xx_hal_msp.c **** }
  130              		.loc 1 214 1 view .LVU23
  131 0024 0FB0     		add	sp, sp, #60
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 7
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 7
 
 
  132              	.LCFI4:
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
  124:Src/stm32f3xx_hal_msp.c ****     __HAL_RCC_GPIOF_CLK_ENABLE();
  174              		.loc 1 124 5 view .LVU36
  175 0050 5A69     		ldr	r2, [r3, #20]
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 8
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 8
 
 
  176 0052 02F40032 		and	r2, r2, #131072
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
  214              		.loc 1 143 5 is_stmt 1 view .LVU52
  143:Src/stm32f3xx_hal_msp.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
  215              		.loc 1 143 26 is_stmt 0 view .LVU53
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 9
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 9
 
 
  216 007e 0A94     		str	r4, [sp, #40]
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
  120:Src/stm32f3xx_hal_msp.c ****     }
  256              		.loc 1 120 7 view .LVU68
  257 00b2 009B     		ldr	r3, [sp]
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 10
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 10
 
 
  258 00b4 BEE7     		b	.L7
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
  298              		.loc 1 168 5 view .LVU82
  299 00e6 069B     		ldr	r3, [sp, #24]
  300              	.LBE9:
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 11
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 11
 
 
  177:Src/stm32f3xx_hal_msp.c ****     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
  164:Src/stm32f3xx_hal_msp.c ****     }
  339              		.loc 1 164 7 view .LVU99
  340 010e 164B     		ldr	r3, .L17+12
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 12
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 12
 
 
  341 0110 5A69     		ldr	r2, [r3, #20]
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
  382              		.loc 1 204 5 view .LVU112
  204:Src/stm32f3xx_hal_msp.c ****     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
  383              		.loc 1 204 25 is_stmt 0 view .LVU113
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 13
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 13
 
 
  384 014a 0323     		movs	r3, #3
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
  425              		@ args = 0, pretend = 0, frame = 0
  426              		@ frame_needed = 0, uses_anonymous_args = 0
  427              		.loc 1 224 1 is_stmt 0 view .LVU121
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 14
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 14
 
 
  428 0000 08B5     		push	{r3, lr}
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
  263:Src/stm32f3xx_hal_msp.c ****     /* Peripheral clock disable */
  264:Src/stm32f3xx_hal_msp.c ****     HAL_RCC_ADC12_CLK_ENABLED--;
  265:Src/stm32f3xx_hal_msp.c ****     if(HAL_RCC_ADC12_CLK_ENABLED==0){
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 15
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 15
 
 
  266:Src/stm32f3xx_hal_msp.c ****       __HAL_RCC_ADC12_CLK_DISABLE();
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
  457 0018 1E4A     		ldr	r2, .L29+8
  458 001a 1368     		ldr	r3, [r2]
  459 001c 013B     		subs	r3, r3, #1
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 16
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 16
 
 
  460 001e 1360     		str	r3, [r2]
@@ -958,7 +958,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
  502 0056 23F08053 		bic	r3, r3, #268435456
  503 005a 5361     		str	r3, [r2, #20]
  504              	.L24:
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 17
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 17
 
 
  277:Src/stm32f3xx_hal_msp.c **** 
@@ -1018,7 +1018,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
  554              		.fpu fpv4-sp-d16
  556              	HAL_SPI_MspInit:
  557              	.LVL28:
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 18
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 18
 
 
  558              	.LFB129:
@@ -1078,7 +1078,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
  328:Src/stm32f3xx_hal_msp.c ****     PB3     ------> SPI1_SCK
  329:Src/stm32f3xx_hal_msp.c ****     PB5     ------> SPI1_MOSI 
  330:Src/stm32f3xx_hal_msp.c ****     */
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 19
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 19
 
 
  331:Src/stm32f3xx_hal_msp.c ****     GPIO_InitStruct.Pin = LED_LATCH_Pin;
@@ -1138,7 +1138,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
  598              	.LCFI9:
  599              		.cfi_remember_state
  600              		.cfi_def_cfa_offset 16
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 20
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 20
 
 
  601              		@ sp needed
@@ -1198,7 +1198,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
  642 004e 5A61     		str	r2, [r3, #20]
  325:Src/stm32f3xx_hal_msp.c ****     /**SPI1 GPIO Configuration    
  643              		.loc 1 325 5 view .LVU174
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 21
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 21
 
 
  644 0050 5B69     		ldr	r3, [r3, #20]
@@ -1258,7 +1258,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
  681              		.loc 1 340 5 is_stmt 1 view .LVU191
  340:Src/stm32f3xx_hal_msp.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
  682              		.loc 1 340 26 is_stmt 0 view .LVU192
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 22
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 22
 
 
  683 007c 0023     		movs	r3, #0
@@ -1318,7 +1318,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
  723 00ac 03F48023 		and	r3, r3, #262144
  724 00b0 0493     		str	r3, [sp, #16]
  357:Src/stm32f3xx_hal_msp.c ****     /**SPI2 GPIO Configuration    
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 23
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 23
 
 
  725              		.loc 1 357 5 view .LVU207
@@ -1378,7 +1378,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
  769              		.thumb_func
  770              		.fpu fpv4-sp-d16
  772              	HAL_SPI_MspDeInit:
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 24
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 24
 
 
  773              	.LVL37:
@@ -1438,7 +1438,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
  794 000a 114A     		ldr	r2, .L45+4
  795 000c 9342     		cmp	r3, r2
  796 000e 11D0     		beq	.L44
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 25
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 25
 
 
  797              	.LVL38:
@@ -1498,7 +1498,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
  826 003a 23F48043 		bic	r3, r3, #16384
  827 003e D361     		str	r3, [r2, #28]
  421:Src/stm32f3xx_hal_msp.c **** 
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 26
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 26
 
 
  828              		.loc 1 421 5 view .LVU233
@@ -1558,7 +1558,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
  872 0006 0393     		str	r3, [sp, #12]
  873 0008 0493     		str	r3, [sp, #16]
  874 000a 0593     		str	r3, [sp, #20]
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 27
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 27
 
 
  875 000c 0693     		str	r3, [sp, #24]
@@ -1618,7 +1618,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
  900              		.loc 1 446 5 view .LVU246
  901 001e 03F55843 		add	r3, r3, #55296
  902 0022 9A69     		ldr	r2, [r3, #24]
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 28
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 28
 
 
  903 0024 42F48042 		orr	r2, r2, #16384
@@ -1678,7 +1678,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
  941 0054 0723     		movs	r3, #7
  942 0056 0793     		str	r3, [sp, #28]
  458:Src/stm32f3xx_hal_msp.c **** 
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 29
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 29
 
 
  943              		.loc 1 458 5 is_stmt 1 view .LVU263
@@ -1738,7 +1738,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
  986 0008 00D0     		beq	.L56
  987              	.LVL52:
  988              	.L53:
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 30
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 30
 
 
  478:Src/stm32f3xx_hal_msp.c ****   {
@@ -1798,7 +1798,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
  1024              		.file 2 "/usr/local/gcc_arm/arm-none-eabi/include/machine/_default_types.h"
  1025              		.file 3 "/usr/local/gcc_arm/arm-none-eabi/include/sys/_stdint.h"
  1026              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 31
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 31
 
 
  1027              		.file 5 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/system_stm32f3xx.h"
@@ -1815,34 +1815,34 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 1
  1038              		.file 16 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi.h"
  1039              		.file 17 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h"
  1040              		.file 18 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h"
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s 			page 32
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s 			page 32
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f3xx_hal_msp.c
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s:18     .text.HAL_MspInit:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s:26     .text.HAL_MspInit:0000000000000000 HAL_MspInit
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s:75     .text.HAL_MspInit:000000000000002c $d
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s:80     .text.HAL_ADC_MspInit:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s:87     .text.HAL_ADC_MspInit:0000000000000000 HAL_ADC_MspInit
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s:402    .text.HAL_ADC_MspInit:000000000000015c $d
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s:413    .text.HAL_ADC_MspDeInit:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s:420    .text.HAL_ADC_MspDeInit:0000000000000000 HAL_ADC_MspDeInit
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s:538    .text.HAL_ADC_MspDeInit:000000000000008c $d
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s:549    .text.HAL_SPI_MspInit:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s:556    .text.HAL_SPI_MspInit:0000000000000000 HAL_SPI_MspInit
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s:757    .text.HAL_SPI_MspInit:00000000000000d0 $d
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s:765    .text.HAL_SPI_MspDeInit:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s:772    .text.HAL_SPI_MspDeInit:0000000000000000 HAL_SPI_MspDeInit
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s:840    .text.HAL_SPI_MspDeInit:000000000000004c $d
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s:847    .text.HAL_UART_MspInit:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s:854    .text.HAL_UART_MspInit:0000000000000000 HAL_UART_MspInit
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s:955    .text.HAL_UART_MspInit:0000000000000064 $d
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s:960    .text.HAL_UART_MspDeInit:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s:967    .text.HAL_UART_MspDeInit:0000000000000000 HAL_UART_MspDeInit
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s:1010   .text.HAL_UART_MspDeInit:0000000000000024 $d
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s:1016   .bss.HAL_RCC_ADC12_CLK_ENABLED:0000000000000000 $d
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnvvE0i.s:1020   .bss.HAL_RCC_ADC12_CLK_ENABLED:0000000000000000 HAL_RCC_ADC12_CLK_ENABLED
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s:18     .text.HAL_MspInit:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s:26     .text.HAL_MspInit:0000000000000000 HAL_MspInit
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s:75     .text.HAL_MspInit:000000000000002c $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s:80     .text.HAL_ADC_MspInit:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s:87     .text.HAL_ADC_MspInit:0000000000000000 HAL_ADC_MspInit
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s:402    .text.HAL_ADC_MspInit:000000000000015c $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s:413    .text.HAL_ADC_MspDeInit:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s:420    .text.HAL_ADC_MspDeInit:0000000000000000 HAL_ADC_MspDeInit
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s:538    .text.HAL_ADC_MspDeInit:000000000000008c $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s:549    .text.HAL_SPI_MspInit:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s:556    .text.HAL_SPI_MspInit:0000000000000000 HAL_SPI_MspInit
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s:757    .text.HAL_SPI_MspInit:00000000000000d0 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s:765    .text.HAL_SPI_MspDeInit:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s:772    .text.HAL_SPI_MspDeInit:0000000000000000 HAL_SPI_MspDeInit
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s:840    .text.HAL_SPI_MspDeInit:000000000000004c $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s:847    .text.HAL_UART_MspInit:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s:854    .text.HAL_UART_MspInit:0000000000000000 HAL_UART_MspInit
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s:955    .text.HAL_UART_MspInit:0000000000000064 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s:960    .text.HAL_UART_MspDeInit:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s:967    .text.HAL_UART_MspDeInit:0000000000000000 HAL_UART_MspDeInit
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s:1010   .text.HAL_UART_MspDeInit:0000000000000024 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s:1016   .bss.HAL_RCC_ADC12_CLK_ENABLED:0000000000000000 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUKafnW.s:1020   .bss.HAL_RCC_ADC12_CLK_ENABLED:0000000000000000 HAL_RCC_ADC12_CLK_ENABLED
 
 UNDEFINED SYMBOLS
 HAL_GPIO_Init

@@ -7,11 +7,11 @@
             "request": "launch",
             "servertype": "openocd",
             "cwd": "${workspaceFolder}",
-            "executable": "build/EuroSID.elf",
-            "svdFile": "STM32F303x.svd",
+            "executable": "/Users/kiranshila/Desktop/Projects/EuroSID/Software/build/EuroSID.elf",
+            "svdFile": ".",
             "configFiles": [
-                "stlink-v2.cfg",
-                "/usr/local/Cellar/open-ocd/0.10.0/share/openocd/scripts/target/stm32f3x.cfg"
+                ".",
+                "."
             ],
             "preLaunchTask": "Build project"
         },

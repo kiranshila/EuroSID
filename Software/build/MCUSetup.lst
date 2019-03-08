@@ -1,0 +1,900 @@
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccvmwd39.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"MCUSetup.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.MX_GPIO_Init,"ax",%progbits
+  18              		.align	1
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	MX_GPIO_Init:
+  26              	.LFB133:
+  27              		.file 1 "Src/MCUSetup.c"
+   1:Src/MCUSetup.c **** #include "MCUSetup.h"
+   2:Src/MCUSetup.c **** #include "main.h"
+   3:Src/MCUSetup.c **** 
+   4:Src/MCUSetup.c **** void SystemClock_Config(void) {
+   5:Src/MCUSetup.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+   6:Src/MCUSetup.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+   7:Src/MCUSetup.c ****   RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
+   8:Src/MCUSetup.c **** 
+   9:Src/MCUSetup.c ****   /**Initializes the CPU, AHB and APB busses clocks
+  10:Src/MCUSetup.c ****    */
+  11:Src/MCUSetup.c ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  12:Src/MCUSetup.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  13:Src/MCUSetup.c ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  14:Src/MCUSetup.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  15:Src/MCUSetup.c ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+  16:Src/MCUSetup.c ****   RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL16;
+  17:Src/MCUSetup.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
+  18:Src/MCUSetup.c ****     Error_Handler();
+  19:Src/MCUSetup.c ****   }
+  20:Src/MCUSetup.c ****   /**Initializes the CPU, AHB and APB busses clocks
+  21:Src/MCUSetup.c ****    */
+  22:Src/MCUSetup.c ****   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK |
+  23:Src/MCUSetup.c ****                                 RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
+  24:Src/MCUSetup.c ****   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+  25:Src/MCUSetup.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  26:Src/MCUSetup.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+  27:Src/MCUSetup.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+  28:Src/MCUSetup.c **** 
+  29:Src/MCUSetup.c ****   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK) {
+  30:Src/MCUSetup.c ****     Error_Handler();
+  31:Src/MCUSetup.c ****   }
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccvmwd39.s 			page 2
+
+
+  32:Src/MCUSetup.c ****   PeriphClkInit.PeriphClockSelection =
+  33:Src/MCUSetup.c ****       RCC_PERIPHCLK_USART1 | RCC_PERIPHCLK_ADC12 | RCC_PERIPHCLK_ADC34;
+  34:Src/MCUSetup.c ****   PeriphClkInit.Usart1ClockSelection = RCC_USART1CLKSOURCE_PCLK2;
+  35:Src/MCUSetup.c ****   PeriphClkInit.Adc12ClockSelection = RCC_ADC12PLLCLK_DIV1;
+  36:Src/MCUSetup.c ****   PeriphClkInit.Adc34ClockSelection = RCC_ADC34PLLCLK_DIV1;
+  37:Src/MCUSetup.c ****   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK) {
+  38:Src/MCUSetup.c ****     Error_Handler();
+  39:Src/MCUSetup.c ****   }
+  40:Src/MCUSetup.c **** }
+  41:Src/MCUSetup.c **** 
+  42:Src/MCUSetup.c **** /**
+  43:Src/MCUSetup.c ****  * @brief ADC1 Initialization Function
+  44:Src/MCUSetup.c ****  * @param None
+  45:Src/MCUSetup.c ****  * @retval None
+  46:Src/MCUSetup.c ****  */
+  47:Src/MCUSetup.c **** static void MX_ADC1_Init(void) {
+  48:Src/MCUSetup.c **** 
+  49:Src/MCUSetup.c ****   /* USER CODE BEGIN ADC1_Init 0 */
+  50:Src/MCUSetup.c **** 
+  51:Src/MCUSetup.c ****   /* USER CODE END ADC1_Init 0 */
+  52:Src/MCUSetup.c **** 
+  53:Src/MCUSetup.c ****   ADC_MultiModeTypeDef multimode = {0};
+  54:Src/MCUSetup.c ****   ADC_ChannelConfTypeDef sConfig = {0};
+  55:Src/MCUSetup.c **** 
+  56:Src/MCUSetup.c ****   /* USER CODE BEGIN ADC1_Init 1 */
+  57:Src/MCUSetup.c **** 
+  58:Src/MCUSetup.c ****   /* USER CODE END ADC1_Init 1 */
+  59:Src/MCUSetup.c ****   /**Common config
+  60:Src/MCUSetup.c ****    */
+  61:Src/MCUSetup.c ****   hadc1.Instance = ADC1;
+  62:Src/MCUSetup.c ****   hadc1.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
+  63:Src/MCUSetup.c ****   hadc1.Init.Resolution = ADC_RESOLUTION_12B;
+  64:Src/MCUSetup.c ****   hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
+  65:Src/MCUSetup.c ****   hadc1.Init.ContinuousConvMode = DISABLE;
+  66:Src/MCUSetup.c ****   hadc1.Init.DiscontinuousConvMode = DISABLE;
+  67:Src/MCUSetup.c ****   hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
+  68:Src/MCUSetup.c ****   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+  69:Src/MCUSetup.c ****   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+  70:Src/MCUSetup.c ****   hadc1.Init.NbrOfConversion = 1;
+  71:Src/MCUSetup.c ****   hadc1.Init.DMAContinuousRequests = DISABLE;
+  72:Src/MCUSetup.c ****   hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+  73:Src/MCUSetup.c ****   hadc1.Init.LowPowerAutoWait = DISABLE;
+  74:Src/MCUSetup.c ****   hadc1.Init.Overrun = ADC_OVR_DATA_OVERWRITTEN;
+  75:Src/MCUSetup.c ****   if (HAL_ADC_Init(&hadc1) != HAL_OK) {
+  76:Src/MCUSetup.c ****     Error_Handler();
+  77:Src/MCUSetup.c ****   }
+  78:Src/MCUSetup.c ****   /**Configure the ADC multi-mode
+  79:Src/MCUSetup.c ****    */
+  80:Src/MCUSetup.c ****   multimode.Mode = ADC_MODE_INDEPENDENT;
+  81:Src/MCUSetup.c ****   if (HAL_ADCEx_MultiModeConfigChannel(&hadc1, &multimode) != HAL_OK) {
+  82:Src/MCUSetup.c ****     Error_Handler();
+  83:Src/MCUSetup.c ****   }
+  84:Src/MCUSetup.c ****   /**Configure Regular Channel
+  85:Src/MCUSetup.c ****    */
+  86:Src/MCUSetup.c ****   sConfig.Channel = ADC_CHANNEL_1;
+  87:Src/MCUSetup.c ****   sConfig.Rank = ADC_REGULAR_RANK_1;
+  88:Src/MCUSetup.c ****   sConfig.SingleDiff = ADC_SINGLE_ENDED;
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccvmwd39.s 			page 3
+
+
+  89:Src/MCUSetup.c ****   sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
+  90:Src/MCUSetup.c ****   sConfig.OffsetNumber = ADC_OFFSET_NONE;
+  91:Src/MCUSetup.c ****   sConfig.Offset = 0;
+  92:Src/MCUSetup.c ****   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK) {
+  93:Src/MCUSetup.c ****     Error_Handler();
+  94:Src/MCUSetup.c ****   }
+  95:Src/MCUSetup.c ****   /* USER CODE BEGIN ADC1_Init 2 */
+  96:Src/MCUSetup.c **** 
+  97:Src/MCUSetup.c ****   /* USER CODE END ADC1_Init 2 */
+  98:Src/MCUSetup.c **** }
+  99:Src/MCUSetup.c **** 
+ 100:Src/MCUSetup.c **** /**
+ 101:Src/MCUSetup.c ****  * @brief ADC2 Initialization Function
+ 102:Src/MCUSetup.c ****  * @param None
+ 103:Src/MCUSetup.c ****  * @retval None
+ 104:Src/MCUSetup.c ****  */
+ 105:Src/MCUSetup.c **** static void MX_ADC2_Init(void) {
+ 106:Src/MCUSetup.c **** 
+ 107:Src/MCUSetup.c ****   /* USER CODE BEGIN ADC2_Init 0 */
+ 108:Src/MCUSetup.c **** 
+ 109:Src/MCUSetup.c ****   /* USER CODE END ADC2_Init 0 */
+ 110:Src/MCUSetup.c **** 
+ 111:Src/MCUSetup.c ****   ADC_ChannelConfTypeDef sConfig = {0};
+ 112:Src/MCUSetup.c **** 
+ 113:Src/MCUSetup.c ****   /* USER CODE BEGIN ADC2_Init 1 */
+ 114:Src/MCUSetup.c **** 
+ 115:Src/MCUSetup.c ****   /* USER CODE END ADC2_Init 1 */
+ 116:Src/MCUSetup.c ****   /**Common config
+ 117:Src/MCUSetup.c ****    */
+ 118:Src/MCUSetup.c ****   hadc2.Instance = ADC2;
+ 119:Src/MCUSetup.c ****   hadc2.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
+ 120:Src/MCUSetup.c ****   hadc2.Init.Resolution = ADC_RESOLUTION_12B;
+ 121:Src/MCUSetup.c ****   hadc2.Init.ScanConvMode = ADC_SCAN_DISABLE;
+ 122:Src/MCUSetup.c ****   hadc2.Init.ContinuousConvMode = DISABLE;
+ 123:Src/MCUSetup.c ****   hadc2.Init.DiscontinuousConvMode = DISABLE;
+ 124:Src/MCUSetup.c ****   hadc2.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
+ 125:Src/MCUSetup.c ****   hadc2.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+ 126:Src/MCUSetup.c ****   hadc2.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+ 127:Src/MCUSetup.c ****   hadc2.Init.NbrOfConversion = 1;
+ 128:Src/MCUSetup.c ****   hadc2.Init.DMAContinuousRequests = DISABLE;
+ 129:Src/MCUSetup.c ****   hadc2.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+ 130:Src/MCUSetup.c ****   hadc2.Init.LowPowerAutoWait = DISABLE;
+ 131:Src/MCUSetup.c ****   hadc2.Init.Overrun = ADC_OVR_DATA_OVERWRITTEN;
+ 132:Src/MCUSetup.c ****   if (HAL_ADC_Init(&hadc2) != HAL_OK) {
+ 133:Src/MCUSetup.c ****     Error_Handler();
+ 134:Src/MCUSetup.c ****   }
+ 135:Src/MCUSetup.c ****   /**Configure Regular Channel
+ 136:Src/MCUSetup.c ****    */
+ 137:Src/MCUSetup.c ****   sConfig.Channel = ADC_CHANNEL_2;
+ 138:Src/MCUSetup.c ****   sConfig.Rank = ADC_REGULAR_RANK_1;
+ 139:Src/MCUSetup.c ****   sConfig.SingleDiff = ADC_SINGLE_ENDED;
+ 140:Src/MCUSetup.c ****   sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
+ 141:Src/MCUSetup.c ****   sConfig.OffsetNumber = ADC_OFFSET_NONE;
+ 142:Src/MCUSetup.c ****   sConfig.Offset = 0;
+ 143:Src/MCUSetup.c ****   if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK) {
+ 144:Src/MCUSetup.c ****     Error_Handler();
+ 145:Src/MCUSetup.c ****   }
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccvmwd39.s 			page 4
+
+
+ 146:Src/MCUSetup.c ****   /* USER CODE BEGIN ADC2_Init 2 */
+ 147:Src/MCUSetup.c **** 
+ 148:Src/MCUSetup.c ****   /* USER CODE END ADC2_Init 2 */
+ 149:Src/MCUSetup.c **** }
+ 150:Src/MCUSetup.c **** 
+ 151:Src/MCUSetup.c **** /**
+ 152:Src/MCUSetup.c ****  * @brief ADC3 Initialization Function
+ 153:Src/MCUSetup.c ****  * @param None
+ 154:Src/MCUSetup.c ****  * @retval None
+ 155:Src/MCUSetup.c ****  */
+ 156:Src/MCUSetup.c **** static void MX_ADC3_Init(void) {
+ 157:Src/MCUSetup.c **** 
+ 158:Src/MCUSetup.c ****   /* USER CODE BEGIN ADC3_Init 0 */
+ 159:Src/MCUSetup.c **** 
+ 160:Src/MCUSetup.c ****   /* USER CODE END ADC3_Init 0 */
+ 161:Src/MCUSetup.c **** 
+ 162:Src/MCUSetup.c ****   ADC_MultiModeTypeDef multimode = {0};
+ 163:Src/MCUSetup.c ****   ADC_ChannelConfTypeDef sConfig = {0};
+ 164:Src/MCUSetup.c **** 
+ 165:Src/MCUSetup.c ****   /* USER CODE BEGIN ADC3_Init 1 */
+ 166:Src/MCUSetup.c **** 
+ 167:Src/MCUSetup.c ****   /* USER CODE END ADC3_Init 1 */
+ 168:Src/MCUSetup.c ****   /**Common config
+ 169:Src/MCUSetup.c ****    */
+ 170:Src/MCUSetup.c ****   hadc3.Instance = ADC3;
+ 171:Src/MCUSetup.c ****   hadc3.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
+ 172:Src/MCUSetup.c ****   hadc3.Init.Resolution = ADC_RESOLUTION_12B;
+ 173:Src/MCUSetup.c ****   hadc3.Init.ScanConvMode = ADC_SCAN_DISABLE;
+ 174:Src/MCUSetup.c ****   hadc3.Init.ContinuousConvMode = DISABLE;
+ 175:Src/MCUSetup.c ****   hadc3.Init.DiscontinuousConvMode = DISABLE;
+ 176:Src/MCUSetup.c ****   hadc3.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
+ 177:Src/MCUSetup.c ****   hadc3.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+ 178:Src/MCUSetup.c ****   hadc3.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+ 179:Src/MCUSetup.c ****   hadc3.Init.NbrOfConversion = 1;
+ 180:Src/MCUSetup.c ****   hadc3.Init.DMAContinuousRequests = DISABLE;
+ 181:Src/MCUSetup.c ****   hadc3.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+ 182:Src/MCUSetup.c ****   hadc3.Init.LowPowerAutoWait = DISABLE;
+ 183:Src/MCUSetup.c ****   hadc3.Init.Overrun = ADC_OVR_DATA_OVERWRITTEN;
+ 184:Src/MCUSetup.c ****   if (HAL_ADC_Init(&hadc3) != HAL_OK) {
+ 185:Src/MCUSetup.c ****     Error_Handler();
+ 186:Src/MCUSetup.c ****   }
+ 187:Src/MCUSetup.c ****   /**Configure the ADC multi-mode
+ 188:Src/MCUSetup.c ****    */
+ 189:Src/MCUSetup.c ****   multimode.Mode = ADC_MODE_INDEPENDENT;
+ 190:Src/MCUSetup.c ****   if (HAL_ADCEx_MultiModeConfigChannel(&hadc3, &multimode) != HAL_OK) {
+ 191:Src/MCUSetup.c ****     Error_Handler();
+ 192:Src/MCUSetup.c ****   }
+ 193:Src/MCUSetup.c ****   /**Configure Regular Channel
+ 194:Src/MCUSetup.c ****    */
+ 195:Src/MCUSetup.c ****   sConfig.Channel = ADC_CHANNEL_1;
+ 196:Src/MCUSetup.c ****   sConfig.Rank = ADC_REGULAR_RANK_1;
+ 197:Src/MCUSetup.c ****   sConfig.SingleDiff = ADC_SINGLE_ENDED;
+ 198:Src/MCUSetup.c ****   sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
+ 199:Src/MCUSetup.c ****   sConfig.OffsetNumber = ADC_OFFSET_NONE;
+ 200:Src/MCUSetup.c ****   sConfig.Offset = 0;
+ 201:Src/MCUSetup.c ****   if (HAL_ADC_ConfigChannel(&hadc3, &sConfig) != HAL_OK) {
+ 202:Src/MCUSetup.c ****     Error_Handler();
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccvmwd39.s 			page 5
+
+
+ 203:Src/MCUSetup.c ****   }
+ 204:Src/MCUSetup.c ****   /* USER CODE BEGIN ADC3_Init 2 */
+ 205:Src/MCUSetup.c **** 
+ 206:Src/MCUSetup.c ****   /* USER CODE END ADC3_Init 2 */
+ 207:Src/MCUSetup.c **** }
+ 208:Src/MCUSetup.c **** 
+ 209:Src/MCUSetup.c **** /**
+ 210:Src/MCUSetup.c ****  * @brief SPI1 Initialization Function
+ 211:Src/MCUSetup.c ****  * @param None
+ 212:Src/MCUSetup.c ****  * @retval None
+ 213:Src/MCUSetup.c ****  */
+ 214:Src/MCUSetup.c **** static void MX_SPI1_Init(void) {
+ 215:Src/MCUSetup.c **** 
+ 216:Src/MCUSetup.c ****   /* USER CODE BEGIN SPI1_Init 0 */
+ 217:Src/MCUSetup.c **** 
+ 218:Src/MCUSetup.c ****   /* USER CODE END SPI1_Init 0 */
+ 219:Src/MCUSetup.c **** 
+ 220:Src/MCUSetup.c ****   /* USER CODE BEGIN SPI1_Init 1 */
+ 221:Src/MCUSetup.c **** 
+ 222:Src/MCUSetup.c ****   /* USER CODE END SPI1_Init 1 */
+ 223:Src/MCUSetup.c ****   /* SPI1 parameter configuration*/
+ 224:Src/MCUSetup.c ****   hspi1.Instance = SPI1;
+ 225:Src/MCUSetup.c ****   hspi1.Init.Mode = SPI_MODE_MASTER;
+ 226:Src/MCUSetup.c ****   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
+ 227:Src/MCUSetup.c ****   hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
+ 228:Src/MCUSetup.c ****   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
+ 229:Src/MCUSetup.c ****   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
+ 230:Src/MCUSetup.c ****   hspi1.Init.NSS = SPI_NSS_HARD_OUTPUT;
+ 231:Src/MCUSetup.c ****   hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_64;
+ 232:Src/MCUSetup.c ****   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
+ 233:Src/MCUSetup.c ****   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
+ 234:Src/MCUSetup.c ****   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+ 235:Src/MCUSetup.c ****   hspi1.Init.CRCPolynomial = 7;
+ 236:Src/MCUSetup.c ****   hspi1.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
+ 237:Src/MCUSetup.c ****   hspi1.Init.NSSPMode = SPI_NSS_PULSE_ENABLE;
+ 238:Src/MCUSetup.c ****   if (HAL_SPI_Init(&hspi1) != HAL_OK) {
+ 239:Src/MCUSetup.c ****     Error_Handler();
+ 240:Src/MCUSetup.c ****   }
+ 241:Src/MCUSetup.c ****   /* USER CODE BEGIN SPI1_Init 2 */
+ 242:Src/MCUSetup.c **** 
+ 243:Src/MCUSetup.c ****   /* USER CODE END SPI1_Init 2 */
+ 244:Src/MCUSetup.c **** }
+ 245:Src/MCUSetup.c **** 
+ 246:Src/MCUSetup.c **** /**
+ 247:Src/MCUSetup.c ****  * @brief SPI2 Initialization Function
+ 248:Src/MCUSetup.c ****  * @param None
+ 249:Src/MCUSetup.c ****  * @retval None
+ 250:Src/MCUSetup.c ****  */
+ 251:Src/MCUSetup.c **** static void MX_SPI2_Init(void) {
+ 252:Src/MCUSetup.c **** 
+ 253:Src/MCUSetup.c ****   /* USER CODE BEGIN SPI2_Init 0 */
+ 254:Src/MCUSetup.c **** 
+ 255:Src/MCUSetup.c ****   /* USER CODE END SPI2_Init 0 */
+ 256:Src/MCUSetup.c **** 
+ 257:Src/MCUSetup.c ****   /* USER CODE BEGIN SPI2_Init 1 */
+ 258:Src/MCUSetup.c **** 
+ 259:Src/MCUSetup.c ****   /* USER CODE END SPI2_Init 1 */
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccvmwd39.s 			page 6
+
+
+ 260:Src/MCUSetup.c ****   /* SPI2 parameter configuration*/
+ 261:Src/MCUSetup.c ****   hspi2.Instance = SPI2;
+ 262:Src/MCUSetup.c ****   hspi2.Init.Mode = SPI_MODE_MASTER;
+ 263:Src/MCUSetup.c ****   hspi2.Init.Direction = SPI_DIRECTION_2LINES;
+ 264:Src/MCUSetup.c ****   hspi2.Init.DataSize = SPI_DATASIZE_8BIT;
+ 265:Src/MCUSetup.c ****   hspi2.Init.CLKPolarity = SPI_POLARITY_LOW;
+ 266:Src/MCUSetup.c ****   hspi2.Init.CLKPhase = SPI_PHASE_1EDGE;
+ 267:Src/MCUSetup.c ****   hspi2.Init.NSS = SPI_NSS_HARD_OUTPUT;
+ 268:Src/MCUSetup.c ****   hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_64;
+ 269:Src/MCUSetup.c ****   hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
+ 270:Src/MCUSetup.c ****   hspi2.Init.TIMode = SPI_TIMODE_DISABLE;
+ 271:Src/MCUSetup.c ****   hspi2.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+ 272:Src/MCUSetup.c ****   hspi2.Init.CRCPolynomial = 7;
+ 273:Src/MCUSetup.c ****   hspi2.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
+ 274:Src/MCUSetup.c ****   hspi2.Init.NSSPMode = SPI_NSS_PULSE_ENABLE;
+ 275:Src/MCUSetup.c ****   if (HAL_SPI_Init(&hspi2) != HAL_OK) {
+ 276:Src/MCUSetup.c ****     Error_Handler();
+ 277:Src/MCUSetup.c ****   }
+ 278:Src/MCUSetup.c ****   /* USER CODE BEGIN SPI2_Init 2 */
+ 279:Src/MCUSetup.c **** 
+ 280:Src/MCUSetup.c ****   /* USER CODE END SPI2_Init 2 */
+ 281:Src/MCUSetup.c **** }
+ 282:Src/MCUSetup.c **** 
+ 283:Src/MCUSetup.c **** /**
+ 284:Src/MCUSetup.c ****  * @brief USART1 Initialization Function
+ 285:Src/MCUSetup.c ****  * @param None
+ 286:Src/MCUSetup.c ****  * @retval None
+ 287:Src/MCUSetup.c ****  */
+ 288:Src/MCUSetup.c **** static void MX_USART1_UART_Init(void) {
+ 289:Src/MCUSetup.c **** 
+ 290:Src/MCUSetup.c ****   /* USER CODE BEGIN USART1_Init 0 */
+ 291:Src/MCUSetup.c **** 
+ 292:Src/MCUSetup.c ****   /* USER CODE END USART1_Init 0 */
+ 293:Src/MCUSetup.c **** 
+ 294:Src/MCUSetup.c ****   /* USER CODE BEGIN USART1_Init 1 */
+ 295:Src/MCUSetup.c **** 
+ 296:Src/MCUSetup.c ****   /* USER CODE END USART1_Init 1 */
+ 297:Src/MCUSetup.c ****   huart1.Instance = USART1;
+ 298:Src/MCUSetup.c ****   huart1.Init.BaudRate = 38400;
+ 299:Src/MCUSetup.c ****   huart1.Init.WordLength = UART_WORDLENGTH_8B;
+ 300:Src/MCUSetup.c ****   huart1.Init.StopBits = UART_STOPBITS_1;
+ 301:Src/MCUSetup.c ****   huart1.Init.Parity = UART_PARITY_NONE;
+ 302:Src/MCUSetup.c ****   huart1.Init.Mode = UART_MODE_TX_RX;
+ 303:Src/MCUSetup.c ****   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+ 304:Src/MCUSetup.c ****   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+ 305:Src/MCUSetup.c ****   huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+ 306:Src/MCUSetup.c ****   huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+ 307:Src/MCUSetup.c ****   if (HAL_UART_Init(&huart1) != HAL_OK) {
+ 308:Src/MCUSetup.c ****     Error_Handler();
+ 309:Src/MCUSetup.c ****   }
+ 310:Src/MCUSetup.c ****   /* USER CODE BEGIN USART1_Init 2 */
+ 311:Src/MCUSetup.c **** 
+ 312:Src/MCUSetup.c ****   /* USER CODE END USART1_Init 2 */
+ 313:Src/MCUSetup.c **** }
+ 314:Src/MCUSetup.c **** 
+ 315:Src/MCUSetup.c **** /**
+ 316:Src/MCUSetup.c ****  * @brief GPIO Initialization Function
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccvmwd39.s 			page 7
+
+
+ 317:Src/MCUSetup.c ****  * @param None
+ 318:Src/MCUSetup.c ****  * @retval None
+ 319:Src/MCUSetup.c ****  */
+ 320:Src/MCUSetup.c **** static void MX_GPIO_Init(void) {
+  28              		.loc 1 320 32 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 40
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 70B5     		push	{r4, r5, r6, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 16
+  35              		.cfi_offset 4, -16
+  36              		.cfi_offset 5, -12
+  37              		.cfi_offset 6, -8
+  38              		.cfi_offset 14, -4
+  39 0002 8AB0     		sub	sp, sp, #40
+  40              	.LCFI1:
+  41              		.cfi_def_cfa_offset 56
+ 321:Src/MCUSetup.c ****   GPIO_InitTypeDef GPIO_InitStruct = {0};
+  42              		.loc 1 321 3 view .LVU1
+  43              		.loc 1 321 20 is_stmt 0 view .LVU2
+  44 0004 0024     		movs	r4, #0
+  45 0006 0694     		str	r4, [sp, #24]
+  46 0008 0794     		str	r4, [sp, #28]
+  47 000a 0894     		str	r4, [sp, #32]
+  48 000c 0994     		str	r4, [sp, #36]
+ 322:Src/MCUSetup.c **** 
+ 323:Src/MCUSetup.c ****   /* GPIO Ports Clock Enable */
+ 324:Src/MCUSetup.c ****   __HAL_RCC_GPIOC_CLK_ENABLE();
+  49              		.loc 1 324 3 is_stmt 1 view .LVU3
+  50              	.LBB2:
+  51              		.loc 1 324 3 view .LVU4
+  52              		.loc 1 324 3 view .LVU5
+  53 000e 2A4B     		ldr	r3, .L3
+  54 0010 5A69     		ldr	r2, [r3, #20]
+  55 0012 42F40022 		orr	r2, r2, #524288
+  56 0016 5A61     		str	r2, [r3, #20]
+  57              		.loc 1 324 3 view .LVU6
+  58 0018 5A69     		ldr	r2, [r3, #20]
+  59 001a 02F40022 		and	r2, r2, #524288
+  60 001e 0192     		str	r2, [sp, #4]
+  61              		.loc 1 324 3 view .LVU7
+  62 0020 019A     		ldr	r2, [sp, #4]
+  63              	.LBE2:
+ 325:Src/MCUSetup.c ****   __HAL_RCC_GPIOF_CLK_ENABLE();
+  64              		.loc 1 325 3 view .LVU8
+  65              	.LBB3:
+  66              		.loc 1 325 3 view .LVU9
+  67              		.loc 1 325 3 view .LVU10
+  68 0022 5A69     		ldr	r2, [r3, #20]
+  69 0024 42F48002 		orr	r2, r2, #4194304
+  70 0028 5A61     		str	r2, [r3, #20]
+  71              		.loc 1 325 3 view .LVU11
+  72 002a 5A69     		ldr	r2, [r3, #20]
+  73 002c 02F48002 		and	r2, r2, #4194304
+  74 0030 0292     		str	r2, [sp, #8]
+  75              		.loc 1 325 3 view .LVU12
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccvmwd39.s 			page 8
+
+
+  76 0032 029A     		ldr	r2, [sp, #8]
+  77              	.LBE3:
+ 326:Src/MCUSetup.c ****   __HAL_RCC_GPIOA_CLK_ENABLE();
+  78              		.loc 1 326 3 view .LVU13
+  79              	.LBB4:
+  80              		.loc 1 326 3 view .LVU14
+  81              		.loc 1 326 3 view .LVU15
+  82 0034 5A69     		ldr	r2, [r3, #20]
+  83 0036 42F40032 		orr	r2, r2, #131072
+  84 003a 5A61     		str	r2, [r3, #20]
+  85              		.loc 1 326 3 view .LVU16
+  86 003c 5A69     		ldr	r2, [r3, #20]
+  87 003e 02F40032 		and	r2, r2, #131072
+  88 0042 0392     		str	r2, [sp, #12]
+  89              		.loc 1 326 3 view .LVU17
+  90 0044 039A     		ldr	r2, [sp, #12]
+  91              	.LBE4:
+ 327:Src/MCUSetup.c ****   __HAL_RCC_GPIOB_CLK_ENABLE();
+  92              		.loc 1 327 3 view .LVU18
+  93              	.LBB5:
+  94              		.loc 1 327 3 view .LVU19
+  95              		.loc 1 327 3 view .LVU20
+  96 0046 5A69     		ldr	r2, [r3, #20]
+  97 0048 42F48022 		orr	r2, r2, #262144
+  98 004c 5A61     		str	r2, [r3, #20]
+  99              		.loc 1 327 3 view .LVU21
+ 100 004e 5B69     		ldr	r3, [r3, #20]
+ 101 0050 03F48023 		and	r3, r3, #262144
+ 102 0054 0493     		str	r3, [sp, #16]
+ 103              		.loc 1 327 3 view .LVU22
+ 104 0056 049B     		ldr	r3, [sp, #16]
+ 105              	.LBE5:
+ 328:Src/MCUSetup.c **** 
+ 329:Src/MCUSetup.c ****   /*Configure GPIO pins : SID_RES_Pin SID_CS_Pin FREQ_A_Pin FILTER_SW_Pin
+ 330:Src/MCUSetup.c ****                            FILTEREXT_SW_Pin FILTER3_SW_Pin FILTER2_SW_Pin
+ 331:Src/MCUSetup.c ****      MOD_SW_Pin MODE_SW_Pin */
+ 332:Src/MCUSetup.c ****   GPIO_InitStruct.Pin = SID_RES_Pin | SID_CS_Pin | FREQ_A_Pin | FILTER_SW_Pin |
+ 106              		.loc 1 332 3 view .LVU23
+ 107              		.loc 1 332 23 is_stmt 0 view .LVU24
+ 108 0058 4EF6C073 		movw	r3, #61376
+ 109 005c 0593     		str	r3, [sp, #20]
+ 333:Src/MCUSetup.c ****                         FILTEREXT_SW_Pin | FILTER3_SW_Pin | FILTER2_SW_Pin |
+ 334:Src/MCUSetup.c ****                         MOD_SW_Pin | MODE_SW_Pin;
+ 335:Src/MCUSetup.c ****   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+ 110              		.loc 1 335 3 is_stmt 1 view .LVU25
+ 336:Src/MCUSetup.c ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 111              		.loc 1 336 3 view .LVU26
+ 337:Src/MCUSetup.c ****   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+ 112              		.loc 1 337 3 view .LVU27
+ 113 005e 05A9     		add	r1, sp, #20
+ 114 0060 1648     		ldr	r0, .L3+4
+ 115 0062 FFF7FEFF 		bl	HAL_GPIO_Init
+ 116              	.LVL0:
+ 338:Src/MCUSetup.c **** 
+ 339:Src/MCUSetup.c ****   /*Configure GPIO pins : FREQ_B_Pin FREQ_SW_Pin */
+ 340:Src/MCUSetup.c ****   GPIO_InitStruct.Pin = FREQ_B_Pin | FREQ_SW_Pin;
+ 117              		.loc 1 340 3 view .LVU28
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccvmwd39.s 			page 9
+
+
+ 118              		.loc 1 340 23 is_stmt 0 view .LVU29
+ 119 0066 0326     		movs	r6, #3
+ 120 0068 0596     		str	r6, [sp, #20]
+ 341:Src/MCUSetup.c ****   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+ 121              		.loc 1 341 3 is_stmt 1 view .LVU30
+ 122              		.loc 1 341 24 is_stmt 0 view .LVU31
+ 123 006a 0694     		str	r4, [sp, #24]
+ 342:Src/MCUSetup.c ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 124              		.loc 1 342 3 is_stmt 1 view .LVU32
+ 125              		.loc 1 342 24 is_stmt 0 view .LVU33
+ 126 006c 0794     		str	r4, [sp, #28]
+ 343:Src/MCUSetup.c ****   HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
+ 127              		.loc 1 343 3 is_stmt 1 view .LVU34
+ 128 006e 05A9     		add	r1, sp, #20
+ 129 0070 1348     		ldr	r0, .L3+8
+ 130 0072 FFF7FEFF 		bl	HAL_GPIO_Init
+ 131              	.LVL1:
+ 344:Src/MCUSetup.c **** 
+ 345:Src/MCUSetup.c ****   /*Configure GPIO pins : GATE_1_Pin GATE_2_Pin GATE_3_Pin VOICE_SW_Pin */
+ 346:Src/MCUSetup.c ****   GPIO_InitStruct.Pin = GATE_1_Pin | GATE_2_Pin | GATE_3_Pin | VOICE_SW_Pin;
+ 132              		.loc 1 346 3 view .LVU35
+ 133              		.loc 1 346 23 is_stmt 0 view .LVU36
+ 134 0076 44F60443 		movw	r3, #19460
+ 135 007a 0593     		str	r3, [sp, #20]
+ 347:Src/MCUSetup.c ****   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+ 136              		.loc 1 347 3 is_stmt 1 view .LVU37
+ 137              		.loc 1 347 24 is_stmt 0 view .LVU38
+ 138 007c 0694     		str	r4, [sp, #24]
+ 348:Src/MCUSetup.c ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 139              		.loc 1 348 3 is_stmt 1 view .LVU39
+ 140              		.loc 1 348 24 is_stmt 0 view .LVU40
+ 141 007e 0794     		str	r4, [sp, #28]
+ 349:Src/MCUSetup.c ****   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+ 142              		.loc 1 349 3 is_stmt 1 view .LVU41
+ 143 0080 104D     		ldr	r5, .L3+12
+ 144 0082 05A9     		add	r1, sp, #20
+ 145 0084 2846     		mov	r0, r5
+ 146 0086 FFF7FEFF 		bl	HAL_GPIO_Init
+ 147              	.LVL2:
+ 350:Src/MCUSetup.c **** 
+ 351:Src/MCUSetup.c ****   /*Configure GPIO pins : FILTER1_SW_Pin SHAPE_SW_Pin SET_SW_Pin */
+ 352:Src/MCUSetup.c ****   GPIO_InitStruct.Pin = FILTER1_SW_Pin | SHAPE_SW_Pin | SET_SW_Pin;
+ 148              		.loc 1 352 3 view .LVU42
+ 149              		.loc 1 352 23 is_stmt 0 view .LVU43
+ 150 008a 4FF4C853 		mov	r3, #6400
+ 151 008e 0593     		str	r3, [sp, #20]
+ 353:Src/MCUSetup.c ****   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+ 152              		.loc 1 353 3 is_stmt 1 view .LVU44
+ 153              		.loc 1 353 24 is_stmt 0 view .LVU45
+ 154 0090 0694     		str	r4, [sp, #24]
+ 354:Src/MCUSetup.c ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 155              		.loc 1 354 3 is_stmt 1 view .LVU46
+ 156              		.loc 1 354 24 is_stmt 0 view .LVU47
+ 157 0092 0794     		str	r4, [sp, #28]
+ 355:Src/MCUSetup.c ****   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+ 158              		.loc 1 355 3 is_stmt 1 view .LVU48
+ 159 0094 05A9     		add	r1, sp, #20
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccvmwd39.s 			page 10
+
+
+ 160 0096 4FF09040 		mov	r0, #1207959552
+ 161 009a FFF7FEFF 		bl	HAL_GPIO_Init
+ 162              	.LVL3:
+ 356:Src/MCUSetup.c ****   
+ 357:Src/MCUSetup.c **** /*Configure GPIO pins : FILTER1_SW_Pin SHAPE_SW_Pin SET_SW_Pin */
+ 358:Src/MCUSetup.c ****   GPIO_InitStruct.Pin = GPIO_PIN_5;
+ 163              		.loc 1 358 3 view .LVU49
+ 164              		.loc 1 358 23 is_stmt 0 view .LVU50
+ 165 009e 2023     		movs	r3, #32
+ 166 00a0 0593     		str	r3, [sp, #20]
+ 359:Src/MCUSetup.c ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 167              		.loc 1 359 3 is_stmt 1 view .LVU51
+ 168              		.loc 1 359 24 is_stmt 0 view .LVU52
+ 169 00a2 0123     		movs	r3, #1
+ 170 00a4 0693     		str	r3, [sp, #24]
+ 360:Src/MCUSetup.c ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+ 171              		.loc 1 360 3 is_stmt 1 view .LVU53
+ 172              		.loc 1 360 25 is_stmt 0 view .LVU54
+ 173 00a6 0896     		str	r6, [sp, #32]
+ 361:Src/MCUSetup.c ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 174              		.loc 1 361 3 is_stmt 1 view .LVU55
+ 175              		.loc 1 361 24 is_stmt 0 view .LVU56
+ 176 00a8 0794     		str	r4, [sp, #28]
+ 362:Src/MCUSetup.c ****   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+ 177              		.loc 1 362 3 is_stmt 1 view .LVU57
+ 178 00aa 05A9     		add	r1, sp, #20
+ 179 00ac 2846     		mov	r0, r5
+ 180 00ae FFF7FEFF 		bl	HAL_GPIO_Init
+ 181              	.LVL4:
+ 363:Src/MCUSetup.c **** }
+ 182              		.loc 1 363 1 is_stmt 0 view .LVU58
+ 183 00b2 0AB0     		add	sp, sp, #40
+ 184              	.LCFI2:
+ 185              		.cfi_def_cfa_offset 16
+ 186              		@ sp needed
+ 187 00b4 70BD     		pop	{r4, r5, r6, pc}
+ 188              	.L4:
+ 189 00b6 00BF     		.align	2
+ 190              	.L3:
+ 191 00b8 00100240 		.word	1073876992
+ 192 00bc 00080048 		.word	1207961600
+ 193 00c0 00140048 		.word	1207964672
+ 194 00c4 00040048 		.word	1207960576
+ 195              		.cfi_endproc
+ 196              	.LFE133:
+ 198              		.section	.text.SystemClock_Config,"ax",%progbits
+ 199              		.align	1
+ 200              		.global	SystemClock_Config
+ 201              		.syntax unified
+ 202              		.thumb
+ 203              		.thumb_func
+ 204              		.fpu fpv4-sp-d16
+ 206              	SystemClock_Config:
+ 207              	.LFB126:
+   4:Src/MCUSetup.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+ 208              		.loc 1 4 31 is_stmt 1 view -0
+ 209              		.cfi_startproc
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccvmwd39.s 			page 11
+
+
+ 210              		@ args = 0, pretend = 0, frame = 120
+ 211              		@ frame_needed = 0, uses_anonymous_args = 0
+ 212 0000 30B5     		push	{r4, r5, lr}
+ 213              	.LCFI3:
+ 214              		.cfi_def_cfa_offset 12
+ 215              		.cfi_offset 4, -12
+ 216              		.cfi_offset 5, -8
+ 217              		.cfi_offset 14, -4
+ 218 0002 9FB0     		sub	sp, sp, #124
+ 219              	.LCFI4:
+ 220              		.cfi_def_cfa_offset 136
+   5:Src/MCUSetup.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+ 221              		.loc 1 5 3 view .LVU60
+   5:Src/MCUSetup.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+ 222              		.loc 1 5 22 is_stmt 0 view .LVU61
+ 223 0004 2022     		movs	r2, #32
+ 224 0006 0021     		movs	r1, #0
+ 225 0008 15A8     		add	r0, sp, #84
+ 226 000a FFF7FEFF 		bl	memset
+ 227              	.LVL5:
+   6:Src/MCUSetup.c ****   RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
+ 228              		.loc 1 6 3 is_stmt 1 view .LVU62
+   6:Src/MCUSetup.c ****   RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
+ 229              		.loc 1 6 22 is_stmt 0 view .LVU63
+ 230 000e 0024     		movs	r4, #0
+ 231 0010 0F94     		str	r4, [sp, #60]
+ 232 0012 1094     		str	r4, [sp, #64]
+ 233 0014 1194     		str	r4, [sp, #68]
+ 234 0016 1294     		str	r4, [sp, #72]
+ 235 0018 1394     		str	r4, [sp, #76]
+   7:Src/MCUSetup.c **** 
+ 236              		.loc 1 7 3 is_stmt 1 view .LVU64
+   7:Src/MCUSetup.c **** 
+ 237              		.loc 1 7 28 is_stmt 0 view .LVU65
+ 238 001a 3C22     		movs	r2, #60
+ 239 001c 2146     		mov	r1, r4
+ 240 001e 6846     		mov	r0, sp
+ 241 0020 FFF7FEFF 		bl	memset
+ 242              	.LVL6:
+  11:Src/MCUSetup.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+ 243              		.loc 1 11 3 is_stmt 1 view .LVU66
+  11:Src/MCUSetup.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+ 244              		.loc 1 11 36 is_stmt 0 view .LVU67
+ 245 0024 0225     		movs	r5, #2
+ 246 0026 1495     		str	r5, [sp, #80]
+  12:Src/MCUSetup.c ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+ 247              		.loc 1 12 3 is_stmt 1 view .LVU68
+  12:Src/MCUSetup.c ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+ 248              		.loc 1 12 30 is_stmt 0 view .LVU69
+ 249 0028 0123     		movs	r3, #1
+ 250 002a 1893     		str	r3, [sp, #96]
+  13:Src/MCUSetup.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+ 251              		.loc 1 13 3 is_stmt 1 view .LVU70
+  13:Src/MCUSetup.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+ 252              		.loc 1 13 41 is_stmt 0 view .LVU71
+ 253 002c 1023     		movs	r3, #16
+ 254 002e 1993     		str	r3, [sp, #100]
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccvmwd39.s 			page 12
+
+
+  14:Src/MCUSetup.c ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+ 255              		.loc 1 14 3 is_stmt 1 view .LVU72
+  14:Src/MCUSetup.c ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+ 256              		.loc 1 14 34 is_stmt 0 view .LVU73
+ 257 0030 1B95     		str	r5, [sp, #108]
+  15:Src/MCUSetup.c ****   RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL16;
+ 258              		.loc 1 15 3 is_stmt 1 view .LVU74
+  16:Src/MCUSetup.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
+ 259              		.loc 1 16 3 view .LVU75
+  16:Src/MCUSetup.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
+ 260              		.loc 1 16 32 is_stmt 0 view .LVU76
+ 261 0032 4FF46013 		mov	r3, #3670016
+ 262 0036 1D93     		str	r3, [sp, #116]
+  17:Src/MCUSetup.c ****     Error_Handler();
+ 263              		.loc 1 17 3 is_stmt 1 view .LVU77
+  17:Src/MCUSetup.c ****     Error_Handler();
+ 264              		.loc 1 17 7 is_stmt 0 view .LVU78
+ 265 0038 14A8     		add	r0, sp, #80
+ 266 003a FFF7FEFF 		bl	HAL_RCC_OscConfig
+ 267              	.LVL7:
+  22:Src/MCUSetup.c ****                                 RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
+ 268              		.loc 1 22 3 is_stmt 1 view .LVU79
+  22:Src/MCUSetup.c ****                                 RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
+ 269              		.loc 1 22 31 is_stmt 0 view .LVU80
+ 270 003e 0F23     		movs	r3, #15
+ 271 0040 0F93     		str	r3, [sp, #60]
+  24:Src/MCUSetup.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 272              		.loc 1 24 3 is_stmt 1 view .LVU81
+  24:Src/MCUSetup.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 273              		.loc 1 24 34 is_stmt 0 view .LVU82
+ 274 0042 1095     		str	r5, [sp, #64]
+  25:Src/MCUSetup.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+ 275              		.loc 1 25 3 is_stmt 1 view .LVU83
+  25:Src/MCUSetup.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+ 276              		.loc 1 25 35 is_stmt 0 view .LVU84
+ 277 0044 1194     		str	r4, [sp, #68]
+  26:Src/MCUSetup.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+ 278              		.loc 1 26 3 is_stmt 1 view .LVU85
+  26:Src/MCUSetup.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+ 279              		.loc 1 26 36 is_stmt 0 view .LVU86
+ 280 0046 4FF48063 		mov	r3, #1024
+ 281 004a 1293     		str	r3, [sp, #72]
+  27:Src/MCUSetup.c **** 
+ 282              		.loc 1 27 3 is_stmt 1 view .LVU87
+  27:Src/MCUSetup.c **** 
+ 283              		.loc 1 27 36 is_stmt 0 view .LVU88
+ 284 004c 1394     		str	r4, [sp, #76]
+  29:Src/MCUSetup.c ****     Error_Handler();
+ 285              		.loc 1 29 3 is_stmt 1 view .LVU89
+  29:Src/MCUSetup.c ****     Error_Handler();
+ 286              		.loc 1 29 7 is_stmt 0 view .LVU90
+ 287 004e 2946     		mov	r1, r5
+ 288 0050 0FA8     		add	r0, sp, #60
+ 289 0052 FFF7FEFF 		bl	HAL_RCC_ClockConfig
+ 290              	.LVL8:
+  32:Src/MCUSetup.c ****       RCC_PERIPHCLK_USART1 | RCC_PERIPHCLK_ADC12 | RCC_PERIPHCLK_ADC34;
+ 291              		.loc 1 32 3 is_stmt 1 view .LVU91
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccvmwd39.s 			page 13
+
+
+  32:Src/MCUSetup.c ****       RCC_PERIPHCLK_USART1 | RCC_PERIPHCLK_ADC12 | RCC_PERIPHCLK_ADC34;
+ 292              		.loc 1 32 38 is_stmt 0 view .LVU92
+ 293 0056 40F28113 		movw	r3, #385
+ 294 005a 0093     		str	r3, [sp]
+  34:Src/MCUSetup.c ****   PeriphClkInit.Adc12ClockSelection = RCC_ADC12PLLCLK_DIV1;
+ 295              		.loc 1 34 3 is_stmt 1 view .LVU93
+  34:Src/MCUSetup.c ****   PeriphClkInit.Adc12ClockSelection = RCC_ADC12PLLCLK_DIV1;
+ 296              		.loc 1 34 38 is_stmt 0 view .LVU94
+ 297 005c 0294     		str	r4, [sp, #8]
+  35:Src/MCUSetup.c ****   PeriphClkInit.Adc34ClockSelection = RCC_ADC34PLLCLK_DIV1;
+ 298              		.loc 1 35 3 is_stmt 1 view .LVU95
+  35:Src/MCUSetup.c ****   PeriphClkInit.Adc34ClockSelection = RCC_ADC34PLLCLK_DIV1;
+ 299              		.loc 1 35 37 is_stmt 0 view .LVU96
+ 300 005e 4FF48073 		mov	r3, #256
+ 301 0062 0993     		str	r3, [sp, #36]
+  36:Src/MCUSetup.c ****   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK) {
+ 302              		.loc 1 36 3 is_stmt 1 view .LVU97
+  36:Src/MCUSetup.c ****   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK) {
+ 303              		.loc 1 36 37 is_stmt 0 view .LVU98
+ 304 0064 4FF40053 		mov	r3, #8192
+ 305 0068 0A93     		str	r3, [sp, #40]
+  37:Src/MCUSetup.c ****     Error_Handler();
+ 306              		.loc 1 37 3 is_stmt 1 view .LVU99
+  37:Src/MCUSetup.c ****     Error_Handler();
+ 307              		.loc 1 37 7 is_stmt 0 view .LVU100
+ 308 006a 6846     		mov	r0, sp
+ 309 006c FFF7FEFF 		bl	HAL_RCCEx_PeriphCLKConfig
+ 310              	.LVL9:
+  40:Src/MCUSetup.c **** 
+ 311              		.loc 1 40 1 view .LVU101
+ 312 0070 1FB0     		add	sp, sp, #124
+ 313              	.LCFI5:
+ 314              		.cfi_def_cfa_offset 12
+ 315              		@ sp needed
+ 316 0072 30BD     		pop	{r4, r5, pc}
+ 317              		.cfi_endproc
+ 318              	.LFE126:
+ 320              		.section	.text.Error_Handler,"ax",%progbits
+ 321              		.align	1
+ 322              		.global	Error_Handler
+ 323              		.syntax unified
+ 324              		.thumb
+ 325              		.thumb_func
+ 326              		.fpu fpv4-sp-d16
+ 328              	Error_Handler:
+ 329              	.LFB134:
+ 364:Src/MCUSetup.c **** 
+ 365:Src/MCUSetup.c **** /* USER CODE BEGIN 4 */
+ 366:Src/MCUSetup.c **** 
+ 367:Src/MCUSetup.c **** /* USER CODE END 4 */
+ 368:Src/MCUSetup.c **** 
+ 369:Src/MCUSetup.c **** /**
+ 370:Src/MCUSetup.c ****  * @brief  This function is executed in case of error occurrence.
+ 371:Src/MCUSetup.c ****  * @retval None
+ 372:Src/MCUSetup.c ****  */
+ 373:Src/MCUSetup.c **** void Error_Handler(void) {
+ 330              		.loc 1 373 26 is_stmt 1 view -0
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccvmwd39.s 			page 14
+
+
+ 331              		.cfi_startproc
+ 332              		@ args = 0, pretend = 0, frame = 0
+ 333              		@ frame_needed = 0, uses_anonymous_args = 0
+ 334              		@ link register save eliminated.
+ 374:Src/MCUSetup.c ****   /* USER CODE BEGIN Error_Handler_Debug */
+ 375:Src/MCUSetup.c ****   /* User can add his own implementation to report the HAL error return state */
+ 376:Src/MCUSetup.c **** 
+ 377:Src/MCUSetup.c ****   /* USER CODE END Error_Handler_Debug */
+ 378:Src/MCUSetup.c **** }
+ 335              		.loc 1 378 1 view .LVU103
+ 336 0000 7047     		bx	lr
+ 337              		.cfi_endproc
+ 338              	.LFE134:
+ 340              		.section	.text.peripheralSetup,"ax",%progbits
+ 341              		.align	1
+ 342              		.global	peripheralSetup
+ 343              		.syntax unified
+ 344              		.thumb
+ 345              		.thumb_func
+ 346              		.fpu fpv4-sp-d16
+ 348              	peripheralSetup:
+ 349              	.LFB135:
+ 379:Src/MCUSetup.c **** 
+ 380:Src/MCUSetup.c **** void peripheralSetup() {
+ 350              		.loc 1 380 24 view -0
+ 351              		.cfi_startproc
+ 352              		@ args = 0, pretend = 0, frame = 0
+ 353              		@ frame_needed = 0, uses_anonymous_args = 0
+ 354 0000 08B5     		push	{r3, lr}
+ 355              	.LCFI6:
+ 356              		.cfi_def_cfa_offset 8
+ 357              		.cfi_offset 3, -8
+ 358              		.cfi_offset 14, -4
+ 381:Src/MCUSetup.c ****   HAL_Init();
+ 359              		.loc 1 381 3 view .LVU105
+ 360 0002 FFF7FEFF 		bl	HAL_Init
+ 361              	.LVL10:
+ 382:Src/MCUSetup.c ****   SystemClock_Config();
+ 362              		.loc 1 382 3 view .LVU106
+ 363 0006 FFF7FEFF 		bl	SystemClock_Config
+ 364              	.LVL11:
+ 383:Src/MCUSetup.c **** 
+ 384:Src/MCUSetup.c ****   MX_GPIO_Init();
+ 365              		.loc 1 384 3 view .LVU107
+ 366 000a FFF7FEFF 		bl	MX_GPIO_Init
+ 367              	.LVL12:
+ 385:Src/MCUSetup.c ****   //MX_ADC1_Init();
+ 386:Src/MCUSetup.c ****   ////MX_ADC2_Init();
+ 387:Src/MCUSetup.c ****   //MX_ADC3_Init();
+ 388:Src/MCUSetup.c ****   //MX_SPI1_Init();
+ 389:Src/MCUSetup.c ****   //MX_SPI2_Init();
+ 390:Src/MCUSetup.c ****   //MX_USART1_UART_Init();
+ 391:Src/MCUSetup.c **** }...
+ 368              		.loc 1 391 1 is_stmt 0 view .LVU108
+ 369 000e 08BD     		pop	{r3, pc}
+ 370              		.cfi_endproc
+ 371              	.LFE135:
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccvmwd39.s 			page 15
+
+
+ 373              		.comm	huart1,112,4
+ 374              		.comm	hspi2,100,4
+ 375              		.comm	hspi1,100,4
+ 376              		.comm	hadc3,84,4
+ 377              		.comm	hadc2,84,4
+ 378              		.comm	hadc1,84,4
+ 379              		.text
+ 380              	.Letext0:
+ 381              		.file 2 "/usr/local/gcc_arm/arm-none-eabi/include/machine/_default_types.h"
+ 382              		.file 3 "/usr/local/gcc_arm/arm-none-eabi/include/sys/_stdint.h"
+ 383              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 384              		.file 5 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/system_stm32f3xx.h"
+ 385              		.file 6 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xc.h"
+ 386              		.file 7 "/usr/local/gcc_arm/arm-none-eabi/include/sys/lock.h"
+ 387              		.file 8 "/usr/local/gcc_arm/arm-none-eabi/include/sys/_types.h"
+ 388              		.file 9 "/usr/local/gcc_arm/lib/gcc/arm-none-eabi/8.2.1/include/stddef.h"
+ 389              		.file 10 "/usr/local/gcc_arm/arm-none-eabi/include/sys/reent.h"
+ 390              		.file 11 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h"
+ 391              		.file 12 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rcc.h"
+ 392              		.file 13 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rcc_ex.h"
+ 393              		.file 14 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_gpio.h"
+ 394              		.file 15 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_dma.h"
+ 395              		.file 16 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_adc_ex.h"
+ 396              		.file 17 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_adc.h"
+ 397              		.file 18 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi.h"
+ 398              		.file 19 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h"
+ 399              		.file 20 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h"
+ 400              		.file 21 "Inc/MCUSetup.h"
+ 401              		.file 22 "<built-in>"
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccvmwd39.s 			page 16
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 MCUSetup.c
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccvmwd39.s:18     .text.MX_GPIO_Init:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccvmwd39.s:25     .text.MX_GPIO_Init:0000000000000000 MX_GPIO_Init
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccvmwd39.s:191    .text.MX_GPIO_Init:00000000000000b8 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccvmwd39.s:199    .text.SystemClock_Config:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccvmwd39.s:206    .text.SystemClock_Config:0000000000000000 SystemClock_Config
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccvmwd39.s:321    .text.Error_Handler:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccvmwd39.s:328    .text.Error_Handler:0000000000000000 Error_Handler
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccvmwd39.s:341    .text.peripheralSetup:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccvmwd39.s:348    .text.peripheralSetup:0000000000000000 peripheralSetup
+                            *COM*:0000000000000070 huart1
+                            *COM*:0000000000000064 hspi2
+                            *COM*:0000000000000064 hspi1
+                            *COM*:0000000000000054 hadc3
+                            *COM*:0000000000000054 hadc2
+                            *COM*:0000000000000054 hadc1
+
+UNDEFINED SYMBOLS
+HAL_GPIO_Init
+memset
+HAL_RCC_OscConfig
+HAL_RCC_ClockConfig
+HAL_RCCEx_PeriphCLKConfig
+HAL_Init

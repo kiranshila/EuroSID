@@ -3,8 +3,9 @@
     "ABOUT2": "User should not edit this fields, instead it should edit 'c_cpp_properties.json'",
     "ABOUT3": "This file is regenerated on 'Update workspace' task.",
     "VERSION": "1.5",
-    "LAST_RUN": "2019-03-08 15:26:41.343309",
+    "LAST_RUN": "2019-03-08 18:14:24.632136",
     "cSources": [
+        "Src/MCUSetup.c",
         "Src/main.c",
         "Src/stm32f3xx_it.c",
         "Src/stm32f3xx_hal_msp.c",
@@ -91,11 +92,11 @@
     "buildToolsPath": "/usr/bin/make",
     "pythonExec": "python3",
     "openOcdPath": "/usr/local/bin/openocd",
-    "openOcdInterfacePath": "stlink-v2.cfg",
+    "openOcdInterfacePath": ".",
     "openOcdConfig": [
-        "/usr/local/Cellar/open-ocd/0.10.0/share/openocd/scripts/target/stm32f3x.cfg"
+        "."
     ],
-    "stm32SvdPath": "STM32F303x.svd",
-    "targetExecutablePath": "build/EuroSID.elf",
-    "cubeMxProjectPath": "EuroSID.ioc"
+    "stm32SvdPath": ".",
+    "targetExecutablePath": "/Users/kiranshila/Desktop/Projects/EuroSID/Software/build/EuroSID.elf",
+    "cubeMxProjectPath": "/Users/kiranshila/Desktop/Projects/EuroSID/Software/EuroSID.ioc"
 }
