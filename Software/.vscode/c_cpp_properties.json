@@ -1,0 +1,92 @@
+{
+    "env": {
+        "____________________USER_FIELDS_CAN_BE_MODIFIED____________________": "",
+        "user_cSources": [],
+        "user_asmSources": [],
+        "user_cIncludes": [],
+        "user_asmIncludes": [],
+        "user_cDefines": [
+            "AVOID_EMPTY_DEFINE_FIELD_C"
+        ],
+        "user_asmDefines": [
+            "AVOID_EMPTY_DEFINE_FIELD_ASM"
+        ],
+        "user_cFlags": [],
+        "user_asmFlags": [],
+        "____________________DO_NOT_MODIFY_FIELDS_BELOW____________________": "",
+        "cubemx_sourceFiles": [
+            "Src/main.c",
+            "Src/stm32f3xx_it.c",
+            "Src/stm32f3xx_hal_msp.c",
+            "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc.c",
+            "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.c",
+            "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_spi.c",
+            "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_spi_ex.c",
+            "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim.c",
+            "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim_ex.c",
+            "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.c",
+            "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart_ex.c",
+            "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.c",
+            "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc.c",
+            "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc_ex.c",
+            "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_gpio.c",
+            "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.c",
+            "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.c",
+            "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_pwr.c",
+            "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_pwr_ex.c",
+            "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_flash.c",
+            "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_flash_ex.c",
+            "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c.c",
+            "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c_ex.c",
+            "Src/system_stm32f3xx.c",
+            "startup_stm32f303xc.s"
+        ],
+        "cubemx_includes": [
+            "Inc",
+            "Drivers/STM32F3xx_HAL_Driver/Inc",
+            "Drivers/STM32F3xx_HAL_Driver/Inc/Legacy",
+            "Drivers/CMSIS/Device/ST/STM32F3xx/Include",
+            "Drivers/CMSIS/Include",
+            "Drivers/CMSIS/Include"
+        ],
+        "cubemx_defines": [
+            "USE_HAL_DRIVER",
+            "STM32F303xC"
+        ],
+        "gccExePath": "/usr/local/gcc_arm/bin/arm-none-eabi-gcc",
+        "gccIncludePath": "/usr/local/gcc_arm/lib/gcc/arm-none-eabi/8.2.1/include"
+    },
+    "configurations": [
+        {
+            "name": "EuroSID",
+            "intelliSenseMode": "msvc-x64",
+            "includePath": [
+                "${workspaceFolder}",
+                "${cubemx_includes}",
+                "${gccIncludePath}",
+                "${user_cIncludes}",
+                "${user_asmIncludes}"
+            ],
+            "browse": {
+                "path": [
+                    "${workspaceFolder}",
+                    "${cubemx_includes}",
+                    "${gccIncludePath}",
+                    "${user_cIncludes}",
+                    "${user_asmIncludes}"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "defines": [
+                "${cubemx_defines}",
+                "${user_cDefines}",
+                "${user_asmDefines}"
+            ],
+            "forcedInclude": [],
+            "compilerPath": "${gccExePath}",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}

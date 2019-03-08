@@ -194,7 +194,7 @@ F 3 "~" H 750 6100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C C63
+L Device:CP C63
 U 1 1 5BEF067C
 P 1750 6100
 F 0 "C63" H 1865 6146 50  0000 L CNN
