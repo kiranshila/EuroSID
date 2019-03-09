@@ -2,7 +2,8 @@
     "env": {
         "____________________USER_FIELDS_CAN_BE_MODIFIED____________________": "",
         "user_cSources": [
-            "Src/MCUSetup.c"
+            "Src/MCUSetup.c",
+            "Src/TLC5947.c"
         ],
         "user_asmSources": [],
         "user_cIncludes": [],

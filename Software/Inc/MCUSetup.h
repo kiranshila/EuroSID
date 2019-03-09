@@ -8,4 +8,5 @@ SPI_HandleTypeDef hspi2;
 UART_HandleTypeDef huart1;
 
 void SystemClock_Config(void);
-void peripheralSetup();
+void MCU_Setup();
+void Error_Handler(void);

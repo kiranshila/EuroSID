@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccJLRGrs.s 			page 1
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUMGaQm.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -30,89 +30,142 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccJLRGrs.s 			page 1
   28              		.file 1 "Src/main.c"
    1:Src/main.c    **** #include "main.h"
    2:Src/main.c    **** #include "MCUSetup.h"
-   3:Src/main.c    **** 
-   4:Src/main.c    **** int main(void) {
-  29              		.loc 1 4 16 view -0
+   3:Src/main.c    **** #include "TLC5947.h"
+   4:Src/main.c    **** 
+   5:Src/main.c    **** TLC5947 ledDriver = {(uint16_t)LED_LATCH_Pin, (uint16_t)LED_CLK_Pin,
+   6:Src/main.c    ****                      (uint16_t)LED_DATA_Pin,  LED_LATCH_GPIO_Port,
+   7:Src/main.c    ****                      LED_CLK_GPIO_Port,       LED_DATA_GPIO_Port};
+   8:Src/main.c    **** 
+   9:Src/main.c    **** int main(void) {
+  29              		.loc 1 9 16 view -0
   30              		.cfi_startproc
-  31              		@ Volatile: function does not return.
-  32              		@ args = 0, pretend = 0, frame = 0
-  33              		@ frame_needed = 0, uses_anonymous_args = 0
-  34 0000 08B5     		push	{r3, lr}
-  35              	.LCFI0:
-  36              		.cfi_def_cfa_offset 8
-  37              		.cfi_offset 3, -8
-  38              		.cfi_offset 14, -4
-   5:Src/main.c    ****   peripheralSetup();
-  39              		.loc 1 5 3 view .LVU1
-  40 0002 FFF7FEFF 		bl	peripheralSetup
-  41              	.LVL0:
-  42              	.L2:
-   6:Src/main.c    **** 
-   7:Src/main.c    ****   while (1) {
-  43              		.loc 1 7 3 discriminator 1 view .LVU2
-   8:Src/main.c    ****     HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_5);
-  44              		.loc 1 8 5 discriminator 1 view .LVU3
-  45 0006 2021     		movs	r1, #32
-  46 0008 0348     		ldr	r0, .L4
-  47 000a FFF7FEFF 		bl	HAL_GPIO_TogglePin
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 10B5     		push	{r4, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 4, -8
+  37              		.cfi_offset 14, -4
+  10:Src/main.c    ****   MCU_Setup();
+  38              		.loc 1 10 3 view .LVU1
+  39 0002 FFF7FEFF 		bl	MCU_Setup
+  40              	.LVL0:
+  41              	.L4:
+  11:Src/main.c    **** 
+  12:Src/main.c    ****   while (1) {
+  42              		.loc 1 12 3 view .LVU2
+  13:Src/main.c    ****     for (int i = 0; i < NUM_CHANNELS; i++) {
+  43              		.loc 1 13 5 view .LVU3
+  44              	.LBB2:
+  45              		.loc 1 13 10 view .LVU4
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUMGaQm.s 			page 2
+
+
+  46              		.loc 1 13 14 is_stmt 0 view .LVU5
+  47 0006 0024     		movs	r4, #0
   48              	.LVL1:
-   9:Src/main.c    ****     HAL_Delay(50);
-  49              		.loc 1 9 5 discriminator 1 view .LVU4
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccJLRGrs.s 			page 2
+  49              	.L2:
+  50              		.loc 1 13 5 discriminator 1 view .LVU6
+  51 0008 172C     		cmp	r4, #23
+  52 000a FCDC     		bgt	.L4
+  53              	.LBB3:
+  14:Src/main.c    ****       clear();
+  54              		.loc 1 14 7 is_stmt 1 discriminator 3 view .LVU7
+  55 000c FFF7FEFF 		bl	clear
+  56              	.LVL2:
+  15:Src/main.c    ****       setLEDBrightness(i, 4095);
+  57              		.loc 1 15 7 discriminator 3 view .LVU8
+  58 0010 40F6FF71 		movw	r1, #4095
+  59 0014 A0B2     		uxth	r0, r4
+  60 0016 FFF7FEFF 		bl	setLEDBrightness
+  61              	.LVL3:
+  16:Src/main.c    ****       write(&ledDriver);
+  62              		.loc 1 16 7 discriminator 3 view .LVU9
+  63 001a 0448     		ldr	r0, .L6
+  64 001c FFF7FEFF 		bl	write
+  65              	.LVL4:
+  17:Src/main.c    ****       HAL_Delay(50);
+  66              		.loc 1 17 7 discriminator 3 view .LVU10
+  67 0020 3220     		movs	r0, #50
+  68 0022 FFF7FEFF 		bl	HAL_Delay
+  69              	.LVL5:
+  70              	.LBE3:
+  13:Src/main.c    ****       clear();
+  71              		.loc 1 13 40 is_stmt 0 discriminator 3 view .LVU11
+  72 0026 0134     		adds	r4, r4, #1
+  73              	.LVL6:
+  13:Src/main.c    ****       clear();
+  74              		.loc 1 13 40 discriminator 3 view .LVU12
+  75 0028 EEE7     		b	.L2
+  76              	.L7:
+  77 002a 00BF     		.align	2
+  78              	.L6:
+  79 002c 00000000 		.word	.LANCHOR0
+  80              	.LBE2:
+  81              		.cfi_endproc
+  82              	.LFE126:
+  84              		.global	ledDriver
+  85              		.comm	huart1,112,4
+  86              		.comm	hspi2,100,4
+  87              		.comm	hspi1,100,4
+  88              		.comm	hadc3,84,4
+  89              		.comm	hadc2,84,4
+  90              		.comm	hadc1,84,4
+  91              		.section	.data.ledDriver,"aw"
+  92              		.align	2
+  93              		.set	.LANCHOR0,. + 0
+  96              	ledDriver:
+  97 0000 0080     		.short	-32768
+  98 0002 0800     		.short	8
+  99 0004 2000     		.short	32
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUMGaQm.s 			page 3
 
 
-  50 000e 3220     		movs	r0, #50
-  51 0010 FFF7FEFF 		bl	HAL_Delay
-  52              	.LVL2:
-  53 0014 F7E7     		b	.L2
-  54              	.L5:
-  55 0016 00BF     		.align	2
-  56              	.L4:
-  57 0018 00040048 		.word	1207960576
-  58              		.cfi_endproc
-  59              	.LFE126:
-  61              		.comm	huart1,112,4
-  62              		.comm	hspi2,100,4
-  63              		.comm	hspi1,100,4
-  64              		.comm	hadc3,84,4
-  65              		.comm	hadc2,84,4
-  66              		.comm	hadc1,84,4
-  67              		.text
-  68              	.Letext0:
-  69              		.file 2 "/usr/local/gcc_arm/arm-none-eabi/include/machine/_default_types.h"
-  70              		.file 3 "/usr/local/gcc_arm/arm-none-eabi/include/sys/_stdint.h"
-  71              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
-  72              		.file 5 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/system_stm32f3xx.h"
-  73              		.file 6 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xc.h"
-  74              		.file 7 "/usr/local/gcc_arm/arm-none-eabi/include/sys/lock.h"
-  75              		.file 8 "/usr/local/gcc_arm/arm-none-eabi/include/sys/_types.h"
-  76              		.file 9 "/usr/local/gcc_arm/lib/gcc/arm-none-eabi/8.2.1/include/stddef.h"
-  77              		.file 10 "/usr/local/gcc_arm/arm-none-eabi/include/sys/reent.h"
-  78              		.file 11 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h"
-  79              		.file 12 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_dma.h"
-  80              		.file 13 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_adc_ex.h"
-  81              		.file 14 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_adc.h"
-  82              		.file 15 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi.h"
-  83              		.file 16 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h"
-  84              		.file 17 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h"
-  85              		.file 18 "Inc/MCUSetup.h"
-  86              		.file 19 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_gpio.h"
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccJLRGrs.s 			page 3
+ 100 0006 0000     		.space	2
+ 101 0008 00000048 		.word	1207959552
+ 102 000c 00040048 		.word	1207960576
+ 103 0010 00040048 		.word	1207960576
+ 104              		.text
+ 105              	.Letext0:
+ 106              		.file 2 "/usr/local/gcc_arm/arm-none-eabi/include/machine/_default_types.h"
+ 107              		.file 3 "/usr/local/gcc_arm/arm-none-eabi/include/sys/_stdint.h"
+ 108              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 109              		.file 5 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/system_stm32f3xx.h"
+ 110              		.file 6 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xc.h"
+ 111              		.file 7 "/usr/local/gcc_arm/arm-none-eabi/include/sys/lock.h"
+ 112              		.file 8 "/usr/local/gcc_arm/arm-none-eabi/include/sys/_types.h"
+ 113              		.file 9 "/usr/local/gcc_arm/lib/gcc/arm-none-eabi/8.2.1/include/stddef.h"
+ 114              		.file 10 "/usr/local/gcc_arm/arm-none-eabi/include/sys/reent.h"
+ 115              		.file 11 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h"
+ 116              		.file 12 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_dma.h"
+ 117              		.file 13 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_adc_ex.h"
+ 118              		.file 14 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_adc.h"
+ 119              		.file 15 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi.h"
+ 120              		.file 16 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h"
+ 121              		.file 17 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h"
+ 122              		.file 18 "Inc/MCUSetup.h"
+ 123              		.file 19 "/usr/local/gcc_arm/arm-none-eabi/include/stdlib.h"
+ 124              		.file 20 "Inc/TLC5947.h"
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUMGaQm.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccJLRGrs.s:18     .text.main:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccJLRGrs.s:26     .text.main:0000000000000000 main
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccJLRGrs.s:57     .text.main:0000000000000018 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUMGaQm.s:18     .text.main:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUMGaQm.s:26     .text.main:0000000000000000 main
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUMGaQm.s:79     .text.main:000000000000002c $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUMGaQm.s:96     .data.ledDriver:0000000000000000 ledDriver
                             *COM*:0000000000000070 huart1
                             *COM*:0000000000000064 hspi2
                             *COM*:0000000000000064 hspi1
                             *COM*:0000000000000054 hadc3
                             *COM*:0000000000000054 hadc2
                             *COM*:0000000000000054 hadc1
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccUMGaQm.s:92     .data.ledDriver:0000000000000000 $d
 
 UNDEFINED SYMBOLS
-peripheralSetup
-HAL_GPIO_TogglePin
+MCU_Setup
+clear
+setLEDBrightness
+write
 HAL_Delay

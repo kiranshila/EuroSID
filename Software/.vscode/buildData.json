@@ -3,9 +3,10 @@
     "ABOUT2": "User should not edit this fields, instead it should edit 'c_cpp_properties.json'",
     "ABOUT3": "This file is regenerated on 'Update workspace' task.",
     "VERSION": "1.5",
-    "LAST_RUN": "2019-03-08 18:14:24.632136",
+    "LAST_RUN": "2019-03-08 19:53:11.527416",
     "cSources": [
         "Src/MCUSetup.c",
+        "Src/TLC5947.c",
         "Src/main.c",
         "Src/stm32f3xx_it.c",
         "Src/stm32f3xx_hal_msp.c",

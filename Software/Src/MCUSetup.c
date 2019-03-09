@@ -353,13 +353,20 @@ static void MX_GPIO_Init(void) {
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-  
-/*Configure GPIO pins : FILTER1_SW_Pin SHAPE_SW_Pin SET_SW_Pin */
-  GPIO_InitStruct.Pin = GPIO_PIN_5;
+
+  /* Configure LED Driver pins as generic GPIO */
+  GPIO_InitStruct.Pin = LED_CLK_Pin | LED_DATA_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+  HAL_GPIO_Init(LED_CLK_GPIO_Port, &GPIO_InitStruct);
+
+  // There is one LED pin (LATCH) that is not on the GPIOB
+  GPIO_InitStruct.Pin = LED_LATCH_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  HAL_GPIO_Init(LED_LATCH_GPIO_Port, &GPIO_InitStruct);
 }
 
 /* USER CODE BEGIN 4 */
@@ -377,15 +384,14 @@ void Error_Handler(void) {
   /* USER CODE END Error_Handler_Debug */
 }
 
-void peripheralSetup() {
+void MCU_Setup() {
   HAL_Init();
   SystemClock_Config();
 
   MX_GPIO_Init();
-  //MX_ADC1_Init();
-  ////MX_ADC2_Init();
-  //MX_ADC3_Init();
-  //MX_SPI1_Init();
-  //MX_SPI2_Init();
-  //MX_USART1_UART_Init();
+  MX_ADC1_Init();
+  MX_ADC2_Init();
+  MX_ADC3_Init();
+  MX_SPI2_Init();
+  MX_USART1_UART_Init();
 }
