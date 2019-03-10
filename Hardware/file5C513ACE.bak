@@ -1622,7 +1622,7 @@ Text GLabel 3150 2500 3    50   Input ~ 0
 3.3_IO
 Text GLabel 1750 2500 3    50   Input ~ 0
 3.3_IO
-Text GLabel 2000 3050 1    50   Input ~ 0
+Text GLabel 4100 3450 1    50   Input ~ 0
 5V_IO
 Text GLabel 7250 800  1    50   Input ~ 0
 3.3_IO
@@ -1803,7 +1803,7 @@ F 3 "" H 8700 4200 50  0001 C CNN
 	1    8700 4200
 	1    0    0    -1  
 $EndComp
-Text GLabel 4100 3450 1    50   Input ~ 0
+Text GLabel 2000 3050 1    50   Input ~ 0
 3.3_IO
 $Comp
 L SID_Parts:BOURNS_PTL RV?

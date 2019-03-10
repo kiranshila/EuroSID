@@ -3,7 +3,8 @@
         "____________________USER_FIELDS_CAN_BE_MODIFIED____________________": "",
         "user_cSources": [
             "Src/MCUSetup.c",
-            "Src/TLC5947.c"
+            "Src/TLC5947.c",
+            "Src/SID.c"
         ],
         "user_asmSources": [],
         "user_cIncludes": [],

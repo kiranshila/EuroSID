@@ -1,0 +1,1605 @@
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"SID.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.setVoiceFreq,"ax",%progbits
+  18              		.align	1
+  19              		.global	setVoiceFreq
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	setVoiceFreq:
+  27              	.LVL0:
+  28              	.LFB126:
+  29              		.file 1 "Src/SID.c"
+   1:Src/SID.c     **** #include "SID.h"
+   2:Src/SID.c     **** 
+   3:Src/SID.c     **** // Setter methods for all of the voice settings
+   4:Src/SID.c     **** void setVoiceFreq(SID *sidChip, uint16_t freq, int voice) {
+  30              		.loc 1 4 59 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+   5:Src/SID.c     ****   if (voice > NUM_VOICES || voice < 0) {
+  35              		.loc 1 5 3 view .LVU1
+  36              		.loc 1 5 6 is_stmt 0 view .LVU2
+  37 0000 032A     		cmp	r2, #3
+  38 0002 04D8     		bhi	.L1
+   6:Src/SID.c     ****     return; // Error
+   7:Src/SID.c     ****   }
+   8:Src/SID.c     ****   sidChip->_voices[voice]._freq = freq;
+  39              		.loc 1 8 3 is_stmt 1 view .LVU3
+  40              		.loc 1 8 33 is_stmt 0 view .LVU4
+  41 0004 02EB8202 		add	r2, r2, r2, lsl #2
+  42              	.LVL1:
+  43              		.loc 1 8 33 view .LVU5
+  44 0008 5300     		lsls	r3, r2, #1
+  45 000a 1844     		add	r0, r0, r3
+  46              	.LVL2:
+  47              		.loc 1 8 33 view .LVU6
+  48 000c 4182     		strh	r1, [r0, #18]	@ movhi
+  49              	.L1:
+   9:Src/SID.c     **** }
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s 			page 2
+
+
+  50              		.loc 1 9 1 view .LVU7
+  51 000e 7047     		bx	lr
+  52              		.cfi_endproc
+  53              	.LFE126:
+  55              		.section	.text.setVoicePWM,"ax",%progbits
+  56              		.align	1
+  57              		.global	setVoicePWM
+  58              		.syntax unified
+  59              		.thumb
+  60              		.thumb_func
+  61              		.fpu fpv4-sp-d16
+  63              	setVoicePWM:
+  64              	.LVL3:
+  65              	.LFB127:
+  10:Src/SID.c     **** 
+  11:Src/SID.c     **** void setVoicePWM(SID *sidChip, uint16_t pwm, int voice) {
+  66              		.loc 1 11 57 is_stmt 1 view -0
+  67              		.cfi_startproc
+  68              		@ args = 0, pretend = 0, frame = 0
+  69              		@ frame_needed = 0, uses_anonymous_args = 0
+  70              		@ link register save eliminated.
+  12:Src/SID.c     ****   if (voice > NUM_VOICES || voice < 0) {
+  71              		.loc 1 12 3 view .LVU9
+  72              		.loc 1 12 6 is_stmt 0 view .LVU10
+  73 0000 032A     		cmp	r2, #3
+  74 0002 09D8     		bhi	.L3
+  13:Src/SID.c     ****     return; // Error
+  14:Src/SID.c     ****   }
+  15:Src/SID.c     ****   if (pwm > 4095)
+  75              		.loc 1 15 3 is_stmt 1 view .LVU11
+  76              		.loc 1 15 6 is_stmt 0 view .LVU12
+  77 0004 B1F5805F 		cmp	r1, #4096
+  78 0008 01D3     		bcc	.L5
+  16:Src/SID.c     ****     pwm = 4095; // Clamp to 12 bits
+  79              		.loc 1 16 9 view .LVU13
+  80 000a 40F6FF71 		movw	r1, #4095
+  81              	.LVL4:
+  82              	.L5:
+  17:Src/SID.c     ****   sidChip->_voices[voice]._pwm = pwm;
+  83              		.loc 1 17 3 is_stmt 1 view .LVU14
+  84              		.loc 1 17 32 is_stmt 0 view .LVU15
+  85 000e 02EB8202 		add	r2, r2, r2, lsl #2
+  86              	.LVL5:
+  87              		.loc 1 17 32 view .LVU16
+  88 0012 5300     		lsls	r3, r2, #1
+  89 0014 1844     		add	r0, r0, r3
+  90              	.LVL6:
+  91              		.loc 1 17 32 view .LVU17
+  92 0016 8182     		strh	r1, [r0, #20]	@ movhi
+  93              	.L3:
+  18:Src/SID.c     **** }
+  94              		.loc 1 18 1 view .LVU18
+  95 0018 7047     		bx	lr
+  96              		.cfi_endproc
+  97              	.LFE127:
+  99              		.section	.text.setVoiceShape,"ax",%progbits
+ 100              		.align	1
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s 			page 3
+
+
+ 101              		.global	setVoiceShape
+ 102              		.syntax unified
+ 103              		.thumb
+ 104              		.thumb_func
+ 105              		.fpu fpv4-sp-d16
+ 107              	setVoiceShape:
+ 108              	.LVL7:
+ 109              	.LFB128:
+  19:Src/SID.c     **** 
+  20:Src/SID.c     **** void setVoiceShape(SID *sidChip, Shape shape, int voice) {
+ 110              		.loc 1 20 58 is_stmt 1 view -0
+ 111              		.cfi_startproc
+ 112              		@ args = 0, pretend = 0, frame = 0
+ 113              		@ frame_needed = 0, uses_anonymous_args = 0
+ 114              		@ link register save eliminated.
+  21:Src/SID.c     ****   if (voice > NUM_VOICES || voice < 0) {
+ 115              		.loc 1 21 3 view .LVU20
+ 116              		.loc 1 21 6 is_stmt 0 view .LVU21
+ 117 0000 032A     		cmp	r2, #3
+ 118 0002 04D8     		bhi	.L7
+  22:Src/SID.c     ****     return; // Error
+  23:Src/SID.c     ****   }
+  24:Src/SID.c     ****   sidChip->_voices[voice]._currentShape = shape;
+ 119              		.loc 1 24 3 is_stmt 1 view .LVU22
+ 120              		.loc 1 24 41 is_stmt 0 view .LVU23
+ 121 0004 02EB8202 		add	r2, r2, r2, lsl #2
+ 122              	.LVL8:
+ 123              		.loc 1 24 41 view .LVU24
+ 124 0008 5300     		lsls	r3, r2, #1
+ 125 000a 1844     		add	r0, r0, r3
+ 126              	.LVL9:
+ 127              		.loc 1 24 41 view .LVU25
+ 128 000c 0174     		strb	r1, [r0, #16]
+ 129              	.L7:
+  25:Src/SID.c     **** }
+ 130              		.loc 1 25 1 view .LVU26
+ 131 000e 7047     		bx	lr
+ 132              		.cfi_endproc
+ 133              	.LFE128:
+ 135              		.section	.text.setVoiceEnv,"ax",%progbits
+ 136              		.align	1
+ 137              		.global	setVoiceEnv
+ 138              		.syntax unified
+ 139              		.thumb
+ 140              		.thumb_func
+ 141              		.fpu fpv4-sp-d16
+ 143              	setVoiceEnv:
+ 144              	.LVL10:
+ 145              	.LFB129:
+  26:Src/SID.c     **** 
+  27:Src/SID.c     **** void setVoiceEnv(SID *sidChip, Envelope env, int voice) {
+ 146              		.loc 1 27 57 is_stmt 1 view -0
+ 147              		.cfi_startproc
+ 148              		@ args = 0, pretend = 0, frame = 8
+ 149              		@ frame_needed = 0, uses_anonymous_args = 0
+ 150              		@ link register save eliminated.
+ 151              		.loc 1 27 57 is_stmt 0 view .LVU28
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s 			page 4
+
+
+ 152 0000 82B0     		sub	sp, sp, #8
+ 153              	.LCFI0:
+ 154              		.cfi_def_cfa_offset 8
+ 155 0002 0191     		str	r1, [sp, #4]
+  28:Src/SID.c     ****   if (voice > NUM_VOICES || voice < 0) {
+ 156              		.loc 1 28 3 is_stmt 1 view .LVU29
+ 157              		.loc 1 28 6 is_stmt 0 view .LVU30
+ 158 0004 032A     		cmp	r2, #3
+ 159 0006 05D8     		bhi	.L9
+  29:Src/SID.c     ****     return; // Error
+  30:Src/SID.c     ****   }
+  31:Src/SID.c     ****   sidChip->_voices[voice]._env = env;
+ 160              		.loc 1 31 3 is_stmt 1 view .LVU31
+ 161              		.loc 1 31 32 is_stmt 0 view .LVU32
+ 162 0008 02EB8202 		add	r2, r2, r2, lsl #2
+ 163              	.LVL11:
+ 164              		.loc 1 31 32 view .LVU33
+ 165 000c 5300     		lsls	r3, r2, #1
+ 166 000e 0344     		add	r3, r3, r0
+ 167 0010 C3F81610 		str	r1, [r3, #22]	@ unaligned
+ 168              	.L9:
+  32:Src/SID.c     **** }
+ 169              		.loc 1 32 1 view .LVU34
+ 170 0014 02B0     		add	sp, sp, #8
+ 171              	.LCFI1:
+ 172              		.cfi_def_cfa_offset 0
+ 173              		@ sp needed
+ 174 0016 7047     		bx	lr
+ 175              		.cfi_endproc
+ 176              	.LFE129:
+ 178              		.section	.text.setFilterCutoff,"ax",%progbits
+ 179              		.align	1
+ 180              		.global	setFilterCutoff
+ 181              		.syntax unified
+ 182              		.thumb
+ 183              		.thumb_func
+ 184              		.fpu fpv4-sp-d16
+ 186              	setFilterCutoff:
+ 187              	.LVL12:
+ 188              	.LFB135:
+  33:Src/SID.c     **** 
+  34:Src/SID.c     **** // Functions to write each voice setting to the appropriate register
+  35:Src/SID.c     **** void writeVoiceFreq(SID *sidChip, int voice) {
+  36:Src/SID.c     ****   if (voice > NUM_VOICES || voice < 0) {
+  37:Src/SID.c     ****     return; // Error
+  38:Src/SID.c     ****   }
+  39:Src/SID.c     ****   // Frequency is two bytes
+  40:Src/SID.c     ****   writeSID(sidChip, VOICE_1_FREQ_LOW + (voice * VOICE_REGISTER_OFFSET),
+  41:Src/SID.c     ****            sidChip->_voices[voice]._freq & 0xFF);
+  42:Src/SID.c     **** 
+  43:Src/SID.c     ****   writeSID(sidChip, VOICE_1_FREQ_HIGH + (voice * VOICE_REGISTER_OFFSET),
+  44:Src/SID.c     ****            sidChip->_voices[voice]._freq & 0xFF00 >> 8);
+  45:Src/SID.c     **** }
+  46:Src/SID.c     **** 
+  47:Src/SID.c     **** void writeVoicePWM(SID *sidChip, int voice) {
+  48:Src/SID.c     ****   if (voice > NUM_VOICES || voice < 0) {
+  49:Src/SID.c     ****     return; // Error
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s 			page 5
+
+
+  50:Src/SID.c     ****   }
+  51:Src/SID.c     ****   // Frequency is two bytes
+  52:Src/SID.c     ****   writeSID(sidChip, VOICE_1_PWM_LOW + (voice * VOICE_REGISTER_OFFSET),
+  53:Src/SID.c     ****            sidChip->_voices[voice]._pwm & 0xFF);
+  54:Src/SID.c     **** 
+  55:Src/SID.c     ****   writeSID(sidChip, VOICE_1_PWM_HIGH + (voice * VOICE_REGISTER_OFFSET),
+  56:Src/SID.c     ****            sidChip->_voices[voice]._pwm & 0xF00 >> 8); // Masked to 5 bits
+  57:Src/SID.c     **** }
+  58:Src/SID.c     **** 
+  59:Src/SID.c     **** void writeVoiceEnv(SID *sidChip, int voice) {
+  60:Src/SID.c     ****   uint8_t attack_decay = 0;
+  61:Src/SID.c     ****   attack_decay |= (sidChip->_voices[voice]._env.Attack & 0xF) << 4;
+  62:Src/SID.c     ****   attack_decay |= sidChip->_voices[voice]._env.Decay & 0xF;
+  63:Src/SID.c     **** 
+  64:Src/SID.c     ****   uint8_t sustain_release = 0;
+  65:Src/SID.c     ****   sustain_release |= (sidChip->_voices[voice]._env.Sustain & 0xF) << 4;
+  66:Src/SID.c     ****   sustain_release |= sidChip->_voices[voice]._env.Release & 0xF;
+  67:Src/SID.c     **** 
+  68:Src/SID.c     ****   writeSID(sidChip, VOICE_1_ATTACK_DECAY+ (voice * VOICE_REGISTER_OFFSET), attack_decay);
+  69:Src/SID.c     ****   writeSID(sidChip, VOICE_1_SUSTAIN_RELEASE + (voice * VOICE_REGISTER_OFFSET), sustain_release);
+  70:Src/SID.c     **** }
+  71:Src/SID.c     **** 
+  72:Src/SID.c     **** void gateVoice(SID *sidChip, int voice) {
+  73:Src/SID.c     ****   if (voice > NUM_VOICES || voice < 0) {
+  74:Src/SID.c     ****     return; // Error
+  75:Src/SID.c     ****   }
+  76:Src/SID.c     ****   // Gating set the GATE bit to high, that starts the AD sequence
+  77:Src/SID.c     **** 
+  78:Src/SID.c     ****   // We have to first construct the data byte
+  79:Src/SID.c     **** 
+  80:Src/SID.c     ****   // FIXME, do we support compound voices?
+  81:Src/SID.c     ****   uint8_t data = 0;
+  82:Src/SID.c     ****   switch (sidChip->_voices[voice]._currentShape) {
+  83:Src/SID.c     ****   case Square:
+  84:Src/SID.c     ****     data |= 1 << 6;
+  85:Src/SID.c     ****     break;
+  86:Src/SID.c     ****   case Noise:
+  87:Src/SID.c     ****     data |= 1 << 7;
+  88:Src/SID.c     ****     break;
+  89:Src/SID.c     ****   case Sawtooth:
+  90:Src/SID.c     ****     data |= 1 << 5;
+  91:Src/SID.c     ****     break;
+  92:Src/SID.c     ****   case Triangle:
+  93:Src/SID.c     ****     data |= 1 << 4;
+  94:Src/SID.c     ****     break;
+  95:Src/SID.c     ****   }
+  96:Src/SID.c     **** 
+  97:Src/SID.c     ****   // Set the gate bit
+  98:Src/SID.c     ****   data |= 1;
+  99:Src/SID.c     **** 
+ 100:Src/SID.c     ****   // FIXME - set gate/ringmod
+ 101:Src/SID.c     **** 
+ 102:Src/SID.c     ****   // Write the data to the SID chip
+ 103:Src/SID.c     ****   writeSID(sidChip, VOICE_1_CONTROL + (voice * VOICE_REGISTER_OFFSET), data);
+ 104:Src/SID.c     **** }
+ 105:Src/SID.c     **** 
+ 106:Src/SID.c     **** void ungateVoice(SID *sidChip, int voice) {
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s 			page 6
+
+
+ 107:Src/SID.c     ****   if (voice > NUM_VOICES || voice < 0) {
+ 108:Src/SID.c     ****     return; // Error
+ 109:Src/SID.c     ****   }
+ 110:Src/SID.c     ****   // Gating set the GATE bit to high, that starts the AD sequence
+ 111:Src/SID.c     **** 
+ 112:Src/SID.c     ****   // We have to first construct the data byte
+ 113:Src/SID.c     **** 
+ 114:Src/SID.c     ****   // FIXME, do we support compound voices?
+ 115:Src/SID.c     ****   uint8_t data = 0;
+ 116:Src/SID.c     ****   switch (sidChip->_voices[voice]._currentShape) {
+ 117:Src/SID.c     ****   case Square:
+ 118:Src/SID.c     ****     data |= 1 << 6;
+ 119:Src/SID.c     ****     break;
+ 120:Src/SID.c     ****   case Noise:
+ 121:Src/SID.c     ****     data |= 1 << 7;
+ 122:Src/SID.c     ****     break;
+ 123:Src/SID.c     ****   case Sawtooth:
+ 124:Src/SID.c     ****     data |= 1 << 5;
+ 125:Src/SID.c     ****     break;
+ 126:Src/SID.c     ****   case Triangle:
+ 127:Src/SID.c     ****     data |= 1 << 4;
+ 128:Src/SID.c     ****     break;
+ 129:Src/SID.c     ****   }
+ 130:Src/SID.c     **** 
+ 131:Src/SID.c     ****   // Set the gate bit
+ 132:Src/SID.c     ****   data &= 0xFE;
+ 133:Src/SID.c     **** 
+ 134:Src/SID.c     ****   // FIXME - set gate/ringmod
+ 135:Src/SID.c     **** 
+ 136:Src/SID.c     ****   // Write the data to the SID chip
+ 137:Src/SID.c     ****   writeSID(sidChip, VOICE_1_CONTROL + (voice * VOICE_REGISTER_OFFSET), data);
+ 138:Src/SID.c     **** }
+ 139:Src/SID.c     **** 
+ 140:Src/SID.c     **** void setFilterCutoff(SID *sidChip, uint16_t cutoff) {
+ 189              		.loc 1 140 53 is_stmt 1 view -0
+ 190              		.cfi_startproc
+ 191              		@ args = 0, pretend = 0, frame = 0
+ 192              		@ frame_needed = 0, uses_anonymous_args = 0
+ 193              		@ link register save eliminated.
+ 141:Src/SID.c     ****   if (cutoff > 2047)
+ 194              		.loc 1 141 3 view .LVU36
+ 195              		.loc 1 141 6 is_stmt 0 view .LVU37
+ 196 0000 B1F5006F 		cmp	r1, #2048
+ 197 0004 01D3     		bcc	.L13
+ 142:Src/SID.c     ****     cutoff = 2047; // Clamp to 11 bits
+ 198              		.loc 1 142 12 view .LVU38
+ 199 0006 40F2FF71 		movw	r1, #2047
+ 200              	.LVL13:
+ 201              	.L13:
+ 143:Src/SID.c     **** 
+ 144:Src/SID.c     ****   sidChip->_filter._cutoff = cutoff;
+ 202              		.loc 1 144 3 is_stmt 1 view .LVU39
+ 203              		.loc 1 144 28 is_stmt 0 view .LVU40
+ 204 000a C185     		strh	r1, [r0, #46]	@ movhi
+ 145:Src/SID.c     **** }
+ 205              		.loc 1 145 1 view .LVU41
+ 206 000c 7047     		bx	lr
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s 			page 7
+
+
+ 207              		.cfi_endproc
+ 208              	.LFE135:
+ 210              		.section	.text.setFilterResonance,"ax",%progbits
+ 211              		.align	1
+ 212              		.global	setFilterResonance
+ 213              		.syntax unified
+ 214              		.thumb
+ 215              		.thumb_func
+ 216              		.fpu fpv4-sp-d16
+ 218              	setFilterResonance:
+ 219              	.LVL14:
+ 220              	.LFB137:
+ 146:Src/SID.c     **** 
+ 147:Src/SID.c     **** void writeFilterCutoff(SID *sidChip) {
+ 148:Src/SID.c     ****   // Cutoff is two bytes
+ 149:Src/SID.c     ****   writeSID(sidChip, FILTER_CUTOFF_LOW, sidChip->_filter._cutoff & 0xFF);
+ 150:Src/SID.c     ****   writeSID(sidChip, FILTER_CUTOFF_HIGH, sidChip->_filter._cutoff & 0x700 >> 8);
+ 151:Src/SID.c     **** }
+ 152:Src/SID.c     **** 
+ 153:Src/SID.c     **** void setFilterResonance(SID *sidChip, uint8_t resonance) {
+ 221              		.loc 1 153 58 is_stmt 1 view -0
+ 222              		.cfi_startproc
+ 223              		@ args = 0, pretend = 0, frame = 0
+ 224              		@ frame_needed = 0, uses_anonymous_args = 0
+ 225              		@ link register save eliminated.
+ 154:Src/SID.c     ****   if (resonance > 15)
+ 226              		.loc 1 154 3 view .LVU43
+ 227              		.loc 1 154 6 is_stmt 0 view .LVU44
+ 228 0000 0F29     		cmp	r1, #15
+ 229 0002 00D9     		bls	.L16
+ 155:Src/SID.c     ****     resonance = 15; // Clamp to 4 bits
+ 230              		.loc 1 155 15 view .LVU45
+ 231 0004 0F21     		movs	r1, #15
+ 232              	.LVL15:
+ 233              	.L16:
+ 156:Src/SID.c     ****   sidChip->_filter._resonance = resonance;
+ 234              		.loc 1 156 3 is_stmt 1 view .LVU46
+ 235              		.loc 1 156 31 is_stmt 0 view .LVU47
+ 236 0006 80F83010 		strb	r1, [r0, #48]
+ 157:Src/SID.c     **** }
+ 237              		.loc 1 157 1 view .LVU48
+ 238 000a 7047     		bx	lr
+ 239              		.cfi_endproc
+ 240              	.LFE137:
+ 242              		.section	.text.setFilterTargets,"ax",%progbits
+ 243              		.align	1
+ 244              		.global	setFilterTargets
+ 245              		.syntax unified
+ 246              		.thumb
+ 247              		.thumb_func
+ 248              		.fpu fpv4-sp-d16
+ 250              	setFilterTargets:
+ 251              	.LVL16:
+ 252              	.LFB138:
+ 158:Src/SID.c     **** 
+ 159:Src/SID.c     **** void setFilterTargets(SID *sidChip, int whatToFilter, _Bool filterOn) {
+ 253              		.loc 1 159 71 is_stmt 1 view -0
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s 			page 8
+
+
+ 254              		.cfi_startproc
+ 255              		@ args = 0, pretend = 0, frame = 0
+ 256              		@ frame_needed = 0, uses_anonymous_args = 0
+ 257              		@ link register save eliminated.
+ 160:Src/SID.c     ****   if (whatToFilter > NUM_VOICES + 1 || whatToFilter < 0) {
+ 258              		.loc 1 160 3 view .LVU50
+ 259              		.loc 1 160 6 is_stmt 0 view .LVU51
+ 260 0000 0429     		cmp	r1, #4
+ 261 0002 02D8     		bhi	.L18
+ 161:Src/SID.c     ****     return; // Error
+ 162:Src/SID.c     ****   }
+ 163:Src/SID.c     ****   sidChip->_filter._filterPipe[whatToFilter] = filterOn;
+ 262              		.loc 1 163 3 is_stmt 1 view .LVU52
+ 263              		.loc 1 163 46 is_stmt 0 view .LVU53
+ 264 0004 0844     		add	r0, r0, r1
+ 265              	.LVL17:
+ 266              		.loc 1 163 46 view .LVU54
+ 267 0006 80F83320 		strb	r2, [r0, #51]
+ 268              	.L18:
+ 164:Src/SID.c     **** }
+ 269              		.loc 1 164 1 view .LVU55
+ 270 000a 7047     		bx	lr
+ 271              		.cfi_endproc
+ 272              	.LFE138:
+ 274              		.section	.text.setVolume,"ax",%progbits
+ 275              		.align	1
+ 276              		.global	setVolume
+ 277              		.syntax unified
+ 278              		.thumb
+ 279              		.thumb_func
+ 280              		.fpu fpv4-sp-d16
+ 282              	setVolume:
+ 283              	.LVL18:
+ 284              	.LFB140:
+ 165:Src/SID.c     **** 
+ 166:Src/SID.c     **** void writeFilterResonance(SID *sidChip) {
+ 167:Src/SID.c     ****   // Data contains resonance and filter target
+ 168:Src/SID.c     ****   uint8_t data = 0;
+ 169:Src/SID.c     ****   data |= sidChip->_filter._resonance & 0xF << 4;
+ 170:Src/SID.c     ****   for (int i = 0; i < NUM_VOICES + 1; i++) {
+ 171:Src/SID.c     ****     data |= sidChip->_filter._filterPipe[i] << i;
+ 172:Src/SID.c     ****   }
+ 173:Src/SID.c     ****   writeSID(sidChip, FILTER_RES, data);
+ 174:Src/SID.c     **** }
+ 175:Src/SID.c     **** 
+ 176:Src/SID.c     **** void setVolume(SID *sidChip, uint8_t volume) {
+ 285              		.loc 1 176 46 is_stmt 1 view -0
+ 286              		.cfi_startproc
+ 287              		@ args = 0, pretend = 0, frame = 0
+ 288              		@ frame_needed = 0, uses_anonymous_args = 0
+ 289              		@ link register save eliminated.
+ 177:Src/SID.c     ****   if (volume > 15)
+ 290              		.loc 1 177 3 view .LVU57
+ 291              		.loc 1 177 6 is_stmt 0 view .LVU58
+ 292 0000 0F29     		cmp	r1, #15
+ 293 0002 00D9     		bls	.L21
+ 178:Src/SID.c     ****     volume = 15; // Clamp to 4 bits
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s 			page 9
+
+
+ 294              		.loc 1 178 12 view .LVU59
+ 295 0004 0F21     		movs	r1, #15
+ 296              	.LVL19:
+ 297              	.L21:
+ 179:Src/SID.c     ****   sidChip->_filter._volume = volume;
+ 298              		.loc 1 179 3 is_stmt 1 view .LVU60
+ 299              		.loc 1 179 28 is_stmt 0 view .LVU61
+ 300 0006 80F83110 		strb	r1, [r0, #49]
+ 180:Src/SID.c     **** }
+ 301              		.loc 1 180 1 view .LVU62
+ 302 000a 7047     		bx	lr
+ 303              		.cfi_endproc
+ 304              	.LFE140:
+ 306              		.section	.text.setFilterType,"ax",%progbits
+ 307              		.align	1
+ 308              		.global	setFilterType
+ 309              		.syntax unified
+ 310              		.thumb
+ 311              		.thumb_func
+ 312              		.fpu fpv4-sp-d16
+ 314              	setFilterType:
+ 315              	.LVL20:
+ 316              	.LFB141:
+ 181:Src/SID.c     **** 
+ 182:Src/SID.c     **** void setFilterType(SID *sidChip, FilterType type) {
+ 317              		.loc 1 182 51 is_stmt 1 view -0
+ 318              		.cfi_startproc
+ 319              		@ args = 0, pretend = 0, frame = 0
+ 320              		@ frame_needed = 0, uses_anonymous_args = 0
+ 321              		@ link register save eliminated.
+ 183:Src/SID.c     ****   sidChip->_filter._type = type;
+ 322              		.loc 1 183 3 view .LVU64
+ 323              		.loc 1 183 26 is_stmt 0 view .LVU65
+ 324 0000 80F83210 		strb	r1, [r0, #50]
+ 184:Src/SID.c     **** }
+ 325              		.loc 1 184 1 view .LVU66
+ 326 0004 7047     		bx	lr
+ 327              		.cfi_endproc
+ 328              	.LFE141:
+ 330              		.section	.text.writeSID,"ax",%progbits
+ 331              		.align	1
+ 332              		.global	writeSID
+ 333              		.syntax unified
+ 334              		.thumb
+ 335              		.thumb_func
+ 336              		.fpu fpv4-sp-d16
+ 338              	writeSID:
+ 339              	.LVL21:
+ 340              	.LFB143:
+ 185:Src/SID.c     **** 
+ 186:Src/SID.c     **** void writeFilterVolume(SID *sidChip) {
+ 187:Src/SID.c     ****   // Data contains volume and filter type
+ 188:Src/SID.c     ****   uint8_t data = 0;
+ 189:Src/SID.c     ****   data |= sidChip->_filter._volume & 0xF;
+ 190:Src/SID.c     ****   switch (sidChip->_filter._type) {
+ 191:Src/SID.c     ****   case ThreeOff:
+ 192:Src/SID.c     ****     data |= 1 << 7;
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s 			page 10
+
+
+ 193:Src/SID.c     ****     break;
+ 194:Src/SID.c     ****   case HP:
+ 195:Src/SID.c     ****     data |= 1 << 6;
+ 196:Src/SID.c     ****     break;
+ 197:Src/SID.c     ****   case BP:
+ 198:Src/SID.c     ****     data |= 1 << 5;
+ 199:Src/SID.c     ****     break;
+ 200:Src/SID.c     ****   case LP:
+ 201:Src/SID.c     ****     data |= 1 << 4;
+ 202:Src/SID.c     ****     break;
+ 203:Src/SID.c     ****   }
+ 204:Src/SID.c     ****   writeSID(sidChip, FILTER_MODE, data);
+ 205:Src/SID.c     **** }
+ 206:Src/SID.c     **** 
+ 207:Src/SID.c     **** // Writes data to the SID chip over SPI
+ 208:Src/SID.c     **** void writeSID(SID *sidChip, uint8_t addr, uint8_t data) {
+ 341              		.loc 1 208 57 is_stmt 1 view -0
+ 342              		.cfi_startproc
+ 343              		@ args = 0, pretend = 0, frame = 8
+ 344              		@ frame_needed = 0, uses_anonymous_args = 0
+ 345              		.loc 1 208 57 is_stmt 0 view .LVU68
+ 346 0000 10B5     		push	{r4, lr}
+ 347              	.LCFI2:
+ 348              		.cfi_def_cfa_offset 8
+ 349              		.cfi_offset 4, -8
+ 350              		.cfi_offset 14, -4
+ 351 0002 82B0     		sub	sp, sp, #8
+ 352              	.LCFI3:
+ 353              		.cfi_def_cfa_offset 16
+ 354 0004 0446     		mov	r4, r0
+ 209:Src/SID.c     ****   // The first bit out of MOSI is the LSB, which goes to the furthest location
+ 210:Src/SID.c     ****   // in the shift register. In our case, that is A0, which is the LSB of the
+ 211:Src/SID.c     ****   // address bus on the SID
+ 212:Src/SID.c     **** 
+ 213:Src/SID.c     ****   uint16_t writeBytes = 0;
+ 355              		.loc 1 213 3 is_stmt 1 view .LVU69
+ 214:Src/SID.c     ****   // writeBytes needs to be D7, ..., D0, A4, ..., A0
+ 215:Src/SID.c     ****   // data is already 8 bits, so it can be shifted over by the size of addr (5)
+ 216:Src/SID.c     ****   // addr needs to be masked to 5 bits and is in place properly
+ 217:Src/SID.c     ****   writeBytes |= (data << 5) | (addr & 0x1F);
+ 356              		.loc 1 217 3 view .LVU70
+ 357              		.loc 1 217 37 is_stmt 0 view .LVU71
+ 358 0006 01F01F01 		and	r1, r1, #31
+ 359              	.LVL22:
+ 360              		.loc 1 217 29 view .LVU72
+ 361 000a 41EA4212 		orr	r2, r1, r2, lsl #5
+ 362              	.LVL23:
+ 363              		.loc 1 217 14 view .LVU73
+ 364 000e ADF80620 		strh	r2, [sp, #6]	@ movhi
+ 218:Src/SID.c     **** 
+ 219:Src/SID.c     ****   // We don't have to package the data into anything weird as the DATA_SIZE in
+ 220:Src/SID.c     ****   // the SPI init was set to SID_WORD of 13 bits. So we set SIZE to 1 as we are
+ 221:Src/SID.c     ****   // transmitting one word.
+ 222:Src/SID.c     ****   HAL_SPI_Transmit(sidChip->_spi, &writeBytes, 1, HAL_MAX_DELAY);
+ 365              		.loc 1 222 3 is_stmt 1 view .LVU74
+ 366 0012 4FF0FF33 		mov	r3, #-1
+ 367 0016 0122     		movs	r2, #1
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s 			page 11
+
+
+ 368 0018 0DF10601 		add	r1, sp, #6
+ 369 001c C068     		ldr	r0, [r0, #12]
+ 370              	.LVL24:
+ 371              		.loc 1 222 3 is_stmt 0 view .LVU75
+ 372 001e FFF7FEFF 		bl	HAL_SPI_Transmit
+ 373              	.LVL25:
+ 223:Src/SID.c     ****   // Now toggle the CS line on the SID for one cycle of the clock
+ 224:Src/SID.c     ****   HAL_GPIO_WritePin(sidChip->_cs_port, sidChip->_cs, GPIO_PIN_RESET);
+ 374              		.loc 1 224 3 is_stmt 1 view .LVU76
+ 375 0022 0022     		movs	r2, #0
+ 376 0024 6188     		ldrh	r1, [r4, #2]
+ 377 0026 A068     		ldr	r0, [r4, #8]
+ 378 0028 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 379              	.LVL26:
+ 225:Src/SID.c     ****   HAL_Delay((1 / SID_FREQ) * 1000);
+ 380              		.loc 1 225 3 view .LVU77
+ 381 002c 0020     		movs	r0, #0
+ 382 002e FFF7FEFF 		bl	HAL_Delay
+ 383              	.LVL27:
+ 226:Src/SID.c     ****   HAL_GPIO_WritePin(sidChip->_cs_port, sidChip->_cs, GPIO_PIN_SET);
+ 384              		.loc 1 226 3 view .LVU78
+ 385 0032 0122     		movs	r2, #1
+ 386 0034 6188     		ldrh	r1, [r4, #2]
+ 387 0036 A068     		ldr	r0, [r4, #8]
+ 388 0038 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 389              	.LVL28:
+ 227:Src/SID.c     **** }
+ 390              		.loc 1 227 1 is_stmt 0 view .LVU79
+ 391 003c 02B0     		add	sp, sp, #8
+ 392              	.LCFI4:
+ 393              		.cfi_def_cfa_offset 8
+ 394              		@ sp needed
+ 395 003e 10BD     		pop	{r4, pc}
+ 396              		.loc 1 227 1 view .LVU80
+ 397              		.cfi_endproc
+ 398              	.LFE143:
+ 400              		.section	.text.writeVoiceFreq,"ax",%progbits
+ 401              		.align	1
+ 402              		.global	writeVoiceFreq
+ 403              		.syntax unified
+ 404              		.thumb
+ 405              		.thumb_func
+ 406              		.fpu fpv4-sp-d16
+ 408              	writeVoiceFreq:
+ 409              	.LVL29:
+ 410              	.LFB130:
+  35:Src/SID.c     ****   if (voice > NUM_VOICES || voice < 0) {
+ 411              		.loc 1 35 46 is_stmt 1 view -0
+ 412              		.cfi_startproc
+ 413              		@ args = 0, pretend = 0, frame = 0
+ 414              		@ frame_needed = 0, uses_anonymous_args = 0
+  36:Src/SID.c     ****     return; // Error
+ 415              		.loc 1 36 3 view .LVU82
+  36:Src/SID.c     ****     return; // Error
+ 416              		.loc 1 36 6 is_stmt 0 view .LVU83
+ 417 0000 0329     		cmp	r1, #3
+ 418 0002 00D9     		bls	.L32
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s 			page 12
+
+
+ 419 0004 7047     		bx	lr
+ 420              	.L32:
+  35:Src/SID.c     ****   if (voice > NUM_VOICES || voice < 0) {
+ 421              		.loc 1 35 46 view .LVU84
+ 422 0006 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 423              	.LCFI5:
+ 424              		.cfi_def_cfa_offset 24
+ 425              		.cfi_offset 3, -24
+ 426              		.cfi_offset 4, -20
+ 427              		.cfi_offset 5, -16
+ 428              		.cfi_offset 6, -12
+ 429              		.cfi_offset 7, -8
+ 430              		.cfi_offset 14, -4
+ 431 0008 0C46     		mov	r4, r1
+ 432 000a 0646     		mov	r6, r0
+  40:Src/SID.c     ****            sidChip->_voices[voice]._freq & 0xFF);
+ 433              		.loc 1 40 3 is_stmt 1 view .LVU85
+ 434 000c C1EBC107 		rsb	r7, r1, r1, lsl #3
+ 435 0010 FFB2     		uxtb	r7, r7
+  41:Src/SID.c     **** 
+ 436              		.loc 1 41 35 is_stmt 0 view .LVU86
+ 437 0012 8D00     		lsls	r5, r1, #2
+ 438 0014 6A18     		adds	r2, r5, r1
+ 439 0016 5300     		lsls	r3, r2, #1
+ 440 0018 0344     		add	r3, r3, r0
+  40:Src/SID.c     ****            sidChip->_voices[voice]._freq & 0xFF);
+ 441              		.loc 1 40 3 view .LVU87
+ 442 001a 9A7C     		ldrb	r2, [r3, #18]	@ zero_extendqisi2
+ 443 001c 3946     		mov	r1, r7
+ 444              	.LVL30:
+  40:Src/SID.c     ****            sidChip->_voices[voice]._freq & 0xFF);
+ 445              		.loc 1 40 3 view .LVU88
+ 446 001e FFF7FEFF 		bl	writeSID
+ 447              	.LVL31:
+  43:Src/SID.c     ****            sidChip->_voices[voice]._freq & 0xFF00 >> 8);
+ 448              		.loc 1 43 3 is_stmt 1 view .LVU89
+  44:Src/SID.c     **** }
+ 449              		.loc 1 44 35 is_stmt 0 view .LVU90
+ 450 0022 2C44     		add	r4, r4, r5
+ 451              	.LVL32:
+  44:Src/SID.c     **** }
+ 452              		.loc 1 44 35 view .LVU91
+ 453 0024 6300     		lsls	r3, r4, #1
+ 454 0026 3344     		add	r3, r3, r6
+  43:Src/SID.c     ****            sidChip->_voices[voice]._freq & 0xFF00 >> 8);
+ 455              		.loc 1 43 3 view .LVU92
+ 456 0028 791C     		adds	r1, r7, #1
+ 457 002a 9A7C     		ldrb	r2, [r3, #18]	@ zero_extendqisi2
+ 458 002c C9B2     		uxtb	r1, r1
+ 459 002e 3046     		mov	r0, r6
+ 460 0030 FFF7FEFF 		bl	writeSID
+ 461              	.LVL33:
+  45:Src/SID.c     **** 
+ 462              		.loc 1 45 1 view .LVU93
+ 463 0034 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+  45:Src/SID.c     **** 
+ 464              		.loc 1 45 1 view .LVU94
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s 			page 13
+
+
+ 465              		.cfi_endproc
+ 466              	.LFE130:
+ 468              		.section	.text.writeVoicePWM,"ax",%progbits
+ 469              		.align	1
+ 470              		.global	writeVoicePWM
+ 471              		.syntax unified
+ 472              		.thumb
+ 473              		.thumb_func
+ 474              		.fpu fpv4-sp-d16
+ 476              	writeVoicePWM:
+ 477              	.LVL34:
+ 478              	.LFB131:
+  47:Src/SID.c     ****   if (voice > NUM_VOICES || voice < 0) {
+ 479              		.loc 1 47 45 is_stmt 1 view -0
+ 480              		.cfi_startproc
+ 481              		@ args = 0, pretend = 0, frame = 0
+ 482              		@ frame_needed = 0, uses_anonymous_args = 0
+  48:Src/SID.c     ****     return; // Error
+ 483              		.loc 1 48 3 view .LVU96
+  48:Src/SID.c     ****     return; // Error
+ 484              		.loc 1 48 6 is_stmt 0 view .LVU97
+ 485 0000 0329     		cmp	r1, #3
+ 486 0002 00D9     		bls	.L39
+ 487 0004 7047     		bx	lr
+ 488              	.L39:
+  47:Src/SID.c     ****   if (voice > NUM_VOICES || voice < 0) {
+ 489              		.loc 1 47 45 view .LVU98
+ 490 0006 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 491              	.LCFI6:
+ 492              		.cfi_def_cfa_offset 24
+ 493              		.cfi_offset 3, -24
+ 494              		.cfi_offset 4, -20
+ 495              		.cfi_offset 5, -16
+ 496              		.cfi_offset 6, -12
+ 497              		.cfi_offset 7, -8
+ 498              		.cfi_offset 14, -4
+ 499 0008 0C46     		mov	r4, r1
+ 500 000a 0646     		mov	r6, r0
+  52:Src/SID.c     ****            sidChip->_voices[voice]._pwm & 0xFF);
+ 501              		.loc 1 52 3 is_stmt 1 view .LVU99
+ 502 000c C1EBC107 		rsb	r7, r1, r1, lsl #3
+ 503 0010 FFB2     		uxtb	r7, r7
+  53:Src/SID.c     **** 
+ 504              		.loc 1 53 35 is_stmt 0 view .LVU100
+ 505 0012 8D00     		lsls	r5, r1, #2
+ 506 0014 6A18     		adds	r2, r5, r1
+ 507 0016 5300     		lsls	r3, r2, #1
+ 508 0018 0344     		add	r3, r3, r0
+  52:Src/SID.c     ****            sidChip->_voices[voice]._pwm & 0xFF);
+ 509              		.loc 1 52 3 view .LVU101
+ 510 001a B91C     		adds	r1, r7, #2
+ 511              	.LVL35:
+  52:Src/SID.c     ****            sidChip->_voices[voice]._pwm & 0xFF);
+ 512              		.loc 1 52 3 view .LVU102
+ 513 001c 1A7D     		ldrb	r2, [r3, #20]	@ zero_extendqisi2
+ 514 001e C9B2     		uxtb	r1, r1
+ 515 0020 FFF7FEFF 		bl	writeSID
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s 			page 14
+
+
+ 516              	.LVL36:
+  55:Src/SID.c     ****            sidChip->_voices[voice]._pwm & 0xF00 >> 8); // Masked to 5 bits
+ 517              		.loc 1 55 3 is_stmt 1 view .LVU103
+  56:Src/SID.c     **** }
+ 518              		.loc 1 56 35 is_stmt 0 view .LVU104
+ 519 0024 2C44     		add	r4, r4, r5
+ 520              	.LVL37:
+  56:Src/SID.c     **** }
+ 521              		.loc 1 56 35 view .LVU105
+ 522 0026 6300     		lsls	r3, r4, #1
+ 523 0028 3344     		add	r3, r3, r6
+  56:Src/SID.c     **** }
+ 524              		.loc 1 56 41 view .LVU106
+ 525 002a 1A7D     		ldrb	r2, [r3, #20]	@ zero_extendqisi2
+  55:Src/SID.c     ****            sidChip->_voices[voice]._pwm & 0xF00 >> 8); // Masked to 5 bits
+ 526              		.loc 1 55 3 view .LVU107
+ 527 002c F91C     		adds	r1, r7, #3
+ 528 002e 02F00F02 		and	r2, r2, #15
+ 529 0032 C9B2     		uxtb	r1, r1
+ 530 0034 3046     		mov	r0, r6
+ 531 0036 FFF7FEFF 		bl	writeSID
+ 532              	.LVL38:
+  57:Src/SID.c     **** 
+ 533              		.loc 1 57 1 view .LVU108
+ 534 003a F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+  57:Src/SID.c     **** 
+ 535              		.loc 1 57 1 view .LVU109
+ 536              		.cfi_endproc
+ 537              	.LFE131:
+ 539              		.section	.text.writeVoiceEnv,"ax",%progbits
+ 540              		.align	1
+ 541              		.global	writeVoiceEnv
+ 542              		.syntax unified
+ 543              		.thumb
+ 544              		.thumb_func
+ 545              		.fpu fpv4-sp-d16
+ 547              	writeVoiceEnv:
+ 548              	.LVL39:
+ 549              	.LFB132:
+  59:Src/SID.c     ****   uint8_t attack_decay = 0;
+ 550              		.loc 1 59 45 is_stmt 1 view -0
+ 551              		.cfi_startproc
+ 552              		@ args = 0, pretend = 0, frame = 0
+ 553              		@ frame_needed = 0, uses_anonymous_args = 0
+  59:Src/SID.c     ****   uint8_t attack_decay = 0;
+ 554              		.loc 1 59 45 is_stmt 0 view .LVU111
+ 555 0000 70B5     		push	{r4, r5, r6, lr}
+ 556              	.LCFI7:
+ 557              		.cfi_def_cfa_offset 16
+ 558              		.cfi_offset 4, -16
+ 559              		.cfi_offset 5, -12
+ 560              		.cfi_offset 6, -8
+ 561              		.cfi_offset 14, -4
+ 562 0002 0646     		mov	r6, r0
+  60:Src/SID.c     ****   attack_decay |= (sidChip->_voices[voice]._env.Attack & 0xF) << 4;
+ 563              		.loc 1 60 3 is_stmt 1 view .LVU112
+ 564              	.LVL40:
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s 			page 15
+
+
+  61:Src/SID.c     ****   attack_decay |= sidChip->_voices[voice]._env.Decay & 0xF;
+ 565              		.loc 1 61 3 view .LVU113
+  61:Src/SID.c     ****   attack_decay |= sidChip->_voices[voice]._env.Decay & 0xF;
+ 566              		.loc 1 61 48 is_stmt 0 view .LVU114
+ 567 0004 8A00     		lsls	r2, r1, #2
+ 568 0006 0A44     		add	r2, r2, r1
+ 569 0008 5300     		lsls	r3, r2, #1
+ 570 000a 0344     		add	r3, r3, r0
+ 571 000c 9A7D     		ldrb	r2, [r3, #22]	@ zero_extendqisi2
+  61:Src/SID.c     ****   attack_decay |= sidChip->_voices[voice]._env.Decay & 0xF;
+ 572              		.loc 1 61 63 view .LVU115
+ 573 000e 1201     		lsls	r2, r2, #4
+  61:Src/SID.c     ****   attack_decay |= sidChip->_voices[voice]._env.Decay & 0xF;
+ 574              		.loc 1 61 16 view .LVU116
+ 575 0010 52B2     		sxtb	r2, r2
+ 576              	.LVL41:
+  62:Src/SID.c     **** 
+ 577              		.loc 1 62 3 is_stmt 1 view .LVU117
+  62:Src/SID.c     **** 
+ 578              		.loc 1 62 47 is_stmt 0 view .LVU118
+ 579 0012 93F91740 		ldrsb	r4, [r3, #23]
+  62:Src/SID.c     **** 
+ 580              		.loc 1 62 54 view .LVU119
+ 581 0016 04F00F04 		and	r4, r4, #15
+  62:Src/SID.c     **** 
+ 582              		.loc 1 62 16 view .LVU120
+ 583 001a 2243     		orrs	r2, r2, r4
+ 584              	.LVL42:
+  64:Src/SID.c     ****   sustain_release |= (sidChip->_voices[voice]._env.Sustain & 0xF) << 4;
+ 585              		.loc 1 64 3 is_stmt 1 view .LVU121
+  65:Src/SID.c     ****   sustain_release |= sidChip->_voices[voice]._env.Release & 0xF;
+ 586              		.loc 1 65 3 view .LVU122
+  65:Src/SID.c     ****   sustain_release |= sidChip->_voices[voice]._env.Release & 0xF;
+ 587              		.loc 1 65 51 is_stmt 0 view .LVU123
+ 588 001c 1D7E     		ldrb	r5, [r3, #24]	@ zero_extendqisi2
+  65:Src/SID.c     ****   sustain_release |= sidChip->_voices[voice]._env.Release & 0xF;
+ 589              		.loc 1 65 67 view .LVU124
+ 590 001e 2D01     		lsls	r5, r5, #4
+  65:Src/SID.c     ****   sustain_release |= sidChip->_voices[voice]._env.Release & 0xF;
+ 591              		.loc 1 65 19 view .LVU125
+ 592 0020 6DB2     		sxtb	r5, r5
+ 593              	.LVL43:
+  66:Src/SID.c     **** 
+ 594              		.loc 1 66 3 is_stmt 1 view .LVU126
+  66:Src/SID.c     **** 
+ 595              		.loc 1 66 50 is_stmt 0 view .LVU127
+ 596 0022 93F91930 		ldrsb	r3, [r3, #25]
+ 597              	.LVL44:
+  66:Src/SID.c     **** 
+ 598              		.loc 1 66 59 view .LVU128
+ 599 0026 03F00F03 		and	r3, r3, #15
+  66:Src/SID.c     **** 
+ 600              		.loc 1 66 19 view .LVU129
+ 601 002a 1D43     		orrs	r5, r5, r3
+ 602 002c EDB2     		uxtb	r5, r5
+ 603              	.LVL45:
+  68:Src/SID.c     ****   writeSID(sidChip, VOICE_1_SUSTAIN_RELEASE + (voice * VOICE_REGISTER_OFFSET), sustain_release);
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s 			page 16
+
+
+ 604              		.loc 1 68 3 is_stmt 1 view .LVU130
+ 605 002e C1EBC101 		rsb	r1, r1, r1, lsl #3
+ 606              	.LVL46:
+  68:Src/SID.c     ****   writeSID(sidChip, VOICE_1_SUSTAIN_RELEASE + (voice * VOICE_REGISTER_OFFSET), sustain_release);
+ 607              		.loc 1 68 3 is_stmt 0 view .LVU131
+ 608 0032 CCB2     		uxtb	r4, r1
+ 609 0034 611D     		adds	r1, r4, #5
+ 610 0036 D2B2     		uxtb	r2, r2
+  68:Src/SID.c     ****   writeSID(sidChip, VOICE_1_SUSTAIN_RELEASE + (voice * VOICE_REGISTER_OFFSET), sustain_release);
+ 611              		.loc 1 68 3 view .LVU132
+ 612 0038 C9B2     		uxtb	r1, r1
+ 613 003a FFF7FEFF 		bl	writeSID
+ 614              	.LVL47:
+  69:Src/SID.c     **** }
+ 615              		.loc 1 69 3 is_stmt 1 view .LVU133
+ 616 003e A11D     		adds	r1, r4, #6
+ 617 0040 2A46     		mov	r2, r5
+ 618 0042 C9B2     		uxtb	r1, r1
+ 619 0044 3046     		mov	r0, r6
+ 620 0046 FFF7FEFF 		bl	writeSID
+ 621              	.LVL48:
+  70:Src/SID.c     **** 
+ 622              		.loc 1 70 1 is_stmt 0 view .LVU134
+ 623 004a 70BD     		pop	{r4, r5, r6, pc}
+  70:Src/SID.c     **** 
+ 624              		.loc 1 70 1 view .LVU135
+ 625              		.cfi_endproc
+ 626              	.LFE132:
+ 628              		.section	.text.gateVoice,"ax",%progbits
+ 629              		.align	1
+ 630              		.global	gateVoice
+ 631              		.syntax unified
+ 632              		.thumb
+ 633              		.thumb_func
+ 634              		.fpu fpv4-sp-d16
+ 636              	gateVoice:
+ 637              	.LVL49:
+ 638              	.LFB133:
+  72:Src/SID.c     ****   if (voice > NUM_VOICES || voice < 0) {
+ 639              		.loc 1 72 41 is_stmt 1 view -0
+ 640              		.cfi_startproc
+ 641              		@ args = 0, pretend = 0, frame = 0
+ 642              		@ frame_needed = 0, uses_anonymous_args = 0
+  73:Src/SID.c     ****     return; // Error
+ 643              		.loc 1 73 3 view .LVU137
+  73:Src/SID.c     ****     return; // Error
+ 644              		.loc 1 73 6 is_stmt 0 view .LVU138
+ 645 0000 0329     		cmp	r1, #3
+ 646 0002 1DD8     		bhi	.L52
+  72:Src/SID.c     ****   if (voice > NUM_VOICES || voice < 0) {
+ 647              		.loc 1 72 41 view .LVU139
+ 648 0004 08B5     		push	{r3, lr}
+ 649              	.LCFI8:
+ 650              		.cfi_def_cfa_offset 8
+ 651              		.cfi_offset 3, -8
+ 652              		.cfi_offset 14, -4
+  81:Src/SID.c     ****   switch (sidChip->_voices[voice]._currentShape) {
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s 			page 17
+
+
+ 653              		.loc 1 81 3 is_stmt 1 view .LVU140
+ 654              	.LVL50:
+  82:Src/SID.c     ****   case Square:
+ 655              		.loc 1 82 3 view .LVU141
+  82:Src/SID.c     ****   case Square:
+ 656              		.loc 1 82 34 is_stmt 0 view .LVU142
+ 657 0006 01EB8102 		add	r2, r1, r1, lsl #2
+ 658 000a 5300     		lsls	r3, r2, #1
+ 659 000c 0344     		add	r3, r3, r0
+ 660 000e 1B7C     		ldrb	r3, [r3, #16]	@ zero_extendqisi2
+  82:Src/SID.c     ****   case Square:
+ 661              		.loc 1 82 3 view .LVU143
+ 662 0010 032B     		cmp	r3, #3
+ 663 0012 03D8     		bhi	.L44
+ 664 0014 DFE803F0 		tbb	[pc, r3]
+ 665              	.L46:
+ 666 0018 0A       		.byte	(.L50-.L46)/2
+ 667 0019 08       		.byte	(.L48-.L46)/2
+ 668 001a 06       		.byte	(.L47-.L46)/2
+ 669 001b 04       		.byte	(.L45-.L46)/2
+ 670              		.p2align 1
+ 671              	.L44:
+  81:Src/SID.c     ****   switch (sidChip->_voices[voice]._currentShape) {
+ 672              		.loc 1 81 11 view .LVU144
+ 673 001c 0022     		movs	r2, #0
+ 674 001e 06E0     		b	.L49
+ 675              	.L45:
+  87:Src/SID.c     ****     break;
+ 676              		.loc 1 87 5 is_stmt 1 view .LVU145
+ 677              	.LVL51:
+  88:Src/SID.c     ****   case Sawtooth:
+ 678              		.loc 1 88 5 view .LVU146
+  87:Src/SID.c     ****     break;
+ 679              		.loc 1 87 10 is_stmt 0 view .LVU147
+ 680 0020 8022     		movs	r2, #128
+  88:Src/SID.c     ****   case Sawtooth:
+ 681              		.loc 1 88 5 view .LVU148
+ 682 0022 04E0     		b	.L49
+ 683              	.LVL52:
+ 684              	.L47:
+  90:Src/SID.c     ****     break;
+ 685              		.loc 1 90 5 is_stmt 1 view .LVU149
+  91:Src/SID.c     ****   case Triangle:
+ 686              		.loc 1 91 5 view .LVU150
+  90:Src/SID.c     ****     break;
+ 687              		.loc 1 90 10 is_stmt 0 view .LVU151
+ 688 0024 2022     		movs	r2, #32
+  91:Src/SID.c     ****   case Triangle:
+ 689              		.loc 1 91 5 view .LVU152
+ 690 0026 02E0     		b	.L49
+ 691              	.LVL53:
+ 692              	.L48:
+  93:Src/SID.c     ****     break;
+ 693              		.loc 1 93 5 is_stmt 1 view .LVU153
+  94:Src/SID.c     ****   }
+ 694              		.loc 1 94 5 view .LVU154
+  93:Src/SID.c     ****     break;
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s 			page 18
+
+
+ 695              		.loc 1 93 10 is_stmt 0 view .LVU155
+ 696 0028 1022     		movs	r2, #16
+  94:Src/SID.c     ****   }
+ 697              		.loc 1 94 5 view .LVU156
+ 698 002a 00E0     		b	.L49
+ 699              	.LVL54:
+ 700              	.L50:
+  84:Src/SID.c     ****     break;
+ 701              		.loc 1 84 10 view .LVU157
+ 702 002c 4022     		movs	r2, #64
+ 703              	.LVL55:
+ 704              	.L49:
+  98:Src/SID.c     **** 
+ 705              		.loc 1 98 3 is_stmt 1 view .LVU158
+ 103:Src/SID.c     **** }
+ 706              		.loc 1 103 3 view .LVU159
+ 707 002e C1EBC101 		rsb	r1, r1, r1, lsl #3
+ 708              	.LVL56:
+ 103:Src/SID.c     **** }
+ 709              		.loc 1 103 3 is_stmt 0 view .LVU160
+ 710 0032 0431     		adds	r1, r1, #4
+ 711 0034 42F00102 		orr	r2, r2, #1
+ 712              	.LVL57:
+ 103:Src/SID.c     **** }
+ 713              		.loc 1 103 3 view .LVU161
+ 714 0038 C9B2     		uxtb	r1, r1
+ 715 003a FFF7FEFF 		bl	writeSID
+ 716              	.LVL58:
+ 104:Src/SID.c     **** 
+ 717              		.loc 1 104 1 view .LVU162
+ 718 003e 08BD     		pop	{r3, pc}
+ 719              	.LVL59:
+ 720              	.L52:
+ 721              	.LCFI9:
+ 722              		.cfi_def_cfa_offset 0
+ 723              		.cfi_restore 3
+ 724              		.cfi_restore 14
+ 104:Src/SID.c     **** 
+ 725              		.loc 1 104 1 view .LVU163
+ 726 0040 7047     		bx	lr
+ 727              		.cfi_endproc
+ 728              	.LFE133:
+ 730              		.section	.text.ungateVoice,"ax",%progbits
+ 731              		.align	1
+ 732              		.global	ungateVoice
+ 733              		.syntax unified
+ 734              		.thumb
+ 735              		.thumb_func
+ 736              		.fpu fpv4-sp-d16
+ 738              	ungateVoice:
+ 739              	.LVL60:
+ 740              	.LFB134:
+ 106:Src/SID.c     ****   if (voice > NUM_VOICES || voice < 0) {
+ 741              		.loc 1 106 43 is_stmt 1 view -0
+ 742              		.cfi_startproc
+ 743              		@ args = 0, pretend = 0, frame = 0
+ 744              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s 			page 19
+
+
+ 107:Src/SID.c     ****     return; // Error
+ 745              		.loc 1 107 3 view .LVU165
+ 107:Src/SID.c     ****     return; // Error
+ 746              		.loc 1 107 6 is_stmt 0 view .LVU166
+ 747 0000 0329     		cmp	r1, #3
+ 748 0002 1BD8     		bhi	.L65
+ 106:Src/SID.c     ****   if (voice > NUM_VOICES || voice < 0) {
+ 749              		.loc 1 106 43 view .LVU167
+ 750 0004 08B5     		push	{r3, lr}
+ 751              	.LCFI10:
+ 752              		.cfi_def_cfa_offset 8
+ 753              		.cfi_offset 3, -8
+ 754              		.cfi_offset 14, -4
+ 115:Src/SID.c     ****   switch (sidChip->_voices[voice]._currentShape) {
+ 755              		.loc 1 115 3 is_stmt 1 view .LVU168
+ 756              	.LVL61:
+ 116:Src/SID.c     ****   case Square:
+ 757              		.loc 1 116 3 view .LVU169
+ 116:Src/SID.c     ****   case Square:
+ 758              		.loc 1 116 34 is_stmt 0 view .LVU170
+ 759 0006 01EB8102 		add	r2, r1, r1, lsl #2
+ 760 000a 5300     		lsls	r3, r2, #1
+ 761 000c 0344     		add	r3, r3, r0
+ 762 000e 1B7C     		ldrb	r3, [r3, #16]	@ zero_extendqisi2
+ 116:Src/SID.c     ****   case Square:
+ 763              		.loc 1 116 3 view .LVU171
+ 764 0010 032B     		cmp	r3, #3
+ 765 0012 03D8     		bhi	.L57
+ 766 0014 DFE803F0 		tbb	[pc, r3]
+ 767              	.L59:
+ 768 0018 0A       		.byte	(.L63-.L59)/2
+ 769 0019 08       		.byte	(.L61-.L59)/2
+ 770 001a 06       		.byte	(.L60-.L59)/2
+ 771 001b 04       		.byte	(.L58-.L59)/2
+ 772              		.p2align 1
+ 773              	.L57:
+ 115:Src/SID.c     ****   switch (sidChip->_voices[voice]._currentShape) {
+ 774              		.loc 1 115 11 view .LVU172
+ 775 001c 0022     		movs	r2, #0
+ 776 001e 06E0     		b	.L62
+ 777              	.L58:
+ 121:Src/SID.c     ****     break;
+ 778              		.loc 1 121 5 is_stmt 1 view .LVU173
+ 779              	.LVL62:
+ 122:Src/SID.c     ****   case Sawtooth:
+ 780              		.loc 1 122 5 view .LVU174
+ 121:Src/SID.c     ****     break;
+ 781              		.loc 1 121 10 is_stmt 0 view .LVU175
+ 782 0020 8022     		movs	r2, #128
+ 122:Src/SID.c     ****   case Sawtooth:
+ 783              		.loc 1 122 5 view .LVU176
+ 784 0022 04E0     		b	.L62
+ 785              	.LVL63:
+ 786              	.L60:
+ 124:Src/SID.c     ****     break;
+ 787              		.loc 1 124 5 is_stmt 1 view .LVU177
+ 125:Src/SID.c     ****   case Triangle:
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s 			page 20
+
+
+ 788              		.loc 1 125 5 view .LVU178
+ 124:Src/SID.c     ****     break;
+ 789              		.loc 1 124 10 is_stmt 0 view .LVU179
+ 790 0024 2022     		movs	r2, #32
+ 125:Src/SID.c     ****   case Triangle:
+ 791              		.loc 1 125 5 view .LVU180
+ 792 0026 02E0     		b	.L62
+ 793              	.LVL64:
+ 794              	.L61:
+ 127:Src/SID.c     ****     break;
+ 795              		.loc 1 127 5 is_stmt 1 view .LVU181
+ 128:Src/SID.c     ****   }
+ 796              		.loc 1 128 5 view .LVU182
+ 127:Src/SID.c     ****     break;
+ 797              		.loc 1 127 10 is_stmt 0 view .LVU183
+ 798 0028 1022     		movs	r2, #16
+ 128:Src/SID.c     ****   }
+ 799              		.loc 1 128 5 view .LVU184
+ 800 002a 00E0     		b	.L62
+ 801              	.LVL65:
+ 802              	.L63:
+ 118:Src/SID.c     ****     break;
+ 803              		.loc 1 118 10 view .LVU185
+ 804 002c 4022     		movs	r2, #64
+ 805              	.LVL66:
+ 806              	.L62:
+ 132:Src/SID.c     **** 
+ 807              		.loc 1 132 3 is_stmt 1 view .LVU186
+ 137:Src/SID.c     **** }
+ 808              		.loc 1 137 3 view .LVU187
+ 809 002e C1EBC101 		rsb	r1, r1, r1, lsl #3
+ 810              	.LVL67:
+ 137:Src/SID.c     **** }
+ 811              		.loc 1 137 3 is_stmt 0 view .LVU188
+ 812 0032 0431     		adds	r1, r1, #4
+ 813 0034 C9B2     		uxtb	r1, r1
+ 814 0036 FFF7FEFF 		bl	writeSID
+ 815              	.LVL68:
+ 138:Src/SID.c     **** 
+ 816              		.loc 1 138 1 view .LVU189
+ 817 003a 08BD     		pop	{r3, pc}
+ 818              	.LVL69:
+ 819              	.L65:
+ 820              	.LCFI11:
+ 821              		.cfi_def_cfa_offset 0
+ 822              		.cfi_restore 3
+ 823              		.cfi_restore 14
+ 138:Src/SID.c     **** 
+ 824              		.loc 1 138 1 view .LVU190
+ 825 003c 7047     		bx	lr
+ 826              		.cfi_endproc
+ 827              	.LFE134:
+ 829              		.section	.text.writeFilterCutoff,"ax",%progbits
+ 830              		.align	1
+ 831              		.global	writeFilterCutoff
+ 832              		.syntax unified
+ 833              		.thumb
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s 			page 21
+
+
+ 834              		.thumb_func
+ 835              		.fpu fpv4-sp-d16
+ 837              	writeFilterCutoff:
+ 838              	.LVL70:
+ 839              	.LFB136:
+ 147:Src/SID.c     ****   // Cutoff is two bytes
+ 840              		.loc 1 147 38 is_stmt 1 view -0
+ 841              		.cfi_startproc
+ 842              		@ args = 0, pretend = 0, frame = 0
+ 843              		@ frame_needed = 0, uses_anonymous_args = 0
+ 147:Src/SID.c     ****   // Cutoff is two bytes
+ 844              		.loc 1 147 38 is_stmt 0 view .LVU192
+ 845 0000 10B5     		push	{r4, lr}
+ 846              	.LCFI12:
+ 847              		.cfi_def_cfa_offset 8
+ 848              		.cfi_offset 4, -8
+ 849              		.cfi_offset 14, -4
+ 850 0002 0446     		mov	r4, r0
+ 149:Src/SID.c     ****   writeSID(sidChip, FILTER_CUTOFF_HIGH, sidChip->_filter._cutoff & 0x700 >> 8);
+ 851              		.loc 1 149 3 is_stmt 1 view .LVU193
+ 852 0004 90F82E20 		ldrb	r2, [r0, #46]	@ zero_extendqisi2
+ 853 0008 1521     		movs	r1, #21
+ 854 000a FFF7FEFF 		bl	writeSID
+ 855              	.LVL71:
+ 150:Src/SID.c     **** }
+ 856              		.loc 1 150 3 view .LVU194
+ 150:Src/SID.c     **** }
+ 857              		.loc 1 150 66 is_stmt 0 view .LVU195
+ 858 000e 94F82E20 		ldrb	r2, [r4, #46]	@ zero_extendqisi2
+ 150:Src/SID.c     **** }
+ 859              		.loc 1 150 3 view .LVU196
+ 860 0012 02F00702 		and	r2, r2, #7
+ 861 0016 1621     		movs	r1, #22
+ 862 0018 2046     		mov	r0, r4
+ 863 001a FFF7FEFF 		bl	writeSID
+ 864              	.LVL72:
+ 151:Src/SID.c     **** 
+ 865              		.loc 1 151 1 view .LVU197
+ 866 001e 10BD     		pop	{r4, pc}
+ 151:Src/SID.c     **** 
+ 867              		.loc 1 151 1 view .LVU198
+ 868              		.cfi_endproc
+ 869              	.LFE136:
+ 871              		.section	.text.writeFilterResonance,"ax",%progbits
+ 872              		.align	1
+ 873              		.global	writeFilterResonance
+ 874              		.syntax unified
+ 875              		.thumb
+ 876              		.thumb_func
+ 877              		.fpu fpv4-sp-d16
+ 879              	writeFilterResonance:
+ 880              	.LVL73:
+ 881              	.LFB139:
+ 166:Src/SID.c     ****   // Data contains resonance and filter target
+ 882              		.loc 1 166 41 is_stmt 1 view -0
+ 883              		.cfi_startproc
+ 884              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s 			page 22
+
+
+ 885              		@ frame_needed = 0, uses_anonymous_args = 0
+ 166:Src/SID.c     ****   // Data contains resonance and filter target
+ 886              		.loc 1 166 41 is_stmt 0 view .LVU200
+ 887 0000 08B5     		push	{r3, lr}
+ 888              	.LCFI13:
+ 889              		.cfi_def_cfa_offset 8
+ 890              		.cfi_offset 3, -8
+ 891              		.cfi_offset 14, -4
+ 168:Src/SID.c     ****   data |= sidChip->_filter._resonance & 0xF << 4;
+ 892              		.loc 1 168 3 is_stmt 1 view .LVU201
+ 893              	.LVL74:
+ 169:Src/SID.c     ****   for (int i = 0; i < NUM_VOICES + 1; i++) {
+ 894              		.loc 1 169 3 view .LVU202
+ 169:Src/SID.c     ****   for (int i = 0; i < NUM_VOICES + 1; i++) {
+ 895              		.loc 1 169 27 is_stmt 0 view .LVU203
+ 896 0002 90F93020 		ldrsb	r2, [r0, #48]
+ 169:Src/SID.c     ****   for (int i = 0; i < NUM_VOICES + 1; i++) {
+ 897              		.loc 1 169 8 view .LVU204
+ 898 0006 02F0F002 		and	r2, r2, #240
+ 899              	.LVL75:
+ 170:Src/SID.c     ****     data |= sidChip->_filter._filterPipe[i] << i;
+ 900              		.loc 1 170 3 is_stmt 1 view .LVU205
+ 901              	.LBB2:
+ 170:Src/SID.c     ****     data |= sidChip->_filter._filterPipe[i] << i;
+ 902              		.loc 1 170 8 view .LVU206
+ 170:Src/SID.c     ****     data |= sidChip->_filter._filterPipe[i] << i;
+ 903              		.loc 1 170 12 is_stmt 0 view .LVU207
+ 904 000a 0023     		movs	r3, #0
+ 170:Src/SID.c     ****     data |= sidChip->_filter._filterPipe[i] << i;
+ 905              		.loc 1 170 3 view .LVU208
+ 906 000c 06E0     		b	.L71
+ 907              	.LVL76:
+ 908              	.L72:
+ 171:Src/SID.c     ****   }
+ 909              		.loc 1 171 5 is_stmt 1 discriminator 3 view .LVU209
+ 171:Src/SID.c     ****   }
+ 910              		.loc 1 171 41 is_stmt 0 discriminator 3 view .LVU210
+ 911 000e C118     		adds	r1, r0, r3
+ 912 0010 91F83310 		ldrb	r1, [r1, #51]	@ zero_extendqisi2
+ 171:Src/SID.c     ****   }
+ 913              		.loc 1 171 45 discriminator 3 view .LVU211
+ 914 0014 9940     		lsls	r1, r1, r3
+ 171:Src/SID.c     ****   }
+ 915              		.loc 1 171 10 discriminator 3 view .LVU212
+ 916 0016 0A43     		orrs	r2, r2, r1
+ 917              	.LVL77:
+ 171:Src/SID.c     ****   }
+ 918              		.loc 1 171 10 discriminator 3 view .LVU213
+ 919 0018 D2B2     		uxtb	r2, r2
+ 920              	.LVL78:
+ 170:Src/SID.c     ****     data |= sidChip->_filter._filterPipe[i] << i;
+ 921              		.loc 1 170 40 discriminator 3 view .LVU214
+ 922 001a 0133     		adds	r3, r3, #1
+ 923              	.LVL79:
+ 924              	.L71:
+ 170:Src/SID.c     ****     data |= sidChip->_filter._filterPipe[i] << i;
+ 925              		.loc 1 170 3 discriminator 1 view .LVU215
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s 			page 23
+
+
+ 926 001c 032B     		cmp	r3, #3
+ 927 001e F6DD     		ble	.L72
+ 170:Src/SID.c     ****     data |= sidChip->_filter._filterPipe[i] << i;
+ 928              		.loc 1 170 3 discriminator 1 view .LVU216
+ 929              	.LBE2:
+ 173:Src/SID.c     **** }
+ 930              		.loc 1 173 3 is_stmt 1 view .LVU217
+ 931 0020 1721     		movs	r1, #23
+ 932 0022 FFF7FEFF 		bl	writeSID
+ 933              	.LVL80:
+ 174:Src/SID.c     **** 
+ 934              		.loc 1 174 1 is_stmt 0 view .LVU218
+ 935 0026 08BD     		pop	{r3, pc}
+ 936              		.cfi_endproc
+ 937              	.LFE139:
+ 939              		.section	.text.writeFilterVolume,"ax",%progbits
+ 940              		.align	1
+ 941              		.global	writeFilterVolume
+ 942              		.syntax unified
+ 943              		.thumb
+ 944              		.thumb_func
+ 945              		.fpu fpv4-sp-d16
+ 947              	writeFilterVolume:
+ 948              	.LVL81:
+ 949              	.LFB142:
+ 186:Src/SID.c     ****   // Data contains volume and filter type
+ 950              		.loc 1 186 38 is_stmt 1 view -0
+ 951              		.cfi_startproc
+ 952              		@ args = 0, pretend = 0, frame = 0
+ 953              		@ frame_needed = 0, uses_anonymous_args = 0
+ 186:Src/SID.c     ****   // Data contains volume and filter type
+ 954              		.loc 1 186 38 is_stmt 0 view .LVU220
+ 955 0000 08B5     		push	{r3, lr}
+ 956              	.LCFI14:
+ 957              		.cfi_def_cfa_offset 8
+ 958              		.cfi_offset 3, -8
+ 959              		.cfi_offset 14, -4
+ 188:Src/SID.c     ****   data |= sidChip->_filter._volume & 0xF;
+ 960              		.loc 1 188 3 is_stmt 1 view .LVU221
+ 961              	.LVL82:
+ 189:Src/SID.c     ****   switch (sidChip->_filter._type) {
+ 962              		.loc 1 189 3 view .LVU222
+ 189:Src/SID.c     ****   switch (sidChip->_filter._type) {
+ 963              		.loc 1 189 27 is_stmt 0 view .LVU223
+ 964 0002 90F93120 		ldrsb	r2, [r0, #49]
+ 189:Src/SID.c     ****   switch (sidChip->_filter._type) {
+ 965              		.loc 1 189 8 view .LVU224
+ 966 0006 02F00F02 		and	r2, r2, #15
+ 967              	.LVL83:
+ 190:Src/SID.c     ****   case ThreeOff:
+ 968              		.loc 1 190 3 is_stmt 1 view .LVU225
+ 190:Src/SID.c     ****   case ThreeOff:
+ 969              		.loc 1 190 27 is_stmt 0 view .LVU226
+ 970 000a 90F83230 		ldrb	r3, [r0, #50]	@ zero_extendqisi2
+ 190:Src/SID.c     ****   case ThreeOff:
+ 971              		.loc 1 190 3 view .LVU227
+ 972 000e 032B     		cmp	r3, #3
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s 			page 24
+
+
+ 973 0010 05D8     		bhi	.L75
+ 974 0012 DFE803F0 		tbb	[pc, r3]
+ 975              	.L77:
+ 976 0016 02       		.byte	(.L80-.L77)/2
+ 977 0017 08       		.byte	(.L79-.L77)/2
+ 978 0018 0B       		.byte	(.L78-.L77)/2
+ 979 0019 0E       		.byte	(.L76-.L77)/2
+ 980              		.p2align 1
+ 981              	.L80:
+ 192:Src/SID.c     ****     break;
+ 982              		.loc 1 192 5 is_stmt 1 view .LVU228
+ 192:Src/SID.c     ****     break;
+ 983              		.loc 1 192 10 is_stmt 0 view .LVU229
+ 984 001a 42F08002 		orr	r2, r2, #128
+ 985              	.LVL84:
+ 193:Src/SID.c     ****   case HP:
+ 986              		.loc 1 193 5 is_stmt 1 view .LVU230
+ 987              	.L75:
+ 204:Src/SID.c     **** }
+ 988              		.loc 1 204 3 view .LVU231
+ 989 001e 1821     		movs	r1, #24
+ 990 0020 FFF7FEFF 		bl	writeSID
+ 991              	.LVL85:
+ 205:Src/SID.c     **** 
+ 992              		.loc 1 205 1 is_stmt 0 view .LVU232
+ 993 0024 08BD     		pop	{r3, pc}
+ 994              	.LVL86:
+ 995              	.L79:
+ 195:Src/SID.c     ****     break;
+ 996              		.loc 1 195 5 is_stmt 1 view .LVU233
+ 195:Src/SID.c     ****     break;
+ 997              		.loc 1 195 10 is_stmt 0 view .LVU234
+ 998 0026 42F04002 		orr	r2, r2, #64
+ 999              	.LVL87:
+ 196:Src/SID.c     ****   case BP:
+ 1000              		.loc 1 196 5 is_stmt 1 view .LVU235
+ 1001 002a F8E7     		b	.L75
+ 1002              	.L78:
+ 198:Src/SID.c     ****     break;
+ 1003              		.loc 1 198 5 view .LVU236
+ 198:Src/SID.c     ****     break;
+ 1004              		.loc 1 198 10 is_stmt 0 view .LVU237
+ 1005 002c 42F02002 		orr	r2, r2, #32
+ 1006              	.LVL88:
+ 199:Src/SID.c     ****   case LP:
+ 1007              		.loc 1 199 5 is_stmt 1 view .LVU238
+ 1008 0030 F5E7     		b	.L75
+ 1009              	.L76:
+ 201:Src/SID.c     ****     break;
+ 1010              		.loc 1 201 5 view .LVU239
+ 201:Src/SID.c     ****     break;
+ 1011              		.loc 1 201 10 is_stmt 0 view .LVU240
+ 1012 0032 42F01002 		orr	r2, r2, #16
+ 1013              	.LVL89:
+ 202:Src/SID.c     ****   }
+ 1014              		.loc 1 202 5 is_stmt 1 view .LVU241
+ 1015 0036 F2E7     		b	.L75
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s 			page 25
+
+
+ 1016              		.cfi_endproc
+ 1017              	.LFE142:
+ 1019              		.section	.text.clearSID,"ax",%progbits
+ 1020              		.align	1
+ 1021              		.global	clearSID
+ 1022              		.syntax unified
+ 1023              		.thumb
+ 1024              		.thumb_func
+ 1025              		.fpu fpv4-sp-d16
+ 1027              	clearSID:
+ 1028              	.LVL90:
+ 1029              	.LFB144:
+ 228:Src/SID.c     **** 
+ 229:Src/SID.c     **** // Reset the SID chip and clear all registers
+ 230:Src/SID.c     **** void clearSID(SID *sidChip) {
+ 1030              		.loc 1 230 29 view -0
+ 1031              		.cfi_startproc
+ 1032              		@ args = 0, pretend = 0, frame = 0
+ 1033              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1034              		.loc 1 230 29 is_stmt 0 view .LVU243
+ 1035 0000 38B5     		push	{r3, r4, r5, lr}
+ 1036              	.LCFI15:
+ 1037              		.cfi_def_cfa_offset 16
+ 1038              		.cfi_offset 3, -16
+ 1039              		.cfi_offset 4, -12
+ 1040              		.cfi_offset 5, -8
+ 1041              		.cfi_offset 14, -4
+ 1042 0002 0546     		mov	r5, r0
+ 231:Src/SID.c     ****   // From the datasheet, hold ~RES Low for 10 clock cycles
+ 232:Src/SID.c     ****   HAL_GPIO_WritePin(sidChip->_res_port, sidChip->_res, GPIO_PIN_RESET);
+ 1043              		.loc 1 232 3 is_stmt 1 view .LVU244
+ 1044 0004 0022     		movs	r2, #0
+ 1045 0006 0188     		ldrh	r1, [r0]
+ 1046 0008 4068     		ldr	r0, [r0, #4]
+ 1047              	.LVL91:
+ 1048              		.loc 1 232 3 is_stmt 0 view .LVU245
+ 1049 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1050              	.LVL92:
+ 233:Src/SID.c     ****   HAL_Delay(1 / SID_FREQ * 10000);
+ 1051              		.loc 1 233 3 is_stmt 1 view .LVU246
+ 1052 000e 0020     		movs	r0, #0
+ 1053 0010 FFF7FEFF 		bl	HAL_Delay
+ 1054              	.LVL93:
+ 234:Src/SID.c     ****   HAL_GPIO_WritePin(sidChip->_res_port, sidChip->_res, GPIO_PIN_SET);
+ 1055              		.loc 1 234 3 view .LVU247
+ 1056 0014 0122     		movs	r2, #1
+ 1057 0016 2988     		ldrh	r1, [r5]
+ 1058 0018 6868     		ldr	r0, [r5, #4]
+ 1059 001a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1060              	.LVL94:
+ 235:Src/SID.c     ****   // Now write zeros to every register
+ 236:Src/SID.c     ****   for(int i = 0; i < NUM_REGISTERS; i++)
+ 1061              		.loc 1 236 3 view .LVU248
+ 1062              	.LBB3:
+ 1063              		.loc 1 236 7 view .LVU249
+ 1064              		.loc 1 236 11 is_stmt 0 view .LVU250
+ 1065 001e 0024     		movs	r4, #0
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s 			page 26
+
+
+ 1066              	.LVL95:
+ 1067              	.L83:
+ 1068              		.loc 1 236 3 discriminator 1 view .LVU251
+ 1069 0020 172C     		cmp	r4, #23
+ 1070 0022 06DC     		bgt	.L86
+ 237:Src/SID.c     ****   {
+ 238:Src/SID.c     ****     writeSID(sidChip,i,0);
+ 1071              		.loc 1 238 5 is_stmt 1 discriminator 3 view .LVU252
+ 1072 0024 0022     		movs	r2, #0
+ 1073 0026 E1B2     		uxtb	r1, r4
+ 1074 0028 2846     		mov	r0, r5
+ 1075 002a FFF7FEFF 		bl	writeSID
+ 1076              	.LVL96:
+ 236:Src/SID.c     ****   {
+ 1077              		.loc 1 236 38 is_stmt 0 discriminator 3 view .LVU253
+ 1078 002e 0134     		adds	r4, r4, #1
+ 1079              	.LVL97:
+ 236:Src/SID.c     ****   {
+ 1080              		.loc 1 236 38 discriminator 3 view .LVU254
+ 1081 0030 F6E7     		b	.L83
+ 1082              	.L86:
+ 236:Src/SID.c     ****   {
+ 1083              		.loc 1 236 38 discriminator 3 view .LVU255
+ 1084              	.LBE3:
+ 239:Src/SID.c     ****   }
+ 240:Src/SID.c     **** }...
+ 1085              		.loc 1 240 1 view .LVU256
+ 1086 0032 38BD     		pop	{r3, r4, r5, pc}
+ 1087              		.loc 1 240 1 view .LVU257
+ 1088              		.cfi_endproc
+ 1089              	.LFE144:
+ 1091              		.text
+ 1092              	.Letext0:
+ 1093              		.file 2 "/usr/local/gcc_arm/arm-none-eabi/include/machine/_default_types.h"
+ 1094              		.file 3 "/usr/local/gcc_arm/arm-none-eabi/include/sys/_stdint.h"
+ 1095              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 1096              		.file 5 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/system_stm32f3xx.h"
+ 1097              		.file 6 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xc.h"
+ 1098              		.file 7 "/usr/local/gcc_arm/arm-none-eabi/include/sys/lock.h"
+ 1099              		.file 8 "/usr/local/gcc_arm/arm-none-eabi/include/sys/_types.h"
+ 1100              		.file 9 "/usr/local/gcc_arm/lib/gcc/arm-none-eabi/8.2.1/include/stddef.h"
+ 1101              		.file 10 "/usr/local/gcc_arm/arm-none-eabi/include/sys/reent.h"
+ 1102              		.file 11 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h"
+ 1103              		.file 12 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_gpio.h"
+ 1104              		.file 13 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_dma.h"
+ 1105              		.file 14 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi.h"
+ 1106              		.file 15 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h"
+ 1107              		.file 16 "Inc/SID.h"
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s 			page 27
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 SID.c
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:18     .text.setVoiceFreq:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:26     .text.setVoiceFreq:0000000000000000 setVoiceFreq
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:56     .text.setVoicePWM:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:63     .text.setVoicePWM:0000000000000000 setVoicePWM
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:100    .text.setVoiceShape:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:107    .text.setVoiceShape:0000000000000000 setVoiceShape
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:136    .text.setVoiceEnv:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:143    .text.setVoiceEnv:0000000000000000 setVoiceEnv
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:179    .text.setFilterCutoff:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:186    .text.setFilterCutoff:0000000000000000 setFilterCutoff
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:211    .text.setFilterResonance:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:218    .text.setFilterResonance:0000000000000000 setFilterResonance
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:243    .text.setFilterTargets:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:250    .text.setFilterTargets:0000000000000000 setFilterTargets
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:275    .text.setVolume:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:282    .text.setVolume:0000000000000000 setVolume
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:307    .text.setFilterType:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:314    .text.setFilterType:0000000000000000 setFilterType
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:331    .text.writeSID:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:338    .text.writeSID:0000000000000000 writeSID
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:401    .text.writeVoiceFreq:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:408    .text.writeVoiceFreq:0000000000000000 writeVoiceFreq
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:469    .text.writeVoicePWM:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:476    .text.writeVoicePWM:0000000000000000 writeVoicePWM
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:540    .text.writeVoiceEnv:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:547    .text.writeVoiceEnv:0000000000000000 writeVoiceEnv
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:629    .text.gateVoice:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:636    .text.gateVoice:0000000000000000 gateVoice
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:666    .text.gateVoice:0000000000000018 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:670    .text.gateVoice:000000000000001c $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:731    .text.ungateVoice:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:738    .text.ungateVoice:0000000000000000 ungateVoice
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:768    .text.ungateVoice:0000000000000018 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:772    .text.ungateVoice:000000000000001c $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:830    .text.writeFilterCutoff:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:837    .text.writeFilterCutoff:0000000000000000 writeFilterCutoff
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:872    .text.writeFilterResonance:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:879    .text.writeFilterResonance:0000000000000000 writeFilterResonance
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:940    .text.writeFilterVolume:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:947    .text.writeFilterVolume:0000000000000000 writeFilterVolume
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:976    .text.writeFilterVolume:0000000000000016 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:980    .text.writeFilterVolume:000000000000001a $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:1020   .text.clearSID:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccjHSvgY.s:1027   .text.clearSID:0000000000000000 clearSID
+
+UNDEFINED SYMBOLS
+HAL_SPI_Transmit
+HAL_GPIO_WritePin
+HAL_Delay

@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccAWnXXN.s 			page 1
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccVhU4xk.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -17,15 +17,15 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccAWnXXN.s 			page 1
   14              		.text
   15              	.Ltext0:
   16              		.cfi_sections	.debug_frame
-  17              		.section	.text.write,"ax",%progbits
+  17              		.section	.text.writeLEDs,"ax",%progbits
   18              		.align	1
-  19              		.global	write
+  19              		.global	writeLEDs
   20              		.arch armv7e-m
   21              		.syntax unified
   22              		.thumb
   23              		.thumb_func
   24              		.fpu fpv4-sp-d16
-  26              	write:
+  26              	writeLEDs:
   27              	.LVL0:
   28              	.LFB126:
   29              		.file 1 "Src/TLC5947.c"
@@ -33,12 +33,12 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccAWnXXN.s 			page 1
    2:Src/TLC5947.c **** 
    3:Src/TLC5947.c **** uint16_t _buffer[NUM_CHANNELS];
    4:Src/TLC5947.c **** 
-   5:Src/TLC5947.c **** void write(TLC5947 *pins) {
-  30              		.loc 1 5 27 view -0
+   5:Src/TLC5947.c **** void writeLEDs(TLC5947 *pins) {
+  30              		.loc 1 5 31 view -0
   31              		.cfi_startproc
   32              		@ args = 0, pretend = 0, frame = 0
   33              		@ frame_needed = 0, uses_anonymous_args = 0
-  34              		.loc 1 5 27 is_stmt 0 view .LVU1
+  34              		.loc 1 5 31 is_stmt 0 view .LVU1
   35 0000 70B5     		push	{r4, r5, r6, lr}
   36              	.LCFI0:
   37              		.cfi_def_cfa_offset 16
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccAWnXXN.s 			page 1
   50              	.LVL2:
    7:Src/TLC5947.c ****   // 24 Channels per TLC5947, set in NUM_CHANNELS
    8:Src/TLC5947.c ****   for (int16_t channel = NUM_CHANNELS - 1; channel >= 0; channel--) {
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccAWnXXN.s 			page 2
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccVhU4xk.s 			page 2
 
 
   51              		.loc 1 8 3 is_stmt 1 view .LVU4
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccAWnXXN.s 			page 1
   12:Src/TLC5947.c ****         HAL_GPIO_WritePin(pins->_data_port, pins->_data, GPIO_PIN_SET);
   91              		.loc 1 12 18 is_stmt 0 view .LVU15
   92 0038 114B     		ldr	r3, .L11
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccAWnXXN.s 			page 3
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccVhU4xk.s 			page 3
 
 
   93 003a 33F81630 		ldrh	r3, [r3, r6, lsl #1]
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccAWnXXN.s 			page 1
  135 006c A868     		ldr	r0, [r5, #8]
  136 006e FFF7FEFF 		bl	HAL_GPIO_WritePin
  137              	.LVL13:
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccAWnXXN.s 			page 4
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccVhU4xk.s 			page 4
 
 
   22:Src/TLC5947.c ****   HAL_GPIO_WritePin(pins->_lat_port, pins->_lat, GPIO_PIN_RESET);
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccAWnXXN.s 			page 1
  185 000e 024B     		ldr	r3, .L17
  186 0010 23F81010 		strh	r1, [r3, r0, lsl #1]	@ movhi
  187              	.L13:
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccAWnXXN.s 			page 5
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccVhU4xk.s 			page 5
 
 
   31:Src/TLC5947.c **** }
@@ -250,59 +250,57 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccAWnXXN.s 			page 1
  193 0018 00000000 		.word	_buffer
  194              		.cfi_endproc
  195              	.LFE127:
- 197              		.section	.text.clear,"ax",%progbits
+ 197              		.section	.text.clearLEDs,"ax",%progbits
  198              		.align	1
- 199              		.global	clear
+ 199              		.global	clearLEDs
  200              		.syntax unified
  201              		.thumb
  202              		.thumb_func
  203              		.fpu fpv4-sp-d16
- 205              	clear:
+ 205              	clearLEDs:
  206              	.LFB128:
   32:Src/TLC5947.c **** 
-  33:Src/TLC5947.c **** void clear()
-  34:Src/TLC5947.c **** {
- 207              		.loc 1 34 1 is_stmt 1 view -0
+  33:Src/TLC5947.c **** void clearLEDs() {
+ 207              		.loc 1 33 18 is_stmt 1 view -0
  208              		.cfi_startproc
  209              		@ args = 0, pretend = 0, frame = 0
  210              		@ frame_needed = 0, uses_anonymous_args = 0
  211              		@ link register save eliminated.
-  35:Src/TLC5947.c ****   for(int i = 0; i < NUM_CHANNELS; i++)
- 212              		.loc 1 35 3 view .LVU39
+  34:Src/TLC5947.c ****   for (int i = 0; i < NUM_CHANNELS; i++) {
+ 212              		.loc 1 34 3 view .LVU39
  213              	.LBB5:
- 214              		.loc 1 35 7 view .LVU40
+ 214              		.loc 1 34 8 view .LVU40
  215              	.LVL18:
- 216              		.loc 1 35 11 is_stmt 0 view .LVU41
+ 216              		.loc 1 34 12 is_stmt 0 view .LVU41
  217 0000 0023     		movs	r3, #0
  218              	.LVL19:
  219              	.L20:
- 220              		.loc 1 35 3 discriminator 1 view .LVU42
+ 220              		.loc 1 34 3 discriminator 1 view .LVU42
  221 0002 172B     		cmp	r3, #23
  222 0004 05DC     		bgt	.L22
-  36:Src/TLC5947.c ****   {
-  37:Src/TLC5947.c ****     _buffer[i] = 0;
- 223              		.loc 1 37 5 is_stmt 1 discriminator 3 view .LVU43
- 224              		.loc 1 37 16 is_stmt 0 discriminator 3 view .LVU44
+  35:Src/TLC5947.c ****     _buffer[i] = 0;
+ 223              		.loc 1 35 5 is_stmt 1 discriminator 3 view .LVU43
+ 224              		.loc 1 35 16 is_stmt 0 discriminator 3 view .LVU44
  225 0006 034A     		ldr	r2, .L23
  226 0008 0021     		movs	r1, #0
  227 000a 22F81310 		strh	r1, [r2, r3, lsl #1]	@ movhi
-  35:Src/TLC5947.c ****   for(int i = 0; i < NUM_CHANNELS; i++)
- 228              		.loc 1 35 37 discriminator 3 view .LVU45
+  34:Src/TLC5947.c ****   for (int i = 0; i < NUM_CHANNELS; i++) {
+ 228              		.loc 1 34 38 discriminator 3 view .LVU45
  229 000e 0133     		adds	r3, r3, #1
  230              	.LVL20:
-  35:Src/TLC5947.c ****   for(int i = 0; i < NUM_CHANNELS; i++)
- 231              		.loc 1 35 37 discriminator 3 view .LVU46
+  34:Src/TLC5947.c ****   for (int i = 0; i < NUM_CHANNELS; i++) {
+ 231              		.loc 1 34 38 discriminator 3 view .LVU46
  232 0010 F7E7     		b	.L20
  233              	.L22:
-  35:Src/TLC5947.c ****   for(int i = 0; i < NUM_CHANNELS; i++)
- 234              		.loc 1 35 37 discriminator 3 view .LVU47
+  34:Src/TLC5947.c ****   for (int i = 0; i < NUM_CHANNELS; i++) {
+ 234              		.loc 1 34 38 discriminator 3 view .LVU47
  235              	.LBE5:
-  38:Src/TLC5947.c ****   }
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccAWnXXN.s 			page 6
+  36:Src/TLC5947.c ****   }
+  37:Src/TLC5947.c **** }
+ 236              		.loc 1 37 1 view .LVU48
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccVhU4xk.s 			page 6
 
 
-  39:Src/TLC5947.c **** }...
- 236              		.loc 1 39 1 view .LVU48
  237 0012 7047     		bx	lr
  238              	.L24:
  239              		.align	2
@@ -310,37 +308,114 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccAWnXXN.s 			page 1
  241 0014 00000000 		.word	_buffer
  242              		.cfi_endproc
  243              	.LFE128:
- 245              		.comm	_buffer,48,4
- 246              		.text
- 247              	.Letext0:
- 248              		.file 2 "/usr/local/gcc_arm/arm-none-eabi/include/machine/_default_types.h"
- 249              		.file 3 "/usr/local/gcc_arm/arm-none-eabi/include/sys/lock.h"
- 250              		.file 4 "/usr/local/gcc_arm/arm-none-eabi/include/sys/_types.h"
- 251              		.file 5 "/usr/local/gcc_arm/lib/gcc/arm-none-eabi/8.2.1/include/stddef.h"
- 252              		.file 6 "/usr/local/gcc_arm/arm-none-eabi/include/sys/reent.h"
- 253              		.file 7 "/usr/local/gcc_arm/arm-none-eabi/include/stdlib.h"
- 254              		.file 8 "/usr/local/gcc_arm/arm-none-eabi/include/sys/_stdint.h"
- 255              		.file 9 "Drivers/CMSIS/Include/core_cm4.h"
- 256              		.file 10 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/system_stm32f3xx.h"
- 257              		.file 11 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xc.h"
- 258              		.file 12 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_gpio.h"
- 259              		.file 13 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h"
- 260              		.file 14 "Inc/TLC5947.h"
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccAWnXXN.s 			page 7
+ 245              		.section	.text.setAllLEDBrightness,"ax",%progbits
+ 246              		.align	1
+ 247              		.global	setAllLEDBrightness
+ 248              		.syntax unified
+ 249              		.thumb
+ 250              		.thumb_func
+ 251              		.fpu fpv4-sp-d16
+ 253              	setAllLEDBrightness:
+ 254              	.LVL21:
+ 255              	.LFB129:
+  38:Src/TLC5947.c **** 
+  39:Src/TLC5947.c **** void setAllLEDBrightness(uint16_t value) {
+ 256              		.loc 1 39 42 is_stmt 1 view -0
+ 257              		.cfi_startproc
+ 258              		@ args = 0, pretend = 0, frame = 0
+ 259              		@ frame_needed = 0, uses_anonymous_args = 0
+ 260              		@ link register save eliminated.
+  40:Src/TLC5947.c ****   for (int i = 0; i < NUM_CHANNELS; i++) {
+ 261              		.loc 1 40 3 view .LVU50
+ 262              	.LBB6:
+ 263              		.loc 1 40 8 view .LVU51
+ 264              		.loc 1 40 12 is_stmt 0 view .LVU52
+ 265 0000 0023     		movs	r3, #0
+ 266              		.loc 1 40 3 view .LVU53
+ 267 0002 03E0     		b	.L26
+ 268              	.LVL22:
+ 269              	.L27:
+  41:Src/TLC5947.c ****     if (value > 4095)
+  42:Src/TLC5947.c ****       value = 4095;
+  43:Src/TLC5947.c ****     _buffer[i] = value;
+ 270              		.loc 1 43 5 is_stmt 1 discriminator 2 view .LVU54
+ 271              		.loc 1 43 16 is_stmt 0 discriminator 2 view .LVU55
+ 272 0004 064A     		ldr	r2, .L31
+ 273 0006 22F81300 		strh	r0, [r2, r3, lsl #1]	@ movhi
+  40:Src/TLC5947.c ****   for (int i = 0; i < NUM_CHANNELS; i++) {
+ 274              		.loc 1 40 38 discriminator 2 view .LVU56
+ 275 000a 0133     		adds	r3, r3, #1
+ 276              	.LVL23:
+ 277              	.L26:
+  40:Src/TLC5947.c ****   for (int i = 0; i < NUM_CHANNELS; i++) {
+ 278              		.loc 1 40 3 discriminator 1 view .LVU57
+ 279 000c 172B     		cmp	r3, #23
+ 280 000e 05DC     		bgt	.L30
+  41:Src/TLC5947.c ****     if (value > 4095)
+ 281              		.loc 1 41 5 is_stmt 1 view .LVU58
+  41:Src/TLC5947.c ****     if (value > 4095)
+ 282              		.loc 1 41 8 is_stmt 0 view .LVU59
+ 283 0010 B0F5805F 		cmp	r0, #4096
+ 284 0014 F6D3     		bcc	.L27
+  42:Src/TLC5947.c ****     _buffer[i] = value;
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccVhU4xk.s 			page 7
+
+
+ 285              		.loc 1 42 13 view .LVU60
+ 286 0016 40F6FF70 		movw	r0, #4095
+ 287              	.LVL24:
+  42:Src/TLC5947.c ****     _buffer[i] = value;
+ 288              		.loc 1 42 13 view .LVU61
+ 289 001a F3E7     		b	.L27
+ 290              	.LVL25:
+ 291              	.L30:
+  42:Src/TLC5947.c ****     _buffer[i] = value;
+ 292              		.loc 1 42 13 view .LVU62
+ 293              	.LBE6:
+  44:Src/TLC5947.c ****   }
+  45:Src/TLC5947.c **** }...
+ 294              		.loc 1 45 1 view .LVU63
+ 295 001c 7047     		bx	lr
+ 296              	.L32:
+ 297 001e 00BF     		.align	2
+ 298              	.L31:
+ 299 0020 00000000 		.word	_buffer
+ 300              		.cfi_endproc
+ 301              	.LFE129:
+ 303              		.comm	_buffer,48,4
+ 304              		.text
+ 305              	.Letext0:
+ 306              		.file 2 "/usr/local/gcc_arm/arm-none-eabi/include/machine/_default_types.h"
+ 307              		.file 3 "/usr/local/gcc_arm/arm-none-eabi/include/sys/lock.h"
+ 308              		.file 4 "/usr/local/gcc_arm/arm-none-eabi/include/sys/_types.h"
+ 309              		.file 5 "/usr/local/gcc_arm/lib/gcc/arm-none-eabi/8.2.1/include/stddef.h"
+ 310              		.file 6 "/usr/local/gcc_arm/arm-none-eabi/include/sys/reent.h"
+ 311              		.file 7 "/usr/local/gcc_arm/arm-none-eabi/include/stdlib.h"
+ 312              		.file 8 "/usr/local/gcc_arm/arm-none-eabi/include/sys/_stdint.h"
+ 313              		.file 9 "Drivers/CMSIS/Include/core_cm4.h"
+ 314              		.file 10 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/system_stm32f3xx.h"
+ 315              		.file 11 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xc.h"
+ 316              		.file 12 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_gpio.h"
+ 317              		.file 13 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h"
+ 318              		.file 14 "Inc/TLC5947.h"
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccVhU4xk.s 			page 8
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 TLC5947.c
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccAWnXXN.s:18     .text.write:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccAWnXXN.s:26     .text.write:0000000000000000 write
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccAWnXXN.s:151    .text.write:0000000000000080 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccVhU4xk.s:18     .text.writeLEDs:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccVhU4xk.s:26     .text.writeLEDs:0000000000000000 writeLEDs
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccVhU4xk.s:151    .text.writeLEDs:0000000000000080 $d
                             *COM*:0000000000000030 _buffer
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccAWnXXN.s:156    .text.setLEDBrightness:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccAWnXXN.s:163    .text.setLEDBrightness:0000000000000000 setLEDBrightness
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccAWnXXN.s:193    .text.setLEDBrightness:0000000000000018 $d
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccAWnXXN.s:198    .text.clear:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccAWnXXN.s:205    .text.clear:0000000000000000 clear
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccAWnXXN.s:241    .text.clear:0000000000000014 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccVhU4xk.s:156    .text.setLEDBrightness:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccVhU4xk.s:163    .text.setLEDBrightness:0000000000000000 setLEDBrightness
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccVhU4xk.s:193    .text.setLEDBrightness:0000000000000018 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccVhU4xk.s:198    .text.clearLEDs:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccVhU4xk.s:205    .text.clearLEDs:0000000000000000 clearLEDs
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccVhU4xk.s:241    .text.clearLEDs:0000000000000014 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccVhU4xk.s:246    .text.setAllLEDBrightness:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccVhU4xk.s:253    .text.setAllLEDBrightness:0000000000000000 setAllLEDBrightness
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccVhU4xk.s:299    .text.setAllLEDBrightness:0000000000000020 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin

@@ -58,7 +58,7 @@ Wire Wire Line
 Wire Wire Line
 	6550 3450 6650 3450
 Wire Wire Line
-	4850 2950 4850 3200
+	4850 2950 4850 3100
 $Comp
 L power:+5V #PWR?
 U 1 1 5C5AD5A0
@@ -460,7 +460,7 @@ Wire Wire Line
 Wire Wire Line
 	3250 4450 3250 3900
 Wire Wire Line
-	3250 3900 4400 3900
+	3250 3900 3400 3900
 Connection ~ 3800 4450
 Connection ~ 4400 3900
 Wire Wire Line
@@ -562,38 +562,10 @@ F 3 "" H 9200 2900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	9200 2900 9200 2750
+	9200 2900 9200 2850
 Connection ~ 9200 2450
 Wire Wire Line
 	9200 1500 9200 2450
-$Comp
-L Device:CP C38
-U 1 1 5BDEB869
-P 9700 2600
-F 0 "C38" H 9818 2646 50  0000 L CNN
-F 1 "2200 uF" H 9818 2555 50  0000 L CNN
-F 2 "Capacitor_SMD:CP_Elec_10x10" H 9738 2450 50  0001 C CNN
-F 3 "~" H 9700 2600 50  0001 C CNN
-	1    9700 2600
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 5BDEB8C2
-P 9700 2900
-AR Path="/5BDEB8C2" Ref="#PWR?"  Part="1" 
-AR Path="/5C5AA76E/5BDEB8C2" Ref="#PWR0116"  Part="1" 
-F 0 "#PWR0116" H 9700 2650 50  0001 C CNN
-F 1 "GND" H 9705 2727 50  0000 C CNN
-F 2 "" H 9700 2900 50  0001 C CNN
-F 3 "" H 9700 2900 50  0001 C CNN
-	1    9700 2900
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	9700 2900 9700 2750
-Wire Wire Line
-	9700 2450 9200 2450
 Wire Wire Line
 	5250 2650 6650 2650
 NoConn ~ 5700 5600
@@ -654,7 +626,131 @@ F 3 "https://datasheets.maximintegrated.com/en/ds/MAX7375.pdf" H 4750 2650 50  0
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4850 2200 4850 2350
+	4850 2200 4850 2300
+$Comp
+L Device:C C48
+U 1 1 5C86A2C9
+P 3750 2700
+F 0 "C48" H 3865 2746 50  0000 L CNN
+F 1 "100 nF" H 3865 2655 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 3788 2550 50  0001 C CNN
+F 3 "~" H 3750 2700 50  0001 C CNN
+	1    3750 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C38
+U 1 1 5C86A314
+P 3350 2700
+F 0 "C38" H 3465 2746 50  0000 L CNN
+F 1 "1 uF" H 3465 2655 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 3388 2550 50  0001 C CNN
+F 3 "~" H 3350 2700 50  0001 C CNN
+	1    3350 2700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3350 2850 3350 3100
+Wire Wire Line
+	3350 3100 3750 3100
+Connection ~ 4850 3100
+Wire Wire Line
+	4850 3100 4850 3200
+Wire Wire Line
+	3750 2850 3750 3100
+Connection ~ 3750 3100
+Wire Wire Line
+	3750 3100 4850 3100
+Wire Wire Line
+	3750 2550 3750 2300
+Wire Wire Line
+	3750 2300 4850 2300
+Connection ~ 4850 2300
+Wire Wire Line
+	4850 2300 4850 2350
+Wire Wire Line
+	3350 2550 3350 2300
+Wire Wire Line
+	3350 2300 3750 2300
+Connection ~ 3750 2300
+$Comp
+L Device:C C50
+U 1 1 5C88C596
+P 9700 2600
+F 0 "C50" H 9815 2646 50  0000 L CNN
+F 1 "1 uF" H 9815 2555 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 9738 2450 50  0001 C CNN
+F 3 "~" H 9700 2600 50  0001 C CNN
+	1    9700 2600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9700 2750 9700 2850
+Wire Wire Line
+	9700 2850 9200 2850
+Connection ~ 9200 2850
+Wire Wire Line
+	9200 2850 9200 2750
+Wire Wire Line
+	9700 2450 9200 2450
+$Comp
+L Device:C C49
+U 1 1 5C8935D6
+P 4000 3750
+F 0 "C49" H 4115 3796 50  0000 L CNN
+F 1 "100 nF" H 4115 3705 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 4038 3600 50  0001 C CNN
+F 3 "~" H 4000 3750 50  0001 C CNN
+	1    4000 3750
+	1    0    0    -1  
+$EndComp
+Connection ~ 4000 3900
+Wire Wire Line
+	4000 3900 4400 3900
+$Comp
+L Device:C C47
+U 1 1 5C89361B
+P 3400 3750
+F 0 "C47" H 3515 3796 50  0000 L CNN
+F 1 "100 nF" H 3515 3705 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 3438 3600 50  0001 C CNN
+F 3 "~" H 3400 3750 50  0001 C CNN
+	1    3400 3750
+	1    0    0    -1  
+$EndComp
+Connection ~ 3400 3900
+Wire Wire Line
+	3400 3900 4000 3900
+$Comp
+L power:GND #PWR?
+U 1 1 5C893684
+P 3400 3550
+AR Path="/5C893684" Ref="#PWR?"  Part="1" 
+AR Path="/5C5AA76E/5C893684" Ref="#PWR0116"  Part="1" 
+F 0 "#PWR0116" H 3400 3300 50  0001 C CNN
+F 1 "GND" H 3405 3377 50  0000 C CNN
+F 2 "" H 3400 3550 50  0001 C CNN
+F 3 "" H 3400 3550 50  0001 C CNN
+	1    3400 3550
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5C8936CF
+P 4000 3550
+AR Path="/5C8936CF" Ref="#PWR?"  Part="1" 
+AR Path="/5C5AA76E/5C8936CF" Ref="#PWR0121"  Part="1" 
+F 0 "#PWR0121" H 4000 3300 50  0001 C CNN
+F 1 "GND" H 4005 3377 50  0000 C CNN
+F 2 "" H 4000 3550 50  0001 C CNN
+F 3 "" H 4000 3550 50  0001 C CNN
+	1    4000 3550
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3400 3550 3400 3600
+Wire Wire Line
+	4000 3550 4000 3600
 Wire Bus Line
 	6200 3050 6200 4050
 Wire Bus Line

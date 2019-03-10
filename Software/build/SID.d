@@ -1,4 +1,4 @@
-build/main.o: Src/main.c Inc/main.h \
+build/SID.o: Src/SID.c Inc/SID.h Inc/main.h \
  Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h \
  Inc/stm32f3xx_hal_conf.h \
  Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rcc.h \
@@ -26,8 +26,9 @@ build/main.o: Src/main.c Inc/main.h \
  Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi.h \
  Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi_ex.h \
  Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h \
- Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h Inc/MCUSetup.h \
- Inc/main.h Inc/SID.h Inc/TLC5947.h
+ Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h
+
+Inc/SID.h:
 
 Inc/main.h:
 
@@ -90,11 +91,3 @@ Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi_ex.h:
 Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:
 
 Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h:
-
-Inc/MCUSetup.h:
-
-Inc/main.h:
-
-Inc/SID.h:
-
-Inc/TLC5947.h:

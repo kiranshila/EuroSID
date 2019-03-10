@@ -17,7 +17,10 @@ typedef struct{
   GPIO_TypeDef *_data_port;
 }TLC5947;
 
+// Function prototypes
 void setLEDBrightness(uint16_t led, uint16_t value);
-void write(TLC5947* pins);
+void writeLEDs(TLC5947* pins);
+void clearLEDs();
+void setAllLEDBrightness(uint16_t value);
 
 #endif

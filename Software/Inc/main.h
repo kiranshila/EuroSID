@@ -6,6 +6,7 @@ extern "C" {
 #endif
 
 #include "stm32f3xx_hal.h"
+#include "string.h"
 
 
 /* PIN Definitions */

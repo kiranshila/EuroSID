@@ -244,7 +244,7 @@ static void MX_SPI1_Init(void) {
 }
 
 /**
- * @brief SPI2 Initialization Function
+ * @brief SPI2 Initialization Function - SID Chip
  * @param None
  * @retval None
  */
@@ -261,12 +261,14 @@ static void MX_SPI2_Init(void) {
   hspi2.Instance = SPI2;
   hspi2.Init.Mode = SPI_MODE_MASTER;
   hspi2.Init.Direction = SPI_DIRECTION_2LINES;
-  hspi2.Init.DataSize = SPI_DATASIZE_8BIT;
+  hspi2.Init.DataSize = SPI_DATASIZE_13BIT; // Length of SID_WORD which contains address and data
   hspi2.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi2.Init.CLKPhase = SPI_PHASE_1EDGE;
-  hspi2.Init.NSS = SPI_NSS_HARD_OUTPUT;
-  hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_64;
-  hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
+  hspi2.Init.NSS = SPI_NSS_SOFT; // We are going to control the CS pin ourselves
+  hspi2.Init.BaudRatePrescaler =
+      SPI_BAUDRATEPRESCALER_64; // So SPI will run at 1 MHz with a system clock
+                                // of 1 MHz
+  hspi2.Init.FirstBit = SPI_FIRSTBIT_LSB; // Because I designed the shift register that way
   hspi2.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi2.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
   hspi2.Init.CRCPolynomial = 7;
@@ -329,12 +331,27 @@ static void MX_GPIO_Init(void) {
   /*Configure GPIO pins : SID_RES_Pin SID_CS_Pin FREQ_A_Pin FILTER_SW_Pin
                            FILTEREXT_SW_Pin FILTER3_SW_Pin FILTER2_SW_Pin
      MOD_SW_Pin MODE_SW_Pin */
-  GPIO_InitStruct.Pin = SID_RES_Pin | SID_CS_Pin | FREQ_A_Pin | FILTER_SW_Pin |
-                        FILTEREXT_SW_Pin | FILTER3_SW_Pin | FILTER2_SW_Pin |
-                        MOD_SW_Pin | MODE_SW_Pin;
+  GPIO_InitStruct.Pin = FREQ_A_Pin | FILTER_SW_Pin | FILTEREXT_SW_Pin |
+                        FILTER3_SW_Pin | FILTER2_SW_Pin | MOD_SW_Pin |
+                        MODE_SW_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+  // SID Pins
+  GPIO_InitStruct.Pin = SID_RES_Pin | SID_CS_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+  // SID SPI Pins
+  GPIO_InitStruct.Pin = SID_DATA_Pin | SID_CLK_Pin | SID_LATCH_Pin;
+  GPIO_InitStruct.Mode =
+      GPIO_MODE_AF_PP; // From the datasheet, SPI2 is on Alternate Function 5
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  GPIO_InitStruct.Alternate = GPIO_AF5_SPI2;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pins : FREQ_B_Pin FREQ_SW_Pin */
   GPIO_InitStruct.Pin = FREQ_B_Pin | FREQ_SW_Pin;

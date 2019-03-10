@@ -8,7 +8,9 @@
         "cortex-debug.armToolchainPath": "/usr/local/gcc_arm/bin",
         "cortex-debug.openocdPath": "/usr/local/bin/openocd",
         "files.associations": {
-            "tlc5947.hpp": "c"
+            "*.hpp": "cpp",
+            "tlc5947.hpp": "c",
+            "sid.h": "c"
         }
     }
 }

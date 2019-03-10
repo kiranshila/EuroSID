@@ -2,7 +2,7 @@
 
 uint16_t _buffer[NUM_CHANNELS];
 
-void write(TLC5947 *pins) {
+void writeLEDs(TLC5947 *pins) {
   HAL_GPIO_WritePin(pins->_lat_port, pins->_lat, GPIO_PIN_RESET);
   // 24 Channels per TLC5947, set in NUM_CHANNELS
   for (int16_t channel = NUM_CHANNELS - 1; channel >= 0; channel--) {
@@ -30,10 +30,16 @@ void setLEDBrightness(uint16_t led, uint16_t value) {
   _buffer[led] = value;
 }
 
-void clear()
-{
-  for(int i = 0; i < NUM_CHANNELS; i++)
-  {
+void clearLEDs() {
+  for (int i = 0; i < NUM_CHANNELS; i++) {
     _buffer[i] = 0;
+  }
+}
+
+void setAllLEDBrightness(uint16_t value) {
+  for (int i = 0; i < NUM_CHANNELS; i++) {
+    if (value > 4095)
+      value = 4095;
+    _buffer[i] = value;
   }
 }

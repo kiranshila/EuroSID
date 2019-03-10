@@ -269,17 +269,6 @@ F 3 "" H 1500 5750 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	1500 5750 1500 5800
-$Comp
-L power:GND #PWR0137
-U 1 1 5BF2206A
-P 1900 3050
-F 0 "#PWR0137" H 1900 2800 50  0001 C CNN
-F 1 "GND" H 1905 2877 50  0000 C CNN
-F 2 "" H 1900 3050 50  0001 C CNN
-F 3 "" H 1900 3050 50  0001 C CNN
-	1    1900 3050
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	1500 5800 1250 5800
 Wire Wire Line
@@ -589,99 +578,45 @@ Connection ~ 5250 7450
 Wire Wire Line
 	5250 7450 5550 7450
 $Comp
-L Connector:Conn_ARM_JTAG_SWD_10 J17
-U 1 1 5BF86C4D
-P 1950 2250
-F 0 "J17" H 1510 2296 50  0000 R CNN
-F 1 "Conn_ARM_JTAG_SWD_10" H 1510 2205 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_2x05_P2.54mm_Vertical" H 2000 1700 50  0001 L TNN
-F 3 "http://infocenter.arm.com/help/topic/com.arm.doc.faqs/attached/13634/cortex_debug_connectors.pdf" V 1600 1000 50  0001 C CNN
-	1    1950 2250
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1900 3050 1900 2950
-Wire Wire Line
-	1900 2950 1850 2950
-Wire Wire Line
-	1850 2950 1850 2850
-Wire Wire Line
-	1950 2850 1950 2950
-Wire Wire Line
-	1950 2950 1900 2950
-Connection ~ 1900 2950
-$Comp
 L power:+3.3V #PWR0138
 U 1 1 5BF90955
-P 1950 1600
-F 0 "#PWR0138" H 1950 1450 50  0001 C CNN
-F 1 "+3.3V" H 1965 1773 50  0000 C CNN
-F 2 "" H 1950 1600 50  0001 C CNN
-F 3 "" H 1950 1600 50  0001 C CNN
-	1    1950 1600
+P 2350 1750
+F 0 "#PWR0138" H 2350 1600 50  0001 C CNN
+F 1 "+3.3V" H 2365 1923 50  0000 C CNN
+F 2 "" H 2350 1750 50  0001 C CNN
+F 3 "" H 2350 1750 50  0001 C CNN
+	1    2350 1750
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	1950 1600 1950 1650
-Text GLabel 2600 1950 2    50   Input ~ 0
+Text GLabel 2800 1850 2    50   Input ~ 0
 RESET
-Wire Wire Line
-	2600 1950 2450 1950
 Text GLabel 6500 3150 2    50   Input ~ 0
 SET_SW
 Text GLabel 6500 3350 2    50   Input ~ 0
 SWCLK
-Text GLabel 2600 2250 2    50   Input ~ 0
+Text GLabel 2350 2250 2    50   Input ~ 0
 SWDIO
-Wire Wire Line
-	2600 2250 2450 2250
-Text GLabel 2600 2150 2    50   Input ~ 0
+Text GLabel 2350 2050 2    50   Input ~ 0
 SWCLK
-Wire Wire Line
-	2600 2150 2450 2150
-$Comp
-L Connector:Conn_01x06_Male J16
-U 1 1 5BFB55EB
-P 1850 3800
-F 0 "J16" H 1822 3680 50  0000 R CNN
-F 1 "Conn_01x06_Male" H 1822 3771 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 1850 3800 50  0001 C CNN
-F 3 "~" H 1850 3800 50  0001 C CNN
-	1    1850 3800
-	1    0    0    1   
-$EndComp
 Text GLabel 6500 2850 2    50   Input ~ 0
 TX
 Text GLabel 6500 2950 2    50   Input ~ 0
 RX
-Text GLabel 2200 3600 2    50   Input ~ 0
+Text GLabel 2100 4500 2    50   Input ~ 0
 TX
-Wire Wire Line
-	2200 3600 2050 3600
-Text GLabel 2200 3700 2    50   Input ~ 0
+Text GLabel 2100 4600 2    50   Input ~ 0
 RX
-Wire Wire Line
-	2200 3700 2050 3700
 $Comp
 L power:GND #PWR0139
 U 1 1 5BFD1A9D
-P 2200 4050
-F 0 "#PWR0139" H 2200 3800 50  0001 C CNN
-F 1 "GND" H 2205 3877 50  0000 C CNN
-F 2 "" H 2200 4050 50  0001 C CNN
-F 3 "" H 2200 4050 50  0001 C CNN
-	1    2200 4050
+P 2100 4750
+F 0 "#PWR0139" H 2100 4500 50  0001 C CNN
+F 1 "GND" H 2105 4577 50  0000 C CNN
+F 2 "" H 2100 4750 50  0001 C CNN
+F 3 "" H 2100 4750 50  0001 C CNN
+	1    2100 4750
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	2200 4050 2200 4000
-Wire Wire Line
-	2200 4000 2050 4000
-NoConn ~ 2050 3500
-NoConn ~ 2050 3800
-NoConn ~ 2050 3900
-NoConn ~ 2450 2350
-NoConn ~ 2450 2450
 Text GLabel 4200 4050 0    50   Input ~ 0
 SET_ATTEN
 Text GLabel 6500 3050 2    50   Input ~ 0
@@ -1165,4 +1100,61 @@ Wire Wire Line
 NoConn ~ 9900 2550
 NoConn ~ 9900 2650
 NoConn ~ 9900 2750
+$Comp
+L Connector:Conn_01x03_Male J17
+U 1 1 5C9CB1BC
+P 1800 4600
+F 0 "J17" H 1906 4878 50  0000 C CNN
+F 1 "Conn_01x03_Male" H 1906 4787 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 1800 4600 50  0001 C CNN
+F 3 "~" H 1800 4600 50  0001 C CNN
+	1    1800 4600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2100 4750 2100 4700
+Wire Wire Line
+	2100 4700 2000 4700
+Wire Wire Line
+	2100 4600 2000 4600
+Wire Wire Line
+	2100 4500 2000 4500
+$Comp
+L Connector:Conn_01x06_Male J16
+U 1 1 5CA02872
+P 1800 2150
+F 0 "J16" H 1906 2528 50  0000 C CNN
+F 1 "Conn_01x06_Male" H 1906 2437 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 1800 2150 50  0001 C CNN
+F 3 "~" H 1800 2150 50  0001 C CNN
+	1    1800 2150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2000 1950 2350 1950
+Wire Wire Line
+	2350 1950 2350 1750
+Wire Wire Line
+	2350 2050 2000 2050
+$Comp
+L power:GND #PWR0163
+U 1 1 5CA355D8
+P 2750 2200
+F 0 "#PWR0163" H 2750 1950 50  0001 C CNN
+F 1 "GND" H 2755 2027 50  0000 C CNN
+F 2 "" H 2750 2200 50  0001 C CNN
+F 3 "" H 2750 2200 50  0001 C CNN
+	1    2750 2200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2750 2200 2750 2150
+Wire Wire Line
+	2750 2150 2000 2150
+Wire Wire Line
+	2350 2250 2000 2250
+Text GLabel 2350 2350 2    50   Input ~ 0
+RESET
+Wire Wire Line
+	2350 2350 2000 2350
 $EndSCHEMATC

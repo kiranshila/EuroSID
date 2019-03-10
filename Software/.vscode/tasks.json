@@ -115,9 +115,9 @@
             "command": "/usr/local/bin/openocd",
             "args": [
                 "-f",
-                ".",
+                "interface/stlink-v2-1.cfg",
                 "-f",
-                ".",
+                "target/stm32f3x.cfg",
                 "-c",
                 "program build/EuroSID.elf verify reset exit"
             ],
@@ -129,9 +129,9 @@
             "command": "/usr/local/bin/openocd",
             "args": [
                 "-f",
-                ".",
+                "interface/stlink-v2-1.cfg",
                 "-f",
-                ".",
+                "target/stm32f3x.cfg",
                 "-c init",
                 "-c reset",
                 "-c exit"
@@ -144,9 +144,9 @@
             "command": "/usr/local/bin/openocd",
             "args": [
                 "-f",
-                ".",
+                "interface/stlink-v2-1.cfg",
                 "-f",
-                ".",
+                "target/stm32f3x.cfg",
                 "-c init",
                 "-c halt",
                 "-c exit"
@@ -159,9 +159,9 @@
             "command": "/usr/local/bin/openocd",
             "args": [
                 "-f",
-                ".",
+                "interface/stlink-v2-1.cfg",
                 "-f",
-                ".",
+                "target/stm32f3x.cfg",
                 "-c init",
                 "-c resume",
                 "-c exit"

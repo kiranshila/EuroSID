@@ -1,3 +1,6 @@
+#ifndef MCUSETUP_H
+#define MCUSETUP_H
+
 #include "main.h"
 
 ADC_HandleTypeDef hadc1;
@@ -10,3 +13,5 @@ UART_HandleTypeDef huart1;
 void SystemClock_Config(void);
 void MCU_Setup();
 void Error_Handler(void);
+
+#endif

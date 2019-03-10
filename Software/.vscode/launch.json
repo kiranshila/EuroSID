@@ -2,26 +2,16 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Cortex debug",
             "type": "cortex-debug",
             "request": "launch",
-            "servertype": "openocd",
-            "cwd": "${workspaceFolder}",
-            "executable": "/Users/kiranshila/Desktop/Projects/EuroSID/Software/build/EuroSID.elf",
-            "svdFile": ".",
+            "servertype": "stutil",
+            "cwd": "${workspaceRoot}",
+            "executable": "./build/EuroSID.elf",
+            "name": "Debug (OpenOCD)",
+            "device": "STM32F303RB",
             "configFiles": [
-                ".",
-                "."
-            ],
-            "preLaunchTask": "Build project"
-        },
-        {
-            "name": "Debug current Python file",
-            "type": "python",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "program": "${file}",
-            "console": "integratedTerminal"
+                "target/stm32f3x.cfg"
+            ]
         }
     ]
 }
