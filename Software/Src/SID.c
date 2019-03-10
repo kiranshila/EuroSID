@@ -41,7 +41,7 @@ void writeVoiceFreq(SID *sidChip, int voice) {
            sidChip->_voices[voice]._freq & 0xFF);
 
   writeSID(sidChip, VOICE_1_FREQ_HIGH + (voice * VOICE_REGISTER_OFFSET),
-           sidChip->_voices[voice]._freq & 0xFF00 >> 8);
+           (sidChip->_voices[voice]._freq & 0xFF00) >> 8);
 }
 
 void writeVoicePWM(SID *sidChip, int voice) {

@@ -46,7 +46,7 @@ int main(void) {
   HAL_Delay(100);
 
   // Set a frequency
-  setVoiceFreq(&sid, 16, 0);
+  setVoiceFreq(&sid, 2000, 0);
   writeVoiceFreq(&sid, 0);
 
   // Set an envelope
