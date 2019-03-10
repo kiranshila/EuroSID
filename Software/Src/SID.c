@@ -53,7 +53,7 @@ void writeVoicePWM(SID *sidChip, int voice) {
            sidChip->_voices[voice]._pwm & 0xFF);
 
   writeSID(sidChip, VOICE_1_PWM_HIGH + (voice * VOICE_REGISTER_OFFSET),
-           sidChip->_voices[voice]._pwm & 0xF00 >> 8); // Masked to 5 bits
+           (sidChip->_voices[voice]._pwm & 0xF00) >> 8); // Masked to 5 bits
 }
 
 void writeVoiceEnv(SID *sidChip, int voice) {
@@ -147,7 +147,7 @@ void setFilterCutoff(SID *sidChip, uint16_t cutoff) {
 void writeFilterCutoff(SID *sidChip) {
   // Cutoff is two bytes
   writeSID(sidChip, FILTER_CUTOFF_LOW, sidChip->_filter._cutoff & 0xFF);
-  writeSID(sidChip, FILTER_CUTOFF_HIGH, sidChip->_filter._cutoff & 0x700 >> 8);
+  writeSID(sidChip, FILTER_CUTOFF_HIGH, (sidChip->_filter._cutoff & 0x700) >> 8);
 }
 
 void setFilterResonance(SID *sidChip, uint8_t resonance) {
@@ -166,7 +166,7 @@ void setFilterTargets(SID *sidChip, int whatToFilter, _Bool filterOn) {
 void writeFilterResonance(SID *sidChip) {
   // Data contains resonance and filter target
   uint8_t data = 0;
-  data |= sidChip->_filter._resonance & 0xF << 4;
+  data |= (sidChip->_filter._resonance & 0xF) << 4;
   for (int i = 0; i < NUM_VOICES + 1; i++) {
     data |= sidChip->_filter._filterPipe[i] << i;
   }

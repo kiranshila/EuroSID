@@ -55,7 +55,7 @@ int main(void) {
   writeVoiceEnv(&sid, 0);
 
   // Set PWM
-  setVoicePWM(&sid, 0, 0);
+  setVoicePWM(&sid, 2048, 0);
   writeVoicePWM(&sid, 0);
 
   while (1) {
