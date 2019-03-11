@@ -35,52 +35,8 @@ int main(void) {
   memcpy(sid._voices, sidVoices, sizeof(Voice) * 3);
   sid._filter = initialFilter;
 
-  // From a forum post of the quickest way to make a sound
-  clearSID(&sid);
-
-  // Set volume to MAX
-  setVolume(&sid, 15);
-  writeFilterVolume(&sid);
-
-  // Wait
-  HAL_Delay(100);
-
-  // Set a frequency
-  setVoiceFreq(&sid, 2000, 0);
-  writeVoiceFreq(&sid, 0);
-
-  // Set an envelope
-  Envelope myEnv = {0, 12, 0, 4};
-  setVoiceEnv(&sid, myEnv, 0);
-  writeVoiceEnv(&sid, 0);
-
-  // Set PWM
-  setVoicePWM(&sid, 2048, 0);
-  writeVoicePWM(&sid, 0);
-
-  while (1) {
-    for (int i = 0; i < 4; i++) {
-      // Set saw voice
-      switch (i) {
-      case 0:
-        setVoiceShape(&sid, Square, 0);
-        break;
-      case 1:
-        setVoiceShape(&sid, Sawtooth, 0);
-        break;
-      case 2:
-        setVoiceShape(&sid, Noise, 0);
-        break;
-      case 3:
-        setVoiceShape(&sid, Triangle, 0);
-        break;
-      }
-
-      gateVoice(&sid, 0);
-      HAL_Delay(300);
-      ungateVoice(&sid, 0);
-      HAL_Delay(300);
-    }
-  }
-  return 0;
+  // Test all voices
+  //testAllVoices(&sid);
+  testFilter(&sid);
+  //megelovania(&sid);
 }

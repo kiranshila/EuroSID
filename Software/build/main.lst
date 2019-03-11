@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnmENMs.s 			page 1
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -53,423 +53,205 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnmENMs.s 			page 1
   23:Src/main.c    **** int main(void) {
   29              		.loc 1 23 16 view -0
   30              		.cfi_startproc
-  31              		@ args = 0, pretend = 0, frame = 8
+  31              		@ args = 0, pretend = 0, frame = 0
   32              		@ frame_needed = 0, uses_anonymous_args = 0
   33 0000 70B5     		push	{r4, r5, r6, lr}
   34              	.LCFI0:
   35              		.cfi_def_cfa_offset 16
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnmENMs.s 			page 2
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s 			page 2
 
 
   36              		.cfi_offset 4, -16
   37              		.cfi_offset 5, -12
   38              		.cfi_offset 6, -8
   39              		.cfi_offset 14, -4
-  40 0002 82B0     		sub	sp, sp, #8
-  41              	.LCFI1:
-  42              		.cfi_def_cfa_offset 24
   24:Src/main.c    ****   MCU_Setup();
-  43              		.loc 1 24 3 view .LVU1
-  44 0004 FFF7FEFF 		bl	MCU_Setup
-  45              	.LVL0:
+  40              		.loc 1 24 3 view .LVU1
+  41 0002 FFF7FEFF 		bl	MCU_Setup
+  42              	.LVL0:
   25:Src/main.c    **** 
   26:Src/main.c    ****   setAllLEDBrightness(4095);
-  46              		.loc 1 26 3 view .LVU2
-  47 0008 40F6FF70 		movw	r0, #4095
-  48 000c FFF7FEFF 		bl	setAllLEDBrightness
-  49              	.LVL1:
+  43              		.loc 1 26 3 view .LVU2
+  44 0006 40F6FF70 		movw	r0, #4095
+  45 000a FFF7FEFF 		bl	setAllLEDBrightness
+  46              	.LVL1:
   27:Src/main.c    ****   // clearLEDs();
   28:Src/main.c    ****   writeLEDs(&ledDriver);
-  50              		.loc 1 28 3 view .LVU3
-  51 0010 4148     		ldr	r0, .L12
-  52 0012 FFF7FEFF 		bl	writeLEDs
-  53              	.LVL2:
+  47              		.loc 1 28 3 view .LVU3
+  48 000e 1248     		ldr	r0, .L3
+  49 0010 FFF7FEFF 		bl	writeLEDs
+  50              	.LVL2:
   29:Src/main.c    **** 
   30:Src/main.c    ****   // Set the initial state of the SID CS and RES line to high
   31:Src/main.c    ****   HAL_GPIO_WritePin(sid._cs_port, sid._cs, GPIO_PIN_SET);
-  54              		.loc 1 31 3 view .LVU4
-  55 0016 414C     		ldr	r4, .L12+4
-  56 0018 0122     		movs	r2, #1
-  57 001a 6188     		ldrh	r1, [r4, #2]
-  58 001c A068     		ldr	r0, [r4, #8]
-  59 001e FFF7FEFF 		bl	HAL_GPIO_WritePin
-  60              	.LVL3:
+  51              		.loc 1 31 3 view .LVU4
+  52 0014 114E     		ldr	r6, .L3+4
+  53 0016 0122     		movs	r2, #1
+  54 0018 7188     		ldrh	r1, [r6, #2]
+  55 001a B068     		ldr	r0, [r6, #8]
+  56 001c FFF7FEFF 		bl	HAL_GPIO_WritePin
+  57              	.LVL3:
   32:Src/main.c    ****   HAL_GPIO_WritePin(sid._res_port, sid._res, GPIO_PIN_SET);
-  61              		.loc 1 32 3 view .LVU5
-  62 0022 0122     		movs	r2, #1
-  63 0024 2188     		ldrh	r1, [r4]
-  64 0026 6068     		ldr	r0, [r4, #4]
-  65 0028 FFF7FEFF 		bl	HAL_GPIO_WritePin
-  66              	.LVL4:
+  58              		.loc 1 32 3 view .LVU5
+  59 0020 0122     		movs	r2, #1
+  60 0022 3188     		ldrh	r1, [r6]
+  61 0024 7068     		ldr	r0, [r6, #4]
+  62 0026 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  63              	.LVL4:
   33:Src/main.c    **** 
   34:Src/main.c    ****   // Setup the sid object
   35:Src/main.c    ****   memcpy(sid._voices, sidVoices, sizeof(Voice) * 3);
-  67              		.loc 1 35 3 view .LVU6
-  68 002c 04F11005 		add	r5, r4, #16
-  69 0030 3B4E     		ldr	r6, .L12+8
-  70 0032 0FCE     		ldmia	r6!, {r0, r1, r2, r3}
-  71 0034 0FC5     		stmia	r5!, {r0, r1, r2, r3}
-  72 0036 96E80F00 		ldm	r6, {r0, r1, r2, r3}
-  73 003a 07C5     		stmia	r5!, {r0, r1, r2}
-  74 003c 2B80     		strh	r3, [r5]	@ movhi
+  64              		.loc 1 35 3 view .LVU6
+  65 002a 06F11004 		add	r4, r6, #16
+  66 002e 0C4D     		ldr	r5, .L3+8
+  67 0030 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+  68 0032 0FC4     		stmia	r4!, {r0, r1, r2, r3}
+  69 0034 95E80F00 		ldm	r5, {r0, r1, r2, r3}
+  70 0038 07C4     		stmia	r4!, {r0, r1, r2}
+  71 003a 2380     		strh	r3, [r4]	@ movhi
   36:Src/main.c    ****   sid._filter = initialFilter;
-  75              		.loc 1 36 3 view .LVU7
-  76              		.loc 1 36 15 is_stmt 0 view .LVU8
-  77 003e 394B     		ldr	r3, .L12+12
-  78 0040 03CB     		ldmia	r3!, {r0, r1}
-  79 0042 C4F82E00 		str	r0, [r4, #46]	@ unaligned
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnmENMs.s 			page 3
+  72              		.loc 1 36 3 view .LVU7
+  73              		.loc 1 36 15 is_stmt 0 view .LVU8
+  74 003c 094B     		ldr	r3, .L3+12
+  75 003e 03CB     		ldmia	r3!, {r0, r1}
+  76 0040 C6F82E00 		str	r0, [r6, #46]	@ unaligned
+  77 0044 C6F83210 		str	r1, [r6, #50]	@ unaligned
+  78 0048 1B88     		ldrh	r3, [r3]	@ unaligned
+  79 004a F386     		strh	r3, [r6, #54]	@ unaligned
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s 			page 3
 
 
-  80 0046 C4F83210 		str	r1, [r4, #50]	@ unaligned
-  81 004a 1B88     		ldrh	r3, [r3]	@ unaligned
-  82 004c E386     		strh	r3, [r4, #54]	@ unaligned
   37:Src/main.c    **** 
-  38:Src/main.c    ****   // From a forum post of the quickest way to make a sound
-  39:Src/main.c    ****   clearSID(&sid);
-  83              		.loc 1 39 3 is_stmt 1 view .LVU9
-  84 004e 2046     		mov	r0, r4
-  85 0050 FFF7FEFF 		bl	clearSID
-  86              	.LVL5:
-  40:Src/main.c    **** 
-  41:Src/main.c    ****   // Set volume to MAX
-  42:Src/main.c    ****   setVolume(&sid, 15);
-  87              		.loc 1 42 3 view .LVU10
-  88 0054 0F21     		movs	r1, #15
-  89 0056 2046     		mov	r0, r4
-  90 0058 FFF7FEFF 		bl	setVolume
-  91              	.LVL6:
-  43:Src/main.c    ****   writeFilterVolume(&sid);
-  92              		.loc 1 43 3 view .LVU11
-  93 005c 2046     		mov	r0, r4
-  94 005e FFF7FEFF 		bl	writeFilterVolume
-  95              	.LVL7:
-  44:Src/main.c    **** 
-  45:Src/main.c    ****   // Wait
-  46:Src/main.c    ****   HAL_Delay(100);
-  96              		.loc 1 46 3 view .LVU12
-  97 0062 6420     		movs	r0, #100
-  98 0064 FFF7FEFF 		bl	HAL_Delay
-  99              	.LVL8:
-  47:Src/main.c    **** 
-  48:Src/main.c    ****   // Set a frequency
-  49:Src/main.c    ****   setVoiceFreq(&sid, 2000, 0);
- 100              		.loc 1 49 3 view .LVU13
- 101 0068 0022     		movs	r2, #0
- 102 006a 4FF4FA61 		mov	r1, #2000
- 103 006e 2046     		mov	r0, r4
- 104 0070 FFF7FEFF 		bl	setVoiceFreq
- 105              	.LVL9:
-  50:Src/main.c    ****   writeVoiceFreq(&sid, 0);
- 106              		.loc 1 50 3 view .LVU14
- 107 0074 0021     		movs	r1, #0
- 108 0076 2046     		mov	r0, r4
- 109 0078 FFF7FEFF 		bl	writeVoiceFreq
- 110              	.LVL10:
-  51:Src/main.c    **** 
-  52:Src/main.c    ****   // Set an envelope
-  53:Src/main.c    ****   Envelope myEnv = {0, 12, 0, 4};
- 111              		.loc 1 53 3 view .LVU15
-  54:Src/main.c    ****   setVoiceEnv(&sid, myEnv, 0);
- 112              		.loc 1 54 3 view .LVU16
- 113 007c 0022     		movs	r2, #0
- 114 007e 2A4B     		ldr	r3, .L12+16
- 115 0080 1968     		ldr	r1, [r3]
- 116 0082 2046     		mov	r0, r4
- 117 0084 FFF7FEFF 		bl	setVoiceEnv
- 118              	.LVL11:
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnmENMs.s 			page 4
+  38:Src/main.c    ****   // Test all voices
+  39:Src/main.c    ****   //testAllVoices(&sid);
+  40:Src/main.c    ****   testFilter(&sid);
+  80              		.loc 1 40 3 is_stmt 1 view .LVU9
+  81 004c 3046     		mov	r0, r6
+  82 004e FFF7FEFF 		bl	testFilter
+  83              	.LVL5:
+  41:Src/main.c    ****   //megelovania(&sid);
+  42:Src/main.c    **** }...
+  84              		.loc 1 42 1 is_stmt 0 view .LVU10
+  85 0052 0020     		movs	r0, #0
+  86 0054 70BD     		pop	{r4, r5, r6, pc}
+  87              	.L4:
+  88 0056 00BF     		.align	2
+  89              	.L3:
+  90 0058 00000000 		.word	.LANCHOR0
+  91 005c 00000000 		.word	.LANCHOR1
+  92 0060 00000000 		.word	.LANCHOR2
+  93 0064 00000000 		.word	.LANCHOR3
+  94              		.cfi_endproc
+  95              	.LFE126:
+  97              		.global	sid
+  98              		.global	initialFilter
+  99              		.global	sidVoices
+ 100              		.global	ledDriver
+ 101              		.comm	huart1,112,4
+ 102              		.comm	hspi2,100,4
+ 103              		.comm	hspi1,100,4
+ 104              		.comm	hadc3,84,4
+ 105              		.comm	hadc2,84,4
+ 106              		.comm	hadc1,84,4
+ 107              		.section	.bss.sidVoices,"aw",%nobits
+ 108              		.align	2
+ 109              		.set	.LANCHOR2,. + 0
+ 112              	sidVoices:
+ 113 0000 00000000 		.space	30
+ 113      00000000 
+ 113      00000000 
+ 113      00000000 
+ 113      00000000 
+ 114              		.section	.data.initialFilter,"aw"
+ 115              		.align	2
+ 116              		.set	.LANCHOR3,. + 0
+ 119              	initialFilter:
+ 120 0000 0000     		.short	0
+ 121 0002 00       		.byte	0
+ 122 0003 0F       		.byte	15
+ 123 0004 03       		.byte	3
+ 124 0005 00       		.byte	0
+ 125 0006 00       		.byte	0
+ 126 0007 00       		.byte	0
+ 127 0008 00       		.byte	0
+ 128 0009 00       		.space	1
+ 129              		.section	.data.ledDriver,"aw"
+ 130              		.align	2
+ 131              		.set	.LANCHOR0,. + 0
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s 			page 4
 
 
-  55:Src/main.c    ****   writeVoiceEnv(&sid, 0);
- 119              		.loc 1 55 3 view .LVU17
- 120 0088 0021     		movs	r1, #0
- 121 008a 2046     		mov	r0, r4
- 122 008c FFF7FEFF 		bl	writeVoiceEnv
- 123              	.LVL12:
-  56:Src/main.c    **** 
-  57:Src/main.c    ****   // Set PWM
-  58:Src/main.c    ****   setVoicePWM(&sid, 2048, 0);
- 124              		.loc 1 58 3 view .LVU18
- 125 0090 0022     		movs	r2, #0
- 126 0092 4FF40061 		mov	r1, #2048
- 127 0096 2046     		mov	r0, r4
- 128 0098 FFF7FEFF 		bl	setVoicePWM
- 129              	.LVL13:
-  59:Src/main.c    ****   writeVoicePWM(&sid, 0);
- 130              		.loc 1 59 3 view .LVU19
- 131 009c 0021     		movs	r1, #0
- 132 009e 2046     		mov	r0, r4
- 133 00a0 FFF7FEFF 		bl	writeVoicePWM
- 134              	.LVL14:
- 135              	.L10:
-  60:Src/main.c    **** 
-  61:Src/main.c    ****   while (1) {
- 136              		.loc 1 61 3 view .LVU20
-  62:Src/main.c    ****     for (int i = 0; i < 4; i++) {
- 137              		.loc 1 62 5 view .LVU21
- 138              	.LBB2:
- 139              		.loc 1 62 10 view .LVU22
- 140              		.loc 1 62 14 is_stmt 0 view .LVU23
- 141 00a4 0024     		movs	r4, #0
- 142              		.loc 1 62 5 view .LVU24
- 143 00a6 16E0     		b	.L2
- 144              	.LVL15:
- 145              	.L8:
-  63:Src/main.c    ****       // Set saw voice
-  64:Src/main.c    ****       switch (i) {
-  65:Src/main.c    ****       case 0:
-  66:Src/main.c    ****         setVoiceShape(&sid, Square, 0);
- 146              		.loc 1 66 9 is_stmt 1 view .LVU25
- 147 00a8 0022     		movs	r2, #0
- 148 00aa 1146     		mov	r1, r2
- 149 00ac 1B48     		ldr	r0, .L12+4
- 150 00ae FFF7FEFF 		bl	setVoiceShape
- 151              	.LVL16:
-  67:Src/main.c    ****         break;
- 152              		.loc 1 67 9 view .LVU26
- 153              	.L3:
-  68:Src/main.c    ****       case 1:
-  69:Src/main.c    ****         setVoiceShape(&sid, Sawtooth, 0);
-  70:Src/main.c    ****         break;
-  71:Src/main.c    ****       case 2:
-  72:Src/main.c    ****         setVoiceShape(&sid, Noise, 0);
-  73:Src/main.c    ****         break;
-  74:Src/main.c    ****       case 3:
-  75:Src/main.c    ****         setVoiceShape(&sid, Triangle, 0);
-  76:Src/main.c    ****         break;
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnmENMs.s 			page 5
-
-
-  77:Src/main.c    ****       }
-  78:Src/main.c    **** 
-  79:Src/main.c    ****       gateVoice(&sid, 0);
- 154              		.loc 1 79 7 discriminator 2 view .LVU27
- 155 00b2 1A4D     		ldr	r5, .L12+4
- 156 00b4 0021     		movs	r1, #0
- 157 00b6 2846     		mov	r0, r5
- 158 00b8 FFF7FEFF 		bl	gateVoice
- 159              	.LVL17:
-  80:Src/main.c    ****       HAL_Delay(300);
- 160              		.loc 1 80 7 discriminator 2 view .LVU28
- 161 00bc 4FF49670 		mov	r0, #300
- 162 00c0 FFF7FEFF 		bl	HAL_Delay
- 163              	.LVL18:
-  81:Src/main.c    ****       ungateVoice(&sid, 0);
- 164              		.loc 1 81 7 discriminator 2 view .LVU29
- 165 00c4 0021     		movs	r1, #0
- 166 00c6 2846     		mov	r0, r5
- 167 00c8 FFF7FEFF 		bl	ungateVoice
- 168              	.LVL19:
-  82:Src/main.c    ****       HAL_Delay(300);
- 169              		.loc 1 82 7 discriminator 2 view .LVU30
- 170 00cc 4FF49670 		mov	r0, #300
- 171 00d0 FFF7FEFF 		bl	HAL_Delay
- 172              	.LVL20:
-  62:Src/main.c    ****       // Set saw voice
- 173              		.loc 1 62 29 is_stmt 0 discriminator 2 view .LVU31
- 174 00d4 0134     		adds	r4, r4, #1
- 175              	.LVL21:
- 176              	.L2:
-  62:Src/main.c    ****       // Set saw voice
- 177              		.loc 1 62 5 discriminator 1 view .LVU32
- 178 00d6 032C     		cmp	r4, #3
- 179 00d8 E4DC     		bgt	.L10
-  64:Src/main.c    ****       case 0:
- 180              		.loc 1 64 7 is_stmt 1 view .LVU33
- 181 00da 032C     		cmp	r4, #3
- 182 00dc E9D8     		bhi	.L3
- 183 00de 01A3     		adr	r3, .L5
- 184 00e0 53F824F0 		ldr	pc, [r3, r4, lsl #2]
- 185              		.p2align 2
- 186              	.L5:
- 187 00e4 A9000000 		.word	.L8+1
- 188 00e8 F5000000 		.word	.L7+1
- 189 00ec 01010000 		.word	.L6+1
- 190 00f0 0D010000 		.word	.L4+1
- 191              		.p2align 1
- 192              	.L7:
-  69:Src/main.c    ****         break;
- 193              		.loc 1 69 9 view .LVU34
- 194 00f4 0022     		movs	r2, #0
- 195 00f6 0221     		movs	r1, #2
- 196 00f8 0848     		ldr	r0, .L12+4
- 197 00fa FFF7FEFF 		bl	setVoiceShape
- 198              	.LVL22:
-  70:Src/main.c    ****       case 2:
- 199              		.loc 1 70 9 view .LVU35
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnmENMs.s 			page 6
-
-
- 200 00fe D8E7     		b	.L3
- 201              	.L6:
-  72:Src/main.c    ****         break;
- 202              		.loc 1 72 9 view .LVU36
- 203 0100 0022     		movs	r2, #0
- 204 0102 0321     		movs	r1, #3
- 205 0104 0548     		ldr	r0, .L12+4
- 206 0106 FFF7FEFF 		bl	setVoiceShape
- 207              	.LVL23:
-  73:Src/main.c    ****       case 3:
- 208              		.loc 1 73 9 view .LVU37
- 209 010a D2E7     		b	.L3
- 210              	.L4:
-  75:Src/main.c    ****         break;
- 211              		.loc 1 75 9 view .LVU38
- 212 010c 0022     		movs	r2, #0
- 213 010e 0121     		movs	r1, #1
- 214 0110 0248     		ldr	r0, .L12+4
- 215 0112 FFF7FEFF 		bl	setVoiceShape
- 216              	.LVL24:
-  76:Src/main.c    ****       }
- 217              		.loc 1 76 9 view .LVU39
- 218 0116 CCE7     		b	.L3
- 219              	.L13:
- 220              		.align	2
- 221              	.L12:
- 222 0118 00000000 		.word	.LANCHOR0
- 223 011c 00000000 		.word	.LANCHOR1
- 224 0120 00000000 		.word	.LANCHOR2
- 225 0124 00000000 		.word	.LANCHOR3
- 226 0128 00000000 		.word	.LANCHOR4
- 227              	.LBE2:
- 228              		.cfi_endproc
- 229              	.LFE126:
- 231              		.global	sid
- 232              		.global	initialFilter
- 233              		.global	sidVoices
- 234              		.global	ledDriver
- 235              		.comm	huart1,112,4
- 236              		.comm	hspi2,100,4
- 237              		.comm	hspi1,100,4
- 238              		.comm	hadc3,84,4
- 239              		.comm	hadc2,84,4
- 240              		.comm	hadc1,84,4
- 241              		.section	.rodata
- 242              		.align	2
- 243              		.set	.LANCHOR4,. + 0
- 244              	.LC0:
- 245 0000 00       		.byte	0
- 246 0001 0C       		.byte	12
- 247 0002 00       		.byte	0
- 248 0003 04       		.byte	4
- 249              		.section	.bss.sidVoices,"aw",%nobits
- 250              		.align	2
- 251              		.set	.LANCHOR2,. + 0
- 254              	sidVoices:
- 255 0000 00000000 		.space	30
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnmENMs.s 			page 7
-
-
- 255      00000000 
- 255      00000000 
- 255      00000000 
- 255      00000000 
- 256              		.section	.data.initialFilter,"aw"
- 257              		.align	2
- 258              		.set	.LANCHOR3,. + 0
- 261              	initialFilter:
- 262 0000 0000     		.short	0
- 263 0002 00       		.byte	0
- 264 0003 0F       		.byte	15
- 265 0004 03       		.byte	3
- 266 0005 00       		.byte	0
- 267 0006 00       		.byte	0
- 268 0007 00       		.byte	0
- 269 0008 00       		.byte	0
- 270 0009 00       		.space	1
- 271              		.section	.data.ledDriver,"aw"
- 272              		.align	2
- 273              		.set	.LANCHOR0,. + 0
- 276              	ledDriver:
- 277 0000 0080     		.short	-32768
- 278 0002 0800     		.short	8
- 279 0004 2000     		.short	32
- 280 0006 0000     		.space	2
- 281 0008 00000048 		.word	1207959552
- 282 000c 00040048 		.word	1207960576
- 283 0010 00040048 		.word	1207960576
- 284              		.section	.data.sid,"aw"
- 285              		.align	2
- 286              		.set	.LANCHOR1,. + 0
- 289              	sid:
- 290 0000 0020     		.short	8192
- 291 0002 0040     		.short	16384
- 292 0004 00080048 		.word	1207961600
- 293 0008 00080048 		.word	1207961600
- 294 000c 00000000 		.word	hspi2
- 295 0010 00000000 		.space	40
- 295      00000000 
- 295      00000000 
- 295      00000000 
- 295      00000000 
- 296              		.text
- 297              	.Letext0:
- 298              		.file 2 "/usr/local/gcc_arm/arm-none-eabi/include/machine/_default_types.h"
- 299              		.file 3 "/usr/local/gcc_arm/arm-none-eabi/include/sys/_stdint.h"
- 300              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
- 301              		.file 5 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/system_stm32f3xx.h"
- 302              		.file 6 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xc.h"
- 303              		.file 7 "/usr/local/gcc_arm/arm-none-eabi/include/sys/lock.h"
- 304              		.file 8 "/usr/local/gcc_arm/arm-none-eabi/include/sys/_types.h"
- 305              		.file 9 "/usr/local/gcc_arm/lib/gcc/arm-none-eabi/8.2.1/include/stddef.h"
- 306              		.file 10 "/usr/local/gcc_arm/arm-none-eabi/include/sys/reent.h"
- 307              		.file 11 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h"
- 308              		.file 12 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_gpio.h"
- 309              		.file 13 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_dma.h"
- 310              		.file 14 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_adc_ex.h"
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnmENMs.s 			page 8
-
-
- 311              		.file 15 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_adc.h"
- 312              		.file 16 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi.h"
- 313              		.file 17 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h"
- 314              		.file 18 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h"
- 315              		.file 19 "Inc/MCUSetup.h"
- 316              		.file 20 "Inc/SID.h"
- 317              		.file 21 "/usr/local/gcc_arm/arm-none-eabi/include/stdlib.h"
- 318              		.file 22 "Inc/TLC5947.h"
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnmENMs.s 			page 9
+ 134              	ledDriver:
+ 135 0000 0080     		.short	-32768
+ 136 0002 0800     		.short	8
+ 137 0004 2000     		.short	32
+ 138 0006 0000     		.space	2
+ 139 0008 00000048 		.word	1207959552
+ 140 000c 00040048 		.word	1207960576
+ 141 0010 00040048 		.word	1207960576
+ 142              		.section	.data.sid,"aw"
+ 143              		.align	2
+ 144              		.set	.LANCHOR1,. + 0
+ 147              	sid:
+ 148 0000 0020     		.short	8192
+ 149 0002 0040     		.short	16384
+ 150 0004 00080048 		.word	1207961600
+ 151 0008 00080048 		.word	1207961600
+ 152 000c 00000000 		.word	hspi2
+ 153 0010 00000000 		.space	40
+ 153      00000000 
+ 153      00000000 
+ 153      00000000 
+ 153      00000000 
+ 154              		.text
+ 155              	.Letext0:
+ 156              		.file 2 "/usr/local/gcc_arm/arm-none-eabi/include/machine/_default_types.h"
+ 157              		.file 3 "/usr/local/gcc_arm/arm-none-eabi/include/sys/_stdint.h"
+ 158              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 159              		.file 5 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/system_stm32f3xx.h"
+ 160              		.file 6 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xc.h"
+ 161              		.file 7 "/usr/local/gcc_arm/arm-none-eabi/include/sys/lock.h"
+ 162              		.file 8 "/usr/local/gcc_arm/arm-none-eabi/include/sys/_types.h"
+ 163              		.file 9 "/usr/local/gcc_arm/lib/gcc/arm-none-eabi/8.2.1/include/stddef.h"
+ 164              		.file 10 "/usr/local/gcc_arm/arm-none-eabi/include/sys/reent.h"
+ 165              		.file 11 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h"
+ 166              		.file 12 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_gpio.h"
+ 167              		.file 13 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_dma.h"
+ 168              		.file 14 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_adc_ex.h"
+ 169              		.file 15 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_adc.h"
+ 170              		.file 16 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi.h"
+ 171              		.file 17 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h"
+ 172              		.file 18 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h"
+ 173              		.file 19 "Inc/MCUSetup.h"
+ 174              		.file 20 "Inc/SID.h"
+ 175              		.file 21 "/usr/local/gcc_arm/arm-none-eabi/include/stdlib.h"
+ 176              		.file 22 "Inc/TLC5947.h"
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnmENMs.s:18     .text.main:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnmENMs.s:26     .text.main:0000000000000000 main
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnmENMs.s:187    .text.main:00000000000000e4 $d
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnmENMs.s:191    .text.main:00000000000000f4 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnmENMs.s:222    .text.main:0000000000000118 $d
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnmENMs.s:289    .data.sid:0000000000000000 sid
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnmENMs.s:261    .data.initialFilter:0000000000000000 initialFilter
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnmENMs.s:254    .bss.sidVoices:0000000000000000 sidVoices
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnmENMs.s:276    .data.ledDriver:0000000000000000 ledDriver
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s:18     .text.main:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s:26     .text.main:0000000000000000 main
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s:90     .text.main:0000000000000058 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s:147    .data.sid:0000000000000000 sid
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s:119    .data.initialFilter:0000000000000000 initialFilter
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s:112    .bss.sidVoices:0000000000000000 sidVoices
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s:134    .data.ledDriver:0000000000000000 ledDriver
                             *COM*:0000000000000070 huart1
                             *COM*:0000000000000064 hspi2
                             *COM*:0000000000000064 hspi1
                             *COM*:0000000000000054 hadc3
                             *COM*:0000000000000054 hadc2
                             *COM*:0000000000000054 hadc1
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnmENMs.s:242    .rodata:0000000000000000 $d
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnmENMs.s:250    .bss.sidVoices:0000000000000000 $d
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnmENMs.s:257    .data.initialFilter:0000000000000000 $d
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnmENMs.s:272    .data.ledDriver:0000000000000000 $d
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccnmENMs.s:285    .data.sid:0000000000000000 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s:108    .bss.sidVoices:0000000000000000 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s:115    .data.initialFilter:0000000000000000 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s:130    .data.ledDriver:0000000000000000 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s:143    .data.sid:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 MCU_Setup
 setAllLEDBrightness
 writeLEDs
 HAL_GPIO_WritePin
-clearSID
-setVolume
-writeFilterVolume
-HAL_Delay
-setVoiceFreq
-writeVoiceFreq
-setVoiceEnv
-writeVoiceEnv
-setVoicePWM
-writeVoicePWM
-setVoiceShape
-gateVoice
-ungateVoice
+testFilter
