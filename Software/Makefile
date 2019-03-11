@@ -56,7 +56,7 @@ Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_flash.c \
 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_flash_ex.c \
 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c.c \
 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c_ex.c \
-Src/system_stm32f3xx.c  
+Src/system_stm32f3xx.c
 
 # ASM sources
 ASM_SOURCES =  \
@@ -118,7 +118,6 @@ C_INCLUDES =  \
 -IDrivers/STM32F3xx_HAL_Driver/Inc \
 -IDrivers/STM32F3xx_HAL_Driver/Inc/Legacy \
 -IDrivers/CMSIS/Device/ST/STM32F3xx/Include \
--IDrivers/CMSIS/Include \
 -IDrivers/CMSIS/Include
 
 

@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s 			page 1
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccDxFK95.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -33,225 +33,314 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s 			page 1
    3:Src/main.c    **** #include "SID.h"
    4:Src/main.c    **** #include "TLC5947.h"
    5:Src/main.c    **** 
-   6:Src/main.c    **** TLC5947 ledDriver = {LED_LATCH_Pin,     LED_CLK_Pin,
-   7:Src/main.c    ****                      LED_DATA_Pin,      LED_LATCH_GPIO_Port,
-   8:Src/main.c    ****                      LED_CLK_GPIO_Port, LED_DATA_GPIO_Port};
-   9:Src/main.c    **** 
-  10:Src/main.c    **** // Initialize the three voices with Square voices, 0 freq and pwm, and 0
-  11:Src/main.c    **** // envelopes
-  12:Src/main.c    **** Voice sidVoices[] = {{Square, 0, 0, {0, 0, 0, 0}},
-  13:Src/main.c    ****                      {Square, 0, 0, {0, 0, 0, 0}},
-  14:Src/main.c    ****                      {Square, 0, 0, {0, 0, 0, 0}}};
-  15:Src/main.c    **** 
-  16:Src/main.c    **** // Setup the initial filter settings
-  17:Src/main.c    **** // 0 Cutoff, 0 Resonance, 100% Volume, Low Pass, Filter Nothing
-  18:Src/main.c    **** Filter initialFilter = {0, 0, 0xF, LP, {0, 0, 0, 0}};
-  19:Src/main.c    **** 
-  20:Src/main.c    **** SID sid = {SID_RES_Pin, SID_CS_Pin, SID_RES_GPIO_Port, SID_CS_GPIO_Port,
-  21:Src/main.c    ****            &hspi2};
-  22:Src/main.c    **** 
-  23:Src/main.c    **** int main(void) {
-  29              		.loc 1 23 16 view -0
-  30              		.cfi_startproc
-  31              		@ args = 0, pretend = 0, frame = 0
-  32              		@ frame_needed = 0, uses_anonymous_args = 0
-  33 0000 70B5     		push	{r4, r5, r6, lr}
-  34              	.LCFI0:
-  35              		.cfi_def_cfa_offset 16
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s 			page 2
+   6:Src/main.c    **** ADC_HandleTypeDef hadc1;
+   7:Src/main.c    **** ADC_HandleTypeDef hadc2;
+   8:Src/main.c    **** ADC_HandleTypeDef hadc3;
+   9:Src/main.c    **** DMA_HandleTypeDef hdma_adc1;
+  10:Src/main.c    **** DMA_HandleTypeDef hdma_adc2;
+  11:Src/main.c    **** DMA_HandleTypeDef hdma_adc3;
+  12:Src/main.c    **** SPI_HandleTypeDef hspi2;
+  13:Src/main.c    **** UART_HandleTypeDef huart1;
+  14:Src/main.c    **** 
+  15:Src/main.c    **** TLC5947 ledDriver = {LED_LATCH_Pin,     LED_CLK_Pin,
+  16:Src/main.c    ****                      LED_DATA_Pin,      LED_LATCH_GPIO_Port,
+  17:Src/main.c    ****                      LED_CLK_GPIO_Port, LED_DATA_GPIO_Port};
+  18:Src/main.c    **** 
+  19:Src/main.c    **** // Initialize the three voices with Square voices, 0 freq and pwm, and 0
+  20:Src/main.c    **** // envelopes
+  21:Src/main.c    **** Voice sidVoices[] = {{Square, 0, 0, {0, 0, 0, 0}},
+  22:Src/main.c    ****                      {Square, 0, 0, {0, 0, 0, 0}},
+  23:Src/main.c    ****                      {Square, 0, 0, {0, 0, 0, 0}}};
+  24:Src/main.c    **** 
+  25:Src/main.c    **** // Setup the initial filter settings
+  26:Src/main.c    **** // 0 Cutoff, 0 Resonance, 100% Volume, Low Pass, Filter Nothing
+  27:Src/main.c    **** Filter initialFilter = {0, 0, 0xF, LP, {0, 0, 0, 0}};
+  28:Src/main.c    **** 
+  29:Src/main.c    **** SID sid = {SID_RES_Pin, SID_CS_Pin, SID_RES_GPIO_Port, SID_CS_GPIO_Port,
+  30:Src/main.c    ****            &hspi2};
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccDxFK95.s 			page 2
 
 
-  36              		.cfi_offset 4, -16
-  37              		.cfi_offset 5, -12
-  38              		.cfi_offset 6, -8
-  39              		.cfi_offset 14, -4
-  24:Src/main.c    ****   MCU_Setup();
-  40              		.loc 1 24 3 view .LVU1
-  41 0002 FFF7FEFF 		bl	MCU_Setup
-  42              	.LVL0:
-  25:Src/main.c    **** 
-  26:Src/main.c    ****   setAllLEDBrightness(4095);
-  43              		.loc 1 26 3 view .LVU2
-  44 0006 40F6FF70 		movw	r0, #4095
-  45 000a FFF7FEFF 		bl	setAllLEDBrightness
-  46              	.LVL1:
-  27:Src/main.c    ****   // clearLEDs();
-  28:Src/main.c    ****   writeLEDs(&ledDriver);
-  47              		.loc 1 28 3 view .LVU3
-  48 000e 1248     		ldr	r0, .L3
-  49 0010 FFF7FEFF 		bl	writeLEDs
-  50              	.LVL2:
-  29:Src/main.c    **** 
-  30:Src/main.c    ****   // Set the initial state of the SID CS and RES line to high
-  31:Src/main.c    ****   HAL_GPIO_WritePin(sid._cs_port, sid._cs, GPIO_PIN_SET);
-  51              		.loc 1 31 3 view .LVU4
-  52 0014 114E     		ldr	r6, .L3+4
-  53 0016 0122     		movs	r2, #1
-  54 0018 7188     		ldrh	r1, [r6, #2]
-  55 001a B068     		ldr	r0, [r6, #8]
-  56 001c FFF7FEFF 		bl	HAL_GPIO_WritePin
-  57              	.LVL3:
-  32:Src/main.c    ****   HAL_GPIO_WritePin(sid._res_port, sid._res, GPIO_PIN_SET);
-  58              		.loc 1 32 3 view .LVU5
-  59 0020 0122     		movs	r2, #1
-  60 0022 3188     		ldrh	r1, [r6]
-  61 0024 7068     		ldr	r0, [r6, #4]
-  62 0026 FFF7FEFF 		bl	HAL_GPIO_WritePin
-  63              	.LVL4:
+  31:Src/main.c    **** 
+  32:Src/main.c    **** uint16_t ADC1ConvertedValues[1024]; // To store the entire ADC1 buffer
   33:Src/main.c    **** 
-  34:Src/main.c    ****   // Setup the sid object
-  35:Src/main.c    ****   memcpy(sid._voices, sidVoices, sizeof(Voice) * 3);
-  64              		.loc 1 35 3 view .LVU6
-  65 002a 06F11004 		add	r4, r6, #16
-  66 002e 0C4D     		ldr	r5, .L3+8
-  67 0030 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
-  68 0032 0FC4     		stmia	r4!, {r0, r1, r2, r3}
-  69 0034 95E80F00 		ldm	r5, {r0, r1, r2, r3}
-  70 0038 07C4     		stmia	r4!, {r0, r1, r2}
-  71 003a 2380     		strh	r3, [r4]	@ movhi
-  36:Src/main.c    ****   sid._filter = initialFilter;
-  72              		.loc 1 36 3 view .LVU7
-  73              		.loc 1 36 15 is_stmt 0 view .LVU8
-  74 003c 094B     		ldr	r3, .L3+12
-  75 003e 03CB     		ldmia	r3!, {r0, r1}
-  76 0040 C6F82E00 		str	r0, [r6, #46]	@ unaligned
-  77 0044 C6F83210 		str	r1, [r6, #50]	@ unaligned
-  78 0048 1B88     		ldrh	r3, [r3]	@ unaligned
-  79 004a F386     		strh	r3, [r6, #54]	@ unaligned
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s 			page 3
+  34:Src/main.c    **** int main(void) {
+  29              		.loc 1 34 16 view -0
+  30              		.cfi_startproc
+  31              		@ Volatile: function does not return.
+  32              		@ args = 0, pretend = 0, frame = 16
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34 0000 00B5     		push	{lr}
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 4
+  37              		.cfi_offset 14, -4
+  38 0002 85B0     		sub	sp, sp, #20
+  39              	.LCFI1:
+  40              		.cfi_def_cfa_offset 24
+  35:Src/main.c    ****   MCU_Setup();
+  41              		.loc 1 35 3 view .LVU1
+  42 0004 FFF7FEFF 		bl	MCU_Setup
+  43              	.LVL0:
+  36:Src/main.c    **** 
+  37:Src/main.c    ****   setAllLEDBrightness(4095);
+  44              		.loc 1 37 3 view .LVU2
+  45 0008 40F6FF70 		movw	r0, #4095
+  46 000c FFF7FEFF 		bl	setAllLEDBrightness
+  47              	.LVL1:
+  38:Src/main.c    ****   // clearLEDs();
+  39:Src/main.c    ****   writeLEDs(&ledDriver);
+  48              		.loc 1 39 3 view .LVU3
+  49 0010 2248     		ldr	r0, .L4
+  50 0012 FFF7FEFF 		bl	writeLEDs
+  51              	.LVL2:
+  40:Src/main.c    **** 
+  41:Src/main.c    ****   // Set the initial state of the SID CS and RES line to high
+  42:Src/main.c    ****   HAL_GPIO_WritePin(sid._cs_port, sid._cs, GPIO_PIN_SET);
+  52              		.loc 1 42 3 view .LVU4
+  53 0016 224E     		ldr	r6, .L4+4
+  54 0018 0122     		movs	r2, #1
+  55 001a 7188     		ldrh	r1, [r6, #2]
+  56 001c B068     		ldr	r0, [r6, #8]
+  57 001e FFF7FEFF 		bl	HAL_GPIO_WritePin
+  58              	.LVL3:
+  43:Src/main.c    ****   HAL_GPIO_WritePin(sid._res_port, sid._res, GPIO_PIN_SET);
+  59              		.loc 1 43 3 view .LVU5
+  60 0022 0122     		movs	r2, #1
+  61 0024 3188     		ldrh	r1, [r6]
+  62 0026 7068     		ldr	r0, [r6, #4]
+  63 0028 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  64              	.LVL4:
+  44:Src/main.c    **** 
+  45:Src/main.c    ****   // Setup the sid object
+  46:Src/main.c    ****   memcpy(sid._voices, sidVoices, sizeof(Voice) * 3);
+  65              		.loc 1 46 3 view .LVU6
+  66 002c 06F11004 		add	r4, r6, #16
+  67 0030 1C4D     		ldr	r5, .L4+8
+  68 0032 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+  69 0034 0FC4     		stmia	r4!, {r0, r1, r2, r3}
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccDxFK95.s 			page 3
 
 
-  37:Src/main.c    **** 
-  38:Src/main.c    ****   // Test all voices
-  39:Src/main.c    ****   //testAllVoices(&sid);
-  40:Src/main.c    ****   testFilter(&sid);
-  80              		.loc 1 40 3 is_stmt 1 view .LVU9
-  81 004c 3046     		mov	r0, r6
-  82 004e FFF7FEFF 		bl	testFilter
-  83              	.LVL5:
-  41:Src/main.c    ****   //megelovania(&sid);
-  42:Src/main.c    **** }...
-  84              		.loc 1 42 1 is_stmt 0 view .LVU10
-  85 0052 0020     		movs	r0, #0
-  86 0054 70BD     		pop	{r4, r5, r6, pc}
-  87              	.L4:
-  88 0056 00BF     		.align	2
-  89              	.L3:
-  90 0058 00000000 		.word	.LANCHOR0
-  91 005c 00000000 		.word	.LANCHOR1
-  92 0060 00000000 		.word	.LANCHOR2
-  93 0064 00000000 		.word	.LANCHOR3
-  94              		.cfi_endproc
-  95              	.LFE126:
-  97              		.global	sid
-  98              		.global	initialFilter
-  99              		.global	sidVoices
- 100              		.global	ledDriver
- 101              		.comm	huart1,112,4
- 102              		.comm	hspi2,100,4
- 103              		.comm	hspi1,100,4
- 104              		.comm	hadc3,84,4
- 105              		.comm	hadc2,84,4
- 106              		.comm	hadc1,84,4
- 107              		.section	.bss.sidVoices,"aw",%nobits
- 108              		.align	2
- 109              		.set	.LANCHOR2,. + 0
- 112              	sidVoices:
- 113 0000 00000000 		.space	30
- 113      00000000 
- 113      00000000 
- 113      00000000 
- 113      00000000 
- 114              		.section	.data.initialFilter,"aw"
- 115              		.align	2
- 116              		.set	.LANCHOR3,. + 0
- 119              	initialFilter:
- 120 0000 0000     		.short	0
- 121 0002 00       		.byte	0
- 122 0003 0F       		.byte	15
- 123 0004 03       		.byte	3
- 124 0005 00       		.byte	0
- 125 0006 00       		.byte	0
- 126 0007 00       		.byte	0
- 127 0008 00       		.byte	0
- 128 0009 00       		.space	1
- 129              		.section	.data.ledDriver,"aw"
- 130              		.align	2
- 131              		.set	.LANCHOR0,. + 0
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s 			page 4
+  70 0036 95E80F00 		ldm	r5, {r0, r1, r2, r3}
+  71 003a 07C4     		stmia	r4!, {r0, r1, r2}
+  72 003c 2380     		strh	r3, [r4]	@ movhi
+  47:Src/main.c    ****   sid._filter = initialFilter;
+  73              		.loc 1 47 3 view .LVU7
+  74              		.loc 1 47 15 is_stmt 0 view .LVU8
+  75 003e 1A4B     		ldr	r3, .L4+12
+  76 0040 03CB     		ldmia	r3!, {r0, r1}
+  77 0042 C6F82E00 		str	r0, [r6, #46]	@ unaligned
+  78 0046 C6F83210 		str	r1, [r6, #50]	@ unaligned
+  79 004a 1B88     		ldrh	r3, [r3]	@ unaligned
+  80 004c F386     		strh	r3, [r6, #54]	@ unaligned
+  48:Src/main.c    ****   clearSID(&sid);
+  81              		.loc 1 48 3 is_stmt 1 view .LVU9
+  82 004e 3046     		mov	r0, r6
+  83 0050 FFF7FEFF 		bl	clearSID
+  84              	.LVL5:
+  85              	.L2:
+  49:Src/main.c    **** 
+  50:Src/main.c    ****   volatile uint16_t val;
+  86              		.loc 1 50 3 discriminator 1 view .LVU10
+  51:Src/main.c    **** 
+  52:Src/main.c    ****   char message[13];
+  87              		.loc 1 52 3 discriminator 1 view .LVU11
+  53:Src/main.c    **** 
+  54:Src/main.c    ****   while (1) {
+  88              		.loc 1 54 3 discriminator 1 view .LVU12
+  55:Src/main.c    ****     sprintf(message, "Hello World\n\r", val);
+  89              		.loc 1 55 5 discriminator 1 view .LVU13
+  90 0054 BDF80E20 		ldrh	r2, [sp, #14]
+  91 0058 1449     		ldr	r1, .L4+16
+  92 005a 6846     		mov	r0, sp
+  93 005c FFF7FEFF 		bl	sprintf
+  94              	.LVL6:
+  56:Src/main.c    ****     HAL_UART_Transmit(&huart1, message, sizeof(message), HAL_MAX_DELAY);
+  95              		.loc 1 56 5 discriminator 1 view .LVU14
+  96 0060 4FF0FF33 		mov	r3, #-1
+  97 0064 0D22     		movs	r2, #13
+  98 0066 6946     		mov	r1, sp
+  99 0068 1148     		ldr	r0, .L4+20
+ 100 006a FFF7FEFF 		bl	HAL_UART_Transmit
+ 101              	.LVL7:
+  57:Src/main.c    ****     clearLEDs();
+ 102              		.loc 1 57 5 discriminator 1 view .LVU15
+ 103 006e FFF7FEFF 		bl	clearLEDs
+ 104              	.LVL8:
+  58:Src/main.c    ****     writeLEDs(&ledDriver);
+ 105              		.loc 1 58 5 discriminator 1 view .LVU16
+ 106 0072 0A4C     		ldr	r4, .L4
+ 107 0074 2046     		mov	r0, r4
+ 108 0076 FFF7FEFF 		bl	writeLEDs
+ 109              	.LVL9:
+  59:Src/main.c    ****     HAL_Delay(500);
+ 110              		.loc 1 59 5 discriminator 1 view .LVU17
+ 111 007a 4FF4FA70 		mov	r0, #500
+ 112 007e FFF7FEFF 		bl	HAL_Delay
+ 113              	.LVL10:
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccDxFK95.s 			page 4
 
 
- 134              	ledDriver:
- 135 0000 0080     		.short	-32768
- 136 0002 0800     		.short	8
- 137 0004 2000     		.short	32
- 138 0006 0000     		.space	2
- 139 0008 00000048 		.word	1207959552
- 140 000c 00040048 		.word	1207960576
- 141 0010 00040048 		.word	1207960576
- 142              		.section	.data.sid,"aw"
- 143              		.align	2
- 144              		.set	.LANCHOR1,. + 0
- 147              	sid:
- 148 0000 0020     		.short	8192
- 149 0002 0040     		.short	16384
- 150 0004 00080048 		.word	1207961600
- 151 0008 00080048 		.word	1207961600
- 152 000c 00000000 		.word	hspi2
- 153 0010 00000000 		.space	40
- 153      00000000 
- 153      00000000 
- 153      00000000 
- 153      00000000 
- 154              		.text
- 155              	.Letext0:
- 156              		.file 2 "/usr/local/gcc_arm/arm-none-eabi/include/machine/_default_types.h"
- 157              		.file 3 "/usr/local/gcc_arm/arm-none-eabi/include/sys/_stdint.h"
- 158              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
- 159              		.file 5 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/system_stm32f3xx.h"
- 160              		.file 6 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xc.h"
- 161              		.file 7 "/usr/local/gcc_arm/arm-none-eabi/include/sys/lock.h"
- 162              		.file 8 "/usr/local/gcc_arm/arm-none-eabi/include/sys/_types.h"
- 163              		.file 9 "/usr/local/gcc_arm/lib/gcc/arm-none-eabi/8.2.1/include/stddef.h"
- 164              		.file 10 "/usr/local/gcc_arm/arm-none-eabi/include/sys/reent.h"
- 165              		.file 11 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h"
- 166              		.file 12 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_gpio.h"
- 167              		.file 13 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_dma.h"
- 168              		.file 14 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_adc_ex.h"
- 169              		.file 15 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_adc.h"
- 170              		.file 16 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi.h"
- 171              		.file 17 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h"
- 172              		.file 18 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h"
- 173              		.file 19 "Inc/MCUSetup.h"
- 174              		.file 20 "Inc/SID.h"
- 175              		.file 21 "/usr/local/gcc_arm/arm-none-eabi/include/stdlib.h"
- 176              		.file 22 "Inc/TLC5947.h"
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s 			page 5
+  60:Src/main.c    ****     setAllLEDBrightness(4096);
+ 114              		.loc 1 60 5 discriminator 1 view .LVU18
+ 115 0082 4FF48050 		mov	r0, #4096
+ 116 0086 FFF7FEFF 		bl	setAllLEDBrightness
+ 117              	.LVL11:
+  61:Src/main.c    ****     writeLEDs(&ledDriver);
+ 118              		.loc 1 61 5 discriminator 1 view .LVU19
+ 119 008a 2046     		mov	r0, r4
+ 120 008c FFF7FEFF 		bl	writeLEDs
+ 121              	.LVL12:
+  62:Src/main.c    ****     HAL_Delay(500);
+ 122              		.loc 1 62 5 discriminator 1 view .LVU20
+ 123 0090 4FF4FA70 		mov	r0, #500
+ 124 0094 FFF7FEFF 		bl	HAL_Delay
+ 125              	.LVL13:
+ 126 0098 DCE7     		b	.L2
+ 127              	.L5:
+ 128 009a 00BF     		.align	2
+ 129              	.L4:
+ 130 009c 00000000 		.word	.LANCHOR0
+ 131 00a0 00000000 		.word	.LANCHOR1
+ 132 00a4 00000000 		.word	.LANCHOR2
+ 133 00a8 00000000 		.word	.LANCHOR3
+ 134 00ac 00000000 		.word	.LC0
+ 135 00b0 00000000 		.word	huart1
+ 136              		.cfi_endproc
+ 137              	.LFE126:
+ 139              		.comm	ADC1ConvertedValues,2048,4
+ 140              		.global	sid
+ 141              		.global	initialFilter
+ 142              		.global	sidVoices
+ 143              		.global	ledDriver
+ 144              		.comm	hdma_adc3,68,4
+ 145              		.comm	hdma_adc2,68,4
+ 146              		.comm	hdma_adc1,68,4
+ 147              		.comm	huart1,112,4
+ 148              		.comm	hspi2,100,4
+ 149              		.comm	hspi1,100,4
+ 150              		.comm	hadc3,84,4
+ 151              		.comm	hadc2,84,4
+ 152              		.comm	hadc1,84,4
+ 153              		.section	.bss.sidVoices,"aw",%nobits
+ 154              		.align	2
+ 155              		.set	.LANCHOR2,. + 0
+ 158              	sidVoices:
+ 159 0000 00000000 		.space	30
+ 159      00000000 
+ 159      00000000 
+ 159      00000000 
+ 159      00000000 
+ 160              		.section	.data.initialFilter,"aw"
+ 161              		.align	2
+ 162              		.set	.LANCHOR3,. + 0
+ 165              	initialFilter:
+ 166 0000 0000     		.short	0
+ 167 0002 00       		.byte	0
+ 168 0003 0F       		.byte	15
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccDxFK95.s 			page 5
+
+
+ 169 0004 03       		.byte	3
+ 170 0005 00       		.byte	0
+ 171 0006 00       		.byte	0
+ 172 0007 00       		.byte	0
+ 173 0008 00       		.byte	0
+ 174 0009 00       		.space	1
+ 175              		.section	.data.ledDriver,"aw"
+ 176              		.align	2
+ 177              		.set	.LANCHOR0,. + 0
+ 180              	ledDriver:
+ 181 0000 0080     		.short	-32768
+ 182 0002 0800     		.short	8
+ 183 0004 2000     		.short	32
+ 184 0006 0000     		.space	2
+ 185 0008 00000048 		.word	1207959552
+ 186 000c 00040048 		.word	1207960576
+ 187 0010 00040048 		.word	1207960576
+ 188              		.section	.data.sid,"aw"
+ 189              		.align	2
+ 190              		.set	.LANCHOR1,. + 0
+ 193              	sid:
+ 194 0000 0020     		.short	8192
+ 195 0002 0040     		.short	16384
+ 196 0004 00080048 		.word	1207961600
+ 197 0008 00080048 		.word	1207961600
+ 198 000c 00000000 		.word	hspi2
+ 199 0010 00000000 		.space	40
+ 199      00000000 
+ 199      00000000 
+ 199      00000000 
+ 199      00000000 
+ 200              		.section	.rodata.main.str1.4,"aMS",%progbits,1
+ 201              		.align	2
+ 202              	.LC0:
+ 203 0000 48656C6C 		.ascii	"Hello World\012\015\000"
+ 203      6F20576F 
+ 203      726C640A 
+ 203      0D00
+ 204              		.text
+ 205              	.Letext0:
+ 206              		.file 2 "/usr/local/gcc_arm/arm-none-eabi/include/machine/_default_types.h"
+ 207              		.file 3 "/usr/local/gcc_arm/arm-none-eabi/include/sys/_stdint.h"
+ 208              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 209              		.file 5 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/system_stm32f3xx.h"
+ 210              		.file 6 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xc.h"
+ 211              		.file 7 "/usr/local/gcc_arm/arm-none-eabi/include/sys/lock.h"
+ 212              		.file 8 "/usr/local/gcc_arm/arm-none-eabi/include/sys/_types.h"
+ 213              		.file 9 "/usr/local/gcc_arm/lib/gcc/arm-none-eabi/8.2.1/include/stddef.h"
+ 214              		.file 10 "/usr/local/gcc_arm/arm-none-eabi/include/sys/reent.h"
+ 215              		.file 11 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h"
+ 216              		.file 12 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_gpio.h"
+ 217              		.file 13 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_dma.h"
+ 218              		.file 14 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_adc_ex.h"
+ 219              		.file 15 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_adc.h"
+ 220              		.file 16 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi.h"
+ 221              		.file 17 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h"
+ 222              		.file 18 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h"
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccDxFK95.s 			page 6
+
+
+ 223              		.file 19 "Inc/MCUSetup.h"
+ 224              		.file 20 "Inc/SID.h"
+ 225              		.file 21 "/usr/local/gcc_arm/arm-none-eabi/include/stdlib.h"
+ 226              		.file 22 "Inc/TLC5947.h"
+ 227              		.file 23 "/usr/local/gcc_arm/arm-none-eabi/include/stdio.h"
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccDxFK95.s 			page 7
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s:18     .text.main:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s:26     .text.main:0000000000000000 main
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s:90     .text.main:0000000000000058 $d
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s:147    .data.sid:0000000000000000 sid
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s:119    .data.initialFilter:0000000000000000 initialFilter
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s:112    .bss.sidVoices:0000000000000000 sidVoices
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s:134    .data.ledDriver:0000000000000000 ledDriver
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccDxFK95.s:18     .text.main:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccDxFK95.s:26     .text.main:0000000000000000 main
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccDxFK95.s:130    .text.main:000000000000009c $d
                             *COM*:0000000000000070 huart1
+                            *COM*:0000000000000800 ADC1ConvertedValues
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccDxFK95.s:193    .data.sid:0000000000000000 sid
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccDxFK95.s:165    .data.initialFilter:0000000000000000 initialFilter
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccDxFK95.s:158    .bss.sidVoices:0000000000000000 sidVoices
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccDxFK95.s:180    .data.ledDriver:0000000000000000 ledDriver
+                            *COM*:0000000000000044 hdma_adc3
+                            *COM*:0000000000000044 hdma_adc2
+                            *COM*:0000000000000044 hdma_adc1
                             *COM*:0000000000000064 hspi2
                             *COM*:0000000000000064 hspi1
                             *COM*:0000000000000054 hadc3
                             *COM*:0000000000000054 hadc2
                             *COM*:0000000000000054 hadc1
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s:108    .bss.sidVoices:0000000000000000 $d
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s:115    .data.initialFilter:0000000000000000 $d
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s:130    .data.ledDriver:0000000000000000 $d
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccb6spns.s:143    .data.sid:0000000000000000 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccDxFK95.s:154    .bss.sidVoices:0000000000000000 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccDxFK95.s:161    .data.initialFilter:0000000000000000 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccDxFK95.s:176    .data.ledDriver:0000000000000000 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccDxFK95.s:189    .data.sid:0000000000000000 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccDxFK95.s:201    .rodata.main.str1.4:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 MCU_Setup
 setAllLEDBrightness
 writeLEDs
 HAL_GPIO_WritePin
-testFilter
+clearSID
+sprintf
+HAL_UART_Transmit
+clearLEDs
+HAL_Delay
