@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccT48Y7S.s 			page 1
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccxSF6k8.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccT48Y7S.s 			page 1
   50              	.LVL2:
    7:Src/TLC5947.c ****   // 24 Channels per TLC5947, set in NUM_CHANNELS
    8:Src/TLC5947.c ****   for (int16_t channel = NUM_CHANNELS - 1; channel >= 0; channel--) {
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccT48Y7S.s 			page 2
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccxSF6k8.s 			page 2
 
 
   51              		.loc 1 8 3 is_stmt 1 view .LVU4
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccT48Y7S.s 			page 1
   12:Src/TLC5947.c ****         HAL_GPIO_WritePin(pins->_data_port, pins->_data, GPIO_PIN_SET);
   91              		.loc 1 12 18 is_stmt 0 view .LVU15
   92 0038 114B     		ldr	r3, .L11
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccT48Y7S.s 			page 3
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccxSF6k8.s 			page 3
 
 
   93 003a 33F81630 		ldrh	r3, [r3, r6, lsl #1]
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccT48Y7S.s 			page 1
  135 006c A868     		ldr	r0, [r5, #8]
  136 006e FFF7FEFF 		bl	HAL_GPIO_WritePin
  137              	.LVL13:
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccT48Y7S.s 			page 4
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccxSF6k8.s 			page 4
 
 
   22:Src/TLC5947.c ****   HAL_GPIO_WritePin(pins->_lat_port, pins->_lat, GPIO_PIN_RESET);
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccT48Y7S.s 			page 1
  185 000e 024B     		ldr	r3, .L17
  186 0010 23F81010 		strh	r1, [r3, r0, lsl #1]	@ movhi
  187              	.L13:
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccT48Y7S.s 			page 5
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccxSF6k8.s 			page 5
 
 
   31:Src/TLC5947.c **** }
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccT48Y7S.s 			page 1
   36:Src/TLC5947.c ****   }
   37:Src/TLC5947.c **** }
  236              		.loc 1 37 1 view .LVU48
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccT48Y7S.s 			page 6
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccxSF6k8.s 			page 6
 
 
  237 0012 7047     		bx	lr
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccT48Y7S.s 			page 1
  283 0010 B0F5805F 		cmp	r0, #4096
  284 0014 F6D3     		bcc	.L27
   42:Src/TLC5947.c ****     _buffer[i] = value;
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccT48Y7S.s 			page 7
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccxSF6k8.s 			page 7
 
 
  285              		.loc 1 42 13 view .LVU60
@@ -398,24 +398,24 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccT48Y7S.s 			page 1
  316              		.file 12 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_gpio.h"
  317              		.file 13 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h"
  318              		.file 14 "Inc/TLC5947.h"
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccT48Y7S.s 			page 8
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccxSF6k8.s 			page 8
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 TLC5947.c
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccT48Y7S.s:18     .text.writeLEDs:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccT48Y7S.s:26     .text.writeLEDs:0000000000000000 writeLEDs
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccT48Y7S.s:151    .text.writeLEDs:0000000000000080 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccxSF6k8.s:18     .text.writeLEDs:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccxSF6k8.s:26     .text.writeLEDs:0000000000000000 writeLEDs
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccxSF6k8.s:151    .text.writeLEDs:0000000000000080 $d
                             *COM*:0000000000000030 _buffer
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccT48Y7S.s:156    .text.setLEDBrightness:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccT48Y7S.s:163    .text.setLEDBrightness:0000000000000000 setLEDBrightness
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccT48Y7S.s:193    .text.setLEDBrightness:0000000000000018 $d
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccT48Y7S.s:198    .text.clearLEDs:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccT48Y7S.s:205    .text.clearLEDs:0000000000000000 clearLEDs
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccT48Y7S.s:241    .text.clearLEDs:0000000000000014 $d
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccT48Y7S.s:246    .text.setAllLEDBrightness:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccT48Y7S.s:253    .text.setAllLEDBrightness:0000000000000000 setAllLEDBrightness
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccT48Y7S.s:299    .text.setAllLEDBrightness:0000000000000020 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccxSF6k8.s:156    .text.setLEDBrightness:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccxSF6k8.s:163    .text.setLEDBrightness:0000000000000000 setLEDBrightness
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccxSF6k8.s:193    .text.setLEDBrightness:0000000000000018 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccxSF6k8.s:198    .text.clearLEDs:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccxSF6k8.s:205    .text.clearLEDs:0000000000000000 clearLEDs
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccxSF6k8.s:241    .text.clearLEDs:0000000000000014 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccxSF6k8.s:246    .text.setAllLEDBrightness:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccxSF6k8.s:253    .text.setAllLEDBrightness:0000000000000000 setAllLEDBrightness
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccxSF6k8.s:299    .text.setAllLEDBrightness:0000000000000020 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin

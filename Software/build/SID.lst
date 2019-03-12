@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
   48 000c 4182     		strh	r1, [r0, #18]	@ movhi
   49              	.L1:
    9:Src/SID.c     **** }
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 2
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 2
 
 
   50              		.loc 1 9 1 view .LVU7
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
   97              	.LFE127:
   99              		.section	.text.setVoiceShape,"ax",%progbits
  100              		.align	1
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 3
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 3
 
 
  101              		.global	setVoiceShape
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  149              		@ frame_needed = 0, uses_anonymous_args = 0
  150              		@ link register save eliminated.
  151              		.loc 1 27 57 is_stmt 0 view .LVU28
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 4
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 4
 
 
  152 0000 82B0     		sub	sp, sp, #8
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
   47:Src/SID.c     **** void writeVoicePWM(SID *sidChip, int voice) {
   48:Src/SID.c     ****   if (voice > NUM_VOICES || voice < 0) {
   49:Src/SID.c     ****     return; // Error
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 5
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 5
 
 
   50:Src/SID.c     ****   }
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  104:Src/SID.c     ****   // Write the data to the SID chip
  105:Src/SID.c     ****   writeSID(sidChip, VOICE_1_CONTROL + (voice * VOICE_REGISTER_OFFSET), data);
  106:Src/SID.c     **** }
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 6
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 6
 
 
  107:Src/SID.c     **** 
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  203              		.loc 1 146 28 is_stmt 0 view .LVU40
  204 000a C185     		strh	r1, [r0, #46]	@ movhi
  147:Src/SID.c     **** }
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 7
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 7
 
 
  205              		.loc 1 147 1 view .LVU41
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  251              	.LVL16:
  252              	.LFB138:
  160:Src/SID.c     **** 
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 8
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 8
 
 
  161:Src/SID.c     **** void setFilterTargets(SID *sidChip, int whatToFilter, _Bool filterOn) {
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  290              		.loc 1 179 3 view .LVU57
  291              		.loc 1 179 6 is_stmt 0 view .LVU58
  292 0000 0F29     		cmp	r1, #15
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 9
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 9
 
 
  293 0002 00D9     		bls	.L21
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  190:Src/SID.c     ****   uint8_t data = 0;
  191:Src/SID.c     ****   data |= sidChip->_filter._volume & 0xF;
  192:Src/SID.c     ****   switch (sidChip->_filter._type) {
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 10
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 10
 
 
  193:Src/SID.c     ****   case ThreeOff:
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  223:Src/SID.c     ****   // transmitting one word.
  224:Src/SID.c     ****   HAL_SPI_Transmit(sidChip->_spi, &writeBytes, 1, HAL_MAX_DELAY);
  365              		.loc 1 224 3 is_stmt 1 view .LVU74
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 11
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 11
 
 
  366 0012 4FF0FF33 		mov	r3, #-1
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  415              		.loc 1 36 3 view .LVU82
   36:Src/SID.c     ****     return; // Error
  416              		.loc 1 36 6 is_stmt 0 view .LVU83
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 12
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 12
 
 
  417 0000 0329     		cmp	r1, #3
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  462              	.LVL33:
   45:Src/SID.c     **** 
  463              		.loc 1 45 1 view .LVU93
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 13
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 13
 
 
  464 0036 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  512              	.LVL35:
   52:Src/SID.c     ****            sidChip->_voices[voice]._pwm & 0xFF);
  513              		.loc 1 52 3 view .LVU102
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 14
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 14
 
 
  514 001c 1A7D     		ldrb	r2, [r3, #20]	@ zero_extendqisi2
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  562 0002 0646     		mov	r6, r0
   60:Src/SID.c     ****   attack_decay |= (sidChip->_voices[voice]._env.Attack & 0xF) << 4;
  563              		.loc 1 60 3 is_stmt 1 view .LVU111
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 15
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 15
 
 
  564              	.LVL40:
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  601 002a 1D43     		orrs	r5, r5, r3
  602 002c EDB2     		uxtb	r5, r5
  603              	.LVL45:
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 16
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 16
 
 
   68:Src/SID.c     ****            attack_decay);
@@ -958,7 +958,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  650              		.cfi_def_cfa_offset 8
  651              		.cfi_offset 3, -8
  652              		.cfi_offset 14, -4
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 17
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 17
 
 
   83:Src/SID.c     ****   switch (sidChip->_voices[voice]._currentShape) {
@@ -1018,7 +1018,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  693              		.loc 1 95 5 is_stmt 1 view .LVU152
   96:Src/SID.c     ****   }
  694              		.loc 1 96 5 view .LVU153
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 18
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 18
 
 
   95:Src/SID.c     ****     break;
@@ -1078,7 +1078,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  741              		.loc 1 108 43 is_stmt 1 view -0
  742              		.cfi_startproc
  743              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 19
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 19
 
 
  744              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1138,7 +1138,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  786              	.L60:
  126:Src/SID.c     ****     break;
  787              		.loc 1 126 5 is_stmt 1 view .LVU176
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 20
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 20
 
 
  127:Src/SID.c     ****   case Triangle:
@@ -1198,7 +1198,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  830              		.align	1
  831              		.global	writeFilterCutoff
  832              		.syntax unified
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 21
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 21
 
 
  833              		.thumb
@@ -1258,7 +1258,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  879              		.thumb_func
  880              		.fpu fpv4-sp-d16
  882              	writeFilterResonance:
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 22
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 22
 
 
  883              	.LVL73:
@@ -1318,7 +1318,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  922              	.LVL77:
  173:Src/SID.c     ****   }
  923              		.loc 1 173 10 discriminator 3 view .LVU215
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 23
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 23
 
 
  924 0018 D2B2     		uxtb	r2, r2
@@ -1378,7 +1378,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  191:Src/SID.c     ****   switch (sidChip->_filter._type) {
  970              		.loc 1 191 8 view .LVU226
  971 0006 02F00F02 		and	r2, r2, #15
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 24
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 24
 
 
  972              	.LVL83:
@@ -1438,7 +1438,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  1012              		.loc 1 201 5 is_stmt 1 view .LVU240
  1013 0030 F5E7     		b	.L75
  1014              	.L76:
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 25
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 25
 
 
  203:Src/SID.c     ****     break;
@@ -1498,7 +1498,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  1061 0014 0122     		movs	r2, #1
  1062 0016 2988     		ldrh	r1, [r5]
  1063 0018 6868     		ldr	r0, [r5, #4]
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 26
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 26
 
 
  1064 001a FFF7FEFF 		bl	HAL_GPIO_WritePin
@@ -1558,7 +1558,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  1109              		@ args = 0, pretend = 0, frame = 0
  1110              		@ frame_needed = 0, uses_anonymous_args = 0
  245:Src/SID.c     ****   if (voice > NUM_VOICES || voice < 0) {
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 27
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 27
 
 
  1111              		.loc 1 245 3 view .LVU261
@@ -1618,7 +1618,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  260:Src/SID.c     ****       setVoiceShape(sidChip, Triangle, voice);
  261:Src/SID.c     ****       break;
  262:Src/SID.c     ****     }
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 28
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 28
 
 
  263:Src/SID.c     ****     for (int j = 0; j < 65535; j += 300) {
@@ -1678,7 +1678,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  255:Src/SID.c     ****     case 2:
  1193              		.loc 1 255 7 view .LVU279
  1194 005a DDE7     		b	.L90
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 29
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 29
 
 
  1195              	.L93:
@@ -1738,7 +1738,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  1239              	.L100:
  1240              	.LCFI17:
  1241              		.cfi_def_cfa_offset 0
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 30
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 30
 
 
  1242              		.cfi_restore 3
@@ -1798,7 +1798,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  279:Src/SID.c     **** 
  280:Src/SID.c     ****   // Wait
  281:Src/SID.c     ****   HAL_Delay(100);
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 31
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 31
 
 
  1291              		.loc 1 281 3 view .LVU294
@@ -1858,7 +1858,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  1333 0058 0022     		movs	r2, #0
  1334 005a 4FF40061 		mov	r1, #2048
  1335 005e 2046     		mov	r0, r4
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 32
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 32
 
 
  1336 0060 FFF7FEFF 		bl	setVoicePWM
@@ -1918,7 +1918,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  1381 00a2 0135     		adds	r5, r5, #1
  1382              	.LVL134:
  300:Src/SID.c     ****     sweepVoiceFreq(sidChip, i);
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 33
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 33
 
 
  1383              		.loc 1 300 36 discriminator 3 view .LVU315
@@ -1978,7 +1978,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  1431              		.loc 1 308 12 is_stmt 0 view .LVU322
  1432 0006 0026     		movs	r6, #0
  1433 0008 8DF80460 		strb	r6, [sp, #4]
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 34
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 34
 
 
  1434 000c 8DF80560 		strb	r6, [sp, #5]
@@ -2038,7 +2038,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  1480 0062 FFF7FEFF 		bl	setVoicePWM
  1481              	.LVL144:
  317:Src/SID.c     ****   writeVoicePWM(sidChip, 1);
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 35
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 35
 
 
  1482              		.loc 1 317 3 view .LVU331
@@ -2098,7 +2098,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  328:Src/SID.c     ****   writeFilterVolume(sidChip);
  1526              		.loc 1 328 3 view .LVU339
  1527 00b0 2846     		mov	r0, r5
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 36
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 36
 
 
  1528 00b2 FFF7FEFF 		bl	writeFilterVolume
@@ -2158,7 +2158,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  1570 00fc 0122     		movs	r2, #1
  1571 00fe 1146     		mov	r1, r2
  1572 0100 2846     		mov	r0, r5
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 37
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 37
 
 
  1573 0102 FFF7FEFF 		bl	setFilterTargets
@@ -2218,7 +2218,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  1612 0134 FFF7FEFF 		bl	setFilterType
  1613              	.LVL168:
  356:Src/SID.c     ****       writeFilterVolume(sidChip);
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 38
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 38
 
 
  1614              		.loc 1 356 7 view .LVU358
@@ -2278,7 +2278,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  1649              		.loc 1 348 27 is_stmt 0 discriminator 2 view .LVU366
  1650 0168 0136     		adds	r6, r6, #1
  1651              	.LVL176:
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 39
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 39
 
 
  1652              	.L113:
@@ -2338,7 +2338,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  1695 01a2 2846     		mov	r0, r5
  1696 01a4 FFF7FEFF 		bl	writeFilterCutoff
  1697              	.LVL182:
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 40
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 40
 
 
  370:Src/SID.c     ****     }
@@ -2398,7 +2398,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  1746              	.LCFI25:
  1747              		.cfi_def_cfa_offset 24
  1748 0004 0546     		mov	r5, r0
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 41
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 41
 
 
  379:Src/SID.c     ****   clearSID(sidChip);
@@ -2458,7 +2458,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  1792              	.LVL193:
  390:Src/SID.c     ****   writeFilterVolume(sidChip);
  1793              		.loc 1 390 3 view .LVU395
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 42
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 42
 
 
  1794 0056 2846     		mov	r0, r5
@@ -2518,7 +2518,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  1836 0092 0021     		movs	r1, #0
  1837 0094 2846     		mov	r0, r5
  1838 0096 FFF7FEFF 		bl	gateVoice
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 43
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 43
 
 
  1839              	.LVL200:
@@ -2578,7 +2578,7 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  1886              		.set	.LANCHOR1,. + 0
  1889              	megelovaniaNotes:
  1890 0000 3F       		.byte	63
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 44
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 44
 
 
  1891 0001 3F       		.byte	63
@@ -2607,73 +2607,73 @@ ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 1
  1914              		.file 14 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi.h"
  1915              		.file 15 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h"
  1916              		.file 16 "Inc/SID.h"
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 45
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 45
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 SID.c
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:18     .text.setVoiceFreq:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:26     .text.setVoiceFreq:0000000000000000 setVoiceFreq
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:56     .text.setVoicePWM:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:63     .text.setVoicePWM:0000000000000000 setVoicePWM
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:100    .text.setVoiceShape:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:107    .text.setVoiceShape:0000000000000000 setVoiceShape
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:136    .text.setVoiceEnv:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:143    .text.setVoiceEnv:0000000000000000 setVoiceEnv
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:179    .text.setFilterCutoff:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:186    .text.setFilterCutoff:0000000000000000 setFilterCutoff
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:211    .text.setFilterResonance:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:218    .text.setFilterResonance:0000000000000000 setFilterResonance
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:243    .text.setFilterTargets:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:250    .text.setFilterTargets:0000000000000000 setFilterTargets
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:275    .text.setVolume:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:282    .text.setVolume:0000000000000000 setVolume
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:307    .text.setFilterType:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:314    .text.setFilterType:0000000000000000 setFilterType
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:331    .text.writeSID:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:338    .text.writeSID:0000000000000000 writeSID
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:401    .text.writeVoiceFreq:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:408    .text.writeVoiceFreq:0000000000000000 writeVoiceFreq
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:470    .text.writeVoicePWM:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:477    .text.writeVoicePWM:0000000000000000 writeVoicePWM
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:540    .text.writeVoiceEnv:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:547    .text.writeVoiceEnv:0000000000000000 writeVoiceEnv
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:629    .text.gateVoice:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:636    .text.gateVoice:0000000000000000 gateVoice
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:666    .text.gateVoice:0000000000000018 $d
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:670    .text.gateVoice:000000000000001c $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:731    .text.ungateVoice:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:738    .text.ungateVoice:0000000000000000 ungateVoice
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:768    .text.ungateVoice:0000000000000018 $d
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:772    .text.ungateVoice:000000000000001c $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:830    .text.writeFilterCutoff:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:837    .text.writeFilterCutoff:0000000000000000 writeFilterCutoff
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:875    .text.writeFilterResonance:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:882    .text.writeFilterResonance:0000000000000000 writeFilterResonance
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:945    .text.writeFilterVolume:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:952    .text.writeFilterVolume:0000000000000000 writeFilterVolume
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:981    .text.writeFilterVolume:0000000000000016 $d
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:985    .text.writeFilterVolume:000000000000001a $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:1025   .text.clearSID:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:1032   .text.clearSID:0000000000000000 clearSID
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:1097   .text.sweepVoiceFreq:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:1104   .text.sweepVoiceFreq:0000000000000000 sweepVoiceFreq
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:1229   .text.sweepVoiceFreq:0000000000000084 $d
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:1233   .text.sweepVoiceFreq:0000000000000094 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:1254   .text.testAllVoices:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:1261   .text.testAllVoices:0000000000000000 testAllVoices
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:1399   .text.testAllVoices:00000000000000ac $d
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:1404   .text.testFilter:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:1411   .text.testFilter:0000000000000000 testFilter
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:1723   .text.megelovania:0000000000000000 $t
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:1730   .text.megelovania:0000000000000000 megelovania
-ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s 			page 46
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:18     .text.setVoiceFreq:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:26     .text.setVoiceFreq:0000000000000000 setVoiceFreq
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:56     .text.setVoicePWM:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:63     .text.setVoicePWM:0000000000000000 setVoicePWM
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:100    .text.setVoiceShape:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:107    .text.setVoiceShape:0000000000000000 setVoiceShape
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:136    .text.setVoiceEnv:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:143    .text.setVoiceEnv:0000000000000000 setVoiceEnv
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:179    .text.setFilterCutoff:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:186    .text.setFilterCutoff:0000000000000000 setFilterCutoff
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:211    .text.setFilterResonance:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:218    .text.setFilterResonance:0000000000000000 setFilterResonance
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:243    .text.setFilterTargets:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:250    .text.setFilterTargets:0000000000000000 setFilterTargets
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:275    .text.setVolume:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:282    .text.setVolume:0000000000000000 setVolume
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:307    .text.setFilterType:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:314    .text.setFilterType:0000000000000000 setFilterType
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:331    .text.writeSID:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:338    .text.writeSID:0000000000000000 writeSID
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:401    .text.writeVoiceFreq:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:408    .text.writeVoiceFreq:0000000000000000 writeVoiceFreq
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:470    .text.writeVoicePWM:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:477    .text.writeVoicePWM:0000000000000000 writeVoicePWM
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:540    .text.writeVoiceEnv:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:547    .text.writeVoiceEnv:0000000000000000 writeVoiceEnv
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:629    .text.gateVoice:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:636    .text.gateVoice:0000000000000000 gateVoice
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:666    .text.gateVoice:0000000000000018 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:670    .text.gateVoice:000000000000001c $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:731    .text.ungateVoice:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:738    .text.ungateVoice:0000000000000000 ungateVoice
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:768    .text.ungateVoice:0000000000000018 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:772    .text.ungateVoice:000000000000001c $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:830    .text.writeFilterCutoff:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:837    .text.writeFilterCutoff:0000000000000000 writeFilterCutoff
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:875    .text.writeFilterResonance:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:882    .text.writeFilterResonance:0000000000000000 writeFilterResonance
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:945    .text.writeFilterVolume:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:952    .text.writeFilterVolume:0000000000000000 writeFilterVolume
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:981    .text.writeFilterVolume:0000000000000016 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:985    .text.writeFilterVolume:000000000000001a $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:1025   .text.clearSID:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:1032   .text.clearSID:0000000000000000 clearSID
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:1097   .text.sweepVoiceFreq:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:1104   .text.sweepVoiceFreq:0000000000000000 sweepVoiceFreq
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:1229   .text.sweepVoiceFreq:0000000000000084 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:1233   .text.sweepVoiceFreq:0000000000000094 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:1254   .text.testAllVoices:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:1261   .text.testAllVoices:0000000000000000 testAllVoices
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:1399   .text.testAllVoices:00000000000000ac $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:1404   .text.testFilter:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:1411   .text.testFilter:0000000000000000 testFilter
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:1723   .text.megelovania:0000000000000000 $t
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:1730   .text.megelovania:0000000000000000 megelovania
+ARM GAS  /var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s 			page 46
 
 
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:1872   .text.megelovania:00000000000000b8 $d
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:1877   .rodata:0000000000000000 $d
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:1885   .rodata.megelovaniaNotes:0000000000000000 $d
-/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//ccq5e2iR.s:1889   .rodata.megelovaniaNotes:0000000000000000 megelovaniaNotes
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:1872   .text.megelovania:00000000000000b8 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:1877   .rodata:0000000000000000 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:1885   .rodata.megelovaniaNotes:0000000000000000 $d
+/var/folders/hg/yd2wmrcs4nb8mlpb2c051fww0000gn/T//cciyolAy.s:1889   .rodata.megelovaniaNotes:0000000000000000 megelovaniaNotes
 
 UNDEFINED SYMBOLS
 HAL_SPI_Transmit

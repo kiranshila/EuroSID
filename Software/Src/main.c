@@ -29,10 +29,11 @@ Filter initialFilter = {0, 0, 0xF, LP, {0, 0, 0, 0}};
 SID sid = {SID_RES_Pin, SID_CS_Pin, SID_RES_GPIO_Port, SID_CS_GPIO_Port,
            &hspi2};
 
-uint16_t ADC1ConvertedValues[1024]; // To store the entire ADC1 buffer
+uint16_t ADC1Readings[9]; // For the first ADC peripheral, 9 channels
 
 int main(void) {
   MCU_Setup();
+  HAL_ADC_Start_DMA(&hadc1, (uint32_t *)ADC1Readings,9); // start the DMA collecting the data
 
   setAllLEDBrightness(4095);
   // clearLEDs();
@@ -47,23 +48,21 @@ int main(void) {
   sid._filter = initialFilter;
   clearSID(&sid);
 
-  volatile uint16_t val;
+  char message[25];
 
-  char message[13];
-
+  /**
   while (1) {
-    sprintf(message, "Hello World\n\r", val);
-    HAL_UART_Transmit(&huart1, message, sizeof(message), HAL_MAX_DELAY);
-    clearLEDs();
-    writeLEDs(&ledDriver);
-    HAL_Delay(500);
-    setAllLEDBrightness(4096);
-    writeLEDs(&ledDriver);
-    HAL_Delay(500);
+    for (int i = 5; i < 9; i++) {
+      sprintf(message, "Channel %d: %d\n\r", i, ADC1Readings[i]);
+      HAL_UART_Transmit(&huart1, message, 25, HAL_MAX_DELAY);
+      HAL_Delay(5);
+    }
   }
 
+  */
+
   // Test all voices
-  // testAllVoices(&sid);
-  // testFilter(&sid);
+  testAllVoices(&sid);
+  //testFilter(&sid);
   // megelovania(&sid);
 }
