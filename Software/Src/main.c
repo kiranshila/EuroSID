@@ -35,7 +35,7 @@ int main(void) {
   MCU_Setup();
   HAL_ADC_Start_DMA(&hadc1, (uint32_t *)ADC1Readings,9); // start the DMA collecting the data
 
-  setAllLEDBrightness(4095);
+  setAllLEDBrightness(0);
   // clearLEDs();
   writeLEDs(&ledDriver);
 
@@ -48,7 +48,7 @@ int main(void) {
   sid._filter = initialFilter;
   clearSID(&sid);
 
-  char message[25];
+  //char message[25];
 
   /**
   while (1) {
@@ -62,7 +62,7 @@ int main(void) {
   */
 
   // Test all voices
-  testAllVoices(&sid);
-  //testFilter(&sid);
+  //testAllVoices(&sid);
+  testFilter(&sid);
   // megelovania(&sid);
 }
