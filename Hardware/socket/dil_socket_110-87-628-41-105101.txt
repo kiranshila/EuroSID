@@ -1,0 +1,13 @@
+﻿"Symbol";"Value";"Unit";
+"TraceParts.PartNumber";"10-03052011-087076";"";
+"REFERENCE";"110-87-628-41-105101";"";
+"TRACEPARTS";"TRACEPARTS";"";
+"TraceParts.PartTitle";"Dual-In-Line Sockets - Open frame / surface mount";"";
+"TraceParts.InstanceId";"10-03052011-08707655DZ9N7HZMDURVEOB1ON2FEHD";"";
+"TraceParts.PartLanguage";"en";"";
+"TraceParts.ClassPath";"PRECIDIP:/F_PRECIDIP/PRECIDIP.030/PRECIDIP.030.010/10-03052011-087076";"";
+"SUPPLIER";"preci-dip";"";
+"DESIGN";"Dual-In-Line Sockets, Open frame / surface mount, 28 poles, row spacing = 6";"";
+"TraceParts.PartVersion";"1.2.0";"";
+"TraceParts.PartStatus";"Published";"";
+"TraceParts.PartStatusId";"";"";

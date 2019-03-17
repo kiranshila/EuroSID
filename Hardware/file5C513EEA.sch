@@ -45,7 +45,7 @@ $EndComp
 Wire Wire Line
 	1200 1150 1200 1100
 Text GLabel 1450 950  2    50   Input ~ 0
-CUTOFF_IO
+CUTOFF
 Wire Wire Line
 	1450 950  1400 950 
 $Comp
@@ -79,7 +79,7 @@ $EndComp
 Wire Wire Line
 	1050 3300 1050 3250
 Text GLabel 1300 3100 2    50   Input ~ 0
-RESONANCE_IO
+RESONANCE
 Wire Wire Line
 	1300 3100 1250 3100
 $Comp
@@ -113,7 +113,7 @@ $EndComp
 Wire Wire Line
 	1050 4300 1050 4250
 Text GLabel 1300 4100 2    50   Input ~ 0
-PWM_IO
+PWM
 Wire Wire Line
 	1300 4100 1250 4100
 Wire Wire Line
@@ -134,7 +134,7 @@ $EndComp
 Wire Wire Line
 	2200 1150 2200 1100
 Text GLabel 2450 950  2    50   Input ~ 0
-ATTACK_IO
+ATTACK
 Wire Wire Line
 	2450 950  2400 950 
 $Comp
@@ -153,7 +153,7 @@ $EndComp
 Wire Wire Line
 	2300 2250 2300 2200
 Text GLabel 2550 2050 2    50   Input ~ 0
-DECAY_IO
+DECAY
 Wire Wire Line
 	2550 2050 2500 2050
 Wire Wire Line
@@ -174,7 +174,7 @@ $EndComp
 Wire Wire Line
 	2200 3350 2200 3300
 Text GLabel 2450 3150 2    50   Input ~ 0
-SUSTAIN_IO
+SUSTAIN
 Wire Wire Line
 	2450 3150 2400 3150
 Wire Wire Line
@@ -195,7 +195,7 @@ $EndComp
 Wire Wire Line
 	3350 1150 3350 1100
 Text GLabel 3600 950  2    50   Input ~ 0
-RELEASE_IO
+RELEASE
 Wire Wire Line
 	3600 950  3550 950 
 $Comp
@@ -430,7 +430,7 @@ $EndComp
 Wire Wire Line
 	1100 2300 1100 2250
 Text GLabel 1350 2100 2    50   Input ~ 0
-FREQ_ATTEN_IO
+FREQ_ATTEN
 Wire Wire Line
 	1350 2100 1300 2100
 $Comp
@@ -508,11 +508,11 @@ Wire Wire Line
 Wire Wire Line
 	7100 5750 7150 5750
 Text GLabel 5350 5550 0    50   Input ~ 0
-SID1_OUT_IO
+SID_OUT
 Wire Wire Line
 	5350 5550 5750 5550
 Text GLabel 1100 6900 0    50   Input ~ 0
-SID2_OUT_IO
+SID_OUT
 $Comp
 L Device:R R?
 U 1 1 5C593815
@@ -702,24 +702,21 @@ Wire Wire Line
 $Comp
 L Device:C C?
 U 1 1 5C593877
-P 2100 6350
+P 1800 6350
 AR Path="/5BFD63E3/5C593877" Ref="C?"  Part="1" 
 AR Path="/5BFD63E3/5C513EEB/5C593877" Ref="C14"  Part="1" 
-F 0 "C14" V 1848 6350 50  0000 C CNN
-F 1 "18 pF" V 1939 6350 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 2138 6200 50  0001 C CNN
-F 3 "~" H 2100 6350 50  0001 C CNN
-	1    2100 6350
+F 0 "C14" V 1548 6350 50  0000 C CNN
+F 1 "18 pF" V 1639 6350 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 1838 6200 50  0001 C CNN
+F 3 "~" H 1800 6350 50  0001 C CNN
+	1    1800 6350
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	1950 6350 1250 6350
+	1650 6350 1250 6350
 Wire Wire Line
 	1250 6350 1250 6700
 Connection ~ 1250 6700
-Wire Wire Line
-	2250 6350 2250 6700
-Connection ~ 2250 6700
 Wire Wire Line
 	3000 5950 3000 5750
 $Comp
@@ -1084,7 +1081,7 @@ Wire Wire Line
 Wire Wire Line
 	8650 1400 8900 1400
 Text GLabel 10650 1500 2    50   Input ~ 0
-IN1_CV_IO
+IN1_CV
 Wire Wire Line
 	10650 1500 10550 1500
 Connection ~ 10550 1500
@@ -1222,7 +1219,7 @@ Wire Wire Line
 Wire Wire Line
 	8650 2550 8950 2550
 Text GLabel 10650 2650 2    50   Input ~ 0
-IN2_CV_IO
+IN2_CV
 Wire Wire Line
 	10650 2650 10550 2650
 Connection ~ 10550 2650
@@ -1358,7 +1355,7 @@ Wire Wire Line
 Wire Wire Line
 	9400 3400 9450 3400
 Text GLabel 10700 3850 2    50   Input ~ 0
-IN3_CV_IO
+IN3_CV
 Connection ~ 10550 3850
 Wire Wire Line
 	9750 3750 9800 3750
@@ -1494,7 +1491,7 @@ Wire Wire Line
 Wire Wire Line
 	8650 4950 9450 4950
 Text GLabel 10700 5050 2    50   Input ~ 0
-PWM_CV_IO
+PWM_CV
 Connection ~ 10550 5050
 Wire Wire Line
 	9750 4950 9800 4950
@@ -1598,7 +1595,7 @@ Wire Wire Line
 Wire Wire Line
 	9050 5850 8950 5850
 Text GLabel 10250 5800 2    50   Input ~ 0
-SID1_EXT_IO
+SID1_EXT
 $Comp
 L Device:R_POT_US RV?
 U 1 1 5C5D988B
@@ -1824,7 +1821,7 @@ Wire Wire Line
 Wire Wire Line
 	4850 2750 6000 2750
 Text GLabel 7200 2850 2    50   Input ~ 0
-CUTOFF_CV_IO
+CUTOFF_CV
 Wire Wire Line
 	7200 2850 7100 2850
 Connection ~ 7100 2850
@@ -1930,7 +1927,7 @@ Wire Wire Line
 Wire Wire Line
 	5900 3550 5950 3550
 Text GLabel 7150 4000 2    50   Input ~ 0
-SHAPE_CV_IO
+SHAPE_CV
 Wire Wire Line
 	7150 4000 7050 4000
 Connection ~ 7050 4000
@@ -2243,7 +2240,7 @@ Wire Wire Line
 Wire Wire Line
 	4900 1400 6050 1400
 Text GLabel 7250 1500 2    50   Input ~ 0
-SET_CV_IO
+SET_CV
 Wire Wire Line
 	7250 1500 7150 1500
 Connection ~ 7150 1500
@@ -2360,7 +2357,7 @@ $EndComp
 Wire Wire Line
 	3350 2300 3350 2250
 Text GLabel 3600 2100 2    50   Input ~ 0
-SET_ATTEN_IO
+SET_ATTEN
 Wire Wire Line
 	3600 2100 3550 2100
 $Comp
@@ -2427,7 +2424,7 @@ $EndComp
 Wire Wire Line
 	3350 3350 3350 3300
 Text GLabel 3600 3150 2    50   Input ~ 0
-PWM_ATTEN_IO
+PWM_ATTEN
 Wire Wire Line
 	3600 3150 3550 3150
 $Comp
@@ -2464,33 +2461,7 @@ $EndComp
 Wire Wire Line
 	3550 3550 3550 3500
 Text GLabel 6000 1050 0    50   Input ~ 0
--10V_REF_IO
-Text GLabel 5100 7650 2    50   Input ~ 0
--12V_IO
-Text GLabel 5150 6450 2    50   Input ~ 0
-12V_IO
-Text GLabel 1200 750  1    50   Input ~ 0
-3.3A_IO
-Text GLabel 2200 750  1    50   Input ~ 0
-3.3A_IO
-Text GLabel 3350 750  1    50   Input ~ 0
-3.3A_IO
-Text GLabel 1100 1900 1    50   Input ~ 0
-3.3A_IO
-Text GLabel 2300 1900 1    50   Input ~ 0
-3.3A_IO
-Text GLabel 3350 1900 1    50   Input ~ 0
-3.3A_IO
-Text GLabel 1050 2900 1    50   Input ~ 0
-3.3A_IO
-Text GLabel 2200 2950 1    50   Input ~ 0
-3.3A_IO
-Text GLabel 3350 2950 1    50   Input ~ 0
-3.3A_IO
-Text GLabel 1050 3900 1    50   Input ~ 0
-3.3A_IO
-Text GLabel 3000 4950 1    50   Input ~ 0
-3.3A_IO
+-10V_REF
 Wire Wire Line
 	5100 7650 5050 7650
 Wire Wire Line
@@ -2500,17 +2471,17 @@ Wire Wire Line
 Wire Wire Line
 	5050 6450 5050 6600
 Text GLabel 5950 2400 0    50   Input ~ 0
--10V_REF_IO
+-10V_REF
 Text GLabel 5900 3550 0    50   Input ~ 0
--10V_REF_IO
+-10V_REF
 Text GLabel 9400 4600 0    50   Input ~ 0
--10V_REF_IO
+-10V_REF
 Text GLabel 9400 3400 0    50   Input ~ 0
--10V_REF_IO
+-10V_REF
 Text GLabel 9400 2200 0    50   Input ~ 0
--10V_REF_IO
+-10V_REF
 Text GLabel 9400 1050 0    50   Input ~ 0
--10V_REF_IO
+-10V_REF
 $Comp
 L SID_Parts:BOURNS_PTL RV5
 U 1 1 5BEA495C
@@ -2593,4 +2564,229 @@ Wire Wire Line
 	3450 5500 3450 5950
 Wire Wire Line
 	4050 5500 4050 5950
+$Comp
+L power:+3.3VA #PWR0175
+U 1 1 5C934DBC
+P 1200 750
+F 0 "#PWR0175" H 1200 600 50  0001 C CNN
+F 1 "+3.3VA" H 1215 923 50  0000 C CNN
+F 2 "" H 1200 750 50  0001 C CNN
+F 3 "" H 1200 750 50  0001 C CNN
+	1    1200 750 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3VA #PWR0176
+U 1 1 5C9FE871
+P 2200 750
+F 0 "#PWR0176" H 2200 600 50  0001 C CNN
+F 1 "+3.3VA" H 2215 923 50  0000 C CNN
+F 2 "" H 2200 750 50  0001 C CNN
+F 3 "" H 2200 750 50  0001 C CNN
+	1    2200 750 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3VA #PWR0177
+U 1 1 5C9FE92E
+P 3350 750
+F 0 "#PWR0177" H 3350 600 50  0001 C CNN
+F 1 "+3.3VA" H 3365 923 50  0000 C CNN
+F 2 "" H 3350 750 50  0001 C CNN
+F 3 "" H 3350 750 50  0001 C CNN
+	1    3350 750 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3VA #PWR0178
+U 1 1 5C9FE9EB
+P 3350 1900
+F 0 "#PWR0178" H 3350 1750 50  0001 C CNN
+F 1 "+3.3VA" H 3365 2073 50  0000 C CNN
+F 2 "" H 3350 1900 50  0001 C CNN
+F 3 "" H 3350 1900 50  0001 C CNN
+	1    3350 1900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3VA #PWR0179
+U 1 1 5C9FEAA8
+P 2300 1900
+F 0 "#PWR0179" H 2300 1750 50  0001 C CNN
+F 1 "+3.3VA" H 2315 2073 50  0000 C CNN
+F 2 "" H 2300 1900 50  0001 C CNN
+F 3 "" H 2300 1900 50  0001 C CNN
+	1    2300 1900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3VA #PWR0180
+U 1 1 5C9FEB65
+P 1100 1900
+F 0 "#PWR0180" H 1100 1750 50  0001 C CNN
+F 1 "+3.3VA" H 1115 2073 50  0000 C CNN
+F 2 "" H 1100 1900 50  0001 C CNN
+F 3 "" H 1100 1900 50  0001 C CNN
+	1    1100 1900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3VA #PWR0181
+U 1 1 5C9FEC22
+P 1050 2900
+F 0 "#PWR0181" H 1050 2750 50  0001 C CNN
+F 1 "+3.3VA" H 1065 3073 50  0000 C CNN
+F 2 "" H 1050 2900 50  0001 C CNN
+F 3 "" H 1050 2900 50  0001 C CNN
+	1    1050 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3VA #PWR0182
+U 1 1 5C9FECDF
+P 2200 2950
+F 0 "#PWR0182" H 2200 2800 50  0001 C CNN
+F 1 "+3.3VA" H 2215 3123 50  0000 C CNN
+F 2 "" H 2200 2950 50  0001 C CNN
+F 3 "" H 2200 2950 50  0001 C CNN
+	1    2200 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3VA #PWR0183
+U 1 1 5C9FED9C
+P 3350 2950
+F 0 "#PWR0183" H 3350 2800 50  0001 C CNN
+F 1 "+3.3VA" H 3365 3123 50  0000 C CNN
+F 2 "" H 3350 2950 50  0001 C CNN
+F 3 "" H 3350 2950 50  0001 C CNN
+	1    3350 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3VA #PWR0184
+U 1 1 5C9FEE59
+P 1050 3900
+F 0 "#PWR0184" H 1050 3750 50  0001 C CNN
+F 1 "+3.3VA" H 1065 4073 50  0000 C CNN
+F 2 "" H 1050 3900 50  0001 C CNN
+F 3 "" H 1050 3900 50  0001 C CNN
+	1    1050 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3VA #PWR0185
+U 1 1 5C9FF0D3
+P 3000 4950
+F 0 "#PWR0185" H 3000 4800 50  0001 C CNN
+F 1 "+3.3VA" H 3015 5123 50  0000 C CNN
+F 2 "" H 3000 4950 50  0001 C CNN
+F 3 "" H 3000 4950 50  0001 C CNN
+	1    3000 4950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+12V #PWR0186
+U 1 1 5C9FF4E3
+P 5150 6450
+F 0 "#PWR0186" H 5150 6300 50  0001 C CNN
+F 1 "+12V" V 5165 6578 50  0000 L CNN
+F 2 "" H 5150 6450 50  0001 C CNN
+F 3 "" H 5150 6450 50  0001 C CNN
+	1    5150 6450
+	0    1    1    0   
+$EndComp
+$Comp
+L power:-12V #PWR0187
+U 1 1 5C9FF6EF
+P 5100 7650
+F 0 "#PWR0187" H 5100 7750 50  0001 C CNN
+F 1 "-12V" V 5115 7778 50  0000 L CNN
+F 2 "" H 5100 7650 50  0001 C CNN
+F 3 "" H 5100 7650 50  0001 C CNN
+	1    5100 7650
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2250 6350 2250 6700
+Wire Wire Line
+	1950 6350 2250 6350
+Connection ~ 2250 6700
+$Comp
+L Connector:TestPoint TP7
+U 1 1 5CBB4E7E
+P 7150 1200
+F 0 "TP7" V 7104 1388 50  0000 L CNN
+F 1 "TestPoint" V 7195 1388 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 7350 1200 50  0001 C CNN
+F 3 "~" H 7350 1200 50  0001 C CNN
+	1    7150 1200
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TP6
+U 1 1 5CBB50DB
+P 7100 2550
+F 0 "TP6" V 7054 2738 50  0000 L CNN
+F 1 "TestPoint" V 7145 2738 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 7300 2550 50  0001 C CNN
+F 3 "~" H 7300 2550 50  0001 C CNN
+	1    7100 2550
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TP5
+U 1 1 5CBB51B2
+P 7050 3700
+F 0 "TP5" V 7004 3888 50  0000 L CNN
+F 1 "TestPoint" V 7095 3888 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 7250 3700 50  0001 C CNN
+F 3 "~" H 7250 3700 50  0001 C CNN
+	1    7050 3700
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TP8
+U 1 1 5CBB54BE
+P 10550 1200
+F 0 "TP8" V 10504 1388 50  0000 L CNN
+F 1 "TestPoint" V 10595 1388 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 10750 1200 50  0001 C CNN
+F 3 "~" H 10750 1200 50  0001 C CNN
+	1    10550 1200
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TP9
+U 1 1 5CBB588D
+P 10550 2350
+F 0 "TP9" V 10504 2538 50  0000 L CNN
+F 1 "TestPoint" V 10595 2538 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 10750 2350 50  0001 C CNN
+F 3 "~" H 10750 2350 50  0001 C CNN
+	1    10550 2350
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TP10
+U 1 1 5CBB5961
+P 10550 3550
+F 0 "TP10" V 10504 3738 50  0000 L CNN
+F 1 "TestPoint" V 10595 3738 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 10750 3550 50  0001 C CNN
+F 3 "~" H 10750 3550 50  0001 C CNN
+	1    10550 3550
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TP11
+U 1 1 5CBB5D3B
+P 10550 4750
+F 0 "TP11" V 10504 4938 50  0000 L CNN
+F 1 "TestPoint" V 10595 4938 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 10750 4750 50  0001 C CNN
+F 3 "~" H 10750 4750 50  0001 C CNN
+	1    10550 4750
+	0    1    1    0   
+$EndComp
 $EndSCHEMATC
