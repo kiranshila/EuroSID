@@ -921,4 +921,5 @@ Text GLabel 2350 2350 2    50   Input ~ 0
 RESET
 Wire Wire Line
 	2350 2350 2000 2350
+NoConn ~ 2000 2450
 $EndSCHEMATC

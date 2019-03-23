@@ -43,7 +43,7 @@ int main(void)
   //HAL_ADC_Start_DMA(&hadc2, (uint32_t *)ADC2Readings, 6);
   //HAL_ADC_Start_DMA(&hadc3, (uint16_t *)ADC3Readings, 2);
 
-  setAllLEDBrightness(0);
+  setAllLEDBrightness(4096);
   // clearLEDs();
   writeLEDs(&ledDriver);
 
@@ -56,15 +56,17 @@ int main(void)
   sid._filter = initialFilter;
   clearSID(&sid);
 
+  
   char message[25];
   while (1)
   {
-    sprintf(message,"CUTOFF_CV Value: %d\n\r",ADC1Readings[4]);
+    sprintf(message,"PWM Value: %d\n\r",ADC1Readings[4]);
     HAL_UART_Transmit(&huart1,message,sizeof(message),HAL_MAX_DELAY);
   }
+  
 
   // Test all voices
   //testAllVoices(&sid);
-  testFilter(&sid);
-  // megelovania(&sid);
+  //testFilter(&sid);
+  //megelovania(&sid);
 }

@@ -700,12 +700,6 @@ Wire Wire Line
 	3400 3550 3400 3600
 Wire Wire Line
 	4000 3550 4000 3600
-Wire Bus Line
-	6200 3050 6200 4050
-Wire Bus Line
-	7950 2850 7950 4050
-Wire Bus Line
-	6200 4050 6200 5400
 Wire Wire Line
 	8350 2250 8400 2250
 $Comp
@@ -722,4 +716,10 @@ $EndComp
 Connection ~ 8400 2250
 Wire Wire Line
 	8400 2250 8550 2250
+Wire Bus Line
+	6200 3050 6200 4050
+Wire Bus Line
+	7950 2850 7950 4050
+Wire Bus Line
+	6200 4050 6200 5400
 $EndSCHEMATC

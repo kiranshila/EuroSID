@@ -142,7 +142,7 @@ AR Path="/5C5AD5C8" Ref="J?"  Part="1"
 AR Path="/5C5AA76E/5C5AD5C8" Ref="J14"  Part="1" 
 F 0 "J14" H 6344 1925 50  0000 C CNN
 F 1 "Conn_01x04_Female" H 6344 2016 50  0000 C CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical_SMD_Pin1Left" H 6450 2350 50  0001 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical" H 6450 2350 50  0001 C CNN
 F 3 "~" H 6450 2350 50  0001 C CNN
 	1    6450 2350
 	-1   0    0    1   
