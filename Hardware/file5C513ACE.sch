@@ -1499,21 +1499,11 @@ U 1 1 5BE202A2
 P 4550 3950
 F 0 "D23" H 4550 3603 50  0000 C CNN
 F 1 "MODE_RG" H 4550 3694 50  0000 C CNN
-F 2 "LED_SMD:LED-L1T2_LUMILEDS" H 4600 3950 50  0001 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 4600 3950 50  0001 C CNN
 F 3 "~" H 4600 3950 50  0001 C CNN
 	1    4550 3950
 	-1   0    0    1   
 $EndComp
-Wire Wire Line
-	2500 3850 4250 3850
-Wire Wire Line
-	4250 4050 4250 3950
-Wire Wire Line
-	2500 3950 4250 3950
-Wire Wire Line
-	4850 3950 4850 3550
-Wire Wire Line
-	4850 3550 4100 3550
 $Comp
 L Switch:SW_Push SW?
 U 1 1 5BE0404E
@@ -2047,4 +2037,18 @@ F 3 "~" H 8900 4650 50  0001 C CNN
 	1    8700 4650
 	0    -1   -1   0   
 $EndComp
+Wire Wire Line
+	4850 3950 2500 3950
+Wire Wire Line
+	4250 4050 2700 4050
+Wire Wire Line
+	2700 4050 2700 3850
+Wire Wire Line
+	2700 3850 2500 3850
+Wire Wire Line
+	4250 3850 4250 3550
+Wire Wire Line
+	4250 3550 4100 3550
+Text Notes 4350 3500 0    50   ~ 0
+This is weird - just because the footprint is this way
 $EndSCHEMATC

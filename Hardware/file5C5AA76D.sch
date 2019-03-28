@@ -701,21 +701,7 @@ Wire Wire Line
 Wire Wire Line
 	4000 3550 4000 3600
 Wire Wire Line
-	8350 2250 8400 2250
-$Comp
-L Connector:TestPoint TP12
-U 1 1 5CBB3BCE
-P 8400 2250
-F 0 "TP12" H 8458 2370 50  0000 L CNN
-F 1 "TestPoint" H 8458 2279 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 8600 2250 50  0001 C CNN
-F 3 "~" H 8600 2250 50  0001 C CNN
-	1    8400 2250
-	1    0    0    -1  
-$EndComp
-Connection ~ 8400 2250
-Wire Wire Line
-	8400 2250 8550 2250
+	8350 2250 8550 2250
 Wire Bus Line
 	6200 3050 6200 4050
 Wire Bus Line

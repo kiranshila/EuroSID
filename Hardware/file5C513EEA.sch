@@ -511,7 +511,7 @@ Text GLabel 5350 5550 0    50   Input ~ 0
 SID_OUT
 Wire Wire Line
 	5350 5550 5750 5550
-Text GLabel 1100 6900 0    50   Input ~ 0
+Text GLabel 850  7600 0    50   Input ~ 0
 SID_OUT
 $Comp
 L Device:R R?
@@ -625,8 +625,6 @@ Wire Wire Line
 	3000 7200 3000 7100
 Wire Wire Line
 	3000 7100 3150 7100
-Wire Wire Line
-	1100 6900 1500 6900
 $Comp
 L Device:R R?
 U 1 1 5C593851
@@ -885,8 +883,6 @@ Wire Wire Line
 Connection ~ 5450 7050
 Wire Wire Line
 	5450 6950 5450 7050
-Wire Wire Line
-	1250 7550 1250 7450
 $Comp
 L Amplifier_Operational:MCP6002-xSN U?
 U 1 1 5C593902
@@ -2789,4 +2785,57 @@ F 3 "~" H 10750 4750 50  0001 C CNN
 	1    10550 4750
 	0    1    1    0   
 $EndComp
+$Comp
+L Connector:Conn_01x02_Male J?
+U 1 1 5CA018EC
+P 800 6400
+AR Path="/5C5AA76E/5CA018EC" Ref="J?"  Part="1" 
+AR Path="/5BFD63E3/5C513EEB/5CA018EC" Ref="J18"  Part="1" 
+F 0 "J18" V 860 6213 50  0000 R CNN
+F 1 "Conn_01x02_Male" V 951 6213 50  0000 R CNN
+F 2 "Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical" H 800 6400 50  0001 C CNN
+F 3 "~" H 800 6400 50  0001 C CNN
+	1    800  6400
+	0    -1   1    0   
+$EndComp
+$Comp
+L Jumper:SolderJumper_3_Bridged12 JP2
+U 1 1 5CA38124
+P 750 7250
+F 0 "JP2" H 750 7362 50  0000 C CNN
+F 1 "SolderJumper_3_Bridged12" H 750 7453 50  0000 C CNN
+F 2 "Jumper:SolderJumper-3_P1.3mm_Bridged12_RoundedPad1.0x1.5mm_NumberLabels" H 750 7250 50  0001 C CNN
+F 3 "~" H 750 7250 50  0001 C CNN
+	1    750  7250
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR0188
+U 1 1 5CABE347
+P 900 6700
+F 0 "#PWR0188" H 900 6450 50  0001 C CNN
+F 1 "GND" H 905 6527 50  0000 C CNN
+F 2 "" H 900 6700 50  0001 C CNN
+F 3 "" H 900 6700 50  0001 C CNN
+	1    900  6700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	900  6700 900  6600
+Wire Wire Line
+	1250 7450 1250 7550
+Wire Wire Line
+	750  6900 750  7100
+Wire Wire Line
+	750  6900 1500 6900
+Wire Wire Line
+	850  7600 1000 7600
+Wire Wire Line
+	1000 7600 1000 7250
+Wire Wire Line
+	1000 7250 950  7250
+Wire Wire Line
+	550  7250 550  6600
+Wire Wire Line
+	550  6600 800  6600
 $EndSCHEMATC
