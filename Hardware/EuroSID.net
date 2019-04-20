@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /Users/kiranshila/Desktop/Projects/EuroSID/Hardware/EuroSID.sch)
-    (date "Thursday, March 28, 2019 at 03:36:19 PM")
+    (date "Friday, April 05, 2019 at 10:31:56 PM")
     (tool "Eeschema (5.0.1-3-g963ef8bb5)")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -1550,7 +1550,7 @@
       (sheetpath (names /Power/) (tstamps /5C5B0291/))
       (tstamp 5C90F8BD))
     (comp (ref C79)
-      (value "100 uF")
+      (value "22 uF")
       (footprint Capacitor_SMD:C_0603_1608Metric)
       (datasheet ~)
       (libsource (lib Device) (part C) (description "Unpolarized capacitor"))

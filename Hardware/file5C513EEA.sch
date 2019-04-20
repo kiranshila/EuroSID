@@ -507,10 +507,10 @@ Wire Wire Line
 	7100 5850 7100 5750
 Wire Wire Line
 	7100 5750 7150 5750
-Text GLabel 5350 5550 0    50   Input ~ 0
+Text GLabel 4850 5550 0    50   Input ~ 0
 SID_OUT
 Wire Wire Line
-	5350 5550 5750 5550
+	4850 5550 5150 5550
 Text GLabel 850  7600 0    50   Input ~ 0
 SID_OUT
 $Comp
@@ -533,14 +533,14 @@ Wire Wire Line
 $Comp
 L power:GND #PWR?
 U 1 1 5C59381E
-P 5500 6100
+P 5300 6200
 AR Path="/5BFD63E3/5C59381E" Ref="#PWR?"  Part="1" 
 AR Path="/5BFD63E3/5C513EEB/5C59381E" Ref="#PWR086"  Part="1" 
-F 0 "#PWR086" H 5500 5850 50  0001 C CNN
-F 1 "GND" H 5505 5927 50  0000 C CNN
-F 2 "" H 5500 6100 50  0001 C CNN
-F 3 "" H 5500 6100 50  0001 C CNN
-	1    5500 6100
+F 0 "#PWR086" H 5300 5950 50  0001 C CNN
+F 1 "GND" H 5305 6027 50  0000 C CNN
+F 2 "" H 5300 6200 50  0001 C CNN
+F 3 "" H 5300 6200 50  0001 C CNN
+	1    5300 6200
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -2823,11 +2823,11 @@ $EndComp
 Wire Wire Line
 	900  6700 900  6600
 Wire Wire Line
-	1250 7450 1250 7550
+	1250 7450 1250 7500
 Wire Wire Line
 	750  6900 750  7100
 Wire Wire Line
-	750  6900 1500 6900
+	750  6900 1000 6900
 Wire Wire Line
 	850  7600 1000 7600
 Wire Wire Line
@@ -2838,4 +2838,54 @@ Wire Wire Line
 	550  7250 550  6600
 Wire Wire Line
 	550  6600 800  6600
+$Comp
+L Device:R R?
+U 1 1 5CBC072D
+P 5150 5950
+AR Path="/5BFD63E3/5CBC072D" Ref="R?"  Part="1" 
+AR Path="/5BFD63E3/5C513EEB/5CBC072D" Ref="R?"  Part="1" 
+F 0 "R?" V 5357 5950 50  0000 C CNN
+F 1 "1k" V 5266 5950 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 5080 5950 50  0001 C CNN
+F 3 "~" H 5150 5950 50  0001 C CNN
+	1    5150 5950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5150 5800 5150 5550
+Connection ~ 5150 5550
+Wire Wire Line
+	5150 5550 5750 5550
+Wire Wire Line
+	5300 6200 5300 6100
+Wire Wire Line
+	5300 6100 5150 6100
+Wire Wire Line
+	5500 6100 5300 6100
+Connection ~ 5300 6100
+$Comp
+L Device:R R?
+U 1 1 5CC4C9FE
+P 1000 7050
+AR Path="/5BFD63E3/5CC4C9FE" Ref="R?"  Part="1" 
+AR Path="/5BFD63E3/5C513EEB/5CC4C9FE" Ref="R?"  Part="1" 
+F 0 "R?" V 1207 7050 50  0000 C CNN
+F 1 "1k" V 1116 7050 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 930 7050 50  0001 C CNN
+F 3 "~" H 1000 7050 50  0001 C CNN
+	1    1000 7050
+	1    0    0    -1  
+$EndComp
+Connection ~ 1000 6900
+Wire Wire Line
+	1000 6900 1500 6900
+Wire Wire Line
+	1000 7200 1150 7200
+Wire Wire Line
+	1150 7200 1150 7500
+Wire Wire Line
+	1150 7500 1250 7500
+Connection ~ 1250 7500
+Wire Wire Line
+	1250 7500 1250 7550
 $EndSCHEMATC

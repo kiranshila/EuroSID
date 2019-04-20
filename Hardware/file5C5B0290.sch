@@ -875,173 +875,7 @@ Wire Wire Line
 Connection ~ 2650 4250
 Wire Wire Line
 	2500 2900 2500 4250
-$Comp
-L TPSM84209RKHT:TPSM84209RKHT U12
-U 1 1 5C8ABA01
-P 4450 5900
-F 0 "U12" H 4450 6366 50  0000 C CNN
-F 1 "TPSM84209RKHT" H 4450 6275 50  0000 C CNN
-F 2 "TPSM84209RKHT:VREG_TPSM84209RKHT" H 4450 5900 50  0001 L BNN
-F 3 "4.5V-28V Input, 1.2V-6.0V Output, 2.5-A Power Module 9-QFN-FCMOD -40 to 85" H 4450 5900 50  0001 L BNN
-F 4 "296-49513-1-ND" H 4450 5900 50  0001 L BNN "Field4"
-F 5 "PowerQFN-9 Texas Instruments" H 4450 5900 50  0001 L BNN "Field5"
-F 6 "Texas Instruments" H 4450 5900 50  0001 L BNN "Field6"
-F 7 "https://www.digikey.com/product-detail/en/texas-instruments/TPSM84209RKHT/296-49513-1-ND/9383862?utm_source=snapeda&utm_medium=aggregator&utm_campaign=symbol" H 4450 5900 50  0001 L BNN "Field7"
-F 8 "TPSM84209RKHT" H 4450 5900 50  0001 L BNN "Field8"
-	1    4450 5900
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C77
-U 1 1 5C8B426F
-P 3150 6100
-F 0 "C77" H 3265 6146 50  0000 L CNN
-F 1 "10 uF" H 3265 6055 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 3188 5950 50  0001 C CNN
-F 3 "~" H 3150 6100 50  0001 C CNN
-	1    3150 6100
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C76
-U 1 1 5C8B42D3
-P 2700 6100
-F 0 "C76" H 2815 6146 50  0000 L CNN
-F 1 "10 uF" H 2815 6055 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 2738 5950 50  0001 C CNN
-F 3 "~" H 2700 6100 50  0001 C CNN
-	1    2700 6100
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0125
-U 1 1 5C8B4334
-P 4400 6450
-F 0 "#PWR0125" H 4400 6200 50  0001 C CNN
-F 1 "GND" H 4405 6277 50  0000 C CNN
-F 2 "" H 4400 6450 50  0001 C CNN
-F 3 "" H 4400 6450 50  0001 C CNN
-	1    4400 6450
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4400 6450 5250 6450
-Wire Wire Line
-	5250 6450 5250 6100
-Wire Wire Line
-	5250 6100 5150 6100
-Wire Wire Line
-	4400 6450 3150 6450
-Wire Wire Line
-	3150 6450 3150 6250
-Connection ~ 4400 6450
-Wire Wire Line
-	2700 6250 2700 6450
-Wire Wire Line
-	2700 6450 3150 6450
-Connection ~ 3150 6450
-Wire Wire Line
-	2700 5950 2700 5700
-Wire Wire Line
-	2700 5700 3150 5700
-Wire Wire Line
-	3150 5950 3150 5700
-Connection ~ 3150 5700
-Wire Wire Line
-	3150 5700 3750 5700
-Wire Wire Line
-	2700 5700 2500 5700
-Wire Wire Line
-	2500 5700 2500 4250
-Connection ~ 2700 5700
 Connection ~ 2500 4250
-$Comp
-L Device:C C78
-U 1 1 5C8FBA5E
-P 5450 5950
-F 0 "C78" H 5565 5996 50  0000 L CNN
-F 1 "330 pF" H 5565 5905 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 5488 5800 50  0001 C CNN
-F 3 "~" H 5450 5950 50  0001 C CNN
-	1    5450 5950
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	5450 5800 5450 5700
-Wire Wire Line
-	5450 5700 5150 5700
-Wire Wire Line
-	3750 5900 3750 6300
-Wire Wire Line
-	3750 6300 5450 6300
-Wire Wire Line
-	5450 6300 5450 6100
-$Comp
-L Device:R R66
-U 1 1 5C90F851
-P 5950 5850
-F 0 "R66" H 5880 5804 50  0000 R CNN
-F 1 "10k" H 5880 5895 50  0000 R CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 5880 5850 50  0001 C CNN
-F 3 "~" H 5950 5850 50  0001 C CNN
-	1    5950 5850
-	-1   0    0    1   
-$EndComp
-$Comp
-L Device:R R67
-U 1 1 5C90F8BD
-P 5950 6250
-F 0 "R67" H 5880 6204 50  0000 R CNN
-F 1 "2.2k" H 5880 6295 50  0000 R CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 5880 6250 50  0001 C CNN
-F 3 "~" H 5950 6250 50  0001 C CNN
-	1    5950 6250
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	5950 6400 5950 6450
-Wire Wire Line
-	5950 6450 5250 6450
-Connection ~ 5250 6450
-Wire Wire Line
-	5950 5700 5450 5700
-Connection ~ 5450 5700
-Wire Wire Line
-	5950 6000 5950 6050
-Wire Wire Line
-	5950 6050 5800 6050
-Wire Wire Line
-	5800 6050 5800 6300
-Wire Wire Line
-	5800 6300 5450 6300
-Connection ~ 5950 6050
-Wire Wire Line
-	5950 6050 5950 6100
-Connection ~ 5450 6300
-$Comp
-L Device:C C79
-U 1 1 5C9394D8
-P 6350 6050
-F 0 "C79" H 6465 6096 50  0000 L CNN
-F 1 "100 uF" H 6465 6005 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 6388 5900 50  0001 C CNN
-F 3 "~" H 6350 6050 50  0001 C CNN
-	1    6350 6050
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6350 6200 6350 6450
-Wire Wire Line
-	6350 6450 5950 6450
-Connection ~ 5950 6450
-Wire Wire Line
-	6350 5900 6350 5700
-Wire Wire Line
-	6350 5700 5950 5700
-Connection ~ 5950 5700
-Wire Wire Line
-	6350 5550 6350 5700
-Connection ~ 6350 5700
 $Comp
 L power:+9V #PWR0137
 U 1 1 5C965F46
@@ -1146,6 +980,209 @@ F 3 "~" H 10350 3700 50  0001 C CNN
 	1    10350 3700
 	-1   0    0    1   
 $EndComp
-NoConn ~ 5150 5800
-NoConn ~ 3750 5800
+$Comp
+L Regulator_Switching:TPS621361 U?
+U 1 1 5CB7371A
+P 4400 6000
+F 0 "U?" H 4400 6465 50  0000 C CNN
+F 1 "TPS621361" H 4400 6374 50  0000 C CNN
+F 2 "" H 4150 6350 50  0001 C CNN
+F 3 "" H 4150 6350 50  0001 C CNN
+	1    4400 6000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3900 5750 3650 5750
+Wire Wire Line
+	2500 4250 2500 5750
+Wire Wire Line
+	3900 5850 3650 5850
+Wire Wire Line
+	3650 5850 3650 5750
+Connection ~ 3650 5750
+Wire Wire Line
+	3650 5750 2750 5750
+$Comp
+L Device:C C?
+U 1 1 5CB8F741
+P 2750 6000
+F 0 "C?" H 2865 6046 50  0000 L CNN
+F 1 "10 uF" H 2865 5955 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 2788 5850 50  0001 C CNN
+F 3 "~" H 2750 6000 50  0001 C CNN
+	1    2750 6000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2750 5850 2750 5750
+Connection ~ 2750 5750
+Wire Wire Line
+	2750 5750 2500 5750
+$Comp
+L power:GND #PWR?
+U 1 1 5CB98143
+P 4350 6600
+F 0 "#PWR?" H 4350 6350 50  0001 C CNN
+F 1 "GND" H 4355 6427 50  0000 C CNN
+F 2 "" H 4350 6600 50  0001 C CNN
+F 3 "" H 4350 6600 50  0001 C CNN
+	1    4350 6600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4350 6600 3750 6600
+Wire Wire Line
+	2750 6600 2750 6150
+Wire Wire Line
+	4350 6600 5200 6600
+Wire Wire Line
+	5200 6600 5200 6250
+Wire Wire Line
+	5200 6250 4900 6250
+Connection ~ 4350 6600
+Wire Wire Line
+	3900 6050 3500 6050
+Wire Wire Line
+	3500 6050 3500 6600
+Connection ~ 3500 6600
+Wire Wire Line
+	3500 6600 2750 6600
+Wire Wire Line
+	3900 5950 3500 5950
+Wire Wire Line
+	3500 5950 3500 6050
+Connection ~ 3500 6050
+$Comp
+L Device:C C?
+U 1 1 5CBBC325
+P 3750 6350
+F 0 "C?" H 3865 6396 50  0000 L CNN
+F 1 "2.2 nF" H 3865 6305 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 3788 6200 50  0001 C CNN
+F 3 "~" H 3750 6350 50  0001 C CNN
+	1    3750 6350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3900 6150 3750 6150
+Wire Wire Line
+	3750 6150 3750 6200
+Wire Wire Line
+	3750 6500 3750 6600
+Connection ~ 3750 6600
+Wire Wire Line
+	3750 6600 3500 6600
+Wire Wire Line
+	4900 6150 5200 6150
+Wire Wire Line
+	5200 6150 5200 6250
+Connection ~ 5200 6250
+$Comp
+L Device:L L?
+U 1 1 5CBD9E40
+P 5250 5750
+F 0 "L?" V 5440 5750 50  0000 C CNN
+F 1 "1.5 uH" V 5349 5750 50  0000 C CNN
+F 2 "" H 5250 5750 50  0001 C CNN
+F 3 "~" H 5250 5750 50  0001 C CNN
+	1    5250 5750
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5100 5750 4900 5750
+Wire Wire Line
+	5400 5750 5500 5750
+Wire Wire Line
+	5500 5750 5500 5850
+Wire Wire Line
+	5500 5850 4900 5850
+$Comp
+L Device:R R?
+U 1 1 5CBEEE01
+P 5400 6050
+F 0 "R?" H 5330 6004 50  0000 R CNN
+F 1 "100k" H 5330 6095 50  0000 R CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 5330 6050 50  0001 C CNN
+F 3 "~" H 5400 6050 50  0001 C CNN
+	1    5400 6050
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5250 6050 4900 6050
+Wire Wire Line
+	5550 6050 5650 6050
+Wire Wire Line
+	5650 6050 5650 5750
+Wire Wire Line
+	5650 5750 5500 5750
+Connection ~ 5500 5750
+$Comp
+L Device:R R?
+U 1 1 5CC0479A
+P 5900 5950
+F 0 "R?" H 5830 5904 50  0000 R CNN
+F 1 "1.18M" H 5830 5995 50  0000 R CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 5830 5950 50  0001 C CNN
+F 3 "~" H 5900 5950 50  0001 C CNN
+	1    5900 5950
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5CC049E3
+P 5900 6400
+F 0 "R?" H 5830 6354 50  0000 R CNN
+F 1 "100k" H 5830 6445 50  0000 R CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 5830 6400 50  0001 C CNN
+F 3 "~" H 5900 6400 50  0001 C CNN
+	1    5900 6400
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5900 6550 5900 6600
+Wire Wire Line
+	5900 6600 5200 6600
+Connection ~ 5200 6600
+Wire Wire Line
+	5900 6250 5900 6200
+Wire Wire Line
+	5900 5800 5900 5750
+Wire Wire Line
+	5900 5750 5650 5750
+Connection ~ 5650 5750
+Wire Wire Line
+	5900 6200 5750 6200
+Wire Wire Line
+	5750 6200 5750 5950
+Wire Wire Line
+	5750 5950 4900 5950
+Connection ~ 5900 6200
+Wire Wire Line
+	5900 6200 5900 6100
+$Comp
+L Device:C C?
+U 1 1 5CC3D74E
+P 6300 6150
+F 0 "C?" H 6415 6196 50  0000 L CNN
+F 1 "47 uF" H 6415 6105 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 6338 6000 50  0001 C CNN
+F 3 "~" H 6300 6150 50  0001 C CNN
+	1    6300 6150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6300 6000 6300 5750
+Wire Wire Line
+	6300 5750 5900 5750
+Connection ~ 5900 5750
+Wire Wire Line
+	6300 6300 6300 6600
+Wire Wire Line
+	6300 6600 5900 6600
+Connection ~ 5900 6600
+Wire Wire Line
+	6300 5750 6350 5750
+Wire Wire Line
+	6350 5750 6350 5550
+Connection ~ 6300 5750
 $EndSCHEMATC
