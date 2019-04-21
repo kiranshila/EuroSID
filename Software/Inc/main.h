@@ -13,15 +13,11 @@ extern "C" {
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #define DEFAULT_LED_BRIGHTNESS 1024
+#define DEFAULT_ADSR_LED_BRIGHTNESS 4096
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
-/* USER CODE BEGIN ET */
-typedef struct State {
-  int currentVoice;
-  Shape currentShape;
-} State;
-
+/* USER CODE BEGIN ET *
 
 /* USER CODE END ET */
 

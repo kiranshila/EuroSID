@@ -27,15 +27,6 @@
 // The register offset between voices
 #define VOICE_REGISTER_OFFSET 0x07
 
-// A Song
-#define SONG_LENGTH 10
-static const unsigned char megelovaniaNotes[] = {
-4927,4927,9854,7382,6968,6577,5859,4927,5859,6577
-};
-static const unsigned char megelovaniaDurations[] = {
-16,16,8,8,8,8,8,16,16,16
-};
-
 // The shapes a voice can have
 typedef enum Shape { Square, Triangle, Sawtooth, Noise } Shape;
 
@@ -116,6 +107,5 @@ void ungateVoice(SID *sidChip, int voice);
 void sweepVoiceFreq(SID *sidChip, int voice);
 void testAllVoices(SID *sidChip);
 void testFilter(SID *sidChip);
-void megelovania(SID *sidChip);
 
 #endif

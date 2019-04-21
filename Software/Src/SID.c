@@ -374,34 +374,3 @@ void testFilter(SID *sidChip) {
     ungateVoice(sidChip, 2);
   }
 }
-
-void megelovania(SID *sidChip) {
-  clearSID(sidChip);
-  Envelope myEnv = {0, 0, 15, 0}; // Max sustain
-  setVoiceEnv(sidChip, myEnv, 0);
-  writeVoiceEnv(sidChip, 0);
-  setVoicePWM(sidChip, 4096, 0);
-  writeVoicePWM(sidChip, 0);
-  setVoiceShape(sidChip, Sawtooth, 0);
-
-  // Set max volume
-  // Set volume to MAX
-  setVolume(sidChip, 15);
-  writeFilterVolume(sidChip);
-
-  // Turn off the filter for voice targets
-  setFilterTargets(sidChip, 0, 0);
-  setFilterTargets(sidChip, 1, 0);
-  setFilterTargets(sidChip, 2, 0);
-
-  int tempo = 120;
-  for(int i = 0; i < SONG_LENGTH; i ++)
-  {
-    setVoiceFreq(sidChip,megelovaniaNotes[i],0);
-    writeVoiceFreq(sidChip,0);
-    gateVoice(sidChip,0);
-    HAL_Delay(200);
-    ungateVoice(sidChip,0);
-    HAL_Delay(10);
-  }
-}
