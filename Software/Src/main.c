@@ -57,33 +57,29 @@ int rescale(int source, int numBitsSource, int numBitsTarget) {
   return floor(((double)source / (double)sourceMax) * targetMax);
 }
 
+
+uint16_t scaleVO(uint16_t ADCInput)
+{
+  return (uint16_t)(274.0*exp(0.00142034*(3370.0-(float)ADCInput)));
+}
+
 void updateVOandGate() {
   // Write a 16 bit-scaled DMA frequency to SID
-  int test = rescale(ADC2Readings[5],12,16);
-  setVoiceFreq(&sid, rescale(ADC3Readings[1], 12, 16), 0);
-  setVoiceFreq(&sid, rescale(ADC3Readings[0], 12, 16), 1);
+  int test = scaleVO(ADC2Readings[5]);
+  setVoiceFreq(&sid, scaleVO(ADC3Readings[1]), 0);
+  setVoiceFreq(&sid, scaleVO(ADC3Readings[0]), 1);
   setVoiceFreq(&sid, test, 2);
   writeVoiceFreq(&sid, 0);
   writeVoiceFreq(&sid, 1);
   writeVoiceFreq(&sid, 2);
   // Gate
-  /*
-  HAL_GPIO_ReadPin(GATE_1_GPIO_Port, GATE_1_Pin) ? gateVoice(&sid, 0)
-                                                 : ungateVoice(&sid, 0);
-  HAL_GPIO_ReadPin(GATE_2_GPIO_Port, GATE_2_Pin) ? gateVoice(&sid, 1)
-                                                 : ungateVoice(&sid, 1);
-  HAL_GPIO_ReadPin(GATE_3_GPIO_Port, GATE_3_Pin) ? gateVoice(&sid, 2)
-                                                 : ungateVoice(&sid, 2);
-                                                 */
-  gateVoice(&sid, 0);
-  HAL_Delay(5);
-  ungateVoice(&sid,0);
-  gateVoice(&sid, 1);
-  HAL_Delay(5);
-  ungateVoice(&sid,1);
-  gateVoice(&sid, 2);
-  HAL_Delay(5);
-  ungateVoice(&sid,2);
+  
+  HAL_GPIO_ReadPin(GATE_1_GPIO_Port, GATE_1_Pin) ? ungateVoice(&sid, 0)
+                                                 : gateVoice(&sid, 0);
+  HAL_GPIO_ReadPin(GATE_2_GPIO_Port, GATE_2_Pin) ? ungateVoice(&sid, 1)
+                                                 : gateVoice(&sid, 1);
+  HAL_GPIO_ReadPin(GATE_3_GPIO_Port, GATE_3_Pin) ? ungateVoice(&sid, 2)
+                                                 : gateVoice(&sid, 2);
 }
 
 void buttonLogic() {
@@ -235,13 +231,20 @@ void buttonLogic() {
   writeLEDs(&ledDriver);
 }
 
-void potInputs() { // ADSR
+void potInputs() { 
+  // ADSR
   thisState.currentEnv.Attack = rescale(ADC1Readings[5], 12, 4);
   thisState.currentEnv.Decay = rescale(ADC1Readings[6], 12, 4);
   thisState.currentEnv.Sustain = rescale(ADC1Readings[7], 12, 4);
   thisState.currentEnv.Release = rescale(ADC1Readings[8], 12, 4);
   setVoiceEnv(&sid, thisState.currentEnv, thisState.currentVoice);
   writeVoiceEnv(&sid, thisState.currentVoice);
+
+  // Filter cutoff and resonance
+  setFilterCutoff(&sid,rescale(ADC1Readings[1],12,11));
+  writeFilterCutoff(&sid);
+  setFilterResonance(&sid,rescale(ADC1Readings[2],12,4));
+  writeFilterResonance(&sid);
 }
 
 int main(void) {
