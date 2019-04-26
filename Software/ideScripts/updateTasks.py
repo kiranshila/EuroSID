@@ -4,7 +4,6 @@ Update/generate 'tasks.json' file in .vscode subfolder.
 'tasks.json' fields description:
 https://code.visualstudio.com/docs/editor/tasks
 '''
-import copy
 import os
 import json
 
@@ -353,13 +352,10 @@ class Tasks():
 
         # -c program filename [verify] [reset] [exit] [offset] ([] are optional arguments)
         # Note: due problems with VS Code OpenOCD Tasks in case of workspace path containing spaces, target executable is passed
-        # as relative path. Not a problem since VS Code shell is started from workspace folder.
+        # as relative path.
         workspacePath = utils.workspacePath
-        targetExecutablePath = buildData[self.bStr.targetExecutablePath]
-        relativeTargetExecutablePath = os.path.relpath(targetExecutablePath, workspacePath)
-        relativeTargetExecutablePath = utils.pathWithForwardSlashes(relativeTargetExecutablePath)
         jsonTaskData["args"].append("-c")
-        programString = "program " + relativeTargetExecutablePath + " verify reset exit"
+        programString = "program " + buildData[self.bStr.targetExecutablePath] + " verify reset exit"
         jsonTaskData["args"].append(programString)
 
         return jsonTaskData
@@ -488,8 +484,11 @@ class Tasks():
         '''
         Create Open CubeMX project task. Starts with default program.
 
-        Method of starting CubeMX differs across systems. Note that on linux cubeMX does not associate itself with files by default.
-        Use a program like "Main Menu" for GNOME to add CubeMX to the applications list, and then it can be selected as the default program for .ioc files.
+        Method of starting CubeMX differs across systems:
+            - WIN: use standard 'start' cmd command to start default program for '.ioc' files
+            - LINUX: does not associate itself with files by default. 
+                Use a program like "Main Menu" for GNOME to add CubeMX to the applications list,
+                and then it can be selected as the default program for .ioc files.
         '''
         taskData = """
         {
@@ -512,8 +511,7 @@ class Tasks():
         jsonTaskData = json.loads(taskData)
         jsonTaskData["label"] = tmpStr.taskName_OpenCubeMX
         jsonTaskData["command"] = openCubeCommand
-        jsonTaskData["args"] = [""]  # name
-        jsonTaskData["args"].append(utils.cubeMxProjectFilePath)  # opens with default program
+        jsonTaskData["args"] = [utils.cubeMxProjectFilePath]  # opens with default program
 
         return jsonTaskData
 
@@ -555,7 +553,6 @@ if __name__ == "__main__":
 
     # build data (update tools paths if neccessary)
     buildData = bData.prepareBuildData()
-    bData.createUserToolsFile(buildData)
 
     # create taks file
     tasks.checkTasksFile()

@@ -7,8 +7,10 @@
             "Src/SID.c"
         ],
         "user_asmSources": [],
+        "user_ldSources": [],
         "user_cIncludes": [],
         "user_asmIncludes": [],
+        "user_ldIncludes": [],
         "user_cDefines": [
             "AVOID_EMPTY_DEFINE_FIELD_C"
         ],
@@ -17,11 +19,14 @@
         ],
         "user_cFlags": [],
         "user_asmFlags": [],
+        "user_ldFlags": [],
         "____________________DO_NOT_MODIFY_FIELDS_BELOW____________________": "",
         "cubemx_sourceFiles": [
             "Src/main.c",
+            "Src/freertos.c",
             "Src/stm32f3xx_it.c",
             "Src/stm32f3xx_hal_msp.c",
+            "Src/stm32f3xx_hal_timebase_tim.c",
             "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc.c",
             "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.c",
             "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_spi.c",
@@ -43,12 +48,24 @@
             "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c.c",
             "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c_ex.c",
             "Src/system_stm32f3xx.c",
+            "Middlewares/Third_Party/FreeRTOS/Source/croutine.c",
+            "Middlewares/Third_Party/FreeRTOS/Source/event_groups.c",
+            "Middlewares/Third_Party/FreeRTOS/Source/list.c",
+            "Middlewares/Third_Party/FreeRTOS/Source/queue.c",
+            "Middlewares/Third_Party/FreeRTOS/Source/tasks.c",
+            "Middlewares/Third_Party/FreeRTOS/Source/timers.c",
+            "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c",
+            "Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c",
+            "Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c",
             "startup_stm32f303xc.s"
         ],
         "cubemx_includes": [
             "Inc",
             "Drivers/STM32F3xx_HAL_Driver/Inc",
             "Drivers/STM32F3xx_HAL_Driver/Inc/Legacy",
+            "Middlewares/Third_Party/FreeRTOS/Source/include",
+            "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS",
+            "Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F",
             "Drivers/CMSIS/Device/ST/STM32F3xx/Include",
             "Drivers/CMSIS/Include",
             "Drivers/CMSIS/Include"

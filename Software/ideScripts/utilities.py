@@ -7,7 +7,6 @@ paths.
 
 import os
 import shutil
-import shlex
 import subprocess
 import sys
 import traceback
@@ -15,7 +14,7 @@ import platform
 
 import templateStrings as tmpStr
 
-__version__ = '1.5'  # this is inherited by all 'update*.py' scripts
+__version__ = '1.7'  # this is inherited by all 'update*.py' scripts
 
 ########################################################################################################################
 # Global utilities and paths
@@ -25,6 +24,7 @@ workspacePath = None  # absolute path to workspace folder
 workspaceFilePath = None  # absolute file path to '*.code-workspace' file
 cubeMxProjectFilePath = None  # absolute path to *.ioc STM32CubeMX workspace file
 ideScriptsPath = None  # absolute path to 'ideScripts' folder
+vsCodeFolderPath = None  # absolute path to workspace '.vscode' folder
 
 makefilePath = None
 makefileBackupPath = None
@@ -72,6 +72,26 @@ def commandExists(command):
     return False
 
 
+def getFileName(path, withExtension=False, exception=True):
+    '''
+    Returns file name of a given 'path', with or without extension.
+    If given path is not a file, exception is raised if 'exception' is set to True. Otherwise, None is returned.
+    '''
+    if os.path.isfile(path):
+        _, fileNameExt = os.path.split(path)
+        if withExtension:
+            return fileNameExt
+        else:
+            fileName, _ = os.path.splitext(fileNameExt)
+            return fileName
+    else:
+        if exception:
+            errorMsg = "Cannot get a file name - given path is not a file:\n\t" + path
+            raise Exception(errorMsg)
+        else:
+            return None
+
+
 def detectOs():
     '''
     This function detects the operating system that python is running in. We use this for OS specific operations
@@ -90,16 +110,17 @@ def detectOs():
     return osIs
 
 
-def copyAndRename(filePath, newName):
+def copyAndRename(filePath, newPath):
+    '''
+    Copy file from 'filePath' to a new 'newPath'. 
+    '''
     if not pathExists(filePath):
-        errorMsg = "Can't copy and rename file " + str(filePath) + ", does not exist or other error."
+        errorMsg = "Can't copy non-existing file: " + str(filePath)
         printAndQuit(errorMsg)
 
-    fileFolderPath = os.path.dirname(filePath)
-    copyFilePath = os.path.join(fileFolderPath, newName)
-    shutil.copyfile(filePath, copyFilePath)
-
-    msg = "Copy of file (new name: " + newName + "):\n\t" + str(filePath)
+    shutil.copyfile(filePath, newPath)
+    newFileName = getFileName(newPath)
+    msg = "Copy of file (new name: " + newFileName + "): " + str(filePath)
     print(msg)
 
 
@@ -120,6 +141,7 @@ def verifyFolderStructure():
     global workspaceFilePath
     global cubeMxProjectFilePath
     global ideScriptsPath
+    global vsCodeFolderPath
 
     global makefilePath
     global makefileBackupPath
@@ -157,6 +179,7 @@ def verifyFolderStructure():
             printAndQuit(errorMsg)
     else:
         print("Existing '.vscode' folder used.")
+    vsCodeFolderPath = vscodeFolder
 
     # 'ideScripts' folder found in the same folder as '*.code-workspace' file. Structure seems OK.
     cPropertiesPath = os.path.join(workspacePath, '.vscode', 'c_cpp_properties.json')
@@ -171,12 +194,11 @@ def verifyFolderStructure():
     buildDataPath = pathWithForwardSlashes(buildDataPath)
     # does not have backup file, always regenerated
 
-    # TODO make this not hard-coded
     osIs = detectOs()
     if osIs == "windows":
-        vsCodeSettingsFolderPath = os.path.expandvars("%APPDATA%\\Code\\User\\")
+        vsCodeSettingsFolderPath = tmpStr.defaultVsCodeSettingsFolder_WIN
     elif osIs == "unix":
-        vsCodeSettingsFolderPath = os.path.expandvars("$HOME/.config/Code/User/")
+        vsCodeSettingsFolderPath = tmpStr.defaultVsCodeSettingsFolder_UNIX
     toolsPaths = os.path.join(vsCodeSettingsFolderPath, 'toolsPaths.json')
     toolsPaths = pathWithForwardSlashes(toolsPaths)
 
@@ -221,12 +243,12 @@ def printWorkspacePaths():
 def getCubeMXProjectFiles():
     '''
     Returns list of all STM32CubeMX '.ioc' files in root directory.
+    Since only root directory is searched, all files (paths) are relative to root dir.
     '''
     iocFiles = []
     for theFile in os.listdir(workspacePath):
         if theFile.endswith('.ioc'):
-            filePath = pathWithForwardSlashes(os.path.join(workspacePath, theFile))
-            iocFiles.append(filePath)
+            iocFiles.append(theFile)
 
     return iocFiles
 
@@ -236,28 +258,12 @@ def createBuildFolder(folderName='build'):
     Create (if not already created) build folder with specified name where objects are stored when 'make' is executed.
     '''
     buildFolderPath = os.path.join(workspacePath, folderName)
+    buildFolderPath = pathWithForwardSlashes(buildFolderPath)
     if not pathExists(buildFolderPath):
         os.mkdir(buildFolderPath)
         print("Build folder created: " + buildFolderPath)
     else:
         print("Build folder already exist: '" + buildFolderPath + "'")
-
-
-def getCubeWorkspaces():
-    '''
-    Search workspacePath for files that ends with '.ioc' (STM32CubeMX projects).
-    Returns list of all available STM32CubeMX workspace paths.
-
-    Only root directory is searched.
-    '''
-    iocFiles = []
-
-    for theFile in os.listdir(workspacePath):
-        if theFile.endswith(".ioc"):
-            theFilePath = os.path.join(workspacePath, theFile)
-            iocFiles.append(pathWithForwardSlashes(theFile))
-
-    return iocFiles
 
 
 def getCodeWorkspaces():
@@ -283,9 +289,7 @@ def getWorkspaceName():
 
     Return first available file name without extension.
     '''
-    _, fileNameExt = os.path.split(workspaceFilePath)
-    fileName, _ = os.path.splitext(fileNameExt)
-    return fileName
+    return getFileName(workspaceFilePath)
 
 
 def stripStartOfString(dataList, stringToStrip):
@@ -322,6 +326,27 @@ def stringToList(string, separator):
         allItems.append(item)
 
     return allItems
+
+
+def mergeCurrentDataWithTemplate(currentData, templateData):
+    '''
+    Merge all fields from both, currentData and templateData and return merged dict.
+    This is needed for backward compatibility and adding missing default fields.
+    '''
+    def recursiveClone(template, data):
+        for key, value in data.items():
+            if key not in template:
+                template[key] = {}  # create a dict in case it must be copied recursively
+
+            if isinstance(value, dict):
+                template[key] = recursiveClone(template[key], value)
+            else:
+                template[key] = value
+        return template
+
+    mergedData = recursiveClone(templateData, currentData)
+
+    return mergedData
 
 
 def getYesNoAnswer(msg):
@@ -388,12 +413,12 @@ def getGccIncludePath(gccExePath):
 
     fileName = "stdint.h"
     filePath = findFileInFolderTree(searchPath, fileName)
-    folderPath = os.path.dirname(filePath)
-    if folderPath is None:
-        errorMsg = "Unable to find 'include' subfolder with " + fileName + " file on path:\n\t"
-        errorMsg += searchPath
+    if filePath is None:
+        errorMsg = "Unable to find " + fileName + " file on path: " + searchPath
+        errorMsg += "\nOfficial GCC folder structure must remain intact!"
         printAndQuit(errorMsg)
 
+    folderPath = os.path.dirname(filePath)
     return folderPath
 
 
@@ -440,7 +465,7 @@ def getOpenOcdConfig(openOcdInterfacePath):
     '''
     Get openOCD configuration files from user, eg. 'interface/stlink.cfg, target/stm32f0x.cfg'
     Paths can be passed in absolute or relative form, separated by comma. Optionally enclosed in " or '.
-    Returns the absolute paths to these config files.
+    Returns the list of absolute paths to these config files.
     '''
     openOcdScriptsPath = os.path.dirname(os.path.dirname(openOcdInterfacePath))
 
@@ -510,7 +535,7 @@ def getBuildElfFilePath(buildDirPath, projectName):
     Returns .elf file path.
     '''
     elfFile = projectName + ".elf"
-    buildFileName = os.path.join(workspacePath, buildDirPath, elfFile)
+    buildFileName = os.path.join(buildDirPath, elfFile)
     buildFileName = pathWithForwardSlashes(buildFileName)
 
     return buildFileName

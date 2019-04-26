@@ -23,12 +23,15 @@ class MakefileStrings():
 
     cSources = 'C_SOURCES'
     asmSources = 'ASM_SOURCES'
+    ldSources = 'LIBS'
     cDefines = 'C_DEFS'
     asmDefines = 'AS_DEFS'
     cIncludes = 'C_INCLUDES'
     asmIncludes = 'AS_INCLUDES'
+    ldIncludes = 'LIBDIR'
     cFlags = 'CFLAGS'
     asmFlags = 'ASFLAGS'
+    ldFlags = 'LDFLAGS'
 
 
 class Makefile():
@@ -49,8 +52,10 @@ class Makefile():
         '''
         Check wether current 'Makefile' has print capabilities. If it has, this means it was already altered by this script.
         If it was, replace it with backup copy: 'Makefile.backup'.
-        If it does not have prin capabilities, is is assumed 'Makefile' was regenerated with CubeMX tool - print function is added and backup file is overwritten with this new 'Makefile'.
-        At the end, add 'print-variable' capabilities
+        If it does not have print capabilities, it is assumed 'Makefile' was regenerated with CubeMX
+        tool - print function is added and backup file is overwritten with this new 'Makefile'.
+
+        At the end, fresh 'Makefile' with print function should be available.
         '''
         if utils.pathExists(utils.makefileBackupPath):
             # Makefile.backup exists, check if it is original (no print capabilities)
@@ -61,6 +66,7 @@ class Makefile():
                 utils.printAndQuit(errorMsg)
 
             else:  # OK - seems like original Makefile, replace Makefile with Makefile.backup, add print capabilities
+                print("Existing 'Makefile' file found (restored from '.backup').")
                 utils.copyAndRename(utils.makefileBackupPath, utils.makefilePath)
 
         else:  # Makefile.backup does not exist, check if current Makefile has print capabilities.
@@ -71,6 +77,7 @@ class Makefile():
                 utils.printAndQuit(errorMsg)
 
             else:  # Makefile looks like an original one. Create a backup copy and add print capabilities
+                print("Existing 'Makefile' file found (original).")
                 utils.copyAndRename(utils.makefilePath, utils.makefileBackupPath)
 
         self.addMakefileCustomFunctions(pathToMakefile=utils.makefilePath)
@@ -97,6 +104,10 @@ class Makefile():
         asmSourcesList = self.getMakefileVariable(makeExePath, gccExePath, self.mkfStr.asmSources)
         dataDictionaryList[self.mkfStr.asmSources] = asmSourcesList
 
+        ldSourcesList = self.getMakefileVariable(makeExePath, gccExePath, self.mkfStr.ldSources)
+        # ldSourcesList = utils.stripStartOfString(ldSourcesList, '-l') # more readable without stripping
+        dataDictionaryList[self.mkfStr.ldSources] = ldSourcesList
+
         # defines
         asmDefinesList = self.getMakefileVariable(makeExePath, gccExePath, self.mkfStr.asmDefines)
         asmDefinesList = utils.stripStartOfString(asmDefinesList, '-D')
@@ -115,12 +126,19 @@ class Makefile():
         cIncludesList = utils.stripStartOfString(cIncludesList, '-I')
         dataDictionaryList[self.mkfStr.cIncludes] = cIncludesList
 
+        ldIncludesList = self.getMakefileVariable(makeExePath, gccExePath, self.mkfStr.ldIncludes)
+        ldIncludesList = utils.stripStartOfString(ldIncludesList, '-L')
+        dataDictionaryList[self.mkfStr.ldIncludes] = ldIncludesList
+
         # flags
         cFlags = self.getMakefileVariable(makeExePath, gccExePath, self.mkfStr.cFlags)
         dataDictionaryList[self.mkfStr.cFlags] = cFlags
 
         asmFlags = self.getMakefileVariable(makeExePath, gccExePath, self.mkfStr.asmFlags)
         dataDictionaryList[self.mkfStr.asmFlags] = asmFlags
+
+        ldFlags = self.getMakefileVariable(makeExePath, gccExePath, self.mkfStr.ldFlags)
+        dataDictionaryList[self.mkfStr.ldFlags] = ldFlags
 
         return dataDictionaryList
 
@@ -169,40 +187,48 @@ class Makefile():
         '''
         Merge existing Makefile data and user fields from existing 'c_cpp_properties.json.'
         '''
-        print("\nCreating new Makefile... ")
-
-        cPropertiesData = wks.CProperties().getCPropertiesData()
+        cP = wks.CProperties()
+        cPropertiesData = cP.getCPropertiesData()
 
         with open(utils.makefilePath, 'r') as makefile:
             data = makefile.readlines()
 
         # sources
-        cSources = cPropertiesData["env"][self.cPStr.user_cSources]
+        cSources = cP.getCPropertiesKeyData(cPropertiesData, self.cPStr.user_cSources)
         data = self.searchAndAppend(data, self.mkfStr.cSources, cSources)
 
-        asmSources = cPropertiesData["env"][self.cPStr.user_asmSources]
+        asmSources = cP.getCPropertiesKeyData(cPropertiesData, self.cPStr.user_asmSources)
         data = self.searchAndAppend(data, self.mkfStr.asmSources, asmSources)
 
+        ldSources = cP.getCPropertiesKeyData(cPropertiesData, self.cPStr.user_ldSources)
+        data = self.searchAndAppend(data, self.mkfStr.ldSources, ldSources, preappend='-l:')
+
         # includes
-        cIncludes = cPropertiesData["env"][self.cPStr.user_cIncludes]
+        cIncludes = cP.getCPropertiesKeyData(cPropertiesData, self.cPStr.user_cIncludes)
         data = self.searchAndAppend(data, self.mkfStr.cIncludes, cIncludes, preappend='-I')
 
-        asmIncludes = cPropertiesData["env"][self.cPStr.user_asmIncludes]
+        asmIncludes = cP.getCPropertiesKeyData(cPropertiesData, self.cPStr.user_asmIncludes)
         data = self.searchAndAppend(data, self.mkfStr.asmIncludes, asmIncludes, preappend='-I')
 
+        ldIncludes = cP.getCPropertiesKeyData(cPropertiesData, self.cPStr.user_ldIncludes)
+        data = self.searchAndAppend(data, self.mkfStr.ldIncludes, ldIncludes, preappend='-L')
+
         # defines
-        cDefines = cPropertiesData["env"][self.cPStr.user_cDefines]
+        cDefines = cP.getCPropertiesKeyData(cPropertiesData, self.cPStr.user_cDefines)
         data = self.searchAndAppend(data, self.mkfStr.cDefines, cDefines, preappend='-D')
 
-        asmDefines = cPropertiesData["env"][self.cPStr.user_asmDefines]
+        asmDefines = cP.getCPropertiesKeyData(cPropertiesData, self.cPStr.user_asmDefines)
         data = self.searchAndAppend(data, self.mkfStr.asmDefines, asmDefines, preappend='-D')
 
         # compiler flags
-        cFlags = cPropertiesData["env"][self.cPStr.user_cFlags]
+        cFlags = cP.getCPropertiesKeyData(cPropertiesData, self.cPStr.user_cFlags)
         data = self.searchAndAppend(data, self.mkfStr.cFlags, cFlags)
 
-        asmFlags = cPropertiesData["env"][self.cPStr.user_asmFlags]
+        asmFlags = cP.getCPropertiesKeyData(cPropertiesData, self.cPStr.user_asmFlags)
         data = self.searchAndAppend(data, self.mkfStr.asmFlags, asmFlags)
+
+        ldFlags = cP.getCPropertiesKeyData(cPropertiesData, self.cPStr.user_ldFlags)
+        data = self.searchAndAppend(data, self.mkfStr.ldFlags, ldFlags)
 
         data = self.replaceMakefileHeader(data)
 
@@ -236,10 +262,12 @@ class Makefile():
 
                 if line.find("\\") == NOT_FOUND:
                     # one-liner, no '\' sign at the end of the line
-                    if type(appendData) is list:  # if this is list
+                    if isinstance(appendData, list):  # if this is list
                         if appendData:  # and it is not empty
                             if len(appendData) == 1:  # this list has only one item, add it without '\'
-                                data[lineIndex] = line + " " + appendData[0] + "\n"
+                                if line[-1] != ' ':  # avoid double spaces
+                                    line += " "
+                                data[lineIndex] = line + appendData[0] + "\n"
 
                             else:
                                 # this is list with multiple items, '\' will be needed
@@ -257,11 +285,13 @@ class Makefile():
 
                     else:  # appendData is string (not list)
                         if appendData != '':
-                            data[lineIndex] += " " + appendData + "\n"
+                            if data[lineIndex][-1] != ' ':  # avoid double spaces
+                                data[lineIndex] += " "
+                            data[lineIndex] += appendData + "\n"
 
                     return data
                 else:  # already a multi-liner, append at the beginning, but in new line
-                    if type(appendData) is list:
+                    if isinstance(appendData, list):
                         for itemIndex, item in enumerate(appendData):
                             stringToInsert = item + " \\\n"
                             data.insert(lineIndex + itemIndex + 1, stringToInsert)
@@ -446,7 +476,7 @@ class Makefile():
             line = line + "\n"
             makefileDataLines.append(line)
 
-        print("Makefile 'print-variable' function OK.")
+        print("Makefile 'print-variable' function added.")
         return makefileDataLines
 
 
@@ -461,11 +491,15 @@ if __name__ == "__main__":
 
     # Makefile must exist
     makefile.checkMakefileFile()  # no point in continuing if Makefile does not exist
-    makefile.restoreOriginalMakefile()
 
-    # build data (update tools paths if neccessary)
     buildData = bData.prepareBuildData()
-    bData.createUserToolsFile(buildData)
+
+    makefile.restoreOriginalMakefile()
+    makeExePath = buildData[bData.bStr.buildToolsPath]
+    gccExePath = buildData[bData.bStr.gccExePath]
+    makefileData = makefile.getMakefileData(makeExePath, gccExePath)
+
+    buildData = bData.addMakefileDataToBuildDataFile(buildData, makefileData)
 
     # get data from 'c_cpp_properties.json' and create new Makefile
     cP.checkCPropertiesFile()

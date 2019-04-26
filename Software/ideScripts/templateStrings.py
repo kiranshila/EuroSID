@@ -5,6 +5,7 @@ Template scripts for generating workspace files:
     - makefile strings/functions
     - buildData.json
 """
+import os
 
 launchName_Debug = "Cortex debug"
 launchName_Python = "Debug current Python file"
@@ -29,12 +30,15 @@ c_cpp_template = """{
         "____________________USER_FIELDS_CAN_BE_MODIFIED____________________": "",
         "user_cSources": [],
         "user_asmSources": [],
+        "user_ldSources": [],
         "user_cIncludes": [],
         "user_asmIncludes": [],
-        "user_cDefines": ["AVOID_EMPTY_DEFINE_FIELD_C"],
-        "user_asmDefines": ["AVOID_EMPTY_DEFINE_FIELD_ASM"],
-        "user_cFlags" : [],
-        "user_asmFlags" : [],
+        "user_ldIncludes": [],
+        "user_cDefines": [],
+        "user_asmDefines": [],
+        "user_cFlags": [],
+        "user_asmFlags": [],
+        "user_ldFlags": [],
 
         "____________________DO_NOT_MODIFY_FIELDS_BELOW____________________": "",
         "cubemx_sourceFiles": [],
@@ -52,7 +56,8 @@ c_cpp_template = """{
                 "${cubemx_includes}",
                 "${gccIncludePath}",
                 "${user_cIncludes}",
-                "${user_asmIncludes}"
+                "${user_asmIncludes}",
+                "${user_ldIncludes}"
             ],
             "browse": {
                 "path": [
@@ -60,7 +65,8 @@ c_cpp_template = """{
                     "${cubemx_includes}",
                     "${gccIncludePath}",
                     "${user_cIncludes}",
-                    "${user_asmIncludes}"
+                    "${user_asmIncludes}",
+                    "${user_ldIncludes}"
                 ],
                 "limitSymbolsToIncludedHeaders": true
             },
@@ -137,6 +143,8 @@ tasksFileTemplate += """
 """
 
 #########################################################################################################
+# buildData.json has template with all keys listed, since it is needed for sorting purposes. There
+# might be a better way to handle sorting (TODO)
 buildDataTemplate = """{
     "ABOUT1": "This file holds combined user and CubeMX generated Makefile workspace dependecies.",
     "ABOUT2": "User should not edit this fields, instead it should edit 'c_cpp_properties.json'",
@@ -145,21 +153,36 @@ buildDataTemplate = """{
     "LAST_RUN": "",
     "cSources": [],
     "asmSources": [],
+    "ldSources": [],
     "cIncludes": [],
     "asmIncludes": [],
+    "ldIncludes": [],
     "cDefines": [],
     "asmDefines": [],
     "cFlags" : [],
     "asmFlags" : [],
+    "ldFlags" : [],
     "buildDir": "",
+    "targetExecutablePath": "",
+    "cubeMxProjectPath": "",
+    "openOcdConfig": [],
+    "stm32SvdPath": "",
+    "ABOUT4": "---- Paths below are fetched from user-specific 'toolsPaths.json'. ----",
     "gccExePath": "",
     "gccInludePath": "",
     "buildToolsPath": "",
     "pythonExec": "",
     "openOcdPath": "",
-    "openOcdInterfacePath": "",
-    "openOcdConfig":"",
-    "stm32SvdPath": ""
+    "openOcdInterfacePath": ""
+}
+"""
+
+#########################################################################################################
+toolsPathsTemplate = """{
+    "ABOUT1": "This file store common tools paths, shared by all VS Code ideScripts-based projects.",
+    "ABOUT2": "Delete/correct this file if paths/folder structure change on system.",
+    "VERSION": "",
+    "LAST_RUN": ""
 }
 """
 
@@ -174,3 +197,7 @@ launchFileTemplate = """{
 #########################################################################################################
 cubeMxTmpFolderName = '_tmpCubeMx'
 cubeMxTmpFileName = 'tmpCubeMx.txt'
+
+#########################################################################################################
+defaultVsCodeSettingsFolder_WIN = os.path.expandvars("%APPDATA%/Code/User/")
+defaultVsCodeSettingsFolder_UNIX = os.path.expandvars("$HOME/.config/Code/User/")

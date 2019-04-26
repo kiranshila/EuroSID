@@ -5,7 +5,6 @@ Update existing VS Code workspace file with debug paths in "settings":
 '''
 import os
 import json
-import datetime
 
 import utilities as utils
 import updatePaths as pth
@@ -33,10 +32,10 @@ class UpdateWorkspaceFile():
                     with open(utils.workspaceFilePath, 'r') as workspaceFile:
                         workspaceFileData = json.load(workspaceFile)
 
-                        print("Existing " + workspaceFileName + " file found.")
+                        print("Existing " + fileName + " file found.")
 
                 except Exception as err:
-                    errorMsg = "Invalid " + workspaceFileName + " file.\n"
+                    errorMsg = "Invalid " + fileName + " file.\n"
                     errorMsg += "Possible cause: invalid json format or comments (not supported by this scripts). Error:\n"
                     errorMsg += str(err)
                     print(errorMsg)
@@ -60,6 +59,9 @@ class UpdateWorkspaceFile():
         '''
         armToolchainPath = os.path.dirname(buildData[self.bStr.gccExePath])
         armToolchainPath = utils.pathWithForwardSlashes(armToolchainPath)
+
+        if 'settings' not in workspaceData:
+            workspaceData["settings"] = {}
 
         workspaceData["settings"]["cortex-debug.armToolchainPath"] = armToolchainPath
         workspaceData["settings"]["cortex-debug.openocdPath"] = buildData[self.bStr.openOcdPath]
@@ -95,7 +97,6 @@ if __name__ == "__main__":
 
     # build data (update tools paths if neccessary)
     buildData = bData.prepareBuildData()
-    bData.createUserToolsFile(buildData)
 
     wksFile.checkWorkspaceFile()
     wksData = wksFile.getWorkspaceFileData()

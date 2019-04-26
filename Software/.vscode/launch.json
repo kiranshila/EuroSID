@@ -12,6 +12,28 @@
             "configFiles": [
                 "target/stm32f3x.cfg"
             ]
+        },
+        {
+            "name": "Cortex debug",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "openocd",
+            "cwd": "${workspaceFolder}",
+            "executable": "build/EuroSID.elf",
+            "svdFile": ".vscode/STM32F303x.svd",
+            "configFiles": [
+                ".",
+                ".vscode/stm32f3x.cfg"
+            ],
+            "preLaunchTask": "Build project"
+        },
+        {
+            "name": "Debug current Python file",
+            "type": "python",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "${file}",
+            "console": "integratedTerminal"
         }
     ]
 }

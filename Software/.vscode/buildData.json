@@ -2,15 +2,17 @@
     "ABOUT1": "This file holds combined user and CubeMX generated Makefile workspace dependecies.",
     "ABOUT2": "User should not edit this fields, instead it should edit 'c_cpp_properties.json'",
     "ABOUT3": "This file is regenerated on 'Update workspace' task.",
-    "VERSION": "1.5",
-    "LAST_RUN": "2019-03-09 14:48:10.986242",
+    "VERSION": "1.7",
+    "LAST_RUN": "2019-04-24 18:19:23.118486",
     "cSources": [
         "Src/MCUSetup.c",
         "Src/TLC5947.c",
         "Src/SID.c",
         "Src/main.c",
+        "Src/freertos.c",
         "Src/stm32f3xx_it.c",
         "Src/stm32f3xx_hal_msp.c",
+        "Src/stm32f3xx_hal_timebase_tim.c",
         "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc.c",
         "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.c",
         "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_spi.c",
@@ -31,20 +33,38 @@
         "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_flash_ex.c",
         "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c.c",
         "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c_ex.c",
-        "Src/system_stm32f3xx.c"
+        "Src/system_stm32f3xx.c",
+        "Middlewares/Third_Party/FreeRTOS/Source/croutine.c",
+        "Middlewares/Third_Party/FreeRTOS/Source/event_groups.c",
+        "Middlewares/Third_Party/FreeRTOS/Source/list.c",
+        "Middlewares/Third_Party/FreeRTOS/Source/queue.c",
+        "Middlewares/Third_Party/FreeRTOS/Source/tasks.c",
+        "Middlewares/Third_Party/FreeRTOS/Source/timers.c",
+        "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c",
+        "Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c",
+        "Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c"
     ],
-    "asmSources": [
-        "startup_stm32f303xc.s"
+    "asmSources": [],
+    "ldSources": [
+        "-lc",
+        "-lm",
+        "-lnosys"
     ],
     "cIncludes": [
         "Inc",
         "Drivers/STM32F3xx_HAL_Driver/Inc",
         "Drivers/STM32F3xx_HAL_Driver/Inc/Legacy",
+        "Middlewares/Third_Party/FreeRTOS/Source/include",
+        "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS",
+        "Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F",
         "Drivers/CMSIS/Device/ST/STM32F3xx/Include",
         "Drivers/CMSIS/Include",
         "Drivers/CMSIS/Include"
     ],
-    "asmIncludes": [],
+    "asmIncludes": [
+        "/Inc"
+    ],
+    "ldIncludes": [],
     "cDefines": [
         "AVOID_EMPTY_DEFINE_FIELD_C",
         "USE_HAL_DRIVER",
@@ -64,6 +84,9 @@
         "-IInc",
         "-IDrivers/STM32F3xx_HAL_Driver/Inc",
         "-IDrivers/STM32F3xx_HAL_Driver/Inc/Legacy",
+        "-IMiddlewares/Third_Party/FreeRTOS/Source/include",
+        "-IMiddlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS",
+        "-IMiddlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F",
         "-IDrivers/CMSIS/Device/ST/STM32F3xx/Include",
         "-IDrivers/CMSIS/Include",
         "-IDrivers/CMSIS/Include",
@@ -83,22 +106,37 @@
         "-mfpu=fpv4-sp-d16",
         "-mfloat-abi=hard",
         "-DAVOID_EMPTY_DEFINE_FIELD_ASM",
+        "-I/Inc",
         "-Og",
         "-Wall",
         "-fdata-sections",
         "-ffunction-sections"
     ],
+    "ldFlags": [
+        "-mcpu=cortex-m4",
+        "-mthumb",
+        "-mfpu=fpv4-sp-d16",
+        "-mfloat-abi=hard",
+        "-specs=nano.specs",
+        "-TSTM32F303RBTx_FLASH.ld",
+        "-lc",
+        "-lm",
+        "-lnosys",
+        "-Wl,-Map=build/EuroSID.map,--cref",
+        "-Wl,--gc-sections"
+    ],
     "buildDir": "build",
+    "targetExecutablePath": "build/EuroSID.elf",
+    "cubeMxProjectPath": "EuroSID.ioc",
+    "openOcdConfig": [
+        ".vscode/stm32f3x.cfg"
+    ],
+    "stm32SvdPath": ".vscode/STM32F303x.svd",
+    "ABOUT4": "---- Paths below are fetched from user-specific 'toolsPaths.json'. ----",
     "gccExePath": "/usr/local/gcc_arm/bin/arm-none-eabi-gcc",
     "gccInludePath": "/usr/local/gcc_arm/lib/gcc/arm-none-eabi/8.2.1/include",
     "buildToolsPath": "/usr/bin/make",
     "pythonExec": "python3",
     "openOcdPath": "/usr/local/bin/openocd",
-    "openOcdInterfacePath": ".",
-    "openOcdConfig": [
-        "."
-    ],
-    "stm32SvdPath": ".",
-    "targetExecutablePath": "/Users/kiranshila/Desktop/Projects/EuroSID/Software/build/EuroSID.elf",
-    "cubeMxProjectPath": "/Users/kiranshila/Desktop/Projects/EuroSID/Software/EuroSID.ioc"
+    "openOcdInterfacePath": "."
 }
